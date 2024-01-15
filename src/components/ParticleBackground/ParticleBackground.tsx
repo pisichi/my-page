@@ -1,10 +1,13 @@
-import { useCallback, useEffect, useState } from 'react'
-import Particles, { initParticlesEngine } from '@tsparticles/react'
 import type { Container } from '@tsparticles/engine'
+import Particles, { initParticlesEngine } from '@tsparticles/react'
 import { loadSlim } from '@tsparticles/slim'
+import { useCallback, useEffect, useState } from 'react'
+import { useDarkMode } from 'context/DarkModeContext';
+import './ParticBackground.css'
 
 const ParticleBackground = () => {
   const [init, setInit] = useState(false)
+  const { isDark } = useDarkMode();
 
   // this should be run only once per application lifetime
   useEffect(() => {
@@ -52,10 +55,10 @@ const ParticleBackground = () => {
             },
             particles: {
               color: {
-                value: '#ffffff'
+                value: isDark ? '#ffffff' : '#000000',
               },
               links: {
-                color: '#ffffff',
+                color: isDark ? '#ffffff' : '#000000',
                 distance: 150,
                 enable: true,
                 opacity: 0.5,
@@ -74,6 +77,10 @@ const ParticleBackground = () => {
               number: {
                 density: {
                   enable: true
+                },
+                limit: {
+                  value: 150,
+                  mode: 'delete'
                 },
                 value: 120
               },
