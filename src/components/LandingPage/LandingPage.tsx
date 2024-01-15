@@ -4,6 +4,9 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faBars, faTimes } from '@fortawesome/free-solid-svg-icons'
 import SideBar from '../SideBar/SideBar'
 import RightSidebar from '../SideBar/RightSidebar'
+import ContentCard from '../Card/ContentCard'
+import SkillCard from '../Card/SkillCard'
+import './LandingPage.css'
 
 const LandingPage: React.FC = () => {
   const { isDark } = useDarkMode()
@@ -31,7 +34,7 @@ const LandingPage: React.FC = () => {
   return (
     <div
       className={`flex h-screen w-screen ${
-        isDark ? 'bg-gray-900 text-white' : 'bg-white text-black'
+        isDark ? 'bg-gray-900 text-white' : 'bg-gray-50 text-black'
       }`}
     >
       {/* Left Sidebar */}
@@ -49,74 +52,92 @@ const LandingPage: React.FC = () => {
       </div>
 
       {/* Main Content */}
-      <div className="flex flex-1 flex-col overflow-hidden">
-        <button
-          onClick={toggleSidebar}
-          type="button"
-          className="inline-flex items-center rounded-full border border-blue-700 p-2.5 text-center text-sm font-medium text-blue-700 hover:bg-blue-700 hover:text-white focus:outline-none focus:ring-4 focus:ring-blue-300 dark:border-blue-500 dark:text-blue-500 dark:hover:bg-blue-500 dark:hover:text-white dark:focus:ring-blue-800"
-        >
-          <FontAwesomeIcon icon={showSidebar ? faTimes : faBars} />
-        </button>
 
-        <button
-          onClick={toggleRightSidebar}
-          type="button"
-          className="inline-flex items-center rounded-full border border-blue-700 p-2.5 text-center text-sm font-medium text-blue-700 hover:bg-blue-700 hover:text-white focus:outline-none focus:ring-4 focus:ring-blue-300 dark:border-blue-500 dark:text-blue-500 dark:hover:bg-blue-500 dark:hover:text-white dark:focus:ring-blue-800"
-        >
-          <FontAwesomeIcon icon={showRightSidebar ? faTimes : faBars} />
-        </button>
+      <div className="flex flex-1 flex-col overflow-hidden z-0">
+        <div className="flex items-center justify-between p-4">
+          <button
+            onClick={toggleSidebar}
+            className="button-icon"
+            aria-label={showSidebar ? 'Close Sidebar' : 'Open Sidebar'}
+          >
+            <FontAwesomeIcon icon={showSidebar ? faTimes : faBars} />
+          </button>
 
-        <div className="flex-1 overflow-y-auto p-4">
-          <div className="flex-1 overflow-y-auto p-4">
-            {/* Big Banner - First Row */}
-            <div className="mb-4">
-              <p className="text-2xl font-bold">Big Banner</p>
-              {/* Your Big Banner Content Goes Here */}
-              <div className="border border-gray-300 p-4">
+          <button
+            onClick={toggleRightSidebar}
+            className="button-icon"
+            aria-label={
+              showRightSidebar ? 'Close Right Sidebar' : 'Open Right Sidebar'
+            }
+          >
+            <FontAwesomeIcon icon={showRightSidebar ? faTimes : faBars} />
+          </button>
+        </div>
+
+        <div className="custom-scroll flex-1 overflow-y-auto p-4">
+          {/* Big Banner - First Row */}
+          <div className="mb-4">
+            <p className="text-2xl font-bold">Big Banner</p>
+            {/* Your Big Banner Content Goes Here */}
+            <div className="border border-gray-300 p-4">
+              Placeholder Content
+            </div>
+          </div>
+
+          {/* 1 Row with 4 Columns */}
+          <div className="mb-4 flex">
+            {[...Array(4)].map((_, index) => (
+              <div key={index} className="flex-1 border border-gray-300 p-2">
                 Placeholder Content
               </div>
-            </div>
+            ))}
+          </div>
 
-            {/* 1 Row with 4 Columns */}
-            <div className="mb-4 flex">
-              {[...Array(4)].map((_, index) => (
-                <div key={index} className="flex-1 border border-gray-300 p-2">
-                  Placeholder Content
+          {/* 1 Row with 1 Card, 5 Rows in the Card */}
+          <ContentCard
+            title="Card Title"
+            rows={5}
+            content={<div>Custom Content Here</div>}
+          />
+
+          {/* 4 Rows with 4 Columns Each */}
+          {[...Array(4)].map((_, rowIndex) => (
+            <div key={rowIndex} className="mb-4 flex">
+              {[...Array(4)].map((_, colIndex) => (
+                <div
+                  key={colIndex}
+                  className="flex-1 border border-gray-300 p-2"
+                >
+                  <SkillCard
+                    category={'Test'}
+                    skills={[
+                      {
+                        name: 'css',
+                        value: '90'
+                      },
+                      {
+                        name: 'css',
+                        value: '100'
+                      },
+                      {
+                        name: 'css',
+                        value: '90'
+                      },
+                      {
+                        name: 'scss',
+                        value: '70'
+                      }
+                    ]}
+                  />
                 </div>
               ))}
             </div>
+          ))}
 
-            {/* 1 Row with 1 Card, 5 Rows in the Card */}
-            <div className="mb-4">
-              <div className="border border-gray-300 p-4">
-                <p className="text-lg font-bold">Card Title</p>
-                {[...Array(5)].map((_, index) => (
-                  <div key={index} className="mb-2">
-                    Placeholder Content
-                  </div>
-                ))}
-              </div>
-            </div>
-
-            {/* 4 Rows with 4 Columns Each */}
-            {[...Array(4)].map((_, rowIndex) => (
-              <div key={rowIndex} className="mb-4 flex">
-                {[...Array(4)].map((_, colIndex) => (
-                  <div
-                    key={colIndex}
-                    className="flex-1 border border-gray-300 p-2"
-                  >
-                    Placeholder Content
-                  </div>
-                ))}
-              </div>
-            ))}
-
-            {/* 1 Row */}
-            <div className="flex">
-              <div className="flex-1 border border-gray-300 p-2">
-                Placeholder Content
-              </div>
+          {/* 1 Row */}
+          <div className="flex">
+            <div className="flex-1 border border-gray-300 p-2">
+              Placeholder Content
             </div>
           </div>
         </div>
@@ -124,7 +145,7 @@ const LandingPage: React.FC = () => {
 
       <RightSidebar
         showRightSidebar={showRightSidebar}
-        onClose={toggleRightSidebar}
+        onClose={closeRightSidebar}
         menuItems={menuItems}
       />
     </div>

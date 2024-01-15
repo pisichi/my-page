@@ -1,27 +1,27 @@
-import React from 'react';
-import { useDarkMode } from 'context/DarkModeContext';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faTimes } from '@fortawesome/free-solid-svg-icons';
-import './SideBar.css';
+import React from 'react'
+import { useDarkMode } from 'context/DarkModeContext'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faTimes } from '@fortawesome/free-solid-svg-icons'
+import './SideBar.css'
 
 interface MenuItem {
-  id: number;
-  label: string;
-  link: string;
+  id: number
+  label: string
+  link: string
 }
 
 interface RightSidebarProps {
-  showRightSidebar: boolean;
-  onClose: () => void;
-  menuItems: MenuItem[];
+  showRightSidebar: boolean
+  onClose: () => void
+  menuItems: MenuItem[]
 }
 
 const RightSidebar: React.FC<RightSidebarProps> = ({
   showRightSidebar,
   onClose,
-  menuItems,
+  menuItems
 }) => {
-  const { isDark } = useDarkMode();
+  const { isDark } = useDarkMode()
 
   return (
     <>
@@ -37,13 +37,13 @@ const RightSidebar: React.FC<RightSidebarProps> = ({
       <div
         className={`fixed bottom-0 right-0 top-0 bg-${
           isDark ? 'black' : 'white'
-        } z-50 transform p-6 shadow-lg transition-all transition-transform duration-500 hover:shadow-xl ${
+        } z-50 transform p-6 shadow-lg transition-all duration-500 hover:shadow-xl ${
           showRightSidebar ? 'translate-x-0' : 'translate-x-full'
         }`}
         style={{
           width: '18rem',
           borderRadius: '8px',
-          transitionTimingFunction: 'cubic-bezier(0.68, -0.55, 0.27, 1.55)', // Adjust animation curve
+          transitionTimingFunction: 'cubic-bezier(0.68, -0.55, 0.27, 1.55)' // Adjust animation curve
         }}
       >
         <div className="mb-4 flex items-center justify-between border-b border-gray-400 pb-4">
@@ -76,12 +76,9 @@ const RightSidebar: React.FC<RightSidebarProps> = ({
             >
               <a
                 href={menuItem.link}
-                className={`hover:bg-${
+                className={`transition-all duration-200 hover:bg-${
                   isDark ? 'gray-800' : 'gray-100'
-                } hover:text-${isDark ? 'white' : 'black'}`}
-                style={{
-                  color: isDark ? '#ffffff' : '#000000', // Specify text color
-                }}
+                } ${isDark ? 'text-gray-400 hover:text-white' : 'text-gray-600 hover:text-black'}`}
               >
                 {menuItem.label}
               </a>
@@ -90,7 +87,7 @@ const RightSidebar: React.FC<RightSidebarProps> = ({
         </div>
       </div>
     </>
-  );
-};
+  )
+}
 
-export default RightSidebar;
+export default RightSidebar
