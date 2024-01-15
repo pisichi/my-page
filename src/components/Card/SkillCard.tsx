@@ -1,5 +1,5 @@
-import React from 'react'
 import { useDarkMode } from 'context/DarkModeContext'
+import React from 'react'
 
 interface SkillCardProps {
   category: string
@@ -23,7 +23,7 @@ const SkillCard: React.FC<SkillCardProps> = ({ category, skills }) => {
 
   return (
     <div
-      className={`z-11 rounded-md p-4 shadow-md bg-green ${
+      className={`z-11 bg-green rounded-md p-4 shadow-md ${
         isDark ? 'bg-gray-800 text-white' : 'bg-white text-gray-800'
       }`}
     >

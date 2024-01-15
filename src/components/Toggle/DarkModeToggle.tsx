@@ -1,13 +1,16 @@
+import './DarkmodeToggle.css'
 
-import React, { ChangeEvent } from 'react';
-import './DarkmodeToggle.css';
+import React, { ChangeEvent } from 'react'
 
 interface DarkModeToggleProps {
-  handleChange: (event: ChangeEvent<HTMLInputElement>) => void;
-  isChecked: boolean;
+  handleChange: (event: ChangeEvent<HTMLInputElement>) => void
+  isChecked: boolean
 }
 
-const DarkModeToggle: React.FC<DarkModeToggleProps> = ({ handleChange, isChecked }) => {
+const DarkModeToggle: React.FC<DarkModeToggleProps> = ({
+  handleChange,
+  isChecked
+}) => {
   return (
     <div className="toggle-container">
       <input
@@ -19,7 +22,7 @@ const DarkModeToggle: React.FC<DarkModeToggleProps> = ({ handleChange, isChecked
       />
       <label htmlFor="check">Dark Mode</label>
     </div>
-  );
-};
+  )
+}
 
-export default DarkModeToggle;
+export default DarkModeToggle

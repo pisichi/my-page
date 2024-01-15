@@ -1,12 +1,14 @@
-import React, { useState } from 'react'
-import { useDarkMode } from 'context/DarkModeContext'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import './LandingPage.css'
+
 import { faBars, faTimes } from '@fortawesome/free-solid-svg-icons'
-import SideBar from '../SideBar/SideBar'
-import RightSidebar from '../SideBar/RightSidebar'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { useDarkMode } from 'context/DarkModeContext'
+import React, { useState } from 'react'
+
 import ContentCard from '../Card/ContentCard'
 import SkillCard from '../Card/SkillCard'
-import './LandingPage.css'
+import RightSidebar from '../SideBar/RightSidebar'
+import SideBar from '../SideBar/SideBar'
 
 const LandingPage: React.FC = () => {
   const { isDark } = useDarkMode()
@@ -53,7 +55,7 @@ const LandingPage: React.FC = () => {
 
       {/* Main Content */}
 
-      <div className="flex flex-1 flex-col overflow-hidden z-0">
+      <div className="z-0 flex flex-1 flex-col overflow-hidden">
         <div className="flex items-center justify-between p-4">
           <button
             onClick={toggleSidebar}

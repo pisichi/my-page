@@ -1,11 +1,12 @@
-import LandingPage from '../LandingPage/LandingPage'
-import React, { useRef, useState } from 'react'
+import './App.css'
+
 // import useLocalStorage from 'use-local-storage'
 // import { DarkModeToggle } from '../Toggle/DarkModeToggle'
 import { DarkModeProvider } from 'context/DarkModeContext'
 import { useDarkMode } from 'context/DarkModeContext'
+import React, { useRef, useState } from 'react'
 
-import './App.css'
+import LandingPage from '../LandingPage/LandingPage'
 import ParticleBackground from '../ParticleBackground/ParticleBackground'
 
 function App() {

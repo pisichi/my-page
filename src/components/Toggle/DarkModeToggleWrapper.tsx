@@ -1,5 +1,5 @@
-import React from 'react'
 import { useDarkMode } from 'context/DarkModeContext'
+import React from 'react'
 import { DarkModeSwitch } from 'react-toggle-dark-mode'
 
 const DarkModeToggleWrapper: React.FC = () => {

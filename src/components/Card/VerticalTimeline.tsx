@@ -1,8 +1,8 @@
-import React from 'react';
+import React from 'react'
 
 const VerticalTimeline = () => {
   return (
-    <div className="timeline bg-red-700 w-full">
+    <div className="timeline w-full bg-red-700">
       <div className="line"></div>
       <div className="timeline-items">
         <div className="timeline-item">
@@ -42,7 +42,7 @@ const VerticalTimeline = () => {
         </div>
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default VerticalTimeline;
+export default VerticalTimeline

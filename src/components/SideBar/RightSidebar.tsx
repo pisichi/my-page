@@ -1,8 +1,9 @@
-import React from 'react'
-import { useDarkMode } from 'context/DarkModeContext'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faTimes } from '@fortawesome/free-solid-svg-icons'
 import './SideBar.css'
+
+import { faTimes } from '@fortawesome/free-solid-svg-icons'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { useDarkMode } from 'context/DarkModeContext'
+import React from 'react'
 
 interface MenuItem {
   id: number
@@ -35,9 +36,9 @@ const RightSidebar: React.FC<RightSidebarProps> = ({
 
       {/* Right sidebar */}
       <div
-        className={`fixed bottom-0 right-0 top-0 bg-${
+        className={`fixed inset-y-0 right-0 bg-${
           isDark ? 'black' : 'white'
-        } z-50 transform p-6 shadow-lg transition-all duration-500 hover:shadow-xl ${
+        } z-50 p-6 shadow-lg transition-all duration-500 hover:shadow-xl ${
           showRightSidebar ? 'translate-x-0' : 'translate-x-full'
         }`}
         style={{
@@ -48,7 +49,7 @@ const RightSidebar: React.FC<RightSidebarProps> = ({
       >
         <div className="mb-4 flex items-center justify-between border-b border-gray-400 pb-4">
           <h2
-            className={`text-xl font-semibold text-${
+            className={`text- text-xl font-semibold${
               isDark ? 'white' : 'black'
             } transition-all duration-300`}
             style={{ fontSize: '1.5rem' }} // Adjust font size
@@ -76,9 +77,13 @@ const RightSidebar: React.FC<RightSidebarProps> = ({
             >
               <a
                 href={menuItem.link}
-                className={`transition-all duration-200 hover:bg-${
+                className={`hover:bg- transition-all duration-200${
                   isDark ? 'gray-800' : 'gray-100'
-                } ${isDark ? 'text-gray-400 hover:text-white' : 'text-gray-600 hover:text-black'}`}
+                } ${
+                  isDark
+                    ? 'text-gray-400 hover:text-white'
+                    : 'text-gray-600 hover:text-black'
+                }`}
               >
                 {menuItem.label}
               </a>
