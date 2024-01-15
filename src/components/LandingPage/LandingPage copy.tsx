@@ -50,7 +50,7 @@ const LandingPage = () => {
               <div className="mb-4">
                 <img
                   src=""
-                  alt="Your Name"
+                  alt="Name"
                   className="mx-auto mb-2 h-32 w-32 transform rounded-full transition duration-300 hover:scale-110 hover:shadow-lg"
                 />
               </div>

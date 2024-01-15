@@ -1,55 +1,44 @@
-import React, { useState } from 'react';
-import { useSpring, animated } from '@react-spring/web';
+import React from 'react';
 import { useDarkMode } from '@/context/DarkModeContext';
 import DarkModeToggleWrapper from '../Toggle/DarkModeToggleWrapper';
-import './SideBar.css';
 
-const SideBar = () => {
-  const [isSidebarVisible, setIsSidebarVisible] = useState(true);
+interface SideBarProps {
+  showSidebar: boolean;
+}
+
+const SideBar: React.FC<SideBarProps> = ({ showSidebar = true }) => {
   const { isDark } = useDarkMode();
 
-  const toggleSidebar = () => {
-    setIsSidebarVisible(!isSidebarVisible);
-  };
-
-  const sidebarAnimation = useSpring({
-    width: isSidebarVisible ? '100%' : '0%',
-    opacity: isSidebarVisible ? 1 : 0,
-    from: { width: '100%', opacity: 1 },
-  });
-
   return (
-    <animated.div
-      style={sidebarAnimation}
+    <div
       className={`sidebar h-full ${
         isDark ? 'bg-gray-900 text-white' : 'bg-gray-200 text-gray-800'
       } p-4`}
+      style={{
+        opacity: showSidebar ? 1 : 0,
+        transform: showSidebar ? 'translateX(0)' : 'translateX(-100%)',
+        transition: 'transform 0.3s ease-in-out, opacity 0.3s ease-in-out',
+      }}
     >
       <div className="flex flex-col items-center">
-        <img
-          src="https://placehold.co/400"
-          alt="Your Name"
-          className={`w-32 h-32 rounded-full mb-4 border-4 ${
-            isDark ? 'border-blue-500' : 'border-blue-300'
-          } transform transition-transform hover:scale-110 hover:shadow-lg`}
-        />
-        <p className={`text-lg ${isDark ? 'text-gray-300' : 'text-gray-700'} mb-4`}>
-          Your professional sidebar content goes here.
+        <div className="w-20 h-20 overflow-hidden mb-4">
+          <img
+            src="https://placehold.co/400"
+            alt="Name"
+            className={`w-full h-full object-cover rounded-full border-4 ${
+              isDark ? 'border-blue-500' : 'border-blue-300'
+            } transform transition-transform hover:scale-110 hover:shadow-lg`}
+          />
+        </div>
+        <p className={`text-lg font-semibold ${isDark ? 'text-gray-300' : 'text-gray-700'} mb-4`}>
+          Professional Name
+        </p>
+        <p className={`text-sm ${isDark ? 'text-gray-400' : 'text-gray-600'} mb-4`}>
+          professional job title
         </p>
         <DarkModeToggleWrapper />
       </div>
-
-      <button
-        className={`mt-auto ${
-          isDark
-            ? 'bg-blue-500 hover:bg-blue-600'
-            : 'bg-gray-500 hover:bg-gray-600 text-white'
-        } py-2 px-4 rounded focus:outline-none`}
-        onClick={toggleSidebar}
-      >
-        {isSidebarVisible ? 'Hide Sidebar' : 'Show Sidebar'}
-      </button>
-    </animated.div>
+    </div>
   );
 };
 
