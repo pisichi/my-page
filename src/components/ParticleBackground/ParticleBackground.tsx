@@ -1,4 +1,4 @@
-import './ParticBackground.css'
+import './ParticleBackground.css'
 
 import type { Container } from '@tsparticles/engine'
 import Particles, { initParticlesEngine } from '@tsparticles/react'

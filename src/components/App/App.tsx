@@ -1,27 +1,14 @@
 import './App.css'
 
-// import useLocalStorage from 'use-local-storage'
-// import { DarkModeToggle } from '../Toggle/DarkModeToggle'
 import { DarkModeProvider } from 'context/DarkModeContext'
 import { useDarkMode } from 'context/DarkModeContext'
-import React, { useRef, useState } from 'react'
+import { BrowserRouter, Routes, Route } from 'react-router-dom'
 
-import LandingPage from '../LandingPage/LandingPage'
+import LandingPage from '../../pages/Home/Home'
 import ParticleBackground from '../ParticleBackground/ParticleBackground'
+import DefaultLayout from '@/layout/DefaultLayout'
 
 function App() {
-  // const preference = window.matchMedia('(prefers-color-scheme: dark)').matches
-  // const [isDark, setIsDark] = useLocalStorage('isDark', preference)
-
-  // return (
-  //   <div className="App" data-theme={isDark ? "dark" : "light"}>
-  //     <DarkModeToggle
-  //       isChecked={isDark}
-  //       handleChange={() => setIsDark(!isDark)}
-  //     />
-  //     <LandingPage />
-  //   </div>
-  // )
   return (
     <DarkModeProvider>
       <InnerApp />
@@ -38,7 +25,16 @@ const InnerApp: React.FC = () => {
       data-theme={isDark ? 'dark' : 'light'}
     >
       <ParticleBackground />
-      <LandingPage />
+      <BrowserRouter>
+        <Routes>
+          <Route path="my-page/" element={<DefaultLayout />}>
+            <Route index element={<LandingPage />} />
+            {/* <Route path="blogs" element={<Blogs />} />
+            <Route path="contact" element={<Contact />} />
+            <Route path="*" element={<NoPage />} /> */}
+          </Route>
+        </Routes>
+      </BrowserRouter>
     </div>
   )
 }
