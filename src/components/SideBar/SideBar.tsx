@@ -1,7 +1,5 @@
 import React from 'react'
-
 import { useDarkMode } from '@/context/DarkModeContext'
-
 import DarkModeToggleWrapper from '../Toggle/DarkModeToggleWrapper'
 
 interface SideBarProps {
@@ -13,23 +11,24 @@ const SideBar: React.FC<SideBarProps> = ({ showSidebar = true }) => {
 
   return (
     <div
-      className={`sidebar h-full ${
-        isDark ? 'bg-gray-900 text-white' : 'bg-gray-200 text-gray-800'
+      className={`sidebar h-full whitespace-nowrap ${
+        isDark ? 'bg-gray-800 text-white' : 'bg-gray-200 text-gray-800'
       } p-4`}
       style={{
         opacity: showSidebar ? 1 : 0,
-        transform: showSidebar ? 'translateX(0)' : 'translateX(-100%)',
-        transition: 'transform 0.3s ease-in-out, opacity 0.3s ease-in-out'
+        transform: showSidebar ? 'translateX(0)' : 'translateX(-150%)',
+        transition:
+          'transform 400ms cubic-bezier(0.55, 0, 0.1, 0.7), opacity 0.5s ease-in-out',
+        borderRadius: '12px',
+        boxShadow: '0 4px 8px rgba(0, 0, 0, 0.1)'
       }}
     >
       <div className="flex flex-col items-center">
-        <div className="mb-4 h-20 w-20 overflow-hidden">
+        <div className="relative mb-4 h-32 w-32 overflow-hidden rounded-full border-4 border-blue-500">
           <img
             src="https://placehold.co/400"
             alt="Name"
-            className={`h-full w-full rounded-full border-4 object-cover ${
-              isDark ? 'border-blue-500' : 'border-blue-300'
-            } transition-transform hover:scale-110 hover:shadow-lg`}
+            className={`h-full w-full rounded-full object-cover transition-transform hover:scale-110 hover:shadow-lg`}
           />
         </div>
         <p
@@ -44,9 +43,18 @@ const SideBar: React.FC<SideBarProps> = ({ showSidebar = true }) => {
             isDark ? 'text-gray-400' : 'text-gray-600'
           } mb-4`}
         >
-          professional job title
+          Professional Job Title
         </p>
         <DarkModeToggleWrapper />
+        <div className="mt-4 flex items-center justify-center">
+          <button
+            className={`rounded-full px-3 py-2 focus:outline-none ${
+              isDark ? 'bg-blue-500 text-white' : 'bg-blue-300 text-gray-800'
+            } transition-all hover:bg-blue-400 hover:text-gray-900`}
+          >
+            Action Button
+          </button>
+        </div>
       </div>
     </div>
   )

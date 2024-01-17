@@ -36,22 +36,19 @@ const RightSidebar: React.FC<RightSidebarProps> = ({
 
       {/* Right sidebar */}
       <div
-        className={`fixed inset-y-0 right-0 bg-${
-          isDark ? 'black' : 'white'
-        } z-50 p-6 shadow-lg transition-all duration-500 hover:shadow-xl ${
+        className={`fixed inset-y-0 right-0 ${
+          isDark ? 'bg-gray-800' : 'bg-gray-200'
+        } z-50 p-6 shadow-lg transition-width ase-in-out duration-500 hover:shadow-xl ${
           showRightSidebar ? 'translate-x-0' : 'translate-x-full'
         }`}
         style={{
-          width: '18rem',
-          borderRadius: '8px',
-          transitionTimingFunction: 'cubic-bezier(0.68, -0.55, 0.27, 1.55)' // Adjust animation curve
+          width: showRightSidebar ? '15rem' : '5rem',
+          borderRadius: '8px'
         }}
       >
         <div className="mb-4 flex items-center justify-between border-b border-gray-400 pb-4">
           <h2
-            className={`text- text-xl font-semibold${
-              isDark ? 'white' : 'black'
-            } transition-all duration-300`}
+            className={`text-xl font-semibold transition-all duration-300`}
             style={{ fontSize: '1.5rem' }} // Adjust font size
           >
             Menu
@@ -77,9 +74,7 @@ const RightSidebar: React.FC<RightSidebarProps> = ({
             >
               <a
                 href={menuItem.link}
-                className={`hover:bg- transition-all duration-200${
-                  isDark ? 'gray-800' : 'gray-100'
-                } ${
+                className={`transition-all duration-200 ${
                   isDark
                     ? 'text-gray-400 hover:text-white'
                     : 'text-gray-600 hover:text-black'

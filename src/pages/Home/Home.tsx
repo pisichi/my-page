@@ -3,9 +3,10 @@ import './Home.css'
 import { useDarkMode } from 'context/DarkModeContext'
 import React, { useState } from 'react'
 
-import ContentCard from '../../components/Card/ContentCard'
-import SkillCard from '../../components/Card/SkillCard'
-import TimeLine from '../../components/TimeLine/TimeLine'
+import ContentCard from 'components/Card/ContentCard'
+import SkillCard from 'components/Card/SkillCard'
+import TimeLine from 'components/TimeLine/TimeLine'
+import ProjectCard from 'components/Card/ProjectCard'
 
 const Home: React.FC = () => {
   const { isDark } = useDarkMode()
@@ -72,7 +73,17 @@ const Home: React.FC = () => {
       <ContentCard
         title="Card Title"
         rows={5}
-        content={<div>Custom Content Here</div>}
+        content={
+          <div>
+            <ProjectCard
+              title="Sample Project"
+              img_url="https://picsum.photos/200/300"
+              stack={['docker', 'vue', 'electron']}
+              content={<p>This is a sample project content.</p>}
+              description="A sample project description."
+            />
+          </div>
+        }
       />
 
       {/* 4 Rows with 4 Columns Each */}
