@@ -51,9 +51,9 @@ const InnerApp: React.FC = () => {
       data-theme={isDark ? 'dark' : 'light'}
     >
       <ParticleBackground />
-      <BrowserRouter>
+      <BrowserRouter basename="/my-page">
         <Routes>
-          <Route path="my-page/" element={<DefaultLayout />}>
+          <Route path="/" element={<DefaultLayout />}>
             <Route index element={<LandingPage />} />
             <Route path="skill" element={<Skill />} />
             <Route path="tournament" element={<Tournament />} />
