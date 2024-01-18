@@ -5,7 +5,7 @@
   "version": "0.1.0",
   "scripts": {
     "dev": "vite",
-    "build": "tsc && vite build",
+    "build": "tsc && vite build && shx cp dist/index.html dist/404.html",
     "preview": "vite preview",
     "lint": "eslint src --max-warnings=0",
     "types": "tsc --project tsconfig.json --noEmit",
@@ -51,6 +51,7 @@
     "react-vertical-timeline-component": "^3.6.0",
     "sass": "^1.70.0",
     "sass-loader": "^14.0.0",
+    "shx": "^0.3.4",
     "tailwindcss": "^3.2.7",
     "tsparticles": "^3.1.0",
     "typescript": "^5.0.2",
