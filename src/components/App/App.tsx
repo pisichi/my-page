@@ -1,4 +1,3 @@
-// App.tsx
 import './App.scss'
 
 import { DarkModeProvider } from 'context/DarkModeContext'
@@ -16,11 +15,17 @@ import Tournament from '@/pages/Tournament/Tournament'
 
 import ParticleBackground from '../ParticleBackground/ParticleBackground'
 
+import Modal from 'components/Modal/Modal'
+import { ModalProvider } from 'context/ModalContext'
+
 function App() {
   return (
-    <DarkModeProvider>
-      <InnerApp />
-    </DarkModeProvider>
+    <ModalProvider>
+      <DarkModeProvider>
+        <InnerApp />
+        <Modal />
+      </DarkModeProvider>
+    </ModalProvider>
   )
 }
 

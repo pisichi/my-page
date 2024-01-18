@@ -1,80 +1,68 @@
+import React, { ReactNode, useState } from 'react'
 import './ProjectCard.scss'
 import { useDarkMode } from 'context/DarkModeContext'
-import React, { ReactNode, useState } from 'react'
+import { useModal } from 'context/ModalContext'
 
 interface ProjectCardProps {
   title: string
   img_url: string
-  stack: string[]
   content: ReactNode
+  stack: string[]
   description: string
 }
 
 const ProjectCard: React.FC<ProjectCardProps> = ({
   title,
   img_url,
-  stack,
   content,
+  stack,
   description
 }) => {
   const { isDark } = useDarkMode()
-  const [isFlipped, setFlipped] = useState(false)
+  const { openModal } = useModal()
+  const [isHovered, setHovered] = useState(false)
+  const customClassName = ''
 
-  const toggleFlip = () => {
-    setFlipped(!isFlipped)
+  const handleOpenModal = () => {
+    openModal(<p>Modal content goes here</p>, {}, customClassName)
   }
 
   return (
     <div
-      className={`mx-auto my-8 max-w-sm overflow-hidden rounded shadow-lg transition-transform hover:scale-105${
-        isDark ? 'bg-transparent' : 'bg-white'
-      } ${isFlipped ? 'flipped' : ''}`}
-      onClick={toggleFlip}
+      className={`project-card relative cursor-pointer rounded-md ${
+        isHovered ? 'hovered' : ''
+      }`}
+      onMouseEnter={() => setHovered(true)}
+      onMouseLeave={() => setHovered(false)}
+      onClick={handleOpenModal}
     >
-      <div className="flipper">
-        {/* Front */}
-        <div
-          className={`front ${isFlipped ? 'hidden' : 'visible'}`}
-          style={{ height: isFlipped ? '0' : '300px' }}
-        >
-          <img className="h-48 w-full object-cover" src={img_url} alt={title} />
-          <div className="px-6 py-4">
-            <div className="mb-2">
-              <h3 className="text-xl font-bold">{title}</h3>
-              <p className="text-gray-600">{description}</p>
-            </div>
-            <div className="mt-2 flex flex-wrap">
-              {stack.map((tech, index) => (
-                <span
-                  key={index}
-                  className="badge-hexagon mb-2 mr-2 flex items-center"
-                >
-                  O
-                </span>
-              ))}
-            </div>
-          </div>
-        </div>
+      <img className="h-full w-full object-cover" src={img_url} alt={title} />
 
-        {/* Back */}
-        <div
-          className={`back ${isFlipped ? 'visible' : 'hidden'} bg-gray-500`}
-          style={{ height: isFlipped ? '300px' : '0' }}
-        >
-          <div className="p-6 shadow-lg  transition-transform">
-            <h2 className="mb-4 text-2xl font-bold">{title}</h2>
-            <div className="max-h-96 overflow-y-auto">
-              {/* Make your content scrollable with a maximum height */}
-              {content}
+      <div className="overlay-container">
+        {isHovered && (
+          <div
+            className={`overlay translate-y-0 transition-transform duration-300 ease-out bg-${
+              isDark ? 'black' : 'white'
+            }/80 text-${isDark ? 'white' : 'black'}`}
+          >
+            <div>
+              <h2 className="mb-2 text-xl text-white font-bold">{title}</h2>
+              <p
+                className={`text-white`}
+              >
+                {description}
+              </p>
+              {/* <button
+                className={`text-${
+                  isDark ? 'blue-300' : 'blue-500'
+                } mt-2 cursor-pointer underline`}
+            
+              >
+                Read More
+              </button> */}
             </div>
-            <button
-              className="focus:shadow-outline mt-4 rounded bg-blue-500 px-4 py-2 font-bold text-white hover:bg-blue-700 focus:outline-none"
-              onClick={toggleFlip}
-            >
-              Close
-            </button>
           </div>
-        </div>
+        )}
       </div>
     </div>
   )

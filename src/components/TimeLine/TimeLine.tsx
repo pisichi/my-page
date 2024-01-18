@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import './TimeLine.scss'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import {
@@ -16,6 +16,8 @@ const TimeLine: React.FC<TimeLineProps> = ({ History }) => {
   const { isDark } = useDarkMode()
 
   const timelineElements = History.flatMap((yearData, yearIndex) => {
+    const [isHovered, setHovered] = useState(false)
+
     return yearData.events.map((event, eventIndex) => (
       <VerticalTimelineElement
         key={`timeline-${yearIndex}-${eventIndex}`}
@@ -31,29 +33,29 @@ const TimeLine: React.FC<TimeLineProps> = ({ History }) => {
           background: isDark ? '#1e293b' : '#c4dce0',
           color: isDark ? '#ffffff' : '#000000'
         }}
-        icon={<div className="vertical-timeline-circle-pulsating"></div>}
+        icon={
+          <div
+            className={`vertical-timeline-circle ${
+              (yearIndex === 0 && eventIndex === 0) || isHovered
+                ? 'hover vertical-timeline-circle-pulsating'
+                : ''
+            }`}
+            onMouseEnter={() => setHovered(true)}
+            onMouseLeave={() => setHovered(false)}
+          ></div>
+        }
       >
         <h3 className="">{event.name}</h3>
         <p className="">({yearData.year})</p>
         <p className={`${isDark ? 'text-gray-400' : 'text-gray-500'}`}>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Temporibus
-          nam libero molestias veritatis minus nihil corrupti earum id fugit
-          quas possimus iusto, deserunt beatae. Fuga ullam tenetur laborum.
-          Fugit, impedit! Lorem ipsum dolor, sit amet consectetur adipisicing
-          elit. Eaque sequi ullam veniam nam eveniet optio omnis, asperiores
-          consectetur illum cupiditate quisquam vero voluptatum, similique
-          dignissimos neque modi beatae reiciendis ipsam?
+          {event.content}
         </p>
       </VerticalTimelineElement>
     ))
   })
 
   return (
-    <div
-      className={`z-11 py-4 ${
-        isDark ? 'text-white' : 'text-gray-800'
-      }`}
-    >
+    <div className={`z-11 py-4 ${isDark ? 'text-white' : 'text-gray-800'}`}>
       <VerticalTimeline
         layout="1-column-right"
         animate={true} // Enable animations

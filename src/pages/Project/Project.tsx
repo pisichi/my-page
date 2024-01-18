@@ -11,7 +11,7 @@ const Project: React.FC = () => {
       img_url: 'https://placehold.co/600x400',
       stack: ['node', 'docker', 'vue'],
       content:
-        'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Neque tenetur deleniti ab pariatur libero aliquid sed et tempora nisi nostrum accusamus laboriosam inventore aut numquam ipsam nobis, dolorum assumenda sapiente?',
+        'Lorem ipsum dolor sit amet',
       description: 'Lorem ipsum dolor sit amet'
     },
     {
@@ -19,7 +19,7 @@ const Project: React.FC = () => {
       img_url: 'https://placehold.co/600x400',
       stack: ['node', 'docker', 'vue'],
       content:
-        'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Neque tenetur deleniti ab pariatur libero aliquid sed et tempora nisi nostrum accusamus laboriosam inventore aut numquam ipsam nobis, dolorum assumenda sapiente?',
+        'Lorem ipsum dolor sit amet, consectetur',
       description: 'Lorem ipsum dolor sit amet'
     },
     {
@@ -27,7 +27,7 @@ const Project: React.FC = () => {
       img_url: 'https://placehold.co/600x400',
       stack: ['node', 'docker', 'vue'],
       content:
-        'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Neque tenetur deleniti ab pariatur libero aliquid sed et tempora nisi nostrum accusamus laboriosam inventore aut numquam ipsam nobis, dolorum assumenda sapiente?',
+        'Lorem ipsum dolor sit amet, consectetur',
       description: 'Lorem ipsum dolor sit amet'
     }
   ]
@@ -35,13 +35,13 @@ const Project: React.FC = () => {
   return (
     <div className={`px-3`}>
       <h1
-        className={`text-2xl font-semibold ${
+        className={`text-2xl font-semibold mb-8 ${
           isDark ? 'text-white' : 'text-black'
         }`}
       >
         My Projects
       </h1>
-      <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
+      <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
         {projects.map((project, index) => (
           <ProjectCard
             key={index}

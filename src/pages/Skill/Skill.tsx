@@ -10,19 +10,19 @@ const Skill: React.FC = () => {
       category: 'Front End',
       skills: [
         {
-          name: '',
+          name: 'Test',
           value: '90'
         },
         {
-          name: '',
+          name: 'Lorem ',
           value: '100'
         },
         {
-          name: '',
+          name: 'Lalala',
           value: '90'
         },
         {
-          name: 's',
+          name: 'hahaha',
           value: '70'
         }
       ]
@@ -45,7 +45,7 @@ const Skill: React.FC = () => {
   return (
     <div className={`px-3`}>
       <h1
-        className={`text-2xl font-semibold ${
+        className={`text-2xl font-semibold mb-8 ${
           isDark ? 'text-white' : 'text-black'
         }`}
       >

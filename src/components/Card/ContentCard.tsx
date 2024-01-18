@@ -1,4 +1,3 @@
-// ContentCard.tsx
 import React, { ReactNode } from 'react'
 
 interface ContentCardProps {

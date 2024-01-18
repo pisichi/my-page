@@ -1,4 +1,3 @@
-// SplashPage.tsx
 import React from 'react'
 
 const SplashPage: React.FC = () => {
