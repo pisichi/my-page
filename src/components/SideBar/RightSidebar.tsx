@@ -75,7 +75,7 @@ const RightSidebar: React.FC<RightSidebarProps> = ({
             >
               <Link
                 onClick={onClose}
-                to={`/my-page${menuItem.link}`}
+                to={`${menuItem.link}`}
                 className={`transition-all duration-200 ${
                   isDark
                     ? 'text-gray-400 hover:text-white'

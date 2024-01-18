@@ -37,7 +37,7 @@ const DefaultLayout: React.FC = () => {
   function formatRoute(currentRoute: string): React.ReactElement[] {
     return currentRoute
       .split('/')
-      .slice(2)
+      .slice(1)
       .map((part, index) => (
         <React.Fragment key={index}>
           {index > 0 ? '/' : ''}
