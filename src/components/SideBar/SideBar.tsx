@@ -1,5 +1,7 @@
 import React from 'react'
+
 import { useDarkMode } from '@/context/DarkModeContext'
+
 import DarkModeToggleWrapper from '../Toggle/DarkModeToggleWrapper'
 
 interface SideBarProps {
@@ -18,9 +20,7 @@ const SideBar: React.FC<SideBarProps> = ({ showSidebar = true }) => {
         opacity: showSidebar ? 1 : 0,
         transform: showSidebar ? 'translateX(0)' : 'translateX(-150%)',
         transition:
-          'transform 400ms cubic-bezier(0.55, 0, 0.1, 0.7), opacity 0.5s ease-in-out',
-        borderRadius: '12px',
-        boxShadow: '0 4px 8px rgba(0, 0, 0, 0.1)'
+          'transform 400ms cubic-bezier(0.55, 0, 0.1, 0.7), opacity 0.5s ease-in-out'
       }}
     >
       <div className="flex flex-col items-center">
@@ -36,25 +36,16 @@ const SideBar: React.FC<SideBarProps> = ({ showSidebar = true }) => {
             isDark ? 'text-gray-300' : 'text-gray-700'
           } mb-4`}
         >
-          Professional Name
+          Name
         </p>
         <p
           className={`text-sm ${
             isDark ? 'text-gray-400' : 'text-gray-600'
           } mb-4`}
         >
-          Professional Job Title
+          Title
         </p>
         <DarkModeToggleWrapper />
-        <div className="mt-4 flex items-center justify-center">
-          <button
-            className={`rounded-full px-3 py-2 focus:outline-none ${
-              isDark ? 'bg-blue-500 text-white' : 'bg-blue-300 text-gray-800'
-            } transition-all hover:bg-blue-400 hover:text-gray-900`}
-          >
-            Action Button
-          </button>
-        </div>
       </div>
     </div>
   )

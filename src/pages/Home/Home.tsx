@@ -1,63 +1,19 @@
-import './Home.css'
-
-import { useDarkMode } from 'context/DarkModeContext'
-import React, { useState } from 'react'
+import './Home.scss'
 
 import ContentCard from 'components/Card/ContentCard'
-import SkillCard from 'components/Card/SkillCard'
-import TimeLine from 'components/TimeLine/TimeLine'
-import ProjectCard from 'components/Card/ProjectCard'
+import { useDarkMode } from 'context/DarkModeContext'
+import React from 'react'
 
 const Home: React.FC = () => {
   const { isDark } = useDarkMode()
 
-  const history = [
-    {
-      year: '2019',
-      events: [
-        {
-          name: 'test1',
-          content: 'test1 lorem lorem'
-        }
-      ]
-    },
-    {
-      year: '2020',
-      events: [
-        {
-          name: 'test1',
-          content: 'test1 lorem lorem'
-        }
-      ]
-    },
-    {
-      year: '2020',
-      events: [
-        {
-          name: 'test1',
-          content: 'test1 lorem lorem'
-        }
-      ]
-    },
-    {
-      year: '2020',
-      events: [
-        {
-          name: 'test1',
-          content: 'test1 lorem lorem'
-        }
-      ]
-    }
-  ]
   return (
     <div className="">
       {/* Big Banner - First Row */}
       <div className="mb-4">
         <p className="text-2xl font-bold">Big Banner</p>
         {/* Your Big Banner Content Goes Here */}
-        <div className="border border-gray-300 p-4">
-          <TimeLine History={history} />
-        </div>
+        <div className="border border-gray-300 p-4"></div>
       </div>
 
       {/* 1 Row with 4 Columns */}
@@ -73,45 +29,15 @@ const Home: React.FC = () => {
       <ContentCard
         title="Card Title"
         rows={5}
-        content={
-          <div>
-            <ProjectCard
-              title="Sample Project"
-              img_url="https://picsum.photos/200/300"
-              stack={['docker', 'vue', 'electron']}
-              content={<p>This is a sample project content.</p>}
-              description="A sample project description."
-            />
-          </div>
-        }
+        content={<div>PlaceHolder</div>}
       />
 
       {/* 4 Rows with 4 Columns Each */}
-      {[...Array(4)].map((_, rowIndex) => (
+      {[...Array(16)].map((_, rowIndex) => (
         <div key={rowIndex} className="mb-4 flex">
           {[...Array(4)].map((_, colIndex) => (
             <div key={colIndex} className="flex-1 border border-gray-300 p-2">
-              <SkillCard
-                category={'Test'}
-                skills={[
-                  {
-                    name: 'css',
-                    value: '90'
-                  },
-                  {
-                    name: 'css',
-                    value: '100'
-                  },
-                  {
-                    name: 'css',
-                    value: '90'
-                  },
-                  {
-                    name: 'scss',
-                    value: '70'
-                  }
-                ]}
-              />
+              Placeholder Content
             </div>
           ))}
         </div>

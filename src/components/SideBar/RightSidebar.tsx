@@ -1,9 +1,10 @@
-import './SideBar.css'
+import './SideBar.scss'
 
 import { faTimes } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { useDarkMode } from 'context/DarkModeContext'
 import React from 'react'
+import { Link, useLocation } from 'react-router-dom'
 
 interface MenuItem {
   id: number
@@ -29,7 +30,7 @@ const RightSidebar: React.FC<RightSidebarProps> = ({
       {/* Backdrop overlay */}
       {showRightSidebar && (
         <div
-          className="fixed inset-0 z-40 bg-black opacity-50 transition-opacity duration-300"
+          className="fixed inset-0 z-40 bg-black opacity-50 transition-opacity duration-700"
           onClick={onClose}
         ></div>
       )}
@@ -38,12 +39,12 @@ const RightSidebar: React.FC<RightSidebarProps> = ({
       <div
         className={`fixed inset-y-0 right-0 ${
           isDark ? 'bg-gray-800' : 'bg-gray-200'
-        } z-50 p-6 shadow-lg transition-width ase-in-out duration-500 hover:shadow-xl ${
-          showRightSidebar ? 'translate-x-0' : 'translate-x-full'
-        }`}
+        } z-50 p-6 shadow-lg hover:shadow-xl`}
         style={{
           width: showRightSidebar ? '15rem' : '5rem',
-          borderRadius: '8px'
+          opacity: showRightSidebar ? '1' : '0',
+          transition:
+            'opacity 50ms ease-in, width 500ms ease-in-out, opacity 300ms ease-out'
         }}
       >
         <div className="mb-4 flex items-center justify-between border-b border-gray-400 pb-4">
@@ -72,16 +73,17 @@ const RightSidebar: React.FC<RightSidebarProps> = ({
               }`}
               style={{ transitionDelay: `${index * 150}ms` }}
             >
-              <a
-                href={menuItem.link}
+              <Link
+                onClick={onClose}
+                to={`/my-page${menuItem.link}`}
                 className={`transition-all duration-200 ${
                   isDark
                     ? 'text-gray-400 hover:text-white'
                     : 'text-gray-600 hover:text-black'
-                }`}
+                } ${location.pathname === menuItem.link ? 'font-bold' : ''}`}
               >
                 {menuItem.label}
-              </a>
+              </Link>
             </div>
           ))}
         </div>

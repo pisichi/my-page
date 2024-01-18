@@ -1,4 +1,4 @@
-import './DarkmodeToggle.css'
+import './DarkmodeToggle.scss'
 
 import React, { ChangeEvent } from 'react'
 

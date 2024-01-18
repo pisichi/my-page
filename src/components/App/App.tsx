@@ -1,12 +1,20 @@
-import './App.css'
+// App.tsx
+import './App.scss'
 
 import { DarkModeProvider } from 'context/DarkModeContext'
 import { useDarkMode } from 'context/DarkModeContext'
-import { BrowserRouter, Routes, Route } from 'react-router-dom'
+import LandingPage from 'pages/Home/Home'
+import Project from 'pages/Project/Project'
+import React, { useEffect, useState } from 'react'
+import { BrowserRouter, Route, Routes } from 'react-router-dom'
 
-import LandingPage from '../../pages/Home/Home'
-import ParticleBackground from '../ParticleBackground/ParticleBackground'
 import DefaultLayout from '@/layout/DefaultLayout'
+import History from '@/pages/History/History'
+import Skill from '@/pages/Skill/Skill'
+import SplashPage from '@/pages/SplashPage/SplashPage' // Import the modified SplashPage component
+import Tournament from '@/pages/Tournament/Tournament'
+
+import ParticleBackground from '../ParticleBackground/ParticleBackground'
 
 function App() {
   return (
@@ -18,6 +26,19 @@ function App() {
 
 const InnerApp: React.FC = () => {
   const { isDark } = useDarkMode()
+  const [loading, setLoading] = useState(true)
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setLoading(false)
+    }, 500)
+
+    return () => clearTimeout(timer)
+  }, [])
+
+  if (loading) {
+    return <SplashPage />
+  }
 
   return (
     <div
@@ -29,9 +50,10 @@ const InnerApp: React.FC = () => {
         <Routes>
           <Route path="my-page/" element={<DefaultLayout />}>
             <Route index element={<LandingPage />} />
-            {/* <Route path="blogs" element={<Blogs />} />
-            <Route path="contact" element={<Contact />} />
-            <Route path="*" element={<NoPage />} /> */}
+            <Route path="skill" element={<Skill />} />
+            <Route path="tournament" element={<Tournament />} />
+            <Route path="history" element={<History />} />
+            <Route path="project" element={<Project />} />
           </Route>
         </Routes>
       </BrowserRouter>

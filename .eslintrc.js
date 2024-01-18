@@ -37,12 +37,11 @@ module.exports = {
     'react-hooks/rules-of-hooks': 'error',
     'react-hooks/exhaustive-deps': 'warn',
     'react/prop-types': 'off',
-    'tailwindcss/classnames-order': 'warn',
-    'tailwindcss/no-custom-classname': 'warn',
+    'tailwindcss/classnames-order': 'off',
+    'tailwindcss/no-custom-classname': 'off',
     'tailwindcss/no-contradicting-classname': 'error',
     'simple-import-sort/imports': 'error',
     'simple-import-sort/exports': 'error',
     'endOfLine': 'off'
-
   }
 }

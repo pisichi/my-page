@@ -1,8 +1,12 @@
-import { useDarkMode } from 'context/DarkModeContext'
 import React from 'react'
-import './TimeLine.css'
+import './TimeLine.scss'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faUser, faComment, faCheck } from '@fortawesome/free-solid-svg-icons'
+import {
+  VerticalTimeline,
+  VerticalTimelineElement
+} from 'react-vertical-timeline-component'
+import 'react-vertical-timeline-component/style.min.css'
+import { useDarkMode } from 'context/DarkModeContext'
 
 interface TimeLineProps {
   History: { year: string; events: { name: string; content: string }[] }[]
@@ -11,53 +15,53 @@ interface TimeLineProps {
 const TimeLine: React.FC<TimeLineProps> = ({ History }) => {
   const { isDark } = useDarkMode()
 
+  const timelineElements = History.flatMap((yearData, yearIndex) => {
+    return yearData.events.map((event, eventIndex) => (
+      <VerticalTimelineElement
+        key={`timeline-${yearIndex}-${eventIndex}`}
+        className={`${isDark ? 'dark-mode' : ''}`}
+        contentStyle={{
+          background: isDark ? '#1e293b' : '#f1f5f9',
+          color: isDark ? '#ffffff' : '#000000'
+        }}
+        contentArrowStyle={{
+          display: 'none'
+        }}
+        iconStyle={{
+          background: isDark ? '#1e293b' : '#c4dce0',
+          color: isDark ? '#ffffff' : '#000000'
+        }}
+        icon={<div className="vertical-timeline-circle-pulsating"></div>}
+      >
+        <h3 className="">{event.name}</h3>
+        <p className="">({yearData.year})</p>
+        <p className={`${isDark ? 'text-gray-400' : 'text-gray-500'}`}>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Temporibus
+          nam libero molestias veritatis minus nihil corrupti earum id fugit
+          quas possimus iusto, deserunt beatae. Fuga ullam tenetur laborum.
+          Fugit, impedit! Lorem ipsum dolor, sit amet consectetur adipisicing
+          elit. Eaque sequi ullam veniam nam eveniet optio omnis, asperiores
+          consectetur illum cupiditate quisquam vero voluptatum, similique
+          dignissimos neque modi beatae reiciendis ipsam?
+        </p>
+      </VerticalTimelineElement>
+    ))
+  })
+
   return (
     <div
-      className={`z-11 bg-green rounded-md p-4 shadow-md ${
-        isDark ? 'bg-gray-800 text-white' : 'bg-white text-gray-800'
+      className={`z-11 py-4 ${
+        isDark ? 'text-white' : 'text-gray-800'
       }`}
     >
-      <div className="relative space-y-8 before:absolute before:inset-0 before:ml-5 before:h-full before:w-0.5 before:-translate-x-px before:bg-gradient-to-b before:from-transparent before:via-slate-300 before:to-transparent md:before:ml-[8.75rem] md:before:translate-x-0">
-        {History.map((item, index) => (
-          <div className="relative" key={index}>
-            <div className="mb-3 items-center md:flex md:space-x-4">
-              <div className="flex items-center space-x-4 md:space-x-2 md:space-x-reverse">
-                {/* Icon */}
-                <div className="flex h-10 w-10 items-center justify-center rounded-full bg-white shadow md:order-1">
-                  {index === 0 ? (
-                    <FontAwesomeIcon
-                      icon={faUser}
-                      className="text-emerald-500"
-                    />
-                  ) : index === 1 || index === 2 || index === 3 ? (
-                    <FontAwesomeIcon
-                      icon={faComment}
-                      className="text-slate-300"
-                    />
-                  ) : (
-                    <FontAwesomeIcon icon={faCheck} className="text-red-500" />
-                  )}
-                </div>
-                {/* Date */}
-                <time className="font-caveat text-xl font-medium text-indigo-500 md:w-28">
-                  {item.year}
-                </time>
-              </div>
-              {/* Title */}
-              <div className="ml-14 text-slate-500">
-                <span className="font-bold text-slate-900">
-                  {item.events[0].name}
-                </span>{' '}
-                {item.events[0].content}
-              </div>
-            </div>
-            {/* Card */}
-            <div className="ml-14 rounded border border-slate-200 bg-white p-4 text-slate-500 shadow md:ml-44">
-              {item.events[0].content}
-            </div>
-          </div>
-        ))}
-      </div>
+      <VerticalTimeline
+        layout="1-column-right"
+        animate={true} // Enable animations
+        lineColor={isDark ? '#1e293b' : 'white'} // Customize timeline color
+        className="custom-timeline-class" // Add extra class name to root div element
+      >
+        {timelineElements}
+      </VerticalTimeline>
     </div>
   )
 }

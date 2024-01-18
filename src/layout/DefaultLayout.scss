@@ -17,11 +17,11 @@
 }
 
 [data-theme='dark'] .custom-scroll::-webkit-scrollbar-track {
-  background-color: var(--background-color);
+  background-color: var(--toggle-bg);
 }
 
 [data-theme='dark'] .custom-scroll::-webkit-scrollbar-thumb {
-  background-color: var(--foreground-color);
+  background-color: var(--toggle-fg);
 }
 
 
