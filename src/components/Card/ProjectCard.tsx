@@ -24,7 +24,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
   const customClassName = ''
 
   const handleOpenModal = () => {
-    openModal(<p>Modal content goes here</p>, {}, customClassName)
+    openModal(content, {}, customClassName)
   }
 
   return (
@@ -46,20 +46,8 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
             }/80 text-${isDark ? 'white' : 'black'}`}
           >
             <div>
-              <h2 className="mb-2 text-xl text-white font-bold">{title}</h2>
-              <p
-                className={`text-white`}
-              >
-                {description}
-              </p>
-              {/* <button
-                className={`text-${
-                  isDark ? 'blue-300' : 'blue-500'
-                } mt-2 cursor-pointer underline`}
-            
-              >
-                Read More
-              </button> */}
+              <h2 className="mb-2 text-xl font-bold text-white">{title}</h2>
+              <p className={`text-white`}>{description}</p>
             </div>
           </div>
         )}

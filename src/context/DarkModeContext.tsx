@@ -1,4 +1,10 @@
-import React, { createContext, ReactNode, useContext, useState } from 'react'
+import React, {
+  createContext,
+  ReactNode,
+  useContext,
+  useEffect,
+  useState
+} from 'react'
 
 interface DarkModeContextProps {
   isDark: boolean
@@ -16,11 +22,17 @@ const DarkModeContext = createContext<DarkModeContextProps | undefined>(
 export const DarkModeProvider: React.FC<DarkModeProviderProps> = ({
   children
 }) => {
-  const preference = window.matchMedia('(prefers-color-scheme: dark)').matches
-  const [isDark, setIsDark] = useState(preference)
+  const storedDarkMode = localStorage.getItem('darkMode')
+  const [isDark, setIsDark] = useState(
+    storedDarkMode ? JSON.parse(storedDarkMode) : true
+  )
+
+  useEffect(() => {
+    localStorage.setItem('darkMode', JSON.stringify(isDark))
+  }, [isDark])
 
   const toggleDarkMode = () => {
-    setIsDark((prevIsDark) => !prevIsDark)
+    setIsDark((prevIsDark: any) => !prevIsDark)
   }
 
   return (

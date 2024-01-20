@@ -6,6 +6,8 @@ import React, { useState } from 'react'
 import { Outlet, useLocation } from 'react-router-dom'
 import { Twirl as HamburgerLeft } from 'hamburger-react'
 import { Squash as HamburgerRight } from 'hamburger-react'
+import useScreenSize from 'utils/useScreenSize'
+import BurgerIcon from '@/components/Icons/Hamburger'
 
 const DefaultLayout: React.FC = () => {
   const { isDark } = useDarkMode()
@@ -13,6 +15,7 @@ const DefaultLayout: React.FC = () => {
   const [showRightSidebar, setShowRightSidebar] = useState(false)
   const location = useLocation()
   const currentRoute = location.pathname
+  const { isMobile } = useScreenSize()
 
   const menuItems = [
     { id: 1, label: 'Home', link: '/' },
@@ -27,11 +30,32 @@ const DefaultLayout: React.FC = () => {
   }
 
   const toggleRightSidebar = () => {
+    console.log('toggle')
     setShowRightSidebar(!showRightSidebar)
   }
 
   const closeRightSidebar = () => {
     setShowRightSidebar(false)
+  }
+
+  const closeSidebar = () => {
+    setShowSidebar(false)
+  }
+
+  const getTranslateX = () => {
+    if (isMobile) {
+      if (showSidebar) {
+        return 'translateX(10rem)'
+      } else {
+        return 'translateX(0rem)'
+      }
+    } else {
+      if (showRightSidebar) {
+        return 'translateX(-10rem)'
+      } else {
+        return 'translateX(0rem)'
+      }
+    }
   }
 
   function formatRoute(currentRoute: string): React.ReactElement[] {
@@ -52,20 +76,17 @@ const DefaultLayout: React.FC = () => {
         isDark ? 'bg-gray-900 text-white' : 'bg-gray-50 text-black'
       }`}
     >
-      {/* Left Sidebar */}
       <div
         className={`transition-width z-10 w-60 flex-none ${
           isDark ? 'bg-gray-800' : 'bg-gray-100'
-        } ${showSidebar ? 'shadow-lg' : 'shadow-none'}`}
+        }`}
         style={{
-          width: showSidebar ? '15rem' : '0px',
+          width: showSidebar ? (isMobile ? '100vw' : '15rem') : '0rem',
           transition: 'width 700ms cubic-bezier(0.4, 0, 0.2, 1)'
         }}
       >
-        <SideBar showSidebar={showSidebar} />
+        <SideBar closeSidebar={closeSidebar} showSidebar={showSidebar} />
       </div>
-
-      {/* Main Content */}
 
       <div
         className={`z-0 flex h-full flex-1 flex-col overflow-hidden bg-gradient-to-t ${
@@ -80,7 +101,10 @@ const DefaultLayout: React.FC = () => {
               showSidebar ? 'scale-110' : ''
             } transition-transform duration-300`}
           >
-            <HamburgerLeft direction="right" size={20} toggled={showSidebar} />
+            <BurgerIcon
+              color={`${isDark ? 'white' : 'black'}`}
+              toggled={showSidebar}
+            />
           </div>
 
           <div
@@ -94,7 +118,10 @@ const DefaultLayout: React.FC = () => {
               showRightSidebar ? 'Close Right Sidebar' : 'Open Right Sidebar'
             }
           >
-            <HamburgerRight size={20} toggled={showRightSidebar} />
+            <BurgerIcon
+              color={`${isDark ? 'white' : 'black'}`}
+              toggled={showRightSidebar}
+            />
           </div>
         </div>
 
@@ -112,32 +139,35 @@ const DefaultLayout: React.FC = () => {
           </div>
         </div>
       </div>
-      <div
-        className={`z-10 flex-none ${isDark ? 'bg-gray-800' : 'bg-gray-100'} ${
-          showRightSidebar ? 'shadow-lg' : 'shadow-none'
-        }`}
-        style={{
-          width: showRightSidebar ? '5rem' : '5rem',
-          padding: showRightSidebar ? '10px' : '0',
-          transition: 'width 500ms ease-in-out'
-        }}
-      >
-        <div
-          className={`translate-y-16 rotate-90 select-none overflow-visible whitespace-nowrap transition-opacity duration-1000 ${
-            isDark
-              ? 'text-gray-400 hover:text-white'
-              : 'text-gray-600 hover:text-black'
-          } ${showRightSidebar ? 'opacity-0' : 'opacity-100'}`}
-        >
-          {formatRoute(currentRoute)}
-        </div>
 
-        <RightSidebar
-          showRightSidebar={showRightSidebar}
-          onClose={closeRightSidebar}
-          menuItems={menuItems}
-        />
-      </div>
+      {!isMobile && (
+        <div
+          className={`z-10 flex-none ${
+            isDark ? 'bg-gray-800' : 'bg-gray-100'
+          } ${showRightSidebar ? 'shadow-lg' : 'shadow-none'}`}
+          style={{
+            width: isMobile ? '5rem' : '5rem',
+            padding: showRightSidebar ? '10px' : '0',
+            transition: 'width 500ms ease-in-out'
+          }}
+        >
+          <div
+            className={`translate-y-16 rotate-90 select-none overflow-visible whitespace-nowrap transition-opacity duration-1000 ${
+              isDark
+                ? 'text-gray-400 hover:text-white'
+                : 'text-gray-600 hover:text-black'
+            } ${showRightSidebar ? 'opacity-0' : 'opacity-100'}`}
+          >
+            {formatRoute(currentRoute)}
+          </div>
+        </div>
+      )}
+
+      <RightSidebar
+        showRightSidebar={showRightSidebar}
+        onClose={closeRightSidebar}
+        menuItems={menuItems}
+      />
     </div>
   )
 }

@@ -1,6 +1,6 @@
 import ProjectCard from 'components/Card/ProjectCard'
 import { useDarkMode } from 'context/DarkModeContext'
-import React, { useState } from 'react'
+import React from 'react'
 
 const Project: React.FC = () => {
   const { isDark } = useDarkMode()
@@ -10,24 +10,21 @@ const Project: React.FC = () => {
       title: 'Test1',
       img_url: 'https://placehold.co/600x400',
       stack: ['node', 'docker', 'vue'],
-      content:
-        'Lorem ipsum dolor sit amet',
+      content: 'Lorem ipsum dolor sit amet',
       description: 'Lorem ipsum dolor sit amet'
     },
     {
       title: 'Test2',
       img_url: 'https://placehold.co/600x400',
       stack: ['node', 'docker', 'vue'],
-      content:
-        'Lorem ipsum dolor sit amet, consectetur',
+      content: <div className=""></div>,
       description: 'Lorem ipsum dolor sit amet'
     },
     {
       title: 'Test3',
       img_url: 'https://placehold.co/600x400',
       stack: ['node', 'docker', 'vue'],
-      content:
-        'Lorem ipsum dolor sit amet, consectetur',
+      content: 'Lorem ipsum dolor sit amet, consectetur',
       description: 'Lorem ipsum dolor sit amet'
     }
   ]
@@ -35,7 +32,7 @@ const Project: React.FC = () => {
   return (
     <div className={`px-3`}>
       <h1
-        className={`text-2xl font-semibold mb-8 ${
+        className={`mb-8 text-2xl font-semibold ${
           isDark ? 'text-white' : 'text-black'
         }`}
       >

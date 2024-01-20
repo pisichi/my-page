@@ -1,51 +1,248 @@
-import React from 'react'
-
+import React, { useState, useEffect } from 'react'
+import SkillCard from 'components/Card/SkillCardRedux'
 import { useDarkMode } from '@/context/DarkModeContext'
-
 import DarkModeToggleWrapper from '../Toggle/DarkModeToggleWrapper'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faTimes } from '@fortawesome/free-solid-svg-icons'
+
+import { faGithub, faLinkedin } from '@fortawesome/free-brands-svg-icons'
+import { faEnvelope } from '@fortawesome/free-solid-svg-icons'
+import useScreenSize from 'utils/useScreenSize'
+
+import { TypeAnimation } from 'react-type-animation'
 
 interface SideBarProps {
   showSidebar: boolean
+  closeSidebar: () => void // Add closeSidebar prop function
 }
 
-const SideBar: React.FC<SideBarProps> = ({ showSidebar = true }) => {
+const SideBar: React.FC<SideBarProps> = ({ showSidebar, closeSidebar }) => {
   const { isDark } = useDarkMode()
+  const [shouldRender, setShouldRender] = useState(showSidebar)
+  const { isMobile } = useScreenSize()
+
+  useEffect(() => {
+    if (showSidebar) {
+      setShouldRender(true)
+    }
+  }, [showSidebar])
+
+  const handleTransitionEnd = () => {
+    if (!showSidebar && shouldRender) {
+      setShouldRender(false)
+    }
+  }
+
+  const handleCloseButtonClick = () => {
+    closeSidebar()
+  }
+
+  const introduction = 'Software Engineer'
+  const subtleMessages = [
+    'Bug Slayer',
+    'Fluent Binary Speaker',
+    'Semicolons Believer;',
+    'Infinity Loop Wayfinder',
+    'Console.log Enjoyer',
+    'Ctrl+C Ctrl+V Grandmaster',
+    'sudo rm -rf /* Survivor',
+  ]
+
+  const sequence = [introduction, 3000]
+
+  subtleMessages.forEach((message, index) => {
+    sequence.push(message, 3000)
+  })
+
+  const skills = [
+    {
+      category: 'Front End',
+      skills: [
+        {
+          name: 'Test',
+          value: '90'
+        },
+        {
+          name: 'Lorem ',
+          value: '100'
+        },
+        {
+          name: 'Lalala',
+          value: '90'
+        },
+        {
+          name: 'hahaha',
+          value: '70'
+        }
+      ]
+    },
+    {
+      category: 'Database',
+      skills: [
+        {
+          name: 'SQL',
+          value: '90'
+        },
+        {
+          name: 'NoSQL',
+          value: '100'
+        }
+      ]
+    },
+    {
+      category: 'Database',
+      skills: [
+        {
+          name: 'SQL',
+          value: '90'
+        },
+        {
+          name: 'NoSQL',
+          value: '100'
+        }
+      ]
+    },
+    {
+      category: 'Database',
+      skills: [
+        {
+          name: 'SQL',
+          value: '90'
+        },
+        {
+          name: 'NoSQL',
+          value: '100'
+        }
+      ]
+    },
+    {
+      category: 'Database',
+      skills: [
+        {
+          name: 'SQL',
+          value: '90'
+        },
+        {
+          name: 'NoSQL',
+          value: '100'
+        }
+      ]
+    }
+  ]
 
   return (
     <div
-      className={`sidebar h-full whitespace-nowrap ${
-        isDark ? 'bg-gray-800 text-white' : 'bg-gray-200 text-gray-800'
-      } p-4`}
+      className="flex h-full flex-col overflow-x-hidden whitespace-nowrap"
       style={{
+        visibility: shouldRender ? 'visible' : 'hidden',
         opacity: showSidebar ? 1 : 0,
-        transform: showSidebar ? 'translateX(0)' : 'translateX(-150%)',
-        transition:
-          'transform 400ms cubic-bezier(0.55, 0, 0.1, 0.7), opacity 0.5s ease-in-out'
+        maxHeight: showSidebar ? '100%' : '100%',
+        transition: 'opacity 0.5s ease-in-out, max-height 0.35s ease-in-out'
       }}
+      onTransitionEnd={handleTransitionEnd}
     >
-      <div className="flex flex-col items-center">
-        <div className="relative mb-4 h-32 w-32 overflow-hidden rounded-full border-4 border-blue-500">
-          <img
-            src="https://placehold.co/400"
-            alt="Name"
-            className={`h-full w-full rounded-full object-cover transition-transform hover:scale-110 hover:shadow-lg`}
-          />
+      {/* 1st Row */}
+      <div
+        className={`z-10 h-44 p-4 ${
+          isDark ? 'bg-gray-800 text-white' : 'bg-gray-200 text-gray-800'
+        }`}
+      >
+        <div className="absolute left-4 top-4">
+          <DarkModeToggleWrapper />
         </div>
-        <p
-          className={`text-lg font-semibold ${
-            isDark ? 'text-gray-300' : 'text-gray-700'
-          } mb-4`}
-        >
-          Name
-        </p>
-        <p
-          className={`text-sm ${
-            isDark ? 'text-gray-400' : 'text-gray-600'
-          } mb-4`}
-        >
-          Title
-        </p>
-        <DarkModeToggleWrapper />
+        {isMobile && (
+          <div
+            className={`absolute right-4 top-4 cursor-pointer ${
+              isDark ? 'text-white' : 'text-gray-800'
+            }`}
+            onClick={handleCloseButtonClick}
+          >
+            <FontAwesomeIcon icon={faTimes} size="lg" />
+          </div>
+        )}
+        <div className="flex flex-col items-center">
+          <div className="relative mb-2 h-40 w-40 overflow-hidden rounded-full border-4 border-green-200">
+            <img
+              src="https://avatars.githubusercontent.com/u/36178784?v=4"
+              alt="Name"
+              className={`h-full w-full rounded-full object-cover transition-transform hover:scale-110 hover:shadow-lg`}
+            />
+          </div>
+          <p
+            className={`text-lg ${
+              isDark ? 'text-gray-300' : 'text-gray-700'
+            } mb-2`}
+          >
+            Name
+          </p>
+          <p
+            className={`text-sm font-normal ${
+              isDark ? 'text-gray-400' : 'text-gray-600'
+            } mb-4`}
+          >
+            <TypeAnimation
+              sequence={sequence}
+              wrapper="span"
+              speed={2}
+              style={{ display: 'inline-block' }}
+              repeat={Infinity}
+            />
+          </p>
+        </div>
+      </div>
+
+      {/* Separator */}
+      {/* <div className="border-t border-gray-300"></div> */}
+
+      {/* 2nd Row */}
+      <div
+        className={`h-20 ${
+          isDark ? 'bg-gray-800 text-white' : 'bg-gray-200 text-gray-800'
+        }`}
+      >
+        {/* Content for the 2nd row */}
+      </div>
+
+      {/* Separator */}
+      <div className="mx-auto w-5/6 border-t border-gray-300"></div>
+
+      {/* 3rd Row */}
+      <div className="custom-scroll-small flex-1 overflow-y-auto pt-5">
+        {skills.map((skill, index) => (
+          <div className="mb-5 px-4 pt-5" key={index}>
+            <SkillCard category={skill.category} skills={skill.skills} />
+          </div>
+        ))}
+      </div>
+
+      {/* 4th Row */}
+      <div
+        className={`flex h-12 items-center justify-center gap-4 ${
+          isDark ? 'bg-gray-800 text-white' : 'bg-gray-200 text-gray-800'
+        }`}
+      >
+        {/* Content for the 4th row */}
+        <FontAwesomeIcon
+          icon={faGithub}
+          size="xl"
+          className={`transition-transform hover:scale-110 ${
+            isDark ? 'text-white' : 'text-gray-800'
+          }`}
+        />
+        <FontAwesomeIcon
+          icon={faLinkedin}
+          size="xl"
+          className={`transition-transform hover:scale-110 ${
+            isDark ? 'text-white' : 'text-gray-800'
+          }`}
+        />
+        <FontAwesomeIcon
+          icon={faEnvelope}
+          size="xl"
+          className={`transition-transform hover:scale-110 ${
+            isDark ? 'text-white' : 'text-gray-800'
+          }`}
+        />
       </div>
     </div>
   )

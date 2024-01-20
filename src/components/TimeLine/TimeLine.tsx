@@ -16,14 +16,12 @@ const TimeLine: React.FC<TimeLineProps> = ({ History }) => {
   const { isDark } = useDarkMode()
 
   const timelineElements = History.flatMap((yearData, yearIndex) => {
-    const [isHovered, setHovered] = useState(false)
-
     return yearData.events.map((event, eventIndex) => (
       <VerticalTimelineElement
         key={`timeline-${yearIndex}-${eventIndex}`}
-        className={`${isDark ? 'dark-mode' : ''}`}
+        className={`group ${isDark ? 'dark-mode' : ''}`}
         contentStyle={{
-          background: isDark ? '#1e293b' : '#f1f5f9',
+          background: '#00000000',
           color: isDark ? '#ffffff' : '#000000'
         }}
         contentArrowStyle={{
@@ -36,20 +34,30 @@ const TimeLine: React.FC<TimeLineProps> = ({ History }) => {
         icon={
           <div
             className={`vertical-timeline-circle ${
-              (yearIndex === 0 && eventIndex === 0) || isHovered
-                ? 'hover vertical-timeline-circle-pulsating'
+              yearIndex === 0 && eventIndex === 0
+                ? 'vertical-timeline-circle-pulsating'
                 : ''
             }`}
-            onMouseEnter={() => setHovered(true)}
-            onMouseLeave={() => setHovered(false)}
           ></div>
         }
       >
-        <h3 className="">{event.name}</h3>
-        <p className="">({yearData.year})</p>
-        <p className={`${isDark ? 'text-gray-400' : 'text-gray-500'}`}>
-          {event.content}
-        </p>
+        <div
+          className={`${
+            isDark ? 'bg-gray-700' : 'bg-slate-300'
+          } transform rounded-md p-4 transition-transform group-hover:scale-[1.01]`}
+        >
+          <div className="flex items-center justify-between">
+            <div className="text-lg font-bold">{event.name}</div>
+            <div className="ml-2 text-gray-200">({yearData.year})</div>
+          </div>
+          <div
+            className={`${
+              isDark ? 'text-gray-400' : 'text-gray-500'
+            } text-base`}
+          >
+            {event.content}
+          </div>
+        </div>
       </VerticalTimelineElement>
     ))
   })
@@ -58,9 +66,9 @@ const TimeLine: React.FC<TimeLineProps> = ({ History }) => {
     <div className={`z-11 py-4 ${isDark ? 'text-white' : 'text-gray-800'}`}>
       <VerticalTimeline
         layout="1-column-right"
-        animate={true} // Enable animations
-        lineColor={isDark ? '#1e293b' : 'white'} // Customize timeline color
-        className="custom-timeline-class" // Add extra class name to root div element
+        animate={true}
+        lineColor={isDark ? '#1e293b' : 'white'}
+        className="custom-timeline-class"
       >
         {timelineElements}
       </VerticalTimeline>

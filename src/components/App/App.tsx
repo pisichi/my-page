@@ -33,17 +33,17 @@ const InnerApp: React.FC = () => {
   const { isDark } = useDarkMode()
   const [loading, setLoading] = useState(true)
 
-  useEffect(() => {
-    const timer = setTimeout(() => {
-      setLoading(false)
-    }, 500)
+  // useEffect(() => {
+  //   const timer = setTimeout(() => {
+  //     setLoading(false)
+  //   }, 500)
 
-    return () => clearTimeout(timer)
-  }, [])
+  //   return () => clearTimeout(timer)
+  // }, [])
 
-  if (loading) {
-    return <SplashPage />
-  }
+  // if (loading) {
+  //   return <SplashPage />
+  // }
 
   return (
     <div

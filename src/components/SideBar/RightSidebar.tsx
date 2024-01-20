@@ -5,6 +5,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { useDarkMode } from 'context/DarkModeContext'
 import React from 'react'
 import { Link, useLocation } from 'react-router-dom'
+import useScreenSize from 'utils/useScreenSize'
 
 interface MenuItem {
   id: number
@@ -24,6 +25,17 @@ const RightSidebar: React.FC<RightSidebarProps> = ({
   menuItems
 }) => {
   const { isDark } = useDarkMode()
+  const { isMobile } = useScreenSize()
+
+  const getWidth = () => {
+    if (showRightSidebar) {
+      return '15rem'
+    } else if (isMobile) {
+      return '0rem'
+    } else {
+      return '5rem'
+    }
+  }
 
   return (
     <>
@@ -39,15 +51,15 @@ const RightSidebar: React.FC<RightSidebarProps> = ({
       <div
         className={`fixed inset-y-0 right-0 ${
           isDark ? 'bg-gray-800' : 'bg-gray-200'
-        } z-50 p-6 shadow-lg hover:shadow-xl`}
+        } z-50 shadow-lg hover:shadow-xl`}
         style={{
-          width: showRightSidebar ? '15rem' : '5rem',
+          width: getWidth(),
           opacity: showRightSidebar ? '1' : '0',
           transition:
             'opacity 50ms ease-in, width 500ms ease-in-out, opacity 300ms ease-out'
         }}
       >
-        <div className="mb-4 flex items-center justify-between border-b border-gray-400 pb-4">
+        <div className="mb-4 flex items-center justify-between border-b p-6 border-gray-400 pb-4">
           <h2
             className={`text-xl font-semibold transition-all duration-300`}
             style={{ fontSize: '1.5rem' }} // Adjust font size
@@ -64,7 +76,7 @@ const RightSidebar: React.FC<RightSidebarProps> = ({
             <FontAwesomeIcon icon={faTimes} size="lg" />
           </button>
         </div>
-        <div>
+        <div className='px-6'>
           {menuItems.map((menuItem, index) => (
             <div
               key={menuItem.id}
