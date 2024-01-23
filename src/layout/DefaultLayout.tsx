@@ -4,8 +4,6 @@ import SideBar from 'components/SideBar/SideBar'
 import { useDarkMode } from 'context/DarkModeContext'
 import React, { useState } from 'react'
 import { Outlet, useLocation } from 'react-router-dom'
-import { Twirl as HamburgerLeft } from 'hamburger-react'
-import { Squash as HamburgerRight } from 'hamburger-react'
 import useScreenSize from 'utils/useScreenSize'
 import BurgerIcon from '@/components/Icons/Hamburger'
 
