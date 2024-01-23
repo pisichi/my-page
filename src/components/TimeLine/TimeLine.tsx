@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { ReactNode, useState } from 'react'
 import './TimeLine.scss'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import {
@@ -9,17 +9,27 @@ import 'react-vertical-timeline-component/style.min.css'
 import { useDarkMode } from 'context/DarkModeContext'
 
 interface TimeLineProps {
-  History: { year: string; events: { name: string; content: string }[] }[]
+  History: { year: string; events: { name: string; content: ReactNode }[] }[]
 }
 
 const TimeLine: React.FC<TimeLineProps> = ({ History }) => {
   const { isDark } = useDarkMode()
 
+  const [hoveredIndex, setHoveredIndex] = useState<number | null>(null)
+
+  const handleMouseEnter = (index: number) => {
+    setHoveredIndex(index)
+  }
+
+  const handleMouseLeave = () => {
+    setHoveredIndex(null)
+  }
+
   const timelineElements = History.flatMap((yearData, yearIndex) => {
     return yearData.events.map((event, eventIndex) => (
       <VerticalTimelineElement
         key={`timeline-${yearIndex}-${eventIndex}`}
-        className={`group ${isDark ? 'dark-mode' : ''}`}
+        className={`group ${isDark ? 'dark-mode' : ''} w-full`}
         contentStyle={{
           background: '#00000000',
           color: isDark ? '#ffffff' : '#000000'
@@ -34,7 +44,7 @@ const TimeLine: React.FC<TimeLineProps> = ({ History }) => {
         icon={
           <div
             className={`vertical-timeline-circle ${
-              yearIndex === 0 && eventIndex === 0
+              yearIndex === 0 || hoveredIndex === yearIndex
                 ? 'vertical-timeline-circle-pulsating'
                 : ''
             }`}
@@ -43,8 +53,12 @@ const TimeLine: React.FC<TimeLineProps> = ({ History }) => {
       >
         <div
           className={`${
-            isDark ? 'bg-gray-700' : 'bg-slate-300'
+            isDark ? 'bg-gray-800' : 'bg-gray-100'
           } transform rounded-md p-4 transition-transform group-hover:scale-[1.01]`}
+          onMouseEnter={() =>
+            handleMouseEnter(yearIndex * yearData.events.length + eventIndex)
+          }
+          onMouseLeave={handleMouseLeave}
         >
           <div className="flex items-center justify-between">
             <div className="text-lg font-bold">{event.name}</div>
@@ -63,7 +77,11 @@ const TimeLine: React.FC<TimeLineProps> = ({ History }) => {
   })
 
   return (
-    <div className={`z-11 py-4 ${isDark ? 'text-white' : 'text-gray-800'}`}>
+    <div
+      className={`z-11 max-w-[1170px] mx-auto py-4 ${
+        isDark ? 'text-white' : 'text-gray-800'
+      }`}
+    >
       <VerticalTimeline
         layout="1-column-right"
         animate={true}

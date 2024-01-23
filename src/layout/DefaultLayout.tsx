@@ -134,7 +134,7 @@ const DefaultLayout: React.FC = () => {
             transition: 'transform 500ms ease-in-out'
           }}
         >
-          <div className="px-7">
+          <div className="px-1 sm:px-3 md:px-7 lg:max-w-screen-2xl mx-auto">
             <Outlet />
           </div>
         </div>
@@ -147,12 +147,11 @@ const DefaultLayout: React.FC = () => {
           } ${showRightSidebar ? 'shadow-lg' : 'shadow-none'}`}
           style={{
             width: isMobile ? '5rem' : '5rem',
-            padding: showRightSidebar ? '10px' : '0',
             transition: 'width 500ms ease-in-out'
           }}
         >
           <div
-            className={`translate-y-16 rotate-90 select-none overflow-visible whitespace-nowrap transition-opacity duration-1000 ${
+            className={`relative translate-y-16 rotate-90 select-none overflow-visible whitespace-nowrap text-xl transition-opacity duration-1000 ${
               isDark
                 ? 'text-gray-400 hover:text-white'
                 : 'text-gray-600 hover:text-black'

@@ -28,7 +28,7 @@ const BurgerIcon: React.FC<BurgerIconProps> = ({
 
   return (
     <div
-      className={`group flex size-8 transform-gpu cursor-pointer flex-col items-center justify-center transition-transform hover:scale-105 active:scale-95`}
+      className={`group flex size-10 transform-gpu cursor-pointer flex-col items-center justify-center transition-transform hover:scale-105 active:scale-95`}
       onClick={handleClick}
     >
       <div

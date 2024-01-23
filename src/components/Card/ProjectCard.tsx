@@ -24,19 +24,19 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
   const customClassName = ''
 
   const handleOpenModal = () => {
-    openModal(content, {}, customClassName)
+    openModal(content, title, {}, customClassName)
   }
 
   return (
     <div
-      className={`project-card relative cursor-pointer rounded-md ${
+      className={`project-card relative mx-auto cursor-pointer rounded-md hover:scale-[1.03] md:max-w-96 lg:max-w-2xl ${
         isHovered ? 'hovered' : ''
       }`}
       onMouseEnter={() => setHovered(true)}
       onMouseLeave={() => setHovered(false)}
       onClick={handleOpenModal}
     >
-      <img className="h-full w-full object-cover" src={img_url} alt={title} />
+      <img className="h-full w-full aspect-square object-cover" src={img_url} alt={title} />
 
       <div className="overlay-container">
         {isHovered && (

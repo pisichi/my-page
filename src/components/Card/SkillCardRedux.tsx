@@ -26,7 +26,7 @@ const SkillCardRedux: React.FC<SkillCardProps> = ({ category, skills }) => {
     const skillCardElement = skillCardRef.current
 
     // Cleanup after animations are expected to finish
-    const totalAnimationTime = 1500 // 1.5 seconds (adjust as needed)
+    const totalAnimationTime = 1500 
 
     // Set a flag to indicate whether the animation should be running
     let isAnimationRunning = true
@@ -44,7 +44,7 @@ const SkillCardRedux: React.FC<SkillCardProps> = ({ category, skills }) => {
       const textElement = skillCardElement?.querySelector(
         `#text-${index}`
       ) as HTMLElement
-      const randomDelay = Math.random() * 500 // adjust the range as needed
+      const randomDelay = Math.random() * 500 
 
       if (barElement && textElement) {
         barElement.style.transition = `width 1s ${randomDelay}ms`
@@ -55,7 +55,7 @@ const SkillCardRedux: React.FC<SkillCardProps> = ({ category, skills }) => {
 
         // Increment animation for each skill bar
         const targetValue = parseInt(skill.value, 10)
-        const duration = 1000 // 1 second (adjust as needed)
+        const duration = 1000 
         const startValue = 0
         let startTime: number
 

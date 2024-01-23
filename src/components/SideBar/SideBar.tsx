@@ -45,7 +45,7 @@ const SideBar: React.FC<SideBarProps> = ({ showSidebar, closeSidebar }) => {
     'Infinity Loop Wayfinder',
     'Console.log Enjoyer',
     'Ctrl+C Ctrl+V Grandmaster',
-    'sudo rm -rf /* Survivor',
+    'sudo rm -rf /* Survivor'
   ]
 
   const sequence = [introduction, 3000]
@@ -56,78 +56,39 @@ const SideBar: React.FC<SideBarProps> = ({ showSidebar, closeSidebar }) => {
 
   const skills = [
     {
-      category: 'Front End',
+      category: 'Communication',
       skills: [
         {
-          name: 'Test',
-          value: '90'
+          name: 'Thai',
+          value: '99'
         },
         {
-          name: 'Lorem ',
-          value: '100'
+          name: 'English ',
+          value: '85'
+        },
+      ]
+    },
+    {
+      category: 'Overall',
+      skills: [
+        {
+          name: 'Frontend',
+          value: '85'
         },
         {
-          name: 'Lalala',
-          value: '90'
+          name: 'Backend',
+          value: '75'
         },
         {
-          name: 'hahaha',
+          name: 'DevOps/Source Control',
+          value: '60'
+        },
+        {
+          name: 'Database',
           value: '70'
-        }
+        },
       ]
     },
-    {
-      category: 'Database',
-      skills: [
-        {
-          name: 'SQL',
-          value: '90'
-        },
-        {
-          name: 'NoSQL',
-          value: '100'
-        }
-      ]
-    },
-    {
-      category: 'Database',
-      skills: [
-        {
-          name: 'SQL',
-          value: '90'
-        },
-        {
-          name: 'NoSQL',
-          value: '100'
-        }
-      ]
-    },
-    {
-      category: 'Database',
-      skills: [
-        {
-          name: 'SQL',
-          value: '90'
-        },
-        {
-          name: 'NoSQL',
-          value: '100'
-        }
-      ]
-    },
-    {
-      category: 'Database',
-      skills: [
-        {
-          name: 'SQL',
-          value: '90'
-        },
-        {
-          name: 'NoSQL',
-          value: '100'
-        }
-      ]
-    }
   ]
 
   return (

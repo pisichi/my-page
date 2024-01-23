@@ -7,23 +7,61 @@ const Skill: React.FC = () => {
 
   const skills = [
     {
-      category: 'Front End',
+      category: 'Web Development',
       skills: [
         {
-          name: 'Test',
+          name: 'ES6',
           value: '90'
         },
         {
-          name: 'Lorem ',
+          name: 'HTML5',
           value: '100'
         },
         {
-          name: 'Lalala',
+          name: 'Node',
           value: '90'
         },
         {
-          name: 'hahaha',
+          name: 'Vue.js',
           value: '70'
+        }
+      ]
+    },
+    {
+      category: 'Programing Languages',
+      skills: [
+        {
+          name: 'Java',
+          value: '90'
+        },
+        {
+          name: 'JavaScript',
+          value: '100'
+        },
+        {
+          name: 'TypeScript',
+          value: '100'
+        },
+        {
+          name: 'Python',
+          value: '100'
+        },
+        {
+          name: 'PHP',
+          value: '100'
+        },
+        {
+          name: 'Solidity',
+          value: '100'
+        }
+      ]
+    },
+    {
+      category: 'Desktop Application Development',
+      skills: [
+        {
+          name: 'Electron.js',
+          value: ''
         }
       ]
     },
@@ -31,12 +69,64 @@ const Skill: React.FC = () => {
       category: 'Database',
       skills: [
         {
-          name: 'SQL',
-          value: '90'
+          name: 'MySql',
+          value: ''
         },
         {
-          name: 'NoSQL',
-          value: '100'
+          name: 'MongoDB',
+          value: ''
+        }
+      ]
+    },
+    {
+      category: 'Tools and Technologies',
+      skills: [
+        {
+          name: 'Agile Methodology',
+          value: ''
+        },
+        {
+          name: 'Extreme Programming',
+          value: ''
+        }
+      ]
+    },
+    {
+      category: 'Design',
+      skills: [
+        {
+          name: 'Adobe XD',
+          value: ''
+        },
+        {
+          name: 'Figma',
+          value: ''
+        },
+        {
+          name: 'Photoshop',
+          value: ''
+        }
+      ]
+    },
+    {
+      category: 'Project Management',
+      skills: [
+        {
+          name: 'Jira',
+          value: ''
+        },
+        {
+          name: 'Trello',
+          value: ''
+        }
+      ]
+    },
+    {
+      category: 'Crash Reporting',
+      skills: [
+        {
+          name: 'Sentry',
+          value: ''
         }
       ]
     }
@@ -45,7 +135,7 @@ const Skill: React.FC = () => {
   return (
     <div className={`px-3`}>
       <h1
-        className={`text-2xl font-semibold mb-8 ${
+        className={`mb-8 text-2xl font-semibold ${
           isDark ? 'text-white' : 'text-black'
         }`}
       >

@@ -2,26 +2,25 @@ import React, { useEffect } from 'react'
 import { useModal } from 'context/ModalContext'
 import { useDarkMode } from 'context/DarkModeContext'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faX } from '@fortawesome/free-solid-svg-icons'
+import { faTimes } from '@fortawesome/free-solid-svg-icons'
 
 const Modal: React.FC = () => {
   const {
     isModalOpen,
     modalContent,
+    modalTitle,
     closeModal,
     customStyle,
     customClassName
   } = useModal()
   const { isDark } = useDarkMode()
 
-  // Close the modal on pressing the Escape key
   const handleKeyDown = (event: KeyboardEvent) => {
     if (event.key === 'Escape') {
       closeModal()
     }
   }
 
-  // Attach and detach keydown event listener
   useEffect(() => {
     if (isModalOpen) {
       document.addEventListener('keydown', handleKeyDown)
@@ -53,32 +52,37 @@ const Modal: React.FC = () => {
           ...customStyle
         }}
         className={`
-          modal-container mx-auto w-full max-w-md rounded-lg p-8
+          modal-container mx-auto w-full max-w-4xl rounded-lg px-5 py-3
           ${isDark ? 'bg-gray-800 text-white' : 'bg-gray-200 text-black'}
           transform transition-transform ${
             isModalOpen
               ? 'scale-100 transition-transform duration-300 ease-out'
               : 'scale-0'
           }
-          ${customClassName || ''} // Append customClassName if provided
+          ${customClassName || ''}
         `}
         role="dialog"
         aria-modal="true"
         aria-labelledby="modal-title"
       >
-        <button
-          className={`absolute right-2 top-2 p-1 transition-colors duration-300 ease-in-out
-            ${
-              isDark
-                ? 'text-white hover:text-blue-700'
-                : 'text-black hover:text-blue-700'
-            }
-          `}
-          onClick={closeModal}
-        >
-          <FontAwesomeIcon size="xs" icon={faX} />
-        </button>
-        {modalContent}
+        <div className="flex h-full flex-col justify-center">
+          <div className="mb-4 text-2xl font-bold">{modalTitle}</div>
+          <button
+            className={`absolute right-2 top-2 p-1 transition-colors duration-300 ease-in-out
+        ${
+          isDark
+            ? 'text-white hover:text-blue-700'
+            : 'text-black hover:text-blue-700'
+        }
+      `}
+            onClick={closeModal}
+          >
+            <FontAwesomeIcon size="xl" icon={faTimes} />
+          </button>
+        </div>
+        <div className="custom-scroll max-h-[70vh] overflow-x-hidden">
+          {modalContent}
+        </div>
       </div>
     </div>
   )

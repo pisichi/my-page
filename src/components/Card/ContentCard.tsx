@@ -3,7 +3,7 @@ import React, { ReactNode } from 'react'
 interface ContentCardProps {
   title: string
   rows: number
-  content: ReactNode // Accepts any ReactNode as content
+  content: ReactNode 
 }
 
 const ContentCard: React.FC<ContentCardProps> = ({ title, rows, content }) => {

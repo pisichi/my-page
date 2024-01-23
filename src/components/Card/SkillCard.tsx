@@ -52,10 +52,10 @@ const SkillCard: React.FC<SkillCardProps> = ({ category, skills }) => {
       const textElement = skillCardElement?.querySelector(
         `#text-${index}`
       ) as HTMLElement
-      const randomDelay = Math.random() * 500 // adjust the range as needed
+      const randomDelay = Math.random() * 600
 
       if (barElement && textElement) {
-        barElement.style.transition = `width 1s ${randomDelay}ms`
+        barElement.style.transition = `width 1.5s ${randomDelay}ms`
         barElement.style.width = `${skill.value}%`
 
         textElement.style.transition = `opacity 0.5s ${randomDelay}ms`
@@ -63,7 +63,7 @@ const SkillCard: React.FC<SkillCardProps> = ({ category, skills }) => {
 
         // Increment animation for each skill bar
         const targetValue = parseInt(skill.value, 10)
-        const duration = 1000 // 1 second (adjust as needed)
+        const duration = 1800
         const startValue = 0
         let startTime: number
 
@@ -90,7 +90,7 @@ const SkillCard: React.FC<SkillCardProps> = ({ category, skills }) => {
     })
 
     // Cleanup after animations are expected to finish
-    const totalAnimationTime = 1500 // 1.5 seconds (adjust as needed)
+    const totalAnimationTime = 1800
     setTimeout(() => {
       if (skillCardElement) {
         skillCardElement.style.transition = ''
@@ -101,35 +101,75 @@ const SkillCard: React.FC<SkillCardProps> = ({ category, skills }) => {
   return (
     <div
       ref={skillCardRef}
-      className={`z-11 bg-green rounded-md p-4 shadow-md ${
-        isDark ? 'bg-gray-800 text-white' : 'bg-white text-gray-800'
+      className={`group h-fit transform rounded-md p-4 shadow-md transition-transform hover:scale-105 ${
+        isDark
+          ? 'to-gray-[850] bg-gradient-to-b from-gray-700 via-gray-800 text-white'
+          : 'bg-gradient-to-b from-white via-gray-100 to-slate-100 text-gray-800'
       }`}
     >
       <h2 className="text-md font-semibold">{category}</h2>
       <div className="mt-4 space-y-2">
         {skills.map((skill, index) => (
           <div key={index}>
-            <div className="flex items-center">
-              <div className="h-4">
+            <div className="grid grid-cols-6 items-center">
+              <div className="col-span-3 font-medium">
                 <p className="text-sm">{skill.name}</p>
               </div>
-            </div>
-            <div className="grid grid-cols-6 items-center">
-              <div className="col-span-5 pr-1">
+              <div className="col-span-2 pr-1 pt-[4px]">
                 <div
                   id={`bar-${index}`}
-                  className={`h-1.5 rounded ${getBarColor(
+                  className={`h-[9px] rounded ${getBarColor(
                     Number(skill.value)
-                  )}`}
+                  )}
+                  `}
                   style={{ width: '0%' }}
                 ></div>
+                <div
+                  className={`h-[9px] -translate-y-[9px] rounded
+                  border-2
+                  ${isDark ? 'border-gray-50' : 'border-gray-400'}
+                  `}
+                  style={{ width: '100%' }}
+                ></div>
               </div>
+
               <div className="col-span-1 flex justify-end">
-                <span id={`text-${index}`} className="text-xs opacity-0">
+                <span
+                  id={`text-${index}`}
+                  className="text-sm font-semibold opacity-0 "
+                >
                   0%
                 </span>
               </div>
             </div>
+
+            {/* <div className="grid grid-cols-6 items-center">
+              <div className="col-span-5 pr-1 ">
+                <div
+                  id={`bar-${index}`}
+                  className={`h-[9px] rounded ${getBarColor(
+                    Number(skill.value)
+                  )}
+                  `}
+                  style={{ width: '0%' }}
+                ></div>
+                <div
+                  className={`h-[9px] -translate-y-[9px] rounded
+                  border-2
+                  ${isDark ? 'border-gray-50' : 'border-gray-400'}
+                  `}
+                  style={{ width: '100%' }}
+                ></div>
+              </div>
+              <div className="col-span-1 flex justify-end">
+                <span
+                  id={`text-${index}`}
+                  className="text-sm font-semibold opacity-0 "
+                >
+                  0%
+                </span>
+              </div>
+            </div> */}
           </div>
         ))}
       </div>
