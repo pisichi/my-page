@@ -1,14 +1,14 @@
-import React, { ReactNode, useState } from 'react'
-import './ProjectCard.scss'
-import { useDarkMode } from 'context/DarkModeContext'
-import { useModal } from 'context/ModalContext'
+import React, { ReactNode, useState } from 'react';
+import './ProjectCard.scss';
+import { useDarkMode } from 'context/DarkModeContext';
+import { useModal } from 'context/ModalContext';
 
 interface ProjectCardProps {
-  title: string
-  img_url: string
-  content: ReactNode
-  stack: string[]
-  description: string
+  title: string;
+  img_url: string;
+  content: ReactNode;
+  stack: string[];
+  description: string;
 }
 
 const ProjectCard: React.FC<ProjectCardProps> = ({
@@ -16,16 +16,16 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
   img_url,
   content,
   stack,
-  description
+  description,
 }) => {
-  const { isDark } = useDarkMode()
-  const { openModal } = useModal()
-  const [isHovered, setHovered] = useState(false)
-  const customClassName = ''
+  const { isDark } = useDarkMode();
+  const { openModal } = useModal();
+  const [isHovered, setHovered] = useState(false);
+  const customClassName = '';
 
   const handleOpenModal = () => {
-    openModal(content, title, {}, customClassName)
-  }
+    openModal(content, title, {}, customClassName);
+  };
 
   return (
     <div
@@ -36,7 +36,12 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
       onMouseLeave={() => setHovered(false)}
       onClick={handleOpenModal}
     >
-      <img className="h-full w-full aspect-square object-cover" src={img_url} alt={title} />
+      <div className="relative">
+        <img className="h-full w-full object-cover aspect-[4/3] rounded-t-md" src={img_url} alt={title} />
+        <div className="absolute bottom-0 left-0 right-0 px-4 py-2 bg-gradient-to-t from-transparent to-black rounded-b-md">
+          <h2 className="mb-2 text-xl font-bold text-white">{title}</h2>
+        </div>
+      </div>
 
       <div className="overlay-container">
         {isHovered && (
@@ -46,14 +51,13 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
             }/80 text-${isDark ? 'white' : 'black'}`}
           >
             <div>
-              <h2 className="mb-2 text-xl font-bold text-white">{title}</h2>
               <p className={`text-white`}>{description}</p>
             </div>
           </div>
         )}
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default ProjectCard
+export default ProjectCard;

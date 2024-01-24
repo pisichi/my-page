@@ -103,8 +103,8 @@ const SkillCard: React.FC<SkillCardProps> = ({ category, skills }) => {
       ref={skillCardRef}
       className={`group h-fit transform rounded-md p-4 shadow-md transition-transform hover:scale-105 ${
         isDark
-          ? 'to-gray-[850] bg-gradient-to-b from-gray-700 via-gray-800 text-white'
-          : 'bg-gradient-to-b from-white via-gray-100 to-slate-100 text-gray-800'
+          ? 'bg-gray-800 text-white'
+          : 'bg-slate-100 text-gray-800'
       }`}
     >
       <h2 className="text-md font-semibold">{category}</h2>

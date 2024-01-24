@@ -52,7 +52,7 @@ const Modal: React.FC = () => {
           ...customStyle
         }}
         className={`
-          modal-container mx-auto w-full max-w-4xl rounded-lg px-5 py-3
+          modal-container mx-auto w-full max-w-screen-md rounded-lg px-5 py-3
           ${isDark ? 'bg-gray-800 text-white' : 'bg-gray-200 text-black'}
           transform transition-transform ${
             isModalOpen
@@ -60,6 +60,7 @@ const Modal: React.FC = () => {
               : 'scale-0'
           }
           ${customClassName || ''}
+          sm:w-full md:w-full lg:w-full xl:w-[80%] 2xl:w-[70%]
         `}
         role="dialog"
         aria-modal="true"
