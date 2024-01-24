@@ -1,0 +1,53 @@
+import { useDarkMode } from 'context/DarkModeContext'
+import React, { ReactNode, useEffect, useRef } from 'react'
+
+type IconProps = {
+  component: ReactNode
+  iconColor: string
+  iconKey: string
+}
+
+const TechIcon: React.FC<IconProps> = ({ component, iconColor, iconKey }) => {
+  const iconContainerRef = useRef<HTMLDivElement>(null)
+  const { isDark } = useDarkMode()
+
+  useEffect(() => {
+    const elementsToUpdate =
+      iconContainerRef.current?.querySelectorAll('[fill]')
+    if (elementsToUpdate) {
+      elementsToUpdate.forEach((element) => {
+        element.setAttribute('fill', iconColor)
+      })
+    }
+  }, [iconColor])
+
+  useEffect(() => {
+    const pathsToUpdate = iconContainerRef.current?.querySelectorAll('path')
+    if (pathsToUpdate) {
+      pathsToUpdate.forEach((path) => {
+        path.setAttribute('fill', iconColor)
+      })
+    }
+  }, [iconColor])
+
+  return (
+    <div className="group mx-2 my-1 transform-gpu transition-transform hover:scale-110">
+      <div
+        className={`rounded-md ${
+          isDark ? 'bg-gray-800' : 'bg-white'
+        } p-4 shadow-md transition-shadow hover:shadow-lg`}
+        ref={iconContainerRef}
+      >
+        {component}
+        <div
+          className="mt-2 cursor-default text-center text-sm"
+          style={{ color: iconColor }}
+        >
+          {iconKey}
+        </div>
+      </div>
+    </div>
+  )
+}
+
+export default TechIcon

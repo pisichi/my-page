@@ -1,7 +1,7 @@
 import './Home.scss'
 import ContentCard from 'components/Card/ContentCard'
 import { useDarkMode } from 'context/DarkModeContext'
-import Devicon from 'components/Icons/Devicon'
+import TechIcon from '@/components/Icons/TechIcon'
 import {
   NuxtjsOriginal,
   ReactOriginal,
@@ -95,25 +95,11 @@ const Home: React.FC = () => {
 
       {/* 1 Row */}
       <div className="flex">
-        <div className="flex-1 border border-gray-300 p-2">
-          About Me A bit about me I'm a self-taught web developer and Mobile App
-          Developer with experience in designing new features from ideation to
-          production, implementation of wireframes and design flows into high
-          performance software applications. I take into consideration the user
-          experience while writing reusable and efficient code. I passionately
-          combine good design, technology, and innovation in all my projects,
-          which I like to accompany from the first idea to release.Currently,
-          I'm focused on the backend development.
-        </div>
+        <div className="flex-1 border border-gray-300 p-2">About Me</div>
       </div>
 
       <div className="flex">
-        <div className="flex-1 border border-gray-300 p-2">
-          Technologies and Tools Using a combination of cutting-edge
-          technologies and reliable open-source software I build user-focused,
-          performant apps and websites for smartphones, tablets, and desktops.
-        </div>
-        color={isDark ? `#86efac` : `#166534`}
+        <div className="flex-1 border border-gray-300 p-2">Technologies</div>
       </div>
 
       <div
@@ -121,70 +107,46 @@ const Home: React.FC = () => {
         ref={iconContainerRef as React.RefObject<HTMLDivElement>}
       >
         {icons.map((icon, index) => (
-          <React.Fragment key={index}>
-            <div className="group mx-2 transform-gpu transition-transform hover:scale-110 my-1">
-              <div
-                className={`rounded-md ${
-                  isDark ? 'bg-gray-800' : 'bg-white'
-                } p-4 shadow-md transition-shadow hover:shadow-lg`}
-              >
-                {icon.component}
-                <div
-                  className="mt-2 cursor-default text-center text-sm"
-                  style={{ color: iconColor }}
-                >
-                  {icon.key}
-                </div>
-              </div>
-            </div>
-          </React.Fragment>
+          <TechIcon
+            key={index}
+            component={icon.component}
+            iconColor={iconColor}
+            iconKey={icon.key}
+          />
         ))}
       </div>
 
       <div className="flex">
-        <div className="flex-1 border border-gray-300 p-2">
-          Back-end My main focus. I love algorithm & software design. RESTful &
-          secure back-end with authorizations and database validations
-        </div>
+        <div className="flex-1 border border-gray-300 p-2"></div>
       </div>
 
       <div className="flex">
-        <div className="flex-1 border border-gray-300 p-2">
-          Front-end Responsive & animated layouts with performance optimization
-        </div>
+        <div className="flex-1 border border-gray-300 p-2"></div>
       </div>
 
       <div className="flex">
-        <div className="flex-1 border border-gray-300 p-2">
-          Best Practice Clean code, following style guides, naming conventions &
-          pattern principles
-        </div>
+        <div className="flex-1 border border-gray-300 p-2"></div>
       </div>
 
       <div className="flex">
-        <div className="flex-1 border border-gray-300 p-2">
-          Self-Taught Survivor I've learnt to google, read error messages &
-          understand documentations
-        </div>
+        <div className="flex-1 border border-gray-300 p-2"></div>
       </div>
 
       <div className="flex">
-        <div className="flex-1 border border-gray-300 p-2">
-          Team Buddy Github team workflow using feature branches & pull
-          requests/code reviews. MVP & agile methodology for projects
-        </div>
+        <div className="flex-1 border border-gray-300 p-2"></div>
       </div>
 
       <div className="flex">
-        <div className="flex-1 border border-gray-300 p-2">
-          Learning & Sharing My purposes at heart. My best coding experiences
-          are the ones I have with other people. I strongly believe in team
-          synergie
-        </div>
+        <div className="flex-1 border border-gray-300 p-2"></div>
       </div>
 
       <div className="flex">
-        <div className="flex-1 border border-gray-300 p-2">Project</div>
+        <div className="flex-1 border border-gray-300 p-2">Feature Project</div>
+      </div>
+      <div className="flex">
+        <div className="flex-1 border border-gray-300 p-2">
+          Feature Achievements
+        </div>
       </div>
     </div>
   )
