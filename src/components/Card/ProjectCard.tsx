@@ -74,14 +74,10 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
             <div className="absolute -bottom-1 left-0 right-0 rounded-b-md bg-gradient-to-t from-gray-900 to-gray-950 px-4 py-2">
               <h2 className="mb-2 text-xl font-bold text-white">{title}</h2>
             </div>
-            {/* Additional content or styling for when the image is loaded */}
           </>
         )}
         {imageError && (
-          <div className="image-error-message">
-            {/* Display an error message or handle as needed */}
-            Error loading image.
-          </div>
+          <div className="image-error-message">Error loading image.</div>
         )}
       </div>
 
@@ -96,16 +92,17 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
               <p className={`text-white`}>{description}</p>
             </div>
             <div className="flex flex-wrap items-center ">
-              {stack && stack.map((icon, index) => (
-                <div
-                  key={index}
-                  className="hexagon z-30 mr-2 bg-gray-700 p-[0.5rem] shadow-md"
-                >
-                  <IconWrapper iconColor={icon.color}>
-                    {icon.component}
-                  </IconWrapper>
-                </div>
-              ))}
+              {stack &&
+                stack.map((icon, index) => (
+                  <div
+                    key={index}
+                    className="hexagon z-30 mr-2 bg-gray-700 p-[0.5rem] shadow-md"
+                  >
+                    <IconWrapper iconColor={icon.color}>
+                      {icon.component}
+                    </IconWrapper>
+                  </div>
+                ))}
             </div>
           </div>
         )}

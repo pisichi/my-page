@@ -11,7 +11,7 @@ import DefaultLayout from '@/layout/DefaultLayout'
 import History from '@/pages/History/History'
 import Skill from '@/pages/Skill/Skill'
 import SplashPage from '@/pages/SplashPage/SplashPage' // Import the modified SplashPage component
-import Tournament from '@/pages/Tournament/Tournament'
+import Achievement from '@/pages/Achievement/Achievement'
 
 import ParticleBackground from '../ParticleBackground/ParticleBackground'
 
@@ -56,7 +56,7 @@ const InnerApp: React.FC = () => {
           <Route path="/" element={<DefaultLayout />}>
             <Route index element={<LandingPage />} />
             <Route path="skill" element={<Skill />} />
-            <Route path="tournament" element={<Tournament />} />
+            <Route path="achievement" element={<Achievement />} />
             <Route path="history" element={<History />} />
             <Route path="project" element={<Project />} />
           </Route>

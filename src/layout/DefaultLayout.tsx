@@ -35,7 +35,7 @@ const DefaultLayout: React.FC = () => {
     { id: 1, label: 'Home', link: '/' },
     { id: 2, label: 'History', link: '/history' },
     { id: 3, label: 'Skill', link: '/skill' },
-    { id: 4, label: 'Tournament', link: '/tournament' },
+    { id: 4, label: 'Achievement', link: '/achievement' },
     { id: 5, label: 'Project', link: '/project' }
   ]
 

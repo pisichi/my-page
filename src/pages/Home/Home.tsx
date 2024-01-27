@@ -33,7 +33,7 @@ import React, {
   useEffect
 } from 'react'
 import ProjectCard from '@/components/Card/ProjectCard'
-import tournamentsData from '@/data/tournamentsData'
+import achievementsData from '@/data/achievementsData'
 
 type IconProps = {
   size: number
@@ -45,8 +45,7 @@ const Home: React.FC = () => {
   const { isMobile } = useScreenSize()
   const iconSize = isMobile ? 40 : 60
   const iconColor = isDark ? '#86efac' : '#308250'
-  const tournaments = tournamentsData.slice(0, 3);
-
+  const achievements = achievementsData.slice(0, 3)
 
   const icons = [
     { component: <NuxtjsOriginal size={iconSize} />, key: 'Nuxt.js' },
@@ -193,15 +192,17 @@ const Home: React.FC = () => {
       </div>
 
       <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
-        {tournaments.map((tournament, index) => (
-          <ProjectCard
-            key={index}
-            title={tournament.title}
-            img_url={tournament.img_url}
-            stack={tournament.stack}
-            content={tournament.content}
-            description={tournament.description}
-          />
+        {achievements.map((achievement, index) => (
+          <div className="p-3">
+            <ProjectCard
+              key={index}
+              title={achievement.title}
+              img_url={achievement.img_url}
+              stack={achievement.stack}
+              content={achievement.content}
+              description={achievement.description}
+            />
+          </div>
         ))}
       </div>
 
