@@ -34,11 +34,7 @@ import ArticleCard from '@/components/Card/ArticleCard'
 import TechIcon from '@/components/Icons/TechIcon'
 import AboutMeTerminal from '@/components/Terminal/AboutMeTerminal'
 import achievementsData from '@/data/achievementsData'
-
-type IconProps = {
-  size: number
-  children?: ReactNode | ReactNode[]
-}
+import projectsData from '@/data/projectsData'
 
 const Home: React.FC = () => {
   const { isDark } = useDarkMode()
@@ -46,6 +42,7 @@ const Home: React.FC = () => {
   const iconSize = isMobile ? 40 : 60
   const iconColor = isDark ? '#86efac' : '#308250'
   const achievements = achievementsData.slice(0, 3)
+  const projects = projectsData.slice(0, 3)
 
   const icons = [
     { component: <NuxtjsOriginal size={iconSize} />, key: 'Nuxt.js' },
@@ -100,7 +97,6 @@ const Home: React.FC = () => {
         </h2>
       </div>
       <div className="mb-4">
-        {/* Big Banner Content Goes Here */}
         <div className=" p-4">
           About Me Hi, I am <span className="highlight">Name</span>
         </div>
@@ -130,7 +126,7 @@ const Home: React.FC = () => {
             {cardData.map((card, index) => (
               <div key={index} className="p-4 md:w-1/3">
                 <div
-                  className={`flex h-full flex-col rounded-lg ${
+                  className={`flex h-full flex-col rounded-lg shadow-md ${
                     isDark ? 'bg-gray-800' : 'bg-gray-100'
                   } p-8`}
                 >
@@ -186,6 +182,31 @@ const Home: React.FC = () => {
         <h2 className="mb-5 flex-1 border-b-2 border-solid border-gray-500 p-2 text-2xl font-bold">
           Feature Achievements
         </h2>
+      </div>
+
+      <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
+        {projects.map((project, index) => (
+          <div className="p-3" key={`proj-home-${index}-div`}>
+            <ArticleCard
+              key={`proj-home-${index}`}
+              title={project.title}
+              img_url={project.img_url}
+              stack={project.stack}
+              content={project.content}
+              description={project.description}
+            />
+          </div>
+        ))}
+      </div>
+
+      <div
+        className={`flex rounded-md ${
+          isDark ? 'bg-gray-800' : 'bg-gray-100'
+        } px-8 py-3 mt-8 mb-2 justify-center`}
+      >
+          <p className="text-gray-500">
+            Pisichi's Personal Website &copy; 2024
+          </p>
       </div>
     </div>
   )

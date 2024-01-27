@@ -21,6 +21,18 @@ import { FaEthereum } from 'react-icons/fa'
 
 const iconSize = 22
 
+const iconColors = [
+  '#00E676',
+  '#A7FFEB',
+  '#F4FF81',
+  '#9CCC65',
+  '#F57F17',
+  '#9FA8DA',
+  '#7E57C2',
+  '#FFAB91',
+  '#D7CCC8'
+]
+
 const projectsData: Article[] = [
   {
     title: 'This Very Site👋',
@@ -28,22 +40,22 @@ const projectsData: Article[] = [
     stack: [
       {
         component: <ReactOriginal size={iconSize} />,
-        color: '#00E676',
+        color: iconColors[0],
         key: 'ReactOriginal'
       },
       {
         component: <TypescriptPlain size={iconSize} />,
-        color: '#00E676',
+        color: iconColors[0],
         key: 'TypescriptPlain'
       },
       {
         component: <TailwindcssOriginal size={iconSize} />,
-        color: '#00E676',
+        color: iconColors[0],
         key: 'TailwindcssOriginal'
       },
       {
         component: <SassOriginal size={iconSize} />,
-        color: '#00E676',
+        color: iconColors[0],
         key: 'SassOriginal'
       }
     ],
@@ -57,37 +69,37 @@ const projectsData: Article[] = [
     stack: [
       {
         component: <VuejsOriginal size={iconSize} />,
-        color: '#A7FFEB',
+        color: iconColors[1],
         key: 'Vue'
       },
       {
         component: <ElectronOriginal size={iconSize} />,
-        color: '#A7FFEB',
+        color: iconColors[1],
         key: 'ElectronOriginal'
       },
       {
         component: <TypescriptPlain size={iconSize} />,
-        color: '#A7FFEB',
+        color: iconColors[1],
         key: 'TypescriptPlain'
       },
       {
         component: <GoPlain size={iconSize} />,
-        color: '#A7FFEB',
+        color: iconColors[1],
         key: 'GoPlain'
       },
       {
         component: <DockerOriginal size={iconSize} />,
-        color: '#A7FFEB',
+        color: iconColors[1],
         key: 'DockerOriginal'
       },
       {
         component: <SassOriginal size={iconSize} />,
-        color: '#A7FFEB',
+        color: iconColors[1],
         key: 'SassOriginal'
       },
       {
         component: <YamlPlain size={iconSize} />,
-        color: '#A7FFEB',
+        color: iconColors[1],
         key: 'DockerOriginal'
       }
     ],
@@ -101,7 +113,7 @@ const projectsData: Article[] = [
     stack: [
       {
         component: <PythonOriginal size={iconSize} />,
-        color: '#F4FF81',
+        color: iconColors[2],
         key: 'PythonOriginal'
       }
     ],
@@ -116,22 +128,22 @@ const projectsData: Article[] = [
     stack: [
       {
         component: <PhpPlain size={iconSize} />,
-        color: '#9CCC65',
+        color: iconColors[3],
         key: 'JavaPlain'
       },
       {
         component: <VuejsOriginal size={iconSize} />,
-        color: '#9CCC65',
+        color: iconColors[3],
         key: 'VuejsOriginal'
       },
       {
         component: <LaravelOriginal size={iconSize} />,
-        color: '#9CCC65',
+        color: iconColors[3],
         key: 'LaravelOriginal'
       },
       {
         component: <BootstrapPlain size={iconSize} />,
-        color: '#9CCC65',
+        color: iconColors[3],
         key: 'BootstrapPlain'
       }
     ],
@@ -146,7 +158,7 @@ const projectsData: Article[] = [
     stack: [
       {
         component: <JavaPlain size={iconSize} />,
-        color: '#F57F17',
+        color: iconColors[4],
         key: 'JavaPlain'
       }
     ],
@@ -161,7 +173,7 @@ const projectsData: Article[] = [
     stack: [
       {
         component: <CsharpLine size={iconSize} />,
-        color: '#9FA8DA',
+        color: iconColors[5],
         key: 'CsharpLine'
       }
     ],
@@ -176,7 +188,7 @@ const projectsData: Article[] = [
     stack: [
       {
         component: <CsharpLine size={iconSize} />,
-        color: '#7E57C2',
+        color: iconColors[6],
         key: 'CsharpLine'
       }
     ],
@@ -191,22 +203,22 @@ const projectsData: Article[] = [
     stack: [
       {
         component: <SolidityOriginal size={iconSize} />,
-        color: '#FFAB91',
+        color: iconColors[7],
         key: 'SolidityOriginal'
       },
       {
         component: <FaEthereum size={iconSize} />,
-        color: '#FFAB91',
+        color: iconColors[7],
         key: 'SolidityOriginal'
       },
       {
         component: <ExpressOriginal size={iconSize} />,
-        color: '#FFAB91',
+        color: iconColors[7],
         key: 'SolidityOriginal'
       },
       {
         component: <BootstrapPlain size={iconSize} />,
-        color: '#FFAB91',
+        color: iconColors[7],
         key: 'SolidityOriginal'
       }
     ],
@@ -221,12 +233,12 @@ const projectsData: Article[] = [
     stack: [
       {
         component: <JavaPlain size={iconSize} />,
-        color: '#D7CCC8',
+        color: iconColors[8],
         key: 'JavaPlain'
       },
       {
         component: <DockerOriginal size={iconSize} />,
-        color: '#D7CCC8',
+        color: iconColors[8],
         key: 'DockerOriginal'
       }
     ],

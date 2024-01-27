@@ -48,7 +48,7 @@ const ArticleCard: React.FC<ArticleCardProps> = ({
 
   return (
     <div
-      className={`project-card relative mx-auto cursor-pointer rounded-md hover:scale-[1.03] md:max-w-96 lg:max-w-2xl ${
+      className={`project-card relative mx-auto cursor-pointer rounded-md shadow-md hover:scale-[1.03] md:max-w-96 lg:max-w-2xl ${
         isHovered ? 'hovered' : ''
       } ${imageLoaded ? 'image-loaded' : ''} ${
         imageError ? 'image-error' : ''
@@ -72,8 +72,14 @@ const ArticleCard: React.FC<ArticleCardProps> = ({
         )}
         {imageLoaded && (
           <>
-            <div className="absolute inset-x-0 -bottom-1 rounded-b-md bg-gradient-to-t from-gray-900 to-gray-950 px-4 py-2">
-              <h2 className="mb-2 text-xl font-bold text-white">{title}</h2>
+            <div
+              className={`absolute inset-x-0 -bottom-1 rounded-b-md bg-gradient-to-t ${
+                isDark
+                  ? 'from-gray-900 to-gray-950 text-gray-300'
+                  : 'from-gray-100 to-slate-100 text-gray-800'
+              }  px-4 py-2`}
+            >
+              <h2 className="mb-2 text-xl font-bold ">{title}</h2>
             </div>
           </>
         )}
@@ -92,12 +98,12 @@ const ArticleCard: React.FC<ArticleCardProps> = ({
             <div>
               <p className={`text-white`}>{description}</p>
             </div>
-            <div className="flex flex-wrap items-center ">
+            <div className="flex flex-wrap items-center">
               {stack &&
                 stack.map((icon, index) => (
                   <div
                     key={index}
-                    className="hexagon z-30 mr-2 bg-gray-700 p-[0.5rem] shadow-md"
+                    className="hexagon z-5 mr-2 bg-gray-700 p-[0.5rem] shadow-md"
                   >
                     <IconWrapper iconColor={icon.color}>
                       {icon.component}
