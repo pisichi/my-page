@@ -1,8 +1,9 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useRef } from 'react'
 import { useModal } from 'context/ModalContext'
 import { useDarkMode } from 'context/DarkModeContext'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faTimes } from '@fortawesome/free-solid-svg-icons'
+import './Modal.scss'
 
 const Modal: React.FC = () => {
   const {
@@ -14,24 +15,21 @@ const Modal: React.FC = () => {
     customClassName
   } = useModal()
   const { isDark } = useDarkMode()
-
-  const handleKeyDown = (event: KeyboardEvent) => {
-    if (event.key === 'Escape') {
-      closeModal()
-    }
-  }
+  const modalRef = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
-    if (isModalOpen) {
-      document.addEventListener('keydown', handleKeyDown)
-    } else {
-      document.removeEventListener('keydown', handleKeyDown)
+    const handleEscape = (event: KeyboardEvent) => {
+      if (event.key === 'Escape') {
+        closeModal()
+      }
     }
 
+    document.addEventListener('keydown', handleEscape)
+
     return () => {
-      document.removeEventListener('keydown', handleKeyDown)
+      document.removeEventListener('keydown', handleEscape)
     }
-  }, [isModalOpen])
+  }, [closeModal])
 
   return (
     <div
@@ -40,7 +38,7 @@ const Modal: React.FC = () => {
       }`}
     >
       <div
-        className={`modal-overlay fixed inset-0 bg-black transition-opacity ${
+        className={`fixed inset-0 bg-black transition-opacity ${
           isModalOpen
             ? 'opacity-50 transition-opacity duration-300 ease-out'
             : 'opacity-0'
@@ -48,16 +46,17 @@ const Modal: React.FC = () => {
         onClick={closeModal}
       ></div>
       <div
+        ref={modalRef}
         style={{
           ...customStyle
         }}
         className={`
-          modal-container mx-auto w-full max-w-screen-md rounded-lg px-5 py-3
+          mx-auto w-full max-w-screen-md rounded-lg px-5 py-3
           ${isDark ? 'bg-gray-800 text-white' : 'bg-gray-200 text-black'}
           transform transition-transform ${
             isModalOpen
               ? 'scale-100 transition-transform duration-300 ease-out'
-              : 'scale-0'
+              : 'scale-0 transition-opacity duration-300 ease-out'
           }
           ${customClassName || ''}
           sm:w-full md:w-full lg:w-full xl:w-[80%] 2xl:w-[70%]

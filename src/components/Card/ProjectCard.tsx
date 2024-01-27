@@ -1,14 +1,21 @@
-import React, { ReactNode, useState } from 'react';
-import './ProjectCard.scss';
-import { useDarkMode } from 'context/DarkModeContext';
-import { useModal } from 'context/ModalContext';
+import React, { ReactNode, useState } from 'react'
+import './ProjectCard.scss'
+import { useDarkMode } from 'context/DarkModeContext'
+import { useModal } from 'context/ModalContext'
+import IconWrapper from 'components/Icons/IconWrapper'
+
+interface StackItem {
+  component: ReactNode
+  color: string
+  key: string
+}
 
 interface ProjectCardProps {
-  title: string;
-  img_url: string;
-  content: ReactNode;
-  stack: string[];
-  description: string;
+  title: string
+  img_url: string
+  content: ReactNode
+  stack?: StackItem[]
+  description: string
 }
 
 const ProjectCard: React.FC<ProjectCardProps> = ({
@@ -16,31 +23,66 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
   img_url,
   content,
   stack,
-  description,
+  description
 }) => {
-  const { isDark } = useDarkMode();
-  const { openModal } = useModal();
-  const [isHovered, setHovered] = useState(false);
-  const customClassName = '';
+  const { isDark } = useDarkMode()
+  const { openModal } = useModal()
+  const [isHovered, setHovered] = useState(false)
+  const [imageLoaded, setImageLoaded] = useState(false)
+  const [imageError, setImageError] = useState(false)
+  const customClassName = ''
 
   const handleOpenModal = () => {
-    openModal(content, title, {}, customClassName);
-  };
+    openModal(content, title, {}, customClassName)
+  }
+
+  const handleImageLoad = () => {
+    setImageLoaded(true)
+    console.log('loaded!')
+  }
+
+  const handleImageError = () => {
+    setImageError(true)
+  }
 
   return (
     <div
       className={`project-card relative mx-auto cursor-pointer rounded-md hover:scale-[1.03] md:max-w-96 lg:max-w-2xl ${
         isHovered ? 'hovered' : ''
+      } ${imageLoaded ? 'image-loaded' : ''} ${
+        imageError ? 'image-error' : ''
       }`}
       onMouseEnter={() => setHovered(true)}
       onMouseLeave={() => setHovered(false)}
       onClick={handleOpenModal}
     >
       <div className="relative">
-        <img className="h-full w-full object-cover aspect-[4/3] rounded-t-md" src={img_url} alt={title} />
-        <div className="absolute bottom-0 left-0 right-0 px-4 py-2 bg-gradient-to-t from-transparent to-black rounded-b-md">
-          <h2 className="mb-2 text-xl font-bold text-white">{title}</h2>
-        </div>
+        <img
+          className="aspect-[4/3] h-full w-full rounded-t-md object-cover"
+          src={img_url}
+          alt={title}
+          onLoad={handleImageLoad}
+          onError={handleImageError}
+        />
+        {!imageLoaded && !imageError && (
+          <div className="loading-animation">
+            <div className="spinner"></div>
+          </div>
+        )}
+        {imageLoaded && (
+          <>
+            <div className="absolute -bottom-1 left-0 right-0 rounded-b-md bg-gradient-to-t from-gray-900 to-gray-950 px-4 py-2">
+              <h2 className="mb-2 text-xl font-bold text-white">{title}</h2>
+            </div>
+            {/* Additional content or styling for when the image is loaded */}
+          </>
+        )}
+        {imageError && (
+          <div className="image-error-message">
+            {/* Display an error message or handle as needed */}
+            Error loading image.
+          </div>
+        )}
       </div>
 
       <div className="overlay-container">
@@ -53,11 +95,23 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
             <div>
               <p className={`text-white`}>{description}</p>
             </div>
+            <div className="flex flex-wrap items-center ">
+              {stack && stack.map((icon, index) => (
+                <div
+                  key={index}
+                  className="hexagon z-30 mr-2 bg-gray-700 p-[0.5rem] shadow-md"
+                >
+                  <IconWrapper iconColor={icon.color}>
+                    {icon.component}
+                  </IconWrapper>
+                </div>
+              ))}
+            </div>
           </div>
         )}
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default ProjectCard;
+export default ProjectCard

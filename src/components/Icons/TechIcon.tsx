@@ -1,5 +1,6 @@
 import { useDarkMode } from 'context/DarkModeContext'
 import React, { ReactNode, useEffect, useRef } from 'react'
+import IconWrapper from 'components/Icons/IconWrapper'
 
 type IconProps = {
   component: ReactNode
@@ -34,13 +35,12 @@ const TechIcon: React.FC<IconProps> = ({ component, iconColor, iconKey }) => {
     <div className="group mx-2 my-1 transform-gpu transition-transform hover:scale-110">
       <div
         className={`rounded-md ${
-          isDark ? 'bg-gray-800' : 'bg-white'
-        } p-4 shadow-md transition-shadow hover:shadow-lg`}
-        ref={iconContainerRef}
+          isDark ? 'bg-gray-800' : 'bg-slate-100'
+        } aspect-w-1 aspect-h-1 flex flex-col items-center p-4 shadow-md transition-shadow hover:shadow-lg`}
       >
-        {component}
+        <IconWrapper iconColor={iconColor}>{component}</IconWrapper>
         <div
-          className="mt-2 cursor-default text-center text-sm"
+          className="mt-2 cursor-default whitespace-nowrap text-center text-sm"
           style={{ color: iconColor }}
         >
           {iconKey}

@@ -6,7 +6,6 @@
   --overlay-color: #000000cc;
 }
 
-
 .project-card {
   position: relative;
   overflow: hidden;
@@ -41,9 +40,7 @@
   &:hover {
     img {
       transform: scale(1);
-      filter: blur(
-        2px
-      );
+      filter: blur(2px);
     }
   }
 
@@ -53,5 +50,50 @@
 
   &:hover .overlay {
     transform: translateY(0);
+  }
+}
+
+.hexagon {
+  -webkit-clip-path: polygon(
+    25% 5%,
+    75% 5%,
+    100% 50%,
+    75% 95%,
+    25% 95%,
+    0% 50%
+  );
+  clip-path: polygon(25% 5%, 75% 5%, 100% 50%, 75% 95%, 25% 95%, 0% 50%);
+}
+
+.icon {
+  z-index: 1; /* Ensure the icon is above the hexagon */
+}
+
+.loading-animation {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.spinner {
+  border: 4px solid rgba(255, 255, 255, 0.3);
+  border-radius: 50%;
+  border-top: 4px solid #ffffff;
+  width: 20px;
+  height: 20px;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
   }
 }

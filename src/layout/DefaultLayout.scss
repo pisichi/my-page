@@ -37,3 +37,23 @@
 .custom-scroll-small::-webkit-scrollbar {
   width: 2px;
 }
+
+.fade-enter {
+  opacity: 0;
+}
+
+.fade-enter-active {
+  opacity: 1;
+  transition: opacity 800ms cubic-bezier(0.68, -0.55, 0.27, 1.55),
+    transform 800ms cubic-bezier(0.68, -0.55, 0.27, 1.55);
+}
+
+.fade-exit {
+  opacity: 1;
+}
+
+.fade-exit-active {
+  opacity: 0;
+  transition: opacity 800ms cubic-bezier(0.68, -0.55, 0.27, 1.55),
+    transform 800ms cubic-bezier(0.68, -0.55, 0.27, 1.55);
+}

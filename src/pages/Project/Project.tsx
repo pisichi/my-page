@@ -9,21 +9,18 @@ const Project: React.FC = () => {
     {
       title: 'Test1',
       img_url: 'https://placehold.co/600x400',
-      stack: ['node', 'docker', 'vue'],
       content: 'Lorem ipsum dolor sit amet',
       description: 'Lorem ipsum dolor sit amet'
     },
     {
       title: 'Test2',
       img_url: 'https://placehold.co/600x400',
-      stack: ['node', 'docker', 'vue'],
       content: <div className=""></div>,
       description: 'Lorem ipsum dolor sit amet'
     },
     {
       title: 'Test3',
       img_url: 'https://placehold.co/600x400',
-      stack: ['node', 'docker', 'vue'],
       content: 'Lorem ipsum dolor sit amet, consectetur',
       description: 'Lorem ipsum dolor sit amet'
     }
@@ -44,7 +41,6 @@ const Project: React.FC = () => {
             key={index}
             title={project.title}
             img_url={project.img_url}
-            stack={project.stack}
             content={project.content}
             description={project.description}
           />
