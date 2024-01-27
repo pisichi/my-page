@@ -97,7 +97,7 @@ const SkillCardRedux: React.FC<SkillCardProps> = ({ category, skills }) => {
     <div
       ref={skillCardRef}
       className={`z-11 bg-green rounded-md ${
-        isDark ? 'bg-gray-800 text-white' : 'bg-white text-gray-800'
+        isDark ? 'bg-gray-800 text-white' : ' text-gray-800'
       }`}
     >
       <h2 className="text-md font-semibold">{category}</h2>

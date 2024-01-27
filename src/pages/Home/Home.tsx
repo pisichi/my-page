@@ -30,7 +30,7 @@ import React, {
 } from 'react'
 import useScreenSize from 'utils/useScreenSize'
 
-import ProjectCard from '@/components/Card/ProjectCard'
+import ArticleCard from '@/components/Card/ArticleCard'
 import TechIcon from '@/components/Icons/TechIcon'
 import AboutMeTerminal from '@/components/Terminal/AboutMeTerminal'
 import achievementsData from '@/data/achievementsData'
@@ -92,27 +92,6 @@ const Home: React.FC = () => {
     }
   ]
 
-  const iconContainerRef = useRef<HTMLDivElement>(null)
-
-  useEffect(() => {
-    const elementsToUpdate =
-      iconContainerRef.current?.querySelectorAll('[fill]')
-    if (elementsToUpdate) {
-      elementsToUpdate.forEach((element) => {
-        element.setAttribute('fill', iconColor)
-      })
-    }
-  }, [iconColor])
-
-  useEffect(() => {
-    const pathsToUpdate = iconContainerRef.current?.querySelectorAll('path')
-    if (pathsToUpdate) {
-      pathsToUpdate.forEach((path) => {
-        path.setAttribute('fill', iconColor)
-      })
-    }
-  }, [iconColor])
-
   return (
     <div className="overflow-x-hidden">
       <div className="flex">
@@ -134,13 +113,10 @@ const Home: React.FC = () => {
           Technologies
         </h2>
       </div>
-      <div
-        className="flex flex-wrap items-center justify-center"
-        ref={iconContainerRef as React.RefObject<HTMLDivElement>}
-      >
+      <div className="flex flex-wrap items-center justify-center">
         {icons.map((icon, index) => (
           <TechIcon
-            key={index}
+            key={`about-home-${index}`}
             component={icon.component}
             iconColor={iconColor}
             iconKey={icon.key}
@@ -149,7 +125,7 @@ const Home: React.FC = () => {
       </div>
 
       <section className={`body-font text-${isDark ? 'white' : 'gray-600'}`}>
-        <div className="container mx-auto px-5 py-24">
+        <div className="mx-auto px-5 py-5">
           <div className="-m-4 flex flex-wrap justify-center">
             {cardData.map((card, index) => (
               <div key={index} className="p-4 md:w-1/3">
@@ -193,9 +169,9 @@ const Home: React.FC = () => {
 
       <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
         {achievements.map((achievement, index) => (
-          <div className="p-3">
-            <ProjectCard
-              key={index}
+          <div className="p-3" key={`achiv-home-${index}-div`}>
+            <ArticleCard
+              key={`achiv-home-${index}`}
               title={achievement.title}
               img_url={achievement.img_url}
               stack={achievement.stack}

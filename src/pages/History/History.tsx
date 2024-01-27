@@ -68,13 +68,11 @@ const History: React.FC = () => {
 
   return (
     <div className={``}>
-      <h1
-        className={`text-2xl font-semibold ${
-          isDark ? 'text-white' : 'text-black'
-        }`}
-      >
-        My Projects
-      </h1>
+      <div className="flex">
+        <h2 className="mb-5 flex-1 border-b-2 border-solid border-gray-500 p-2 text-2xl font-bold">
+          Time Line
+        </h2>
+      </div>
       <div>
         <TimeLine History={history} />
       </div>

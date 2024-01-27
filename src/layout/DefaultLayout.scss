@@ -1,8 +1,9 @@
+/* For Firefox */
 .custom-scroll,
 .custom-scroll-small {
   overflow-y: auto;
   scrollbar-width: thin;
-  scrollbar-color: #4a5568 #2d3748;
+  scrollbar-color: var(--toggle-fg) var(--toggle-bg);
 }
 
 .custom-scroll::-webkit-scrollbar,
@@ -30,6 +31,7 @@
   background-color: var(--toggle-fg);
 }
 
+/* For WebKit-based browsers (Chrome, Safari, etc.) */
 .custom-scroll-small {
   scrollbar-width: thin;
 }

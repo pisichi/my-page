@@ -10,10 +10,23 @@ import useScreenSize from 'utils/useScreenSize'
 import { useDarkMode } from '@/context/DarkModeContext'
 
 import DarkModeToggleWrapper from '../Toggle/DarkModeToggleWrapper'
+import Tooltip from '../Tooltip/Tooltip'
 
 interface SideBarProps {
   showSidebar: boolean
   closeSidebar: () => void // Add closeSidebar prop function
+}
+
+const handleMailClick = () => {
+  const receiverEmail = 'test@test.test'
+  const subject = 'Subject of the email' // You can customize the subject if needed
+  const body = 'Body of the email' // You can customize the body if needed
+
+  const mailtoLink = `mailto:${receiverEmail}?subject=${encodeURIComponent(
+    subject
+  )}&body=${encodeURIComponent(body)}`
+
+  window.location.href = mailtoLink
 }
 
 const SideBar: React.FC<SideBarProps> = ({ showSidebar, closeSidebar }) => {
@@ -109,7 +122,9 @@ const SideBar: React.FC<SideBarProps> = ({ showSidebar, closeSidebar }) => {
         }`}
       >
         <div className="absolute left-4 top-4">
+        <Tooltip text="Toggle Dark Mode">
           <DarkModeToggleWrapper />
+          </Tooltip>
         </div>
         {isMobile && (
           <div
@@ -197,13 +212,15 @@ const SideBar: React.FC<SideBarProps> = ({ showSidebar, closeSidebar }) => {
             isDark ? 'text-white' : 'text-gray-800'
           }`}
         />
-        <FontAwesomeIcon
-          icon={faEnvelope}
-          size="xl"
-          className={`transition-transform hover:scale-110 ${
-            isDark ? 'text-white' : 'text-gray-800'
-          }`}
-        />
+        <Tooltip text="test@test.test">
+          <FontAwesomeIcon
+            icon={faEnvelope}
+            size="xl"
+            className={`transition-transform hover:scale-110 ${
+              isDark ? 'text-white' : 'text-gray-800'
+            }`}
+          />
+        </Tooltip>
       </div>
     </div>
   )

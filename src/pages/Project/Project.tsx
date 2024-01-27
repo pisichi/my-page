@@ -1,4 +1,4 @@
-import ProjectCard from 'components/Card/ProjectCard'
+import ArticleCard from 'components/Card/ArticleCard'
 import { useDarkMode } from 'context/DarkModeContext'
 import React from 'react'
 
@@ -28,16 +28,14 @@ const Project: React.FC = () => {
 
   return (
     <div className={`px-3`}>
-      <h1
-        className={`mb-8 text-2xl font-semibold ${
-          isDark ? 'text-white' : 'text-black'
-        }`}
-      >
-        My Projects
-      </h1>
+      <div className="flex">
+        <h2 className="mb-5 flex-1 border-b-2 border-solid border-gray-500 p-2 text-2xl font-bold">
+          Projects
+        </h2>
+      </div>
       <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
         {projects.map((project, index) => (
-          <ProjectCard
+          <ArticleCard
             key={index}
             title={project.title}
             img_url={project.img_url}

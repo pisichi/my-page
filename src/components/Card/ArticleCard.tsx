@@ -1,4 +1,4 @@
-import './ProjectCard.scss'
+import './ArticleCard.scss'
 
 import IconWrapper from 'components/Icons/IconWrapper'
 import { useDarkMode } from 'context/DarkModeContext'
@@ -11,7 +11,7 @@ interface StackItem {
   key: string
 }
 
-interface ProjectCardProps {
+interface ArticleCardProps {
   title: string
   img_url: string
   content: ReactNode
@@ -19,7 +19,7 @@ interface ProjectCardProps {
   description: string
 }
 
-const ProjectCard: React.FC<ProjectCardProps> = ({
+const ArticleCard: React.FC<ArticleCardProps> = ({
   title,
   img_url,
   content,
@@ -112,4 +112,4 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
   )
 }
 
-export default ProjectCard
+export default ArticleCard
