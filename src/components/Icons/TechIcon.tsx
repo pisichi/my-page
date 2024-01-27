@@ -1,6 +1,6 @@
+import IconWrapper from 'components/Icons/IconWrapper'
 import { useDarkMode } from 'context/DarkModeContext'
 import React, { ReactNode, useEffect, useRef } from 'react'
-import IconWrapper from 'components/Icons/IconWrapper'
 
 type IconProps = {
   component: ReactNode

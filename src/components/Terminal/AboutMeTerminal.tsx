@@ -1,6 +1,6 @@
 // AboutMeTerminal.js
 
-import React, { useState, useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import { TypeAnimation } from 'react-type-animation'
 
 const AboutMeTerminal = () => {
@@ -25,9 +25,7 @@ const AboutMeTerminal = () => {
         <br />
         {showContent && (
           <>
-            <span className="pl-8">
-              Hey there! I'm Pisitchai
-            </span>
+            <span className="pl-8">Hey there! I'm Pisitchai</span>
             <br />
             <span className="text-green-500">
               pisichiRoot@personal-website:~$

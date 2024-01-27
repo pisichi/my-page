@@ -1,9 +1,10 @@
-import React, { useEffect, useRef } from 'react'
-import { useModal } from 'context/ModalContext'
-import { useDarkMode } from 'context/DarkModeContext'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faTimes } from '@fortawesome/free-solid-svg-icons'
 import './Modal.scss'
+
+import { faTimes } from '@fortawesome/free-solid-svg-icons'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { useDarkMode } from 'context/DarkModeContext'
+import { useModal } from 'context/ModalContext'
+import React, { useEffect, useRef } from 'react'
 
 const Modal: React.FC = () => {
   const {

@@ -1,7 +1,7 @@
 import ProjectCard from 'components/Card/ProjectCard'
 import { useDarkMode } from 'context/DarkModeContext'
-import React, { useState } from 'react'
 import achievementsData from 'data/achievementsData'
+import React, { useState } from 'react'
 
 const Achievement: React.FC = () => {
   const { isDark } = useDarkMode()

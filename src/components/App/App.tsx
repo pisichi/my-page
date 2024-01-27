@@ -1,22 +1,21 @@
 import './App.scss'
 
+import Modal from 'components/Modal/Modal'
 import { DarkModeProvider } from 'context/DarkModeContext'
 import { useDarkMode } from 'context/DarkModeContext'
+import { ModalProvider } from 'context/ModalContext'
 import LandingPage from 'pages/Home/Home'
 import Project from 'pages/Project/Project'
 import React, { useEffect, useState } from 'react'
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
 
 import DefaultLayout from '@/layout/DefaultLayout'
+import Achievement from '@/pages/Achievement/Achievement'
 import History from '@/pages/History/History'
 import Skill from '@/pages/Skill/Skill'
 import SplashPage from '@/pages/SplashPage/SplashPage' // Import the modified SplashPage component
-import Achievement from '@/pages/Achievement/Achievement'
 
 import ParticleBackground from '../ParticleBackground/ParticleBackground'
-
-import Modal from 'components/Modal/Modal'
-import { ModalProvider } from 'context/ModalContext'
 
 function App() {
   return (

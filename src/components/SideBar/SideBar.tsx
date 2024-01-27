@@ -1,15 +1,15 @@
-import React, { useState, useEffect } from 'react'
-import SkillCard from 'components/Card/SkillCardRedux'
-import { useDarkMode } from '@/context/DarkModeContext'
-import DarkModeToggleWrapper from '../Toggle/DarkModeToggleWrapper'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faTimes } from '@fortawesome/free-solid-svg-icons'
-
 import { faGithub, faLinkedin } from '@fortawesome/free-brands-svg-icons'
+import { faTimes } from '@fortawesome/free-solid-svg-icons'
 import { faEnvelope } from '@fortawesome/free-solid-svg-icons'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import SkillCard from 'components/Card/SkillCardRedux'
+import React, { useEffect, useState } from 'react'
+import { TypeAnimation } from 'react-type-animation'
 import useScreenSize from 'utils/useScreenSize'
 
-import { TypeAnimation } from 'react-type-animation'
+import { useDarkMode } from '@/context/DarkModeContext'
+
+import DarkModeToggleWrapper from '../Toggle/DarkModeToggleWrapper'
 
 interface SideBarProps {
   showSidebar: boolean
@@ -65,7 +65,7 @@ const SideBar: React.FC<SideBarProps> = ({ showSidebar, closeSidebar }) => {
         {
           name: 'English ',
           value: '85'
-        },
+        }
       ]
     },
     {
@@ -86,9 +86,9 @@ const SideBar: React.FC<SideBarProps> = ({ showSidebar, closeSidebar }) => {
         {
           name: 'Database',
           value: '70'
-        },
+        }
       ]
-    },
+    }
   ]
 
   return (
@@ -122,11 +122,11 @@ const SideBar: React.FC<SideBarProps> = ({ showSidebar, closeSidebar }) => {
           </div>
         )}
         <div className="flex flex-col items-center">
-          <div className="relative mb-2 h-40 w-40 overflow-hidden rounded-full border-4 border-green-200">
+          <div className="relative mb-2 size-40 overflow-hidden rounded-full border-4 border-green-200">
             <img
               src="https://avatars.githubusercontent.com/u/36178784?v=4"
               alt="Name"
-              className={`h-full w-full rounded-full object-cover transition-transform hover:scale-110 hover:shadow-lg`}
+              className={`size-full rounded-full object-cover transition-transform hover:scale-110 hover:shadow-lg`}
             />
           </div>
           <p

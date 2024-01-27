@@ -1,8 +1,9 @@
-import React, { ReactNode, useState } from 'react'
 import './ProjectCard.scss'
+
+import IconWrapper from 'components/Icons/IconWrapper'
 import { useDarkMode } from 'context/DarkModeContext'
 import { useModal } from 'context/ModalContext'
-import IconWrapper from 'components/Icons/IconWrapper'
+import React, { ReactNode, useState } from 'react'
 
 interface StackItem {
   component: ReactNode
@@ -71,7 +72,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
         )}
         {imageLoaded && (
           <>
-            <div className="absolute -bottom-1 left-0 right-0 rounded-b-md bg-gradient-to-t from-gray-900 to-gray-950 px-4 py-2">
+            <div className="absolute inset-x-0 -bottom-1 rounded-b-md bg-gradient-to-t from-gray-900 to-gray-950 px-4 py-2">
               <h2 className="mb-2 text-xl font-bold text-white">{title}</h2>
             </div>
           </>

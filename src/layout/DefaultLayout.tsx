@@ -1,13 +1,15 @@
 import './DefaultLayout.scss'
-import React, { useState, useEffect } from 'react'
-import { CSSTransition } from 'react-transition-group'
-import { Outlet, useLocation } from 'react-router-dom'
-import useScreenSize from 'utils/useScreenSize'
-import SideBar from 'components/SideBar/SideBar'
+
 import RightSidebar from 'components/SideBar/RightSidebar'
-import BurgerIcon from '@/components/Icons/Hamburger'
-import { useDarkMode } from 'context/DarkModeContext'
+import SideBar from 'components/SideBar/SideBar'
 import DarkModeToggleWrapper from 'components/Toggle/DarkModeToggleWrapper'
+import { useDarkMode } from 'context/DarkModeContext'
+import React, { useEffect, useState } from 'react'
+import { Outlet, useLocation } from 'react-router-dom'
+import { CSSTransition } from 'react-transition-group'
+import useScreenSize from 'utils/useScreenSize'
+
+import BurgerIcon from '@/components/Icons/Hamburger'
 
 const DefaultLayout: React.FC = () => {
   const { isDark } = useDarkMode()
@@ -113,7 +115,7 @@ const DefaultLayout: React.FC = () => {
             isDark ? 'from-black to-gray-800' : 'from-gray-50 to-slate-50'
           } overflow-x-hidden via-transparent`}
         >
-          <div className="sticky top-0 z-50 flex items-center justify-between mb-[-15px]">
+          <div className="sticky top-0 z-50 mb-[-15px] flex items-center justify-between">
             <div
               onClick={toggleSidebar}
               aria-label={showSidebar ? 'Close Sidebar' : 'Open Sidebar'}

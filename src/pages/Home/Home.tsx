@@ -1,38 +1,38 @@
 import './Home.scss'
+
+import { faFlask, faMeteor, faPlane } from '@fortawesome/free-solid-svg-icons'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import ContentCard from 'components/Card/ContentCard'
 import { useDarkMode } from 'context/DarkModeContext'
-import TechIcon from '@/components/Icons/TechIcon'
-import useScreenSize from 'utils/useScreenSize'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faMeteor, faFlask, faPlane } from '@fortawesome/free-solid-svg-icons'
-import AboutMeTerminal from '@/components/Terminal/AboutMeTerminal'
-
 import {
-  NuxtjsOriginal,
-  ReactOriginal,
-  SolidityOriginal,
-  ElectronOriginal,
-  PhpPlain,
-  LaravelOriginal,
   DockerPlain,
-  KubernetesPlain,
+  ElectronOriginal,
+  Html5Plain,
   JavaPlain,
   JavascriptPlain,
-  PythonPlain,
-  Html5Plain,
-  MysqlOriginal,
+  KubernetesPlain,
+  LaravelOriginal,
   MongodbOriginal,
+  MysqlOriginal,
+  NuxtjsOriginal,
+  PhpPlain,
+  PythonPlain,
+  ReactOriginal,
+  SolidityOriginal,
   TypescriptPlain
 } from 'devicons-react'
-
 import React, {
-  ReactSVGElement,
   ReactElement,
   ReactNode,
-  useRef,
-  useEffect
+  ReactSVGElement,
+  useEffect,
+  useRef
 } from 'react'
+import useScreenSize from 'utils/useScreenSize'
+
 import ProjectCard from '@/components/Card/ProjectCard'
+import TechIcon from '@/components/Icons/TechIcon'
+import AboutMeTerminal from '@/components/Terminal/AboutMeTerminal'
 import achievementsData from '@/data/achievementsData'
 
 type IconProps = {
@@ -160,7 +160,7 @@ const Home: React.FC = () => {
                 >
                   <div className="mb-3 flex items-center">
                     <div
-                      className={`mr-3 inline-flex h-8 w-8 flex-shrink-0 items-center justify-center rounded-full ${
+                      className={`mr-3 inline-flex size-8 flex-shrink-0 items-center justify-center rounded-full ${
                         isDark ? 'bg-emerald-500' : 'bg-emerald-700 text-white'
                       }`}
                     >
