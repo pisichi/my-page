@@ -35,7 +35,7 @@ const AboutMeTerminal = () => {
         <span className={`${isDark ? 'text-blue-600' : 'text-blue-700'}`}>
           ~
         </span>
-        $
+        #
         <span className={`${isDark ? 'text-white' : 'text-black'}`}>
           {!showContent && (
             <TypeAnimation speed={1} sequence={[' cat about_me.txt']} />
@@ -56,10 +56,9 @@ const AboutMeTerminal = () => {
             <span className={`${isDark ? 'text-blue-600' : 'text-blue-700'}`}>
               ~
             </span>
-            $
+            #
             <span className={`${isDark ? 'text-white' : 'text-black'}`}>
-              {' '}
-              <TypeAnimation sequence={['']} />
+              {/* <TypeAnimation sequence={['']} /> */}
             </span>
           </>
         )}

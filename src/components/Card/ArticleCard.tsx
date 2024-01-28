@@ -1,9 +1,8 @@
-import './ArticleCard.scss'
-
-import IconWrapper from 'components/Icons/IconWrapper'
+import React, { ReactNode, useState, useCallback, useEffect } from 'react'
 import { useDarkMode } from 'context/DarkModeContext'
 import { useModal } from 'context/ModalContext'
-import React, { ReactNode, useState } from 'react'
+import IconWrapper from 'components/Icons/IconWrapper'
+import './ArticleCard.scss'
 
 interface StackItem {
   component: ReactNode
@@ -31,23 +30,40 @@ const ArticleCard: React.FC<ArticleCardProps> = ({
   const [isHovered, setHovered] = useState(false)
   const [imageLoaded, setImageLoaded] = useState(false)
   const [imageError, setImageError] = useState(false)
-  const customClassName = ''
 
-  const handleOpenModal = () => {
-    openModal(content, title, {}, customClassName)
-  }
+  const handleOpenModal = useCallback(() => {
+    openModal(content, title, {}, '')
+  }, [content, openModal, title])
 
-  const handleImageLoad = () => {
+  const handleImageLoad = useCallback(() => {
     setImageLoaded(true)
-    console.log('loaded!')
-  }
+  }, [])
 
-  const handleImageError = () => {
+  const handleImageError = useCallback(() => {
     setImageError(true)
-  }
+  }, [])
+
+  useEffect(() => {
+    const debouncedHandleHover = debounce(setHovered, 300)
+
+    const handleMouseEnter = () => debouncedHandleHover(true)
+    const handleMouseLeave = () => debouncedHandleHover(false)
+
+    const element = document.getElementById(`article-card-${title}`)
+    element?.addEventListener('mouseenter', handleMouseEnter)
+    element?.addEventListener('mouseleave', handleMouseLeave)
+
+    return () => {
+      element?.removeEventListener('mouseenter', handleMouseEnter)
+      element?.removeEventListener('mouseleave', handleMouseLeave)
+    }
+  }, [title])
+
+  const MemoizedIconWrapper = React.memo(IconWrapper)
 
   return (
     <div
+      id={`article-card-${title}`}
       className={`project-card relative mx-auto cursor-pointer rounded-md shadow-md hover:scale-[1.03] md:max-w-96 lg:max-w-2xl ${
         isHovered ? 'hovered' : ''
       } ${imageLoaded ? 'image-loaded' : ''} ${
@@ -75,7 +91,7 @@ const ArticleCard: React.FC<ArticleCardProps> = ({
             <div
               className={`absolute inset-x-0 -bottom-1 rounded-b-md bg-gradient-to-t ${
                 isDark
-                  ? 'from-gray-900 to-gray-950 text-gray-300'
+                  ? 'from-gray-900 to-gray-800 text-gray-300'
                   : 'from-gray-100 to-slate-100 text-gray-800'
               }  px-4 py-2`}
             >
@@ -103,13 +119,13 @@ const ArticleCard: React.FC<ArticleCardProps> = ({
                 stack.map((icon, index) => (
                   <div
                     key={index}
-                    className={`hexagon2 z-5 mr-2 p-[1.8px] shadow-md`}
+                    className={`hexagon2 z-5 mr-2 p-[2px] shadow-md`}
                     style={{ backgroundColor: icon.color }}
                   >
                     <div className="hexagon p-[0.5rem]">
-                      <IconWrapper iconColor={icon.color}>
+                      <MemoizedIconWrapper iconColor={icon.color}>
                         {icon.component}
-                      </IconWrapper>
+                      </MemoizedIconWrapper>
                     </div>
                   </div>
                 ))}
@@ -122,3 +138,11 @@ const ArticleCard: React.FC<ArticleCardProps> = ({
 }
 
 export default ArticleCard
+
+function debounce<T extends (...args: any[]) => void>(func: T, delay: number) {
+  let timeoutId: ReturnType<typeof setTimeout>
+  return function (this: ThisParameterType<T>, ...args: Parameters<T>) {
+    clearTimeout(timeoutId)
+    timeoutId = setTimeout(() => func.apply(this, args), delay)
+  }
+}
