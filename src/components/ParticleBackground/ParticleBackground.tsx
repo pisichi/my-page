@@ -1,5 +1,4 @@
 import './ParticleBackground.scss'
-
 import type { Container } from '@tsparticles/engine'
 import Particles, { initParticlesEngine } from '@tsparticles/react'
 import { loadSlim } from '@tsparticles/slim'
@@ -9,8 +8,7 @@ import { useCallback, useEffect, useState } from 'react'
 const ParticleBackground = () => {
   const [init, setInit] = useState(false)
   const { isDark } = useDarkMode()
-
-  // this should be run only once per application lifetime
+  
   useEffect(() => {
     initParticlesEngine(async (engine) => {
       await loadSlim(engine)
@@ -19,38 +17,20 @@ const ParticleBackground = () => {
     })
   }, [])
 
-  const particlesLoaded = async (container?: Container) => {
-    if (container) {
-      console.log(container)
-    }
-  }
-
   if (init) {
     return (
       init && (
         <Particles
           id="tsparticles"
-          particlesLoaded={particlesLoaded}
           options={{
-            fpsLimit: 120,
+            fpsLimit: 75,
             interactivity: {
               events: {
                 onClick: {
-                  enable: true,
-                  mode: 'push'
+                  enable: false // Disable click interaction
                 },
                 onHover: {
-                  enable: true,
-                  mode: 'repulse'
-                }
-              },
-              modes: {
-                push: {
-                  quantity: 4
-                },
-                repulse: {
-                  distance: 200,
-                  duration: 0.4
+                  enable: false // Disable hover interaction
                 }
               }
             },
@@ -60,19 +40,19 @@ const ParticleBackground = () => {
               },
               links: {
                 color: isDark ? '#ffffff' : '#000000',
-                distance: 150,
+                distance: 150, // Adjust the distance for links
                 enable: true,
-                opacity: 0.5,
+                opacity: 0.5, // Reduce link opacity
                 width: 1
               },
               move: {
                 direction: 'none',
                 enable: true,
                 outModes: {
-                  default: 'bounce'
+                  default: 'out'
                 },
                 random: false,
-                speed: 2,
+                speed: 1, // Adjust particle speed
                 straight: false
               },
               number: {
@@ -80,10 +60,10 @@ const ParticleBackground = () => {
                   enable: true
                 },
                 limit: {
-                  value: 150,
+                  value: 120, // Adjust the particle limit
                   mode: 'delete'
                 },
-                value: 120
+                value: 120 // Adjust the initial particle value
               },
               opacity: {
                 value: 0.5
@@ -92,7 +72,7 @@ const ParticleBackground = () => {
                 type: 'circle'
               },
               size: {
-                value: { min: 1, max: 5 }
+                value: { min: 1, max: 5 } // Adjust the size range
               }
             },
             detectRetina: true

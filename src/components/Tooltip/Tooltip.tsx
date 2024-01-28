@@ -3,9 +3,10 @@ import React, { useState, ReactNode, MouseEvent, useEffect } from 'react'
 interface TooltipProps {
   text: string
   children: ReactNode
+  className?: string
 }
 
-const Tooltip: React.FC<TooltipProps> = ({ text, children }) => {
+const Tooltip: React.FC<TooltipProps> = ({ text, children, className }) => {
   const [tooltipPosition, setTooltipPosition] = useState({ x: 0, y: 0 })
   const [isTooltipVisible, setTooltipVisible] = useState(false)
 
@@ -40,7 +41,7 @@ const Tooltip: React.FC<TooltipProps> = ({ text, children }) => {
 
   return (
     <div
-      className="relative"
+      className={`relative ${className}`}
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
     >

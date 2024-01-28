@@ -103,11 +103,14 @@ const ArticleCard: React.FC<ArticleCardProps> = ({
                 stack.map((icon, index) => (
                   <div
                     key={index}
-                    className="hexagon z-5 mr-2 bg-gray-700 p-[0.5rem] shadow-md"
+                    className={`hexagon2 z-5 mr-2 p-[1.8px] shadow-md`}
+                    style={{ backgroundColor: icon.color }}
                   >
-                    <IconWrapper iconColor={icon.color}>
-                      {icon.component}
-                    </IconWrapper>
+                    <div className="hexagon p-[0.5rem]">
+                      <IconWrapper iconColor={icon.color}>
+                        {icon.component}
+                      </IconWrapper>
+                    </div>
                   </div>
                 ))}
             </div>

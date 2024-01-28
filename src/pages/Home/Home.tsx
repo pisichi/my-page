@@ -96,11 +96,6 @@ const Home: React.FC = () => {
           About Me
         </h2>
       </div>
-      <div className="mb-4">
-        <div className=" p-4">
-          About Me Hi, I am <span className="highlight">Name</span>
-        </div>
-      </div>
 
       <AboutMeTerminal />
 
@@ -202,11 +197,11 @@ const Home: React.FC = () => {
       <div
         className={`flex rounded-md ${
           isDark ? 'bg-gray-800' : 'bg-gray-100'
-        } px-8 py-3 mt-8 mb-2 justify-center`}
+        } mb-2 mt-8 justify-center px-8 py-3`}
       >
-          <p className="text-gray-500">
-            Pisichi's Personal Website &copy; 2024
-          </p>
+        <p className="text-gray-500">
+          Pisichi&#39;s Personal Website &copy; 2024
+        </p>
       </div>
     </div>
   )

@@ -9,28 +9,7 @@ type IconProps = {
 }
 
 const TechIcon: React.FC<IconProps> = ({ component, iconColor, iconKey }) => {
-  const iconContainerRef = useRef<HTMLDivElement>(null)
   const { isDark } = useDarkMode()
-
-  useEffect(() => {
-    const elementsToUpdate =
-      iconContainerRef.current?.querySelectorAll('[fill]')
-    if (elementsToUpdate) {
-      elementsToUpdate.forEach((element) => {
-        element.setAttribute('fill', iconColor)
-      })
-    }
-  }, [iconColor])
-
-  useEffect(() => {
-    const pathsToUpdate = iconContainerRef.current?.querySelectorAll('path')
-    if (pathsToUpdate) {
-      pathsToUpdate.forEach((path) => {
-        path.setAttribute('fill', iconColor)
-      })
-    }
-  }, [iconColor])
-
   return (
     <div className="group mx-2 my-1 transform-gpu transition-transform hover:scale-110">
       <div

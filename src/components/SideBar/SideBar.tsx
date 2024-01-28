@@ -122,8 +122,8 @@ const SideBar: React.FC<SideBarProps> = ({ showSidebar, closeSidebar }) => {
         }`}
       >
         <div className="absolute left-4 top-4">
-        <Tooltip text="Toggle Dark Mode">
-          <DarkModeToggleWrapper />
+          <Tooltip text="Toggle Dark Mode">
+            <DarkModeToggleWrapper />
           </Tooltip>
         </div>
         {isMobile && (
@@ -212,7 +212,7 @@ const SideBar: React.FC<SideBarProps> = ({ showSidebar, closeSidebar }) => {
             isDark ? 'text-white' : 'text-gray-800'
           }`}
         />
-        <Tooltip text="test@test.test">
+        <Tooltip text="test@test.test" className="cursor-pointer">
           <FontAwesomeIcon
             icon={faEnvelope}
             size="xl"
