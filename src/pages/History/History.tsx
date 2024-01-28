@@ -7,20 +7,61 @@ const History: React.FC = () => {
 
   const history = [
     {
-      year: '2019',
+      year: '2024',
       events: [
         {
-          name: 'test1',
-          content: 'test1 lorem lorem'
+          name: '...',
+          content: 'Coming soon...'
         }
       ]
     },
     {
-      year: '2020',
+      year: '2021 - 2023',
       events: [
         {
-          name: 'test1',
-          content: 'test1 lorem lorem'
+          name: 'Full Stack Developer',
+          content: (
+            <div>
+              <p className="mb-2">
+                <strong>
+                  <span className="text-blue-400"> ZUPPORTS </span> (Startup
+                  from <span className="text-red-400"> SCG </span> Zero to One)
+                </strong>
+              </p>
+              <p className="mb-4">
+                ZUPPORTS is an internal startup of Siam Cement Group (SCG) that
+                delivers digital transformation for B2B supply chain.
+              </p>
+              <ul className="mb-4 list-inside list-disc pl-6">
+                <li>
+                  Developing, maintaining, and enhancing software solutions to
+                  meet the company's goals.
+                </li>
+                <li>
+                  Building highly scalable web applications, contributing
+                  significantly to the success of the business.
+                </li>
+                <li>
+                  Utilized Agile development methodologies to ensure efficient
+                  project management and faster delivery of high-quality
+                  software.
+                </li>
+                <li>
+                  Collaborated closely with a cross-functional team of
+                  designers, project owners, and testers, ensuring a
+                  comprehensive understanding of problem requirements.
+                </li>
+                <li>
+                  Worked collectively to design software solutions that
+                  precisely aligned with the specified requirements.
+                </li>
+                <li>
+                  Proficient in breaking down complex problems into technical
+                  tasks to facilitate efficient development processes.
+                </li>
+              </ul>
+            </div>
+          )
         }
       ]
     },
@@ -30,20 +71,20 @@ const History: React.FC = () => {
         {
           name: 'Bachelor’s degree ,Computer Science',
           content: (
-            <ul className="list-inside list-disc space-y-4">
-              <li>
+            <div>
+              <div>
                 <strong>
                   King Mongkut's Institute of Technology Ladkrabang
                 </strong>
-                <p className="mb-2">GPA: 3.64 (First Class Honors)</p>
-
-                <ul className="list-inside list-disc pl-4">
-                  <li>CS CAMP 10, 11 KMITL 2018 - 2019</li>
-                  <li>TWBG Hackathon 2020</li>
-                  <li>ASEAN Data Science Explorer (National Final) 2020</li>
-                </ul>
-              </li>
-            </ul>
+                {'  '}
+                GPA: 3.64 (First Class Honors🥇)
+              </div>
+              <ul className="list-inside list-disc pl-4">
+                <li>CS CAMP 10, 11 KMITL 2018 - 2019</li>
+                <li>TWBG Hackathon 2020</li>
+                <li>ASEAN Data Science Explorer (National Final) 2020</li>
+              </ul>
+            </div>
           )
         }
       ]
@@ -55,7 +96,7 @@ const History: React.FC = () => {
           name: 'Science & Mathematics Program',
           content: (
             <div>
-              <ul className="list-inside list-disc space-y-1">
+              <ul className="list-inside list-disc pl-4">
                 <li>Bodindecha (sing singhaseni) 2 GPA 3.71</li>
                 <li> Bodindecha (sing singhaseni) GPA 3.49 </li>
               </ul>

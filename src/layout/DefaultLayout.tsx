@@ -34,7 +34,7 @@ const DefaultLayout: React.FC = () => {
   }, [])
 
   const menuItems = [
-    { id: 1, label: 'Home', link: '/' },
+    { id: 1, label: 'Main', link: '/' },
     { id: 2, label: 'History', link: '/history' },
     { id: 3, label: 'Skill', link: '/skill' },
     { id: 4, label: 'Achievement', link: '/achievement' },
@@ -80,7 +80,7 @@ const DefaultLayout: React.FC = () => {
       .map((part, index) => (
         <React.Fragment key={index}>
           {index > 0 ? '/' : ''}
-          {part ? part.charAt(0).toUpperCase() + part.slice(1) : 'Home'}
+          {part ? part.charAt(0).toUpperCase() + part.slice(1) : 'Main'}
         </React.Fragment>
       ))
   }

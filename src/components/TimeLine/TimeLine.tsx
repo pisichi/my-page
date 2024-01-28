@@ -55,15 +55,17 @@ const TimeLine: React.FC<TimeLineProps> = ({ History }) => {
         <div
           className={`${
             isDark ? 'bg-gray-800' : 'bg-gray-100'
-          } rounded-md p-4 transform transition-transform group-hover:scale-[1.01]`}
+          } transform rounded-md p-4 transition-transform group-hover:scale-[1.01]`}
           onMouseEnter={() =>
             handleMouseEnter(yearIndex * yearData.events.length + eventIndex)
           }
           onMouseLeave={handleMouseLeave}
         >
-          <div className="flex items-center justify-between">
-            <div className="text-lg font-bold">{event.name}</div>
-            <div className="ml-2 text-gray-200">({yearData.year})</div>
+          <div className="flex flex-col justify-between md:flex-row">
+            <div className="mb-2 text-lg font-bold md:mb-0 md:mr-2">
+              {event.name}
+            </div>
+            <div className="text-gray-200">{yearData.year}</div>
           </div>
           <div
             className={`${

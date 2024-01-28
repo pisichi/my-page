@@ -37,6 +37,7 @@ const projectsData: Article[] = [
   {
     title: 'This Very Site👋',
     img_url: 'https://placehold.co/600x400',
+    tags: ['practice'],
     stack: [
       {
         component: <ReactOriginal size={iconSize} />,
@@ -66,6 +67,7 @@ const projectsData: Article[] = [
   {
     title: 'Fabric-Manager',
     img_url: 'https://placehold.co/600x400',
+    tags: ['academic'],
     stack: [
       {
         component: <VuejsOriginal size={iconSize} />,
@@ -110,6 +112,7 @@ const projectsData: Article[] = [
   {
     title: 'EPUB Auto Editor',
     img_url: 'https://placehold.co/600x400',
+    tags: ['practice'],
     stack: [
       {
         component: <PythonOriginal size={iconSize} />,
@@ -125,6 +128,7 @@ const projectsData: Article[] = [
     title: 'Restaurants-list-Vue-Laravel',
     img_url:
       'https://camo.githubusercontent.com/3075f7e5fd2926a030036fe8dc43771659957469ddd8ffc8f8c0a0985bccac30/68747470733a2f2f692e696d6775722e636f6d2f4d4b543268746e2e706e67',
+    tags: ['practice'],
     stack: [
       {
         component: <PhpPlain size={iconSize} />,
@@ -155,6 +159,7 @@ const projectsData: Article[] = [
   {
     title: 'Covid 2019 Tracker JSP',
     img_url: 'https://placehold.co/600x400',
+    tags: ['academic'],
     stack: [
       {
         component: <JavaPlain size={iconSize} />,
@@ -170,6 +175,7 @@ const projectsData: Article[] = [
   {
     title: 'TALES-WAR',
     img_url: 'https://placehold.co/600x400',
+    tags: ['fun', 'academic'],
     stack: [
       {
         component: <CsharpLine size={iconSize} />,
@@ -183,6 +189,7 @@ const projectsData: Article[] = [
   },
   {
     title: 'Lóng Ball',
+    tags: ['fun', 'academic'],
     img_url:
       'https://camo.githubusercontent.com/44f153e04096cc8e078631efd3cac3bf6baf23d7c04e3869ef23f12a01cf0ac3/68747470733a2f2f692e696d6775722e636f6d2f66707548436e702e706e67',
     stack: [
@@ -198,6 +205,7 @@ const projectsData: Article[] = [
   },
   {
     title: 'Campaign webapp solidity',
+    tags: ['academic'],
     img_url:
       'https://camo.githubusercontent.com/d7636ca09c016cbe1a25532143277459f1ae63559f7e4d1ef6bbea20c04a3f0b/68747470733a2f2f692e696d6775722e636f6d2f553335755250562e706e67',
     stack: [
@@ -228,6 +236,7 @@ const projectsData: Article[] = [
   },
   {
     title: 'hangman-docker',
+    tags: ['fun', 'academic'],
     img_url:
       'https://camo.githubusercontent.com/9b216e1b1603498215496982ebb7b5202aa5271d7b699a7bafa926b95cd3221d/68747470733a2f2f692e696d6775722e636f6d2f3165544b75716d2e706e67',
     stack: [

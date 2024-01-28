@@ -97,7 +97,7 @@ const Home: React.FC = () => {
         'Git workflow using branches, pull requests, and code reviews. MVP and agile methodologies for project development.'
     },
     {
-      title: 'Continuous Learning Enthusiast',
+      title: 'Continuous Learner',
       icon: faForwardFast,
       description:
         'Thrive on learning new tech. Actively exploring emerging technologies as an integral part of the commitment to personal and professional growth.'
@@ -106,11 +106,11 @@ const Home: React.FC = () => {
 
   return (
     <div className="overflow-x-hidden">
-      <div className="flex">
+      {/* <div className="flex">
         <h2 className="mb-5 flex-1 border-b-2 border-solid border-gray-500 p-2 text-2xl font-bold">
           About Me
         </h2>
-      </div>
+      </div> */}
 
       <AboutMeTerminal />
 
@@ -130,45 +130,41 @@ const Home: React.FC = () => {
         ))}
       </div>
 
-      <section className={`body-font text-${isDark ? 'white' : 'gray-600'}`}>
-        <div className="mx-auto px-5 py-5">
-          <div className="-m-4 flex flex-wrap justify-center">
-            {cardData.map((card, index) => (
-              <div key={index} className="p-4 md:w-1/3">
-                <div
-                  className={`flex h-full flex-col rounded-lg shadow-md ${
-                    isDark ? 'bg-gray-800' : 'bg-gray-100'
-                  } px-2 py-5`}
-                >
-                  <div className="mb-3 flex items-center justify-center">
-                    <div
-                      className={`inline-flex size-16 flex-shrink-0 items-center justify-center rounded-full ${
-                        isDark ? 'bg-emerald-500' : 'bg-emerald-700 text-white'
-                      }`}
-                    >
-                      <FontAwesomeIcon
-                        icon={card.icon}
-                        size="2xl"
-                        className="text-white"
-                      />
-                    </div>
-                  </div>
-                  <div className="flex-grow text-center">
-                    <h2 className="title-font text-center text-lg font-medium">
-                      {card.title}
-                    </h2>
-                  </div>
-                  <div className="flex-grow text-center">
-                    <p className="text-sm leading-relaxed">
-                      {card.description}
-                    </p>
+      <div className="mx-auto px-5 py-5">
+        <div className="-m-4 flex flex-wrap justify-center">
+          {cardData.map((card, index) => (
+            <div key={index} className="p-4 md:w-1/3">
+              <div
+                className={`flex h-full flex-col rounded-lg shadow-md ${
+                  isDark ? 'bg-gray-800' : 'bg-gray-100'
+                } px-2 py-5`}
+              >
+                <div className="mb-3 flex items-center justify-center">
+                  <div
+                    className={`inline-flex size-16 flex-shrink-0 items-center justify-center rounded-full border-4 border-gray-300 ${
+                      isDark ? 'bg-emerald-500' : 'bg-emerald-700'
+                    }`}
+                  >
+                    <FontAwesomeIcon
+                      icon={card.icon}
+                      size="2xl"
+                      className="text-white"
+                    />
                   </div>
                 </div>
+                <div className="flex-grow text-center">
+                  <h2 className="title-font text-center text-lg font-medium">
+                    {card.title}
+                  </h2>
+                </div>
+                <div className="flex-grow text-center">
+                  <p className="text-sm leading-relaxed">{card.description}</p>
+                </div>
               </div>
-            ))}
-          </div>
+            </div>
+          ))}
         </div>
-      </section>
+      </div>
 
       <div className="flex">
         <h2 className="mb-5 flex-1 border-b-2 border-solid border-gray-500 p-2 text-2xl font-bold">

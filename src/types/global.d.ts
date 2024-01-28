@@ -15,6 +15,6 @@ declare global {
     stack: StackItem[]
     content: ReactNode
     description: string
-    tag?: string
+    tags?: string[]
   }
 }
