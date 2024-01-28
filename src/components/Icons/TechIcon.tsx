@@ -10,6 +10,7 @@ type IconProps = {
 
 const TechIcon: React.FC<IconProps> = ({ component, iconColor, iconKey }) => {
   const { isDark } = useDarkMode()
+
   return (
     <div className="group mx-2 my-1 transform-gpu transition-transform hover:scale-110">
       <div
@@ -19,7 +20,7 @@ const TechIcon: React.FC<IconProps> = ({ component, iconColor, iconKey }) => {
       >
         <IconWrapper iconColor={iconColor}>{component}</IconWrapper>
         <div
-          className="mt-2 cursor-default whitespace-nowrap text-center text-sm font-semibold"
+          className={`mt-2 cursor-default whitespace-nowrap text-center text-sm font-semibold`}
           style={{ color: iconColor }}
         >
           {iconKey}
@@ -29,4 +30,4 @@ const TechIcon: React.FC<IconProps> = ({ component, iconColor, iconKey }) => {
   )
 }
 
-export default TechIcon
+export default React.memo(TechIcon)

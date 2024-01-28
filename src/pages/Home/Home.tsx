@@ -1,6 +1,15 @@
 import './Home.scss'
 
-import { faFlask, faMeteor, faPlane } from '@fortawesome/free-solid-svg-icons'
+import {
+  faFlask,
+  faForwardFast,
+  faLaptopCode,
+  faMeteor,
+  faPersonRunning,
+  faPlane,
+  faTerminal,
+  faUsersBetweenLines
+} from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import ContentCard from 'components/Card/ContentCard'
 import { useDarkMode } from 'context/DarkModeContext'
@@ -64,28 +73,34 @@ const Home: React.FC = () => {
 
   const cardData = [
     {
-      title: 'Shooting Stars',
-      icon: faMeteor,
+      title: 'Front-end Development',
+      icon: faLaptopCode,
       description:
-        'Blue bottle crucifix vinyl post-ironic four dollar toast vegan taxidermy. Gastropub indxgo juice poutine.'
+        'Responsive and user-friendly layouts. Whether starting from scratch or leveraging various UI frameworks.'
     },
     {
-      title: 'The Catalyzer',
-      icon: faFlask,
+      title: 'Back-end Development',
+      icon: faTerminal,
       description:
-        'Blue bottle crucifix vinyl post-ironic four dollar toast vegan taxidermy. Gastropub indxgo juice poutine.'
+        'Applications with RESTful and secure back-ends, including handling authorizations and implementing database validations.'
     },
     {
-      title: 'Neptune',
-      icon: faPlane,
+      title: 'Best Practices Advocate',
+      icon: faPersonRunning,
       description:
-        'Blue bottle crucifix vinyl post-ironic four dollar toast vegan taxidermy. Gastropub indxgo juice poutine.'
+        'Clean code, adherence to naming conventions, and application of pattern principles.'
     },
     {
-      title: 'Neptune',
-      icon: faPlane,
+      title: 'Team Collaboration',
+      icon: faUsersBetweenLines,
       description:
-        'Blue bottle crucifix vinyl post-ironic four dollar toast vegan taxidermy. Gastropub indxgo juice poutine.'
+        'Git workflow using branches, pull requests, and code reviews. MVP and agile methodologies for project development.'
+    },
+    {
+      title: 'Continuous Learning Enthusiast',
+      icon: faForwardFast,
+      description:
+        'Thrive on learning new tech. Actively exploring emerging technologies as an integral part of the commitment to personal and professional growth.'
     }
   ]
 
@@ -123,25 +138,28 @@ const Home: React.FC = () => {
                 <div
                   className={`flex h-full flex-col rounded-lg shadow-md ${
                     isDark ? 'bg-gray-800' : 'bg-gray-100'
-                  } p-8`}
+                  } px-2 py-5`}
                 >
-                  <div className="mb-3 flex items-center">
+                  <div className="mb-3 flex items-center justify-center">
                     <div
-                      className={`mr-3 inline-flex size-8 flex-shrink-0 items-center justify-center rounded-full ${
+                      className={`inline-flex size-16 flex-shrink-0 items-center justify-center rounded-full ${
                         isDark ? 'bg-emerald-500' : 'bg-emerald-700 text-white'
                       }`}
                     >
                       <FontAwesomeIcon
                         icon={card.icon}
+                        size="2xl"
                         className="text-white"
                       />
                     </div>
-                    <h2 className="title-font text-lg font-medium">
+                  </div>
+                  <div className="flex-grow text-center">
+                    <h2 className="title-font text-center text-lg font-medium">
                       {card.title}
                     </h2>
                   </div>
-                  <div className="flex-grow">
-                    <p className="text-base leading-relaxed">
+                  <div className="flex-grow text-center">
+                    <p className="text-sm leading-relaxed">
                       {card.description}
                     </p>
                   </div>

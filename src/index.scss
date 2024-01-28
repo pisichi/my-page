@@ -11,20 +11,12 @@
 
 :root {
   --background-color: #f9fafb;
-  --secondary-background-color: #e2e8f0;
-  --foreground-color: #1f2937;
-  --primary-text-color: #000000; /* Adjusted to a dark gray for better readability */
-  --secondary-text-color: #1e293b;
   --toggle-bg: #4a5568;
   --toggle-fg: #2d3748;
 }
 
 [data-theme='dark'] {
   --background-color: #111827;
-  --secondary-background-color: #1f2937;
-  --foreground-color: #1f2937;
-  --primary-text-color: #ffffff;
-  --secondary-text-color: #6b7280; /* Adjusted to a dark gray for better readability */
   --toggle-bg: #4a5568;
   --toggle-fg: #c4dce0;
 }

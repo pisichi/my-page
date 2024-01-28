@@ -26,6 +26,7 @@ const RightSidebar: React.FC<RightSidebarProps> = ({
 }) => {
   const { isDark } = useDarkMode()
   const { isMobile } = useScreenSize()
+  const location = useLocation()
 
   const getWidth = () => {
     if (showRightSidebar) {
@@ -36,7 +37,6 @@ const RightSidebar: React.FC<RightSidebarProps> = ({
       return '5rem'
     }
   }
-
   return (
     <>
       {/* Backdrop overlay */}
@@ -80,7 +80,7 @@ const RightSidebar: React.FC<RightSidebarProps> = ({
           {menuItems.map((menuItem, index) => (
             <div
               key={menuItem.id}
-              className={`mb-4 transition-all duration-700 ease-in-out ${
+              className={`mb-4 transition-all duration-700 ${
                 showRightSidebar ? 'translate-x-0' : 'translate-x-full'
               }`}
               style={{ transitionDelay: `${index * 150}ms` }}

@@ -30,7 +30,6 @@ const SkillCard: React.FC<SkillCardProps> = ({ category, skills }) => {
   useEffect(() => {
     if (!mounted) return
 
-    const delay = 100 // in milliseconds
     const skillCardElement = skillCardRef.current
 
     if (skillCardElement) {
@@ -41,7 +40,7 @@ const SkillCard: React.FC<SkillCardProps> = ({ category, skills }) => {
         skillCardElement.style.transition = 'opacity 0.5s, transform 0.5s'
         skillCardElement.style.opacity = '1'
         skillCardElement.style.transform = 'translateY(0)'
-      }, delay)
+      }, 100)
     }
 
     // Filling animation for each skill bar with random delays
@@ -52,16 +51,14 @@ const SkillCard: React.FC<SkillCardProps> = ({ category, skills }) => {
       const textElement = skillCardElement?.querySelector(
         `#text-${index}`
       ) as HTMLElement
-      const randomDelay = Math.random() * 600
 
       if (barElement && textElement) {
-        barElement.style.transition = `width 1.5s ${randomDelay}ms`
+        barElement.style.transition = `width 1.5s ${500}ms`
         barElement.style.width = `${skill.value}%`
 
-        textElement.style.transition = `opacity 0.5s ${randomDelay}ms`
+        textElement.style.transition = `opacity 0.5s ${100}ms`
         textElement.style.opacity = '1'
 
-        // Increment animation for each skill bar
         const targetValue = parseInt(skill.value, 10)
         const duration = 1800
         const startValue = 0
@@ -73,7 +70,7 @@ const SkillCard: React.FC<SkillCardProps> = ({ category, skills }) => {
           const progress = timestamp - startTime
           let newValue =
             startValue + ((targetValue - startValue) * progress) / duration
-          newValue = Math.min(newValue, targetValue) // Clamp to targetValue
+          newValue = Math.min(newValue, targetValue)
 
           textElement.innerText = `${Math.round(newValue)}%`
 
@@ -90,14 +87,12 @@ const SkillCard: React.FC<SkillCardProps> = ({ category, skills }) => {
     })
 
     // Cleanup after animations are expected to finish
-    const totalAnimationTime = 1800
     setTimeout(() => {
       if (skillCardElement) {
         skillCardElement.style.transition = ''
       }
-    }, totalAnimationTime)
+    }, 1800)
   }, [mounted, skills])
-
   return (
     <div
       ref={skillCardRef}
@@ -118,8 +113,7 @@ const SkillCard: React.FC<SkillCardProps> = ({ category, skills }) => {
                   id={`bar-${index}`}
                   className={`h-[9px] rounded ${getBarColor(
                     Number(skill.value)
-                  )}
-                  `}
+                  )}`}
                   style={{ width: '0%' }}
                 ></div>
                 <div
@@ -134,40 +128,12 @@ const SkillCard: React.FC<SkillCardProps> = ({ category, skills }) => {
               <div className="col-span-1 flex justify-end">
                 <span
                   id={`text-${index}`}
-                  className="text-sm font-semibold opacity-0 "
+                  className="text-sm font-semibold opacity-0"
                 >
                   0%
                 </span>
               </div>
             </div>
-
-            {/* <div className="grid grid-cols-6 items-center">
-              <div className="col-span-5 pr-1 ">
-                <div
-                  id={`bar-${index}`}
-                  className={`h-[9px] rounded ${getBarColor(
-                    Number(skill.value)
-                  )}
-                  `}
-                  style={{ width: '0%' }}
-                ></div>
-                <div
-                  className={`h-[9px] -translate-y-[9px] rounded
-                  border-2
-                  ${isDark ? 'border-gray-50' : 'border-gray-400'}
-                  `}
-                  style={{ width: '100%' }}
-                ></div>
-              </div>
-              <div className="col-span-1 flex justify-end">
-                <span
-                  id={`text-${index}`}
-                  className="text-sm font-semibold opacity-0 "
-                >
-                  0%
-                </span>
-              </div>
-            </div> */}
           </div>
         ))}
       </div>

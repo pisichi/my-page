@@ -46,7 +46,6 @@ const DefaultLayout: React.FC = () => {
   }
 
   const toggleRightSidebar = () => {
-    console.log('toggle')
     setShowRightSidebar(!showRightSidebar)
   }
 

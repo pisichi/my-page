@@ -14,13 +14,13 @@ import Tooltip from '../Tooltip/Tooltip'
 
 interface SideBarProps {
   showSidebar: boolean
-  closeSidebar: () => void // Add closeSidebar prop function
+  closeSidebar: () => void
 }
 
 const handleMailClick = () => {
   const receiverEmail = 'test@test.test'
-  const subject = 'Subject of the email' // You can customize the subject if needed
-  const body = 'Body of the email' // You can customize the body if needed
+  const subject = 'Subject of the email'
+  const body = 'Body of the email'
 
   const mailtoLink = `mailto:${receiverEmail}?subject=${encodeURIComponent(
     subject
@@ -115,7 +115,7 @@ const SideBar: React.FC<SideBarProps> = ({ showSidebar, closeSidebar }) => {
       }}
       onTransitionEnd={handleTransitionEnd}
     >
-      {/* 1st Row */}
+      
       <div
         className={`z-10 h-44 p-4 ${
           isDark ? 'bg-gray-800 text-white' : 'bg-gray-200 text-gray-800'
@@ -167,22 +167,22 @@ const SideBar: React.FC<SideBarProps> = ({ showSidebar, closeSidebar }) => {
         </div>
       </div>
 
-      {/* Separator */}
-      {/* <div className="border-t border-gray-300"></div> */}
+      
+      
 
-      {/* 2nd Row */}
+      
       <div
         className={`h-20 ${
           isDark ? 'bg-gray-800 text-white' : 'bg-gray-200 text-gray-800'
         }`}
       >
-        {/* Content for the 2nd row */}
+        
       </div>
 
-      {/* Separator */}
+      
       <div className="mx-auto w-5/6 border-t border-gray-300"></div>
 
-      {/* 3rd Row */}
+      
       <div className="custom-scroll-small flex-1 overflow-y-auto pt-5">
         {skills.map((skill, index) => (
           <div className="mb-5 px-4 pt-5" key={index}>
@@ -191,13 +191,13 @@ const SideBar: React.FC<SideBarProps> = ({ showSidebar, closeSidebar }) => {
         ))}
       </div>
 
-      {/* 4th Row */}
+      
       <div
         className={`flex h-12 items-center justify-center gap-4 ${
           isDark ? 'bg-gray-800 text-white' : 'bg-gray-200 text-gray-800'
         }`}
       >
-        {/* Content for the 4th row */}
+        
         <FontAwesomeIcon
           icon={faGithub}
           size="xl"

@@ -9,25 +9,26 @@ const IconWrapper: React.FC<IconWrapperProps> = ({ iconColor, children }) => {
   const iconContainerRef = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
-    if (iconColor) {
-      const elementsToUpdate =
-        iconContainerRef.current?.querySelectorAll('[fill]')
-      if (elementsToUpdate) {
-        elementsToUpdate.forEach((element) => {
-          element.setAttribute('fill', iconColor)
-        })
-      }
+    const iconContainer = iconContainerRef.current
+
+    if (iconColor && iconContainer) {
+      const elementsToUpdate = iconContainer.querySelectorAll('[fill]')
+
+      elementsToUpdate.forEach((element) => {
+        element.setAttribute('fill', iconColor)
+      })
     }
   }, [iconColor])
 
   useEffect(() => {
-    if (iconColor) {
-      const pathsToUpdate = iconContainerRef.current?.querySelectorAll('path')
-      if (pathsToUpdate) {
-        pathsToUpdate.forEach((path) => {
-          path.setAttribute('fill', iconColor)
-        })
-      }
+    const iconContainer = iconContainerRef.current
+
+    if (iconColor && iconContainer) {
+      const pathsToUpdate = iconContainer.querySelectorAll('path')
+
+      pathsToUpdate.forEach((path) => {
+        path.setAttribute('fill', iconColor)
+      })
     }
   }, [iconColor])
 
@@ -38,4 +39,4 @@ const IconWrapper: React.FC<IconWrapperProps> = ({ iconColor, children }) => {
   )
 }
 
-export default IconWrapper
+export default React.memo(IconWrapper)

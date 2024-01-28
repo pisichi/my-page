@@ -43,22 +43,6 @@ const ArticleCard: React.FC<ArticleCardProps> = ({
     setImageError(true)
   }, [])
 
-  useEffect(() => {
-    const debouncedHandleHover = debounce(setHovered, 300)
-
-    const handleMouseEnter = () => debouncedHandleHover(true)
-    const handleMouseLeave = () => debouncedHandleHover(false)
-
-    const element = document.getElementById(`article-card-${title}`)
-    element?.addEventListener('mouseenter', handleMouseEnter)
-    element?.addEventListener('mouseleave', handleMouseLeave)
-
-    return () => {
-      element?.removeEventListener('mouseenter', handleMouseEnter)
-      element?.removeEventListener('mouseleave', handleMouseLeave)
-    }
-  }, [title])
-
   const MemoizedIconWrapper = React.memo(IconWrapper)
 
   return (
@@ -137,12 +121,4 @@ const ArticleCard: React.FC<ArticleCardProps> = ({
   )
 }
 
-export default ArticleCard
-
-function debounce<T extends (...args: any[]) => void>(func: T, delay: number) {
-  let timeoutId: ReturnType<typeof setTimeout>
-  return function (this: ThisParameterType<T>, ...args: Parameters<T>) {
-    clearTimeout(timeoutId)
-    timeoutId = setTimeout(() => func.apply(this, args), delay)
-  }
-}
+export default React.memo(ArticleCard)
