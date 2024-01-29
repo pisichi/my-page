@@ -38,24 +38,24 @@ const RightSidebar: React.FC<RightSidebarProps> = ({
     }
   }
 
-  useEffect(() => {
-    let timeoutId: string | number | NodeJS.Timeout | undefined
-    const element = document.getElementById('sideBar')
+  // useEffect(() => {
+  //   let timeoutId: string | number | NodeJS.Timeout | undefined
+  //   const element = document.getElementById('sideBar')
 
-    if (element) {
-      if (!showRightSidebar) {
-        timeoutId = setTimeout(() => {
-          element.classList.add('-z-20')
-        }, 300)
-      } else {
-        element.classList.remove('-z-20')
-      }
-    }
+  //   if (element) {
+  //     if (!showRightSidebar) {
+  //       timeoutId = setTimeout(() => {
+  //         element.classList.add('-z-20')
+  //       }, 300)
+  //     } else {
+  //       element.classList.remove('-z-20')
+  //     }
+  //   }
 
-    return () => {
-      clearTimeout(timeoutId)
-    }
-  }, [showRightSidebar])
+  //   return () => {
+  //     clearTimeout(timeoutId)
+  //   }
+  // }, [showRightSidebar])
 
   return (
     <>
