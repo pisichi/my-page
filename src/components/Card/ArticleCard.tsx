@@ -79,7 +79,7 @@ const ArticleCard: React.FC<ArticleCardProps> = ({
                   : 'from-gray-100 to-slate-100 text-gray-800'
               }  px-4 py-2`}
             >
-              <h2 className="mb-2 text-xl font-bold ">{title}</h2>
+              <h2 className="mb-2 text-lg font-bold ">{title}</h2>
             </div>
           </>
         )}

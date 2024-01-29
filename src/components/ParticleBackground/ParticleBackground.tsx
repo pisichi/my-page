@@ -1,88 +1,82 @@
-import './ParticleBackground.scss'
-import type { Container } from '@tsparticles/engine'
+import React, { useEffect, useState, useMemo } from 'react'
+import { useDarkMode } from 'context/DarkModeContext'
 import Particles, { initParticlesEngine } from '@tsparticles/react'
 import { loadSlim } from '@tsparticles/slim'
-import { useDarkMode } from 'context/DarkModeContext'
-import { useCallback, useEffect, useState } from 'react'
 
-const ParticleBackground = () => {
+const ParticleBackground = React.memo(() => {
   const [init, setInit] = useState(false)
   const { isDark } = useDarkMode()
-  
+
+  const particleOptions = useMemo(
+    () => ({
+      fpsLimit: 30,
+      interactivity: {
+        events: {
+          onClick: {
+            enable: false
+          },
+          onHover: {
+            enable: false
+          }
+        }
+      },
+      particles: {
+        color: {
+          value: isDark ? '#ffffff' : '#000000'
+        },
+        links: {
+          color: isDark ? '#ffffff' : '#000000',
+          distance: 150,
+          enable: true,
+          opacity: 0.5,
+          width: 1
+        },
+        move: {
+          direction: 'none' as 'none',
+          enable: true,
+          outModes: {
+            default: 'out' as 'out'
+          },
+          random: false,
+          speed: 1,
+          straight: false
+        },
+        number: {
+          density: {
+            enable: true
+          },
+          value: 80 
+        },
+        shape: {
+          type: 'circle'
+        },
+        size: {
+          value: { min: 1, max: 5 }
+        }
+      },
+      detectRetina: true
+    }),
+    [isDark]
+  )
+
   useEffect(() => {
+    let unmounted = false
+
     initParticlesEngine(async (engine) => {
       await loadSlim(engine)
     }).then(() => {
-      setInit(true)
+      if (!unmounted) {
+        setInit(true)
+      }
     })
+
+    return () => {
+      unmounted = true
+      // Cleanup logic (if any) when the component is unmounted
+    }
   }, [])
 
-  if (init) {
-    return (
-      init && (
-        <Particles
-          id="tsparticles"
-          options={{
-            fpsLimit: 75,
-            interactivity: {
-              events: {
-                onClick: {
-                  enable: false // Disable click interaction
-                },
-                onHover: {
-                  enable: false // Disable hover interaction
-                }
-              }
-            },
-            particles: {
-              color: {
-                value: isDark ? '#ffffff' : '#000000'
-              },
-              links: {
-                color: isDark ? '#ffffff' : '#000000',
-                distance: 150, // Adjust the distance for links
-                enable: true,
-                opacity: 0.5, // Reduce link opacity
-                width: 1
-              },
-              move: {
-                direction: 'none',
-                enable: true,
-                outModes: {
-                  default: 'out'
-                },
-                random: false,
-                speed: 1, // Adjust particle speed
-                straight: false
-              },
-              number: {
-                density: {
-                  enable: true
-                },
-                limit: {
-                  value: 120, // Adjust the particle limit
-                  mode: 'delete'
-                },
-                value: 120 // Adjust the initial particle value
-              },
-              opacity: {
-                value: 0.5
-              },
-              shape: {
-                type: 'circle'
-              },
-              size: {
-                value: { min: 1, max: 5 } // Adjust the size range
-              }
-            },
-            detectRetina: true
-          }}
-        />
-      )
-    )
-  } else {
-    return <></>
-  }
-}
+  return init ? <Particles id="tsparticles" options={particleOptions} /> : null
+})
 
 export default ParticleBackground

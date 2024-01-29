@@ -24,6 +24,7 @@ const AboutMeTerminal = () => {
   const [showInitCommand, setInitCommand] = useState(false)
   const [showLsCommand, setShowLsCommand] = useState(false)
   const [showCatCommand, setShowCatCommand] = useState(false)
+  const gridTemplate = 'grid-cols-[120px,20px,60px,60px,60px,120px,auto] text-sm'
 
   useEffect(() => {
     const initDelay = setTimeout(() => {
@@ -53,7 +54,7 @@ const AboutMeTerminal = () => {
     >
       {/* Terminal Output Container */}
       <div
-        className={`mb-4 border border-green-500 p-4 ${
+        className={`mb-4 border border-green-500 p-4 overflow-hidden ${
           isDark ? 'border-green-500' : 'border-green-600'
         }`}
       >
@@ -74,12 +75,12 @@ const AboutMeTerminal = () => {
         {/* ls Command Output */}
         {showLsCommand && (
           <>
-            <div className={`grid text-gray-500`}>
-              <div className="grid grid-cols-[120px,20px,60px,60px,60px,120px,auto] items-center">
+            <div className={`hidden text-gray-500 md:grid lg:grid`}>
+              <div className={`grid items-center ${gridTemplate}`}>
                 <span className="pr-2">Total 5</span>
               </div>
 
-              <div className="grid grid-cols-[120px,20px,60px,60px,60px,120px,auto] items-center">
+              <div className={`grid items-center ${gridTemplate}`}>
                 <span className="pr-2">drwxr-xr-x</span>
                 <span className="pr-2">1</span>
                 <span className="pr-2">root</span>
@@ -93,7 +94,7 @@ const AboutMeTerminal = () => {
                 </span>
               </div>
 
-              <div className="grid grid-cols-[120px,20px,60px,60px,60px,120px,auto] items-center">
+              <div className={`grid items-center ${gridTemplate}`}>
                 <span className="pr-2">drwxr-xr-x</span>
                 <span className="pr-2">1</span>
                 <span className="pr-2">root</span>
@@ -107,7 +108,7 @@ const AboutMeTerminal = () => {
                 </span>
               </div>
 
-              <div className="grid grid-cols-[120px,20px,60px,60px,60px,120px,auto] items-center">
+              <div className={`grid items-center ${gridTemplate}`}>
                 <span className="pr-2">drwxr-xr-x</span>
                 <span className="pr-2">1</span>
                 <span className="pr-2">root</span>
@@ -121,7 +122,7 @@ const AboutMeTerminal = () => {
                 </span>
               </div>
 
-              <div className="grid grid-cols-[120px,20px,60px,60px,60px,120px,auto] items-center">
+              <div className={`grid items-center ${gridTemplate}`}>
                 <span className="pr-2">drwxr-xr-x</span>
                 <span className="pr-2">1</span>
                 <span className="pr-2">root</span>
@@ -135,7 +136,7 @@ const AboutMeTerminal = () => {
                 </span>
               </div>
 
-              <div className="grid grid-cols-[120px,20px,60px,60px,60px,120px,auto] items-center">
+              <div className={`grid items-center ${gridTemplate}`}>
                 <span className="pr-2">drwxr-xr-x</span>
                 <span className="pr-2">1</span>
                 <span className="pr-2">root</span>
@@ -149,7 +150,7 @@ const AboutMeTerminal = () => {
                 </span>
               </div>
 
-              <div className="grid grid-cols-[120px,20px,60px,60px,60px,120px,auto] items-center">
+              <div className={`grid items-center ${gridTemplate}`}>
                 <span className="pr-2">-rw-r--r--</span>
                 <span className="pr-2">1</span>
                 <span className="pr-2">root</span>
@@ -163,11 +164,10 @@ const AboutMeTerminal = () => {
                 </span>
               </div>
             </div>
-            <br />
-            {/* <div
+            <div
               className={`${
                 isDark ? 'text-blue-500' : 'text-blue-700'
-              } space-x-4`}
+              } space-x-4 md:hidden lg:hidden`}
             >
               <span>Home</span>
               <span>History</span>
@@ -178,7 +178,8 @@ const AboutMeTerminal = () => {
               >
                 about_me.txt
               </span>
-            </div> */}
+            </div>
+            <br />
 
             {/* Terminal Prompt Line */}
             <TerminalPrompt isDark={isDark} />

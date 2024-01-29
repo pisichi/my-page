@@ -60,14 +60,14 @@ const Modal: React.FC = () => {
               : 'scale-0 transition-opacity duration-300 ease-out'
           }
           ${customClassName || ''}
-          sm:w-full md:w-full lg:w-full xl:w-[80%] 2xl:w-[70%]
+          mx-3 sm:w-full md:w-full lg:w-full xl:w-[80%] 2xl:w-[70%]
         `}
         role="dialog"
         aria-modal="true"
         aria-labelledby="modal-title"
       >
         <div className="flex h-full flex-col justify-center">
-          <div className="mb-4 text-2xl font-bold">{modalTitle}</div>
+          <div className="mb-4 text-lg font-bold">{modalTitle}</div>
           <button
             className={`absolute right-2 top-2 p-1 transition-colors duration-300 ease-in-out
         ${
@@ -81,7 +81,7 @@ const Modal: React.FC = () => {
             <FontAwesomeIcon size="xl" icon={faTimes} />
           </button>
         </div>
-        <div className="custom-scroll max-h-[70vh] overflow-x-hidden">
+        <div className="modal-content custom-scroll !sm:text-sm max-h-[70vh] overflow-x-hidden !text-sm md:text-base">
           {modalContent}
         </div>
       </div>

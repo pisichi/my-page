@@ -50,9 +50,9 @@ const achievementsData: Article[] = [
       }
     ],
     content: (
-      <div>
+      <>
         <div className="mb-8">
-          <h2 className="mb-2 text-xl font-bold">Resources</h2>
+          <h2 className="mb-2 text-lg font-bold">Resources</h2>
           <div className="mb-1 flex items-center align-middle">
             <FaGithub size={18} className="mr-1" />
             <a
@@ -100,7 +100,7 @@ const achievementsData: Article[] = [
         </div>
 
         <div className="mb-8">
-          <h2 className="mb-2 text-xl font-bold">About the Event</h2>
+          <h2 className="mb-2 text-lg font-bold">About the Event</h2>
           <p>
             <strong>Dev. Mountain Tech Festival</strong> is a tech event in
             Thailand with top-tier developers, diverse topics, and a blockchain
@@ -119,7 +119,7 @@ const achievementsData: Article[] = [
         </div>
 
         <div className="mb-8">
-          <h2 className="mb-2 text-xl font-bold">Hackathon Challenge</h2>
+          <h2 className="mb-2 text-lg font-bold">Hackathon Challenge</h2>
           <p>
             Tackled the challenge of "Certificate verification for education"
             using Solidity Contract (ERC721), ensuring the credibility of
@@ -141,7 +141,7 @@ const achievementsData: Article[] = [
           />
         </div>
         <div className="mb-8">
-          <h2 className="mb-2 text-xl font-bold">Team Members</h2>
+          <h2 className="mb-2 text-lg font-bold">Team Members</h2>
           <ul>
             <li>
               <a
@@ -195,7 +195,7 @@ const achievementsData: Article[] = [
             </li>
           </ul>
         </div>
-      </div>
+      </>
     ),
     description: '1st place'
   },
@@ -223,7 +223,7 @@ const achievementsData: Article[] = [
     content: (
       <div>
         <div className="mb-8">
-          <h2 className="mb-2 text-xl font-bold">Resources</h2>
+          <h2 className="mb-2 text-lg font-bold">Resources</h2>
           <div className="mb-1 flex items-center align-middle">
             <FaFilePowerpoint size={18} className="mr-1" />
             <a
@@ -238,7 +238,7 @@ const achievementsData: Article[] = [
         </div>
 
         <div className="mb-8">
-          <h2 className="mb-2 text-xl font-bold">About the Event</h2>
+          <h2 className="mb-2 text-lg font-bold">About the Event</h2>
           <p>
             Contributed to advancing Thailand's blockchain ecosystem through
             active participation in a collaborative hackathon organized by TBWG.
@@ -253,7 +253,7 @@ const achievementsData: Article[] = [
         </div>
 
         <div className="mb-8">
-          <h2 className="mb-2 text-xl font-bold">Our Solution</h2>
+          <h2 className="mb-2 text-lg font-bold">Our Solution</h2>
           <p>
             Utilize Blockchain to assist in validation by granting rights to
             relevant logistics companies to update and share information. Use
@@ -301,7 +301,7 @@ const achievementsData: Article[] = [
     content: (
       <div>
         <div className="mb-8">
-          <h2 className="mb-2 text-xl font-bold">Resources</h2>
+          <h2 className="mb-2 text-lg font-bold">Resources</h2>
           <div className="mb-1 flex items-center align-middle">
             <FaYoutube size={18} className="mr-1" />
             <a
@@ -381,7 +381,7 @@ const achievementsData: Article[] = [
           </div>
         </div>
         <div className="mb-8">
-          <h2 className="mb-2 text-xl font-bold">About the Event</h2>
+          <h2 className="mb-2 text-lg font-bold">About the Event</h2>
           <p>
             <strong>The Stupid Hackathon Thailand</strong> is a collaborative
             hackathon in thailand with non-competitive intentions and no focuses
@@ -418,7 +418,7 @@ const achievementsData: Article[] = [
         </div>
 
         <div className="mb-8">
-          <h2 className="mb-2 text-xl font-bold">Team Members</h2>
+          <h2 className="mb-2 text-lg font-bold">Team Members</h2>
           <ul>
             <li>
               <a
@@ -509,7 +509,7 @@ const achievementsData: Article[] = [
     content: (
       <div>
         <div className="mb-8">
-          <h2 className="mb-2 text-xl font-bold">Resources</h2>
+          <h2 className="mb-2 text-lg font-bold">Resources</h2>
           <div className="mb-1 flex items-center align-middle">
             <FaFilePowerpoint size={18} className="mr-1" />
             <a
@@ -524,7 +524,7 @@ const achievementsData: Article[] = [
         </div>
 
         <div className="mb-8">
-          <h2 className="mb-2 text-xl font-bold">About the Event</h2>
+          <h2 className="mb-2 text-lg font-bold">About the Event</h2>
           <p>
             <strong>ASEANDSE</strong> is a regional data analytics competition
             for tertiary students across the 10 ASEAN Member States. Using SAP
@@ -535,7 +535,7 @@ const achievementsData: Article[] = [
         </div>
 
         <div className="mb-8">
-          <h2 className="mb-2 text-xl font-bold">Our Solution</h2>
+          <h2 className="mb-2 text-lg font-bold">Our Solution</h2>
           <p>
             "Sustainable Slum Transformation," utilized SAP tools to gather and
             analyze data across ASEAN countries. The objective was to identify

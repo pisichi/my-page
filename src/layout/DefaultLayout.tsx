@@ -22,8 +22,10 @@ const DefaultLayout: React.FC = () => {
   const { isMobile } = useScreenSize()
 
   useEffect(() => {
-    setShowSidebar(true)
+    setShowSidebar(!isMobile)
+  }, [isMobile])
 
+  useEffect(() => {
     const timeout2 = setTimeout(() => {
       setIsMainLoaded(true)
     }, 200)
@@ -114,7 +116,7 @@ const DefaultLayout: React.FC = () => {
             isDark ? 'from-black to-gray-800' : 'from-gray-50 to-slate-50'
           } overflow-x-hidden via-transparent`}
         >
-          <div className="sticky top-0 z-50 mb-[-15px] flex items-center justify-between">
+          <div className="sticky top-0 mb-[-15px] flex items-center justify-between">
             <div
               onClick={toggleSidebar}
               aria-label={showSidebar ? 'Close Sidebar' : 'Open Sidebar'}
@@ -130,7 +132,7 @@ const DefaultLayout: React.FC = () => {
 
             <div
               onClick={toggleRightSidebar}
-              className={`h-full cursor-pointer p-4 transition-opacity duration-1000 ${
+              className={`h-full cursor-pointer p-4 transition-opacity duration-1000 md:hidden lg:hidden ${
                 showRightSidebar ? 'opacity-0' : 'opacity-100'
               }${
                 showRightSidebar ? 'scale-110' : ''
@@ -155,7 +157,7 @@ const DefaultLayout: React.FC = () => {
               transition: 'transform 500ms ease-in-out'
             }}
           >
-            <div className="mx-auto px-1 sm:px-3 md:px-7 lg:max-w-screen-2xl">
+            <div className="mx-auto px-1 text-xs sm:px-3 sm:text-base md:px-7 md:text-lg lg:max-w-screen-2xl">
               <Outlet />
             </div>
           </div>
@@ -178,6 +180,21 @@ const DefaultLayout: React.FC = () => {
               transition: 'width 500ms ease-in-out'
             }}
           >
+            <RightSidebar
+              showRightSidebar={showRightSidebar}
+              onClose={closeRightSidebar}
+              menuItems={menuItems}
+            />
+            <div
+              className="mt-3 cursor-pointer pl-5"
+              onClick={toggleRightSidebar}
+            >
+              <BurgerIcon
+                color={`${isDark ? 'white' : 'black'}`}
+                toggled={showRightSidebar}
+              />
+            </div>
+            <div className="border-b border-gray-400 pt-4"></div>
             <div
               className={`relative translate-y-16 rotate-90 select-none overflow-visible whitespace-nowrap text-xl transition-opacity duration-1000 ${
                 isDark
@@ -190,12 +207,6 @@ const DefaultLayout: React.FC = () => {
           </div>
         </CSSTransition>
       )}
-
-      <RightSidebar
-        showRightSidebar={showRightSidebar}
-        onClose={closeRightSidebar}
-        menuItems={menuItems}
-      />
     </div>
   )
 }

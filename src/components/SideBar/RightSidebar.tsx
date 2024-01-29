@@ -3,7 +3,7 @@ import './SideBar.scss'
 import { faTimes } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { useDarkMode } from 'context/DarkModeContext'
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { Link, useLocation } from 'react-router-dom'
 import useScreenSize from 'utils/useScreenSize'
 
@@ -34,9 +34,29 @@ const RightSidebar: React.FC<RightSidebarProps> = ({
     } else if (isMobile) {
       return '0rem'
     } else {
-      return '5rem'
+      return '1rem'
     }
   }
+
+  useEffect(() => {
+    let timeoutId: string | number | NodeJS.Timeout | undefined
+    const element = document.getElementById('sideBar')
+
+    if (element) {
+      if (!showRightSidebar) {
+        timeoutId = setTimeout(() => {
+          element.classList.add('-z-20')
+        }, 300)
+      } else {
+        element.classList.remove('-z-20')
+      }
+    }
+
+    return () => {
+      clearTimeout(timeoutId)
+    }
+  }, [showRightSidebar])
+
   return (
     <>
       {/* Backdrop overlay */}
@@ -49,9 +69,10 @@ const RightSidebar: React.FC<RightSidebarProps> = ({
 
       {/* Right sidebar */}
       <div
+        id="sideBar"
         className={`fixed inset-y-0 right-0 ${
           isDark ? 'bg-gray-800' : 'bg-gray-200'
-        } z-50 shadow-lg hover:shadow-xl`}
+        } z-40 shadow-lg hover:shadow-xl`}
         style={{
           width: getWidth(),
           opacity: showRightSidebar ? '1' : '0',
@@ -80,10 +101,10 @@ const RightSidebar: React.FC<RightSidebarProps> = ({
           {menuItems.map((menuItem, index) => (
             <div
               key={menuItem.id}
-              className={`mb-4 transition-all duration-700 ${
+              className={`mb-4 transition-all duration-500 ease-in-out ${
                 showRightSidebar ? 'translate-x-0' : 'translate-x-full'
               }`}
-              style={{ transitionDelay: `${index * 150}ms` }}
+              style={{ transitionDelay: `${index * 50}ms` }}
             >
               <Link
                 onClick={onClose}

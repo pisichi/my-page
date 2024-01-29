@@ -24,10 +24,10 @@
     bottom: 0;
     left: 0;
     right: 0;
-    height: 0;
+    max-height: 0;
     background-color: var(--overlay-color);
     overflow: hidden;
-    transition: height 0.5s cubic-bezier(0.645, 0.045, 0.355, 1);
+    transition: max-height 0.5s cubic-bezier(0.645, 0.045, 0.355, 1); /* Change 'height' to 'max-height' */
   }
 
   .overlay {
@@ -45,7 +45,7 @@
   }
 
   &:hover .overlay-container {
-    height: 45%;
+    max-height: 60%;
   }
 
   &:hover .overlay {
@@ -85,8 +85,6 @@
     transform: rotate(360deg);
   }
 }
-
-
 
 .hexagon {
   -webkit-clip-path: polygon(
