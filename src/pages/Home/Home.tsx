@@ -207,16 +207,6 @@ const Home: React.FC = () => {
           </div>
         ))}
       </div>
-
-      <div
-        className={`flex rounded-md ${
-          isDark ? 'bg-gray-800' : 'bg-gray-100'
-        } mb-2 mt-8 justify-center px-8 py-3`}
-      >
-        <p className="text-gray-500">
-          Pisichi&#39;s Personal Website &copy; 2024
-        </p>
-      </div>
     </div>
   )
 }

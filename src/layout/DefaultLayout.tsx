@@ -10,6 +10,7 @@ import { CSSTransition } from 'react-transition-group'
 import useScreenSize from 'utils/useScreenSize'
 
 import BurgerIcon from '@/components/Icons/Hamburger'
+import Tooltip from '@/components/Tooltip/Tooltip'
 
 const DefaultLayout: React.FC = () => {
   const { isDark } = useDarkMode()
@@ -164,6 +165,12 @@ const DefaultLayout: React.FC = () => {
         </div>
       </CSSTransition>
 
+      <RightSidebar
+        showRightSidebar={showRightSidebar}
+        onClose={closeRightSidebar}
+        menuItems={menuItems}
+      />
+
       {!isMobile && (
         <CSSTransition
           in={isMainLoaded}
@@ -180,11 +187,6 @@ const DefaultLayout: React.FC = () => {
               transition: 'width 500ms ease-in-out'
             }}
           >
-            <RightSidebar
-              showRightSidebar={showRightSidebar}
-              onClose={closeRightSidebar}
-              menuItems={menuItems}
-            />
             <div
               className="mt-3 cursor-pointer pl-5"
               onClick={toggleRightSidebar}
@@ -194,7 +196,12 @@ const DefaultLayout: React.FC = () => {
                 toggled={showRightSidebar}
               />
             </div>
-            <div className="border-b border-gray-400 pt-4"></div>
+            {/* <div className="mt-5 cursor-pointer pl-6">
+              <Tooltip text="Toggle Dark Mode">
+                <DarkModeToggleWrapper />
+              </Tooltip>
+            </div> */}
+            <div className="border-b-2 border-gray-400 pt-4"></div>
             <div
               className={`relative translate-y-16 rotate-90 select-none overflow-visible whitespace-nowrap text-xl transition-opacity duration-1000 ${
                 isDark

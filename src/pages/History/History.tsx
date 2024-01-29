@@ -111,7 +111,7 @@ const History: React.FC = () => {
     <div className={``}>
       <div className="flex">
         <h2 className="mb-5 flex-1 border-b-2 border-solid border-gray-500 p-2 text-2xl font-bold">
-          Time Line
+          Timeline
         </h2>
       </div>
       <div>

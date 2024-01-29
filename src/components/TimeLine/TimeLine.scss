@@ -1,5 +1,5 @@
 :root {
-  --circle-color: #000000; /* Default color */
+  --circle-color: #546e7a; /* Default color */
 }
 
 [data-theme='dark'] {
@@ -8,6 +8,10 @@
 
 .vertical-timeline::before {
   background: var(--circle-color) !important;
+}
+
+.vertical-timeline-element {
+  margin: 1em 0 !important;
 }
 
 .vertical-timeline-element-content {

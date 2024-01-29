@@ -80,7 +80,7 @@ const RightSidebar: React.FC<RightSidebarProps> = ({
             'opacity 50ms ease-in, width 500ms ease-in-out, opacity 300ms ease-out'
         }}
       >
-        <div className="mb-4 flex items-center justify-between border-b border-gray-400 p-6 pb-4">
+        <div className="mb-4 flex items-center justify-between border-b-2 border-gray-400 p-6 pb-4">
           <h2
             className={`text-xl font-semibold transition-all duration-300`}
             style={{ fontSize: '1.5rem' }} // Adjust font size
@@ -113,7 +113,7 @@ const RightSidebar: React.FC<RightSidebarProps> = ({
                   isDark
                     ? 'text-gray-400 hover:text-white'
                     : 'text-gray-600 hover:text-black'
-                } ${location.pathname === menuItem.link ? 'font-bold' : ''}`}
+                } ${location.pathname === menuItem.link ? 'font-extrabold' : ''}`}
               >
                 {menuItem.label}
               </Link>

@@ -81,7 +81,7 @@ const TimeLine: React.FC<TimeLineProps> = ({ History }) => {
 
   return (
     <div
-      className={`z-11 mx-auto max-w-[1170px] py-4 ${
+      className={`z-11 mx-auto max-w-[1170px] pb-4 flex justify-center ${
         isDark ? 'text-white' : 'text-gray-800'
       }`}
     >

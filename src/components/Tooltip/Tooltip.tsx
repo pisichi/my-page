@@ -48,7 +48,7 @@ const Tooltip: React.FC<TooltipProps> = ({ text, children, className }) => {
       {children}
       {isTooltipVisible && (
         <div
-          className="fixed z-50 rounded-md bg-gray-700 px-2 py-1 text-white shadow-md"
+          className="fixed z-50 rounded-md bg-gray-700 px-2 py-1 text-white shadow-md pointer-events-none"
           style={{ left: tooltipPosition.x, top: tooltipPosition.y }}
         >
           {text}
