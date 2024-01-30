@@ -29,3 +29,15 @@
     z-index: -1;
     transform: rotate(5deg);
   }
+
+
+  .element {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 1s ease-out, transform 1s ease-out;
+  }
+  
+  .element.active {
+    opacity: 1;
+    transform: translateY(0);
+  }

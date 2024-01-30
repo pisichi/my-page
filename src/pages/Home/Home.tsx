@@ -1,4 +1,5 @@
 import './Home.scss'
+import Reveal from '@/components/Utils/Reveal'
 
 import {
   faFlask,
@@ -108,117 +109,147 @@ const Home: React.FC = () => {
 
   return (
     <div className="overflow-x-hidden">
-      <div className="flex">
-        <h2 className="mb-5 flex-1 border-b-2 border-solid border-gray-500 p-2 text-lg font-bold md:text-xl">
-          About Me
-        </h2>
-      </div>
+      <Reveal>
+        <section className="mb-12">
+          <div className="">
+            <div className="flex border-b-2 border-solid border-gray-500 py-2">
+              <h2 className="flex-1 text-lg font-bold md:text-xl">About Me</h2>
+            </div>
 
-      <div className="mx-auto px-5 py-5">
-        <div className="-m-4 flex flex-wrap justify-center">
-          {cardData.map((card, index) => (
-            <div key={index} className="p-4 md:w-1/3">
-              <div
-                className={`flex h-full flex-col rounded-lg shadow-md ${
-                  isDark ? 'bg-gray-800' : 'bg-gray-100'
-                } px-2 py-5`}
-              >
-                <div className="mb-3 flex items-center justify-center">
-                  <div
-                    className={`inline-flex size-16 flex-shrink-0 items-center justify-center rounded-full border-4 border-gray-300 ${
-                      isDark ? 'bg-emerald-500' : 'bg-emerald-700'
-                    }`}
-                  >
-                    <FontAwesomeIcon
-                      icon={card.icon}
-                      size="2xl"
-                      className="text-white"
-                    />
+            <div className="mx-auto px-5 py-5">
+              <div className="-m-4 flex flex-wrap justify-center">
+                {cardData.map((card, index) => (
+                  <div key={index} className="p-4 md:w-1/3">
+                    <Reveal>
+                      <div
+                        className={`flex h-full flex-col rounded-lg shadow-md ${
+                          isDark ? 'bg-gray-800' : 'bg-gray-100'
+                        } px-2 py-5`}
+                      >
+                        <div className="mb-3 flex items-center justify-center">
+                          <div
+                            className={`inline-flex size-16 flex-shrink-0 items-center justify-center rounded-full border-4 border-gray-300 ${
+                              isDark ? 'bg-emerald-500' : 'bg-emerald-700'
+                            }`}
+                          >
+                            <FontAwesomeIcon
+                              icon={card.icon}
+                              size="2xl"
+                              className="text-white"
+                            />
+                          </div>
+                        </div>
+                        <div className="flex-grow text-center">
+                          <h2 className="title-font text-center text-lg font-medium">
+                            {card.title}
+                          </h2>
+                        </div>
+                        <div className="flex-grow text-center">
+                          <p className="text-sm leading-relaxed">
+                            {card.description}
+                          </p>
+                        </div>
+                      </div>
+                    </Reveal>
                   </div>
-                </div>
-                <div className="flex-grow text-center">
-                  <h2 className="title-font text-center text-lg font-medium">
-                    {card.title}
-                  </h2>
-                </div>
-                <div className="flex-grow text-center">
-                  <p className="text-sm leading-relaxed">{card.description}</p>
-                </div>
+                ))}
               </div>
             </div>
-          ))}
-        </div>
-      </div>
-
-      <div className="flex">
-        <h2 className="mb-5 flex-1 border-b-2 border-solid border-gray-500 p-2 text-lg font-bold md:text-xl">
-          Technologies
-        </h2>
-      </div>
-      <div className="flex flex-wrap items-center justify-center">
-        {icons.map((icon, index) => (
-          <TechIcon
-            key={`about-home-${index}`}
-            component={icon.component}
-            iconColor={iconColor}
-            iconKey={icon.key}
-          />
-        ))}
-      </div>
-
-      <div className="flex border-b-2 border-solid border-gray-500 py-2">
-        <h2 className="flex-1 text-lg font-bold md:text-xl">
-          Featured Achievement
-        </h2>
-        <Link
-          to="/achievement"
-          className="ml-3 flex items-center text-blue-500 transition-all duration-300 hover:text-blue-700"
-        >
-          View All <FaArrowRight className="ml-1" />
-        </Link>
-      </div>
-
-      <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
-        {achievements.map((achievement, index) => (
-          <div className="p-3" key={`achiv-home-${index}-div`}>
-            <ArticleCard
-              key={`achiv-home-${index}`}
-              title={achievement.title}
-              img_url={achievement.img_url}
-              stack={achievement.stack}
-              content={achievement.content}
-              description={achievement.description}
-            />
           </div>
-        ))}
-      </div>
+        </section>
+      </Reveal>
 
-      <div className="flex border-b-2 border-solid border-gray-500 py-2">
-        <h2 className="flex-1 text-lg font-bold md:text-xl">
-          Featured Project
-        </h2>
-        <Link
-          to="/project"
-          className="ml-3 flex items-center text-blue-500 transition-all duration-300 hover:text-blue-700"
-        >
-          View All <FaArrowRight className="ml-1" />
-        </Link>
-      </div>
-
-      <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
-        {projects.map((project, index) => (
-          <div className="p-3" key={`proj-home-${index}-div`}>
-            <ArticleCard
-              key={`proj-home-${index}`}
-              title={project.title}
-              img_url={project.img_url}
-              stack={project.stack}
-              content={project.content}
-              description={project.description}
-            />
+      <Reveal>
+        <section className="my-12">
+          <div className="">
+            <div className="flex border-b-2 border-solid border-gray-500 py-2">
+              <h2 className="flex-1 text-lg font-bold md:text-xl">
+                Featured Project
+              </h2>
+              <Link
+                to="/project"
+                className="ml-3 flex items-center text-blue-500 transition-all duration-300 hover:text-blue-700"
+              >
+                View All <FaArrowRight className="ml-1" />
+              </Link>
+            </div>
+            <div className="flex flex-wrap items-center justify-center">
+              {icons.map((icon, index) => (
+                <Reveal>
+                  <TechIcon
+                    key={`about-home-${index}`}
+                    component={icon.component}
+                    iconColor={iconColor}
+                    iconKey={icon.key}
+                  />
+                </Reveal>
+              ))}
+            </div>
           </div>
-        ))}
-      </div>
+        </section>
+      </Reveal>
+
+      <Reveal>
+        <section className="my-20">
+          <div className="">
+            <div className="flex border-b-2 border-solid border-gray-500 py-2">
+              <h2 className="flex-1 text-lg font-bold md:text-xl">
+                Featured Achievement
+              </h2>
+              <Link
+                to="/achievement"
+                className="ml-3 flex items-center text-blue-500 transition-all duration-300 hover:text-blue-700"
+              >
+                View All <FaArrowRight className="ml-1" />
+              </Link>
+            </div>
+
+            <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
+              {achievements.map((achievement, index) => (
+                <Reveal>
+                  <div className="p-3" key={`achiv-home-${index}-div`}>
+                    <ArticleCard
+                      key={`achiv-home-${index}`}
+                      title={achievement.title}
+                      img_url={achievement.img_url}
+                      stack={achievement.stack}
+                      content={achievement.content}
+                      description={achievement.description}
+                    />
+                  </div>
+                </Reveal>
+              ))}
+            </div>
+
+            <div className="flex border-b-2 border-solid border-gray-500 py-2">
+              <h2 className="flex-1 text-lg font-bold md:text-xl">Skills</h2>
+              <Link
+                to="/project"
+                className="ml-3 flex items-center text-blue-500 transition-all duration-300 hover:text-blue-700"
+              >
+                View All <FaArrowRight className="ml-1" />
+              </Link>
+            </div>
+
+            <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
+              {projects.map((project, index) => (
+                <Reveal>
+                  <div className="p-3" key={`proj-home-${index}-div`}>
+                    <ArticleCard
+                      key={`proj-home-${index}`}
+                      title={project.title}
+                      img_url={project.img_url}
+                      stack={project.stack}
+                      content={project.content}
+                      description={project.description}
+                    />
+                  </div>
+                </Reveal>
+              ))}
+            </div>
+          </div>
+        </section>
+      </Reveal>
     </div>
   )
 }
