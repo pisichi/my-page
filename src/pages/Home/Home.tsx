@@ -44,6 +44,8 @@ import TechIcon from '@/components/Icons/TechIcon'
 import AboutMeTerminal from '@/components/Terminal/AboutMeTerminal'
 import achievementsData from '@/data/achievementsData'
 import projectsData from '@/data/projectsData'
+import { Link } from 'react-router-dom'
+import { FaArrowRight } from 'react-icons/fa'
 
 const Home: React.FC = () => {
   const { isDark } = useDarkMode()
@@ -106,28 +108,10 @@ const Home: React.FC = () => {
 
   return (
     <div className="overflow-x-hidden">
-      {/* <div className="flex">
-        <h2 className="mb-5 flex-1 border-b-2 border-solid border-gray-500 p-2 text-2xl font-bold">
+      <div className="flex">
+        <h2 className="mb-5 flex-1 border-b-2 border-solid border-gray-500 p-2 text-lg font-bold md:text-xl">
           About Me
         </h2>
-      </div> */}
-
-      <AboutMeTerminal />
-
-      <div className="flex">
-        <h2 className="mb-5 flex-1 border-b-2 border-solid border-gray-500 p-2 text-2xl font-bold">
-          Technologies
-        </h2>
-      </div>
-      <div className="flex flex-wrap items-center justify-center">
-        {icons.map((icon, index) => (
-          <TechIcon
-            key={`about-home-${index}`}
-            component={icon.component}
-            iconColor={iconColor}
-            iconKey={icon.key}
-          />
-        ))}
       </div>
 
       <div className="mx-auto px-5 py-5">
@@ -167,9 +151,31 @@ const Home: React.FC = () => {
       </div>
 
       <div className="flex">
-        <h2 className="mb-5 flex-1 border-b-2 border-solid border-gray-500 p-2 text-2xl font-bold">
-          Feature Project
+        <h2 className="mb-5 flex-1 border-b-2 border-solid border-gray-500 p-2 text-lg font-bold md:text-xl">
+          Technologies
         </h2>
+      </div>
+      <div className="flex flex-wrap items-center justify-center">
+        {icons.map((icon, index) => (
+          <TechIcon
+            key={`about-home-${index}`}
+            component={icon.component}
+            iconColor={iconColor}
+            iconKey={icon.key}
+          />
+        ))}
+      </div>
+
+      <div className="flex border-b-2 border-solid border-gray-500 py-2">
+        <h2 className="flex-1 text-lg font-bold md:text-xl">
+          Featured Achievement
+        </h2>
+        <Link
+          to="/achievement"
+          className="ml-3 flex items-center text-blue-500 transition-all duration-300 hover:text-blue-700"
+        >
+          View All <FaArrowRight className="ml-1" />
+        </Link>
       </div>
 
       <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
@@ -187,10 +193,16 @@ const Home: React.FC = () => {
         ))}
       </div>
 
-      <div className="flex">
-        <h2 className="mb-5 flex-1 border-b-2 border-solid border-gray-500 p-2 text-2xl font-bold">
-          Feature Achievements
+      <div className="flex border-b-2 border-solid border-gray-500 py-2">
+        <h2 className="flex-1 text-lg font-bold md:text-xl">
+          Featured Project
         </h2>
+        <Link
+          to="/project"
+          className="ml-3 flex items-center text-blue-500 transition-all duration-300 hover:text-blue-700"
+        >
+          View All <FaArrowRight className="ml-1" />
+        </Link>
       </div>
 
       <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">

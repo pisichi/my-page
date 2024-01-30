@@ -41,36 +41,17 @@ const projectsData = () => {
   const projectContent = (
     repoLink: string,
     stack: StackItem[],
-    description: string
+    description: string,
+    summary: string
   ): ReactNode => {
     return (
       <div>
-        {/* Project Description */}
         <section>
-          <p>{description}</p>
+          <div className="mb-2 font-bold">OverView</div>
+          <p>{summary}</p>
         </section>
 
         <section className="mb-4">
-          <div className="mb-1 flex items-center align-middle">
-            <FaGithub size={18} className="mr-1" />
-            <a
-              href={repoLink}
-              className="text-blue-500"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Repository
-            </a>
-          </div>
-        </section>
-
-        <section>
-          <div className="mb-2 text-lg font-bold">Project OverView</div>
-          <p>{description}</p>
-        </section>
-
-        <section className="mb-4">
-          <div className="mb-2 text-lg font-bold">Tech Used</div>
           <div className="flex flex-wrap items-center">
             {stack &&
               stack.map((icon, index) => (
@@ -89,6 +70,19 @@ const projectsData = () => {
                   </div>
                 </div>
               ))}
+          </div>
+        </section>
+        <section className="mb-4">
+          <div className="mb-1 flex items-center align-middle">
+            <FaGithub size={18} className="mr-1" />
+            <a
+              href={repoLink}
+              className="text-blue-500"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Repository
+            </a>
           </div>
         </section>
       </div>
@@ -123,11 +117,13 @@ const projectsData = () => {
         }
       ],
       repo_url: 'https://github.com/pisichi/dev_Fabric_Manager',
+      repo_summary:
+        'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.',
       description: 'Lorem ipsum dolor sit amet'
     },
     {
       title: 'Fabric-Manager',
-      img_url: 'https://placehold.co/600x400',
+      img_url: 'https://raw.githubusercontent.com/new4761/Fabric-Manager/master/.github/images/ex2.PNG',
       tags: ['academic'],
       stack: [
         {
@@ -167,11 +163,13 @@ const projectsData = () => {
         }
       ],
       repo_url: 'https://github.com/pisichi/dev_Fabric_Manager',
+      repo_summary:
+        'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.',
       description: 'Lorem ipsum dolor sit amet'
     },
     {
       title: 'EPUB Auto Editor',
-      img_url: 'https://placehold.co/600x400',
+      img_url: 'https://raw.githubusercontent.com/pisichi/epub-auto-editor/main/docs/images/visualize.png',
       tags: ['practice'],
       stack: [
         {
@@ -181,6 +179,8 @@ const projectsData = () => {
         }
       ],
       repo_url: 'https://github.com/pisichi/dev_Fabric_Manager',
+      repo_summary:
+        'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.',
       description: 'Lorem ipsum dolor sit amet'
     },
     {
@@ -210,13 +210,15 @@ const projectsData = () => {
           key: 'BootstrapPlain'
         }
       ],
-      repo_url: 'https://github.com/pisichi/dev_Fabric_Manager',
+      repo_url: 'https://github.com/pisichi/Restaurants-list-Vue-Laravel',
+      repo_summary:
+        'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.',
       description:
         'simple Webapplication to show a list of Restaurants by using Google Map API with Vue and Laravel framework.'
     },
     {
       title: 'Covid 2019 Tracker JSP',
-      img_url: 'https://placehold.co/600x400',
+      img_url: 'https://raw.githubusercontent.com/pisichi/Covid-tracking-jsp/master/docs/preview_3.jpg',
       tags: ['academic'],
       stack: [
         {
@@ -225,13 +227,15 @@ const projectsData = () => {
           key: 'JavaPlain'
         }
       ],
-      repo_url: 'https://github.com/pisichi/dev_Fabric_Manager',
+      repo_url: 'https://github.com/pisichi/Covid-tracking-jsp',
+      repo_summary:
+        'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.',
       description:
         'Covid tracking web application using java JSP and java servlet rest api.'
     },
     {
       title: 'TALES-WAR',
-      img_url: 'https://placehold.co/600x400',
+      img_url: 'https://raw.githubusercontent.com/pisichi/TALES-WAR/master/Content/sprites/menu_4.png',
       tags: ['fun', 'academic'],
       stack: [
         {
@@ -241,6 +245,8 @@ const projectsData = () => {
         }
       ],
       repo_url: 'https://github.com/pisichi/dev_Fabric_Manager',
+      repo_summary:
+        'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.',
       description: 'A Turn-based shooting game using monogame engine.'
     },
     {
@@ -256,6 +262,8 @@ const projectsData = () => {
         }
       ],
       repo_url: 'https://github.com/pisichi/dev_Fabric_Manager',
+      repo_summary:
+        'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.',
       description: 'A Bubble shooting game created with Monogame engine.'
     },
     {
@@ -286,6 +294,8 @@ const projectsData = () => {
         }
       ],
       repo_url: 'https://github.com/pisichi/dev_Fabric_Manager',
+      repo_summary:
+        'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.',
       description: 'An campaign voting DApp for Ethereum network.'
     },
     {
@@ -306,6 +316,8 @@ const projectsData = () => {
         }
       ],
       repo_url: 'https://github.com/pisichi/dev_Fabric_Manager',
+      repo_summary:
+        'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.',
       description:
         'Dockerize server and client-side Java Multiplayer Hangman game.'
     }
@@ -317,7 +329,8 @@ const projectsData = () => {
       content: projectContent(
         project.repo_url,
         project.stack,
-        project.description
+        project.description,
+        project.repo_summary
       )
     }
   })

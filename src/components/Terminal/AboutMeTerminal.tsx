@@ -21,28 +21,35 @@ const TerminalPrompt: React.FC<TerminalPromptProps> = ({ isDark }) => (
 const AboutMeTerminal = () => {
   const { isDark } = useDarkMode()
 
-  const [showInitCommand, setInitCommand] = useState(false)
-  const [showLsCommand, setShowLsCommand] = useState(false)
-  const [showCatCommand, setShowCatCommand] = useState(false)
-  const gridTemplate = 'grid-cols-[120px,20px,60px,60px,60px,120px,auto] text-sm'
+  const [showFirstCommand, setFirstCommand] = useState(false)
+  const [showFirstResult, setShowFirstResult] = useState(false)
+  const [showSecondCommand, setShowSecondCommand] = useState(false)
+  const [showSecondResult, setShowSecondResult] = useState(false)
+  const gridTemplate =
+    'grid-cols-[120px,20px,60px,60px,60px,120px,auto] text-sm'
 
   useEffect(() => {
     const initDelay = setTimeout(() => {
-      setInitCommand(true)
+      setFirstCommand(true)
     }, 1000)
 
     const firstDelay = setTimeout(() => {
-      setShowLsCommand(true)
+      setShowFirstResult(true)
     }, 1500)
 
     const secondDelay = setTimeout(() => {
-      setShowCatCommand(true)
+      setShowSecondCommand(true)
     }, 3500)
+
+    const thirdDelay = setTimeout(() => {
+      setShowSecondResult(true)
+    }, 6500)
 
     return () => {
       clearTimeout(initDelay)
       clearTimeout(firstDelay)
       clearTimeout(secondDelay)
+      clearTimeout(thirdDelay)
     }
   }, [])
 
@@ -54,7 +61,7 @@ const AboutMeTerminal = () => {
     >
       {/* Terminal Output Container */}
       <div
-        className={`mb-4 border border-green-500 p-4 overflow-hidden ${
+        className={`mb-4 w-[95vw] overflow-hidden border border-green-500 p-4 md:w-[80vw] ${
           isDark ? 'border-green-500' : 'border-green-600'
         }`}
       >
@@ -62,18 +69,18 @@ const AboutMeTerminal = () => {
         <TerminalPrompt isDark={isDark} />
 
         {/* Initial Command Animation */}
-        {!showInitCommand && <TypeAnimation speed={1} sequence={[' ']} />}
-        {showInitCommand && (
+        {!showFirstCommand && <TypeAnimation speed={1} sequence={[' ']} />}
+        {showFirstCommand && (
           <span className={`${isDark ? 'text-white' : 'text-black'}`}>
-            {!showLsCommand && <TypeAnimation speed={1} sequence={[' ls']} />}
-            {showLsCommand && ' ls'}
+            {!showFirstResult && <TypeAnimation speed={1} sequence={[' ls']} />}
+            {showFirstResult && ' ls'}
           </span>
         )}
 
         <br />
 
         {/* ls Command Output */}
-        {showLsCommand && (
+        {showFirstResult && (
           <>
             <div className={`hidden text-gray-500 md:grid lg:grid`}>
               <div className={`grid items-center ${gridTemplate}`}>
@@ -186,17 +193,21 @@ const AboutMeTerminal = () => {
 
             {/* cat Command Animation */}
             <span className={`${isDark ? 'text-white' : 'text-black'}`}>
-              {!showCatCommand && (
+              {!showSecondCommand && (
+                <TypeAnimation speed={1} sequence={[' ']} />
+              )}
+
+              {!showSecondResult && showSecondCommand && (
                 <TypeAnimation speed={1} sequence={[' cat about_me.txt']} />
               )}
-              {showCatCommand && ' cat about_me.txt'}
+              {showSecondResult && ' cat about_me.txt'}
             </span>
           </>
         )}
 
         <br />
         {/* cat Command Output */}
-        {showCatCommand && (
+        {showSecondResult && (
           <>
             <span className={`pl-8`}>
               Hey there! I'm{' '}

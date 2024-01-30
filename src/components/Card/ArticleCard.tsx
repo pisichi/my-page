@@ -70,22 +70,17 @@ const ArticleCard: React.FC<ArticleCardProps> = ({
             <div className="spinner"></div>
           </div>
         )}
-        {imageLoaded && (
           <>
             <div
-              className={`absolute inset-x-0 -bottom-1 rounded-b-md bg-gradient-to-t ${
+              className={`absolute min-h-16 inset-x-0 -bottom-1 rounded-b-md bg-gradient-to-t ${
                 isDark
                   ? 'from-gray-900 to-gray-800 text-gray-300'
                   : 'from-gray-100 to-slate-100 text-gray-800'
-              }  px-4 py-2`}
+              }  px-4`}
             >
-              <h2 className="mb-2 text-lg font-bold ">{title}</h2>
+              <div className="py-2 text-base font-bold ">{title}</div>
             </div>
           </>
-        )}
-        {imageError && (
-          <div className="image-error-message">Error loading image.</div>
-        )}
       </div>
 
       <div className="overlay-container">
