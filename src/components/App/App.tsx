@@ -14,6 +14,7 @@ import Achievement from '@/pages/Achievement/Achievement'
 import History from '@/pages/History/History'
 import Skill from '@/pages/Skill/Skill'
 import SplashPage from '@/pages/SplashPage/SplashPage' // Import the modified SplashPage component
+import Resume from '@/pages/Resume/Resume'
 
 import ParticleBackground from '../ParticleBackground/ParticleBackground'
 
@@ -49,7 +50,7 @@ const InnerApp: React.FC = () => {
       className={`App ${isDark ? 'dark' : 'light'}`}
       data-theme={isDark ? 'dark' : 'light'}
     >
-      <ParticleBackground />
+      {/* <ParticleBackground /> */}
       <BrowserRouter basename="/my-page">
         <Routes>
           <Route path="/" element={<DefaultLayout />}>
@@ -59,6 +60,7 @@ const InnerApp: React.FC = () => {
             <Route path="history" element={<History />} />
             <Route path="project" element={<Project />} />
           </Route>
+          <Route path="cv" element={<Resume />} />
         </Routes>
       </BrowserRouter>
     </div>
