@@ -7,12 +7,12 @@ const Project: React.FC = () => {
   const { isDark } = useDarkMode()
 
   // Filter projects with 'fun' tag
-  const funProjects = projectsData.filter(
+  const funProjects = projectsData().filter(
     (project) => project.tags && project.tags.includes('fun')
   )
 
   // Filter projects except those with 'fun' tag
-  const projects = projectsData.filter(
+  const projects = projectsData().filter(
     (project) =>
       !project.tags ||
       project.tags.length === 0 ||

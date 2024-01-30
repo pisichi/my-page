@@ -51,7 +51,7 @@ const Home: React.FC = () => {
   const iconSize = isMobile ? 40 : 60
   const iconColor = isDark ? '#86efac' : '#308250'
   const achievements = achievementsData.slice(0, 3)
-  const projects = projectsData.slice(0, 3)
+  const projects = projectsData().slice(0, 3)
 
   const icons = [
     { component: <NuxtjsOriginal size={iconSize} />, key: 'Nuxt.js' },
