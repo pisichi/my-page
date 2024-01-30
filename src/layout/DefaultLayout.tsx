@@ -51,15 +51,15 @@ const DefaultLayout: React.FC = () => {
     }
   }, [])
 
-  // useEffect(() => {
-  //   const timeout3 = setTimeout(() => {
-  //     setShowSidebar(!isMobile)
-  //   }, 8000)
+  useEffect(() => {
+    const timeout3 = setTimeout(() => {
+      setShowSidebar(!isMobile)
+    }, 8500)
 
-  //   return () => {
-  //     clearTimeout(timeout3)
-  //   }
-  // }, [])
+    return () => {
+      clearTimeout(timeout3)
+    }
+  }, [])
 
   const menuItems = [
     { id: 1, label: 'Main', link: '/' },

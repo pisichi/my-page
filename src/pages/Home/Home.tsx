@@ -24,12 +24,16 @@ import {
   LaravelOriginal,
   MongodbOriginal,
   MysqlOriginal,
+  NodejsLine,
+  NodejsLineWordmark,
+  NodejsOriginalWordmark,
   NuxtjsOriginal,
   PhpPlain,
   PythonPlain,
   ReactOriginal,
   SolidityOriginal,
-  TypescriptPlain
+  TypescriptPlain,
+  VuejsOriginal
 } from 'devicons-react'
 import React, {
   ReactElement,
@@ -47,6 +51,7 @@ import achievementsData from '@/data/achievementsData'
 import projectsData from '@/data/projectsData'
 import { Link } from 'react-router-dom'
 import { FaArrowRight } from 'react-icons/fa'
+import { TypeAnimation } from 'react-type-animation'
 
 const Home: React.FC = () => {
   const { isDark } = useDarkMode()
@@ -56,22 +61,36 @@ const Home: React.FC = () => {
   const achievements = achievementsData.slice(0, 3)
   const projects = projectsData().slice(0, 3)
 
+  const introduction = 'Software Engineer'
+  const subtleMessages = [
+    'Bug Slayer',
+    'Fluent Binary Speaker',
+    'Semicolons Believer;',
+    'Infinity Loop Wayfinder',
+    'Console.log Enjoyer',
+    'Ctrl+C Ctrl+V Grandmaster',
+    'sudo rm -rf /* Survivor'
+  ]
+
+  const sequence = [introduction, 3000]
+
+  subtleMessages.forEach((message, index) => {
+    sequence.push(message, 3000)
+  })
+
   const icons = [
+    { component: <VuejsOriginal size={iconSize} />, key: 'Vue.js' },
     { component: <NuxtjsOriginal size={iconSize} />, key: 'Nuxt.js' },
     { component: <ReactOriginal size={iconSize} />, key: 'React' },
-    { component: <SolidityOriginal size={iconSize} />, key: 'Solidity' },
-    { component: <ElectronOriginal size={iconSize} />, key: 'Electron' },
+    { component: <NodejsOriginalWordmark size={iconSize} />, key: 'Node' },
     { component: <PhpPlain size={iconSize} />, key: 'PHP' },
     { component: <LaravelOriginal size={iconSize} />, key: 'Laravel' },
-    { component: <DockerPlain size={iconSize} />, key: 'Docker' },
-    { component: <KubernetesPlain size={iconSize} />, key: 'Kubernetes' },
     { component: <JavaPlain size={iconSize} />, key: 'Java' },
     { component: <JavascriptPlain size={iconSize} />, key: 'JavaScript' },
+    { component: <TypescriptPlain size={iconSize} />, key: 'TypeScript' },
     { component: <PythonPlain size={iconSize} />, key: 'Python' },
-    { component: <Html5Plain size={iconSize} />, key: 'HTML5' },
     { component: <MysqlOriginal size={iconSize} />, key: 'MySQL' },
-    { component: <MongodbOriginal size={iconSize} />, key: 'MongoDB' },
-    { component: <TypescriptPlain size={iconSize} />, key: 'TypeScript' }
+    { component: <DockerPlain size={iconSize} />, key: 'Docker' }
   ]
 
   const cardData = [
@@ -112,9 +131,67 @@ const Home: React.FC = () => {
       <Reveal>
         <section className="mb-12">
           <div className="">
+            <Reveal>
+              <div className="flex min-h-screen flex-col items-center justify-center">
+                <div className="text-center">
+                  <div className="mb-8 mt-5 font-sans text-7xl font-extrabold">
+                    Hey there! I'm{' '}
+                    <span
+                      className={`font-sans ${
+                        isDark ? 'text-emerald-500' : 'text-emerald-700'
+                      }`}
+                    >
+                      Win
+                    </span>
+                  </div>
+                  <div
+                    className={`text-lg font-extrabold text-emerald-500 sm:text-lg md:text-3xl`}
+                  >
+                    <TypeAnimation
+                      sequence={sequence}
+                      wrapper="span"
+                      speed={2}
+                      style={{ display: 'inline-block' }}
+                      repeat={Infinity}
+                    />
+                  </div>
+                  <div className="mt-6">Based in Thailand</div>
+                </div>
+
+                <Reveal>
+                  <div className="mx-auto mt-10 flex w-full flex-wrap items-center justify-center md:w-2/3">
+                    {icons.map((icon, index) => (
+                      <Reveal key={`about-home-${index} md:m-5`}>
+                        <TechIcon
+                          component={icon.component}
+                          iconColor={iconColor}
+                          iconKey={icon.key}
+                        />
+                      </Reveal>
+                    ))}
+                  </div>
+                </Reveal>
+              </div>
+            </Reveal>
+
             <div className="flex border-b-2 border-solid border-gray-500 py-2">
-              <h2 className="flex-1 text-lg font-bold md:text-xl">About Me</h2>
+              <h2
+                className={`flex-1 text-lg font-bold md:text-2xl ${
+                  isDark ? 'text-green-300' : 'text-green-700'
+                } `}
+              >
+                {'{ ABOUT ME }'}
+              </h2>
             </div>
+
+            <Reveal>
+              <div className="pb-8 pt-2">
+                A tech enthusiast with a focus on software development.
+                Experienced in web development, I'm passionate about exploring
+                diverse areas to broaden my skills. Eager to excel and apply my
+                expertise in various fields.
+              </div>
+            </Reveal>
 
             <div className="mx-auto px-5 py-5">
               <div className="-m-4 flex flex-wrap justify-center">
@@ -160,41 +237,15 @@ const Home: React.FC = () => {
       </Reveal>
 
       <Reveal>
-        <section className="my-12">
+        <section className="mt-10 mb-20">
           <div className="">
             <div className="flex border-b-2 border-solid border-gray-500 py-2">
-              <h2 className="flex-1 text-lg font-bold md:text-xl">
-                Featured Project
-              </h2>
-              <Link
-                to="/project"
-                className="ml-3 flex items-center text-blue-500 transition-all duration-300 hover:text-blue-700"
+              <h2
+                className={`flex-1 text-lg font-bold uppercase md:text-2xl ${
+                  isDark ? 'text-green-300' : 'text-green-700'
+                } `}
               >
-                View All <FaArrowRight className="ml-1" />
-              </Link>
-            </div>
-            <div className="flex flex-wrap items-center justify-center">
-              {icons.map((icon, index) => (
-                <Reveal>
-                  <TechIcon
-                    key={`about-home-${index}`}
-                    component={icon.component}
-                    iconColor={iconColor}
-                    iconKey={icon.key}
-                  />
-                </Reveal>
-              ))}
-            </div>
-          </div>
-        </section>
-      </Reveal>
-
-      <Reveal>
-        <section className="my-20">
-          <div className="">
-            <div className="flex border-b-2 border-solid border-gray-500 py-2">
-              <h2 className="flex-1 text-lg font-bold md:text-xl">
-                Featured Achievement
+                {'{ Featured Achievement }'}
               </h2>
               <Link
                 to="/achievement"
@@ -206,10 +257,9 @@ const Home: React.FC = () => {
 
             <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
               {achievements.map((achievement, index) => (
-                <Reveal>
-                  <div className="p-3" key={`achiv-home-${index}-div`}>
+                <Reveal key={`achiv-home-${index}`}>
+                  <div className="p-3">
                     <ArticleCard
-                      key={`achiv-home-${index}`}
                       title={achievement.title}
                       img_url={achievement.img_url}
                       stack={achievement.stack}
@@ -221,8 +271,14 @@ const Home: React.FC = () => {
               ))}
             </div>
 
-            <div className="flex border-b-2 border-solid border-gray-500 py-2">
-              <h2 className="flex-1 text-lg font-bold md:text-xl">Skills</h2>
+            <div className="flex border-b-2 border-solid border-gray-500 py-2 mt-20">
+              <h2
+                className={`flex-1 text-lg font-bold uppercase md:text-2xl ${
+                  isDark ? 'text-green-300' : 'text-green-700'
+                } `}
+              >
+                {'{ Featured Project }'}
+              </h2>
               <Link
                 to="/project"
                 className="ml-3 flex items-center text-blue-500 transition-all duration-300 hover:text-blue-700"

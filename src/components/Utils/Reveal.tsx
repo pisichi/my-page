@@ -39,7 +39,7 @@ const Reveal: React.FC<RevealProps> = ({
         initial="hidden"
         animate={controls}
         variants={variants}
-        transition={{ duration: 0.5, delay: 0.25 }}
+        transition={{ duration: 0.3, delay: 0.25 }}
       >
         {children}
       </motion.div>

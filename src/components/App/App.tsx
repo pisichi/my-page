@@ -50,7 +50,7 @@ const InnerApp: React.FC = () => {
       className={`App ${isDark ? 'dark' : 'light'}`}
       data-theme={isDark ? 'dark' : 'light'}
     >
-      {/* <ParticleBackground /> */}
+      <ParticleBackground />
       <BrowserRouter basename="/my-page">
         <Routes>
           <Route path="/" element={<DefaultLayout />}>

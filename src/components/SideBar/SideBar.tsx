@@ -148,9 +148,9 @@ const SideBar: React.FC<SideBarProps> = ({ showSidebar, closeSidebar }) => {
               isDark ? 'text-gray-300' : 'text-gray-700'
             } mb-2`}
           >
-            Name
+            Win Pisitchai
           </p>
-          <p
+          {/* <p
             className={`text-sm font-normal ${
               isDark ? 'text-gray-400' : 'text-gray-600'
             } mb-4`}
@@ -162,7 +162,7 @@ const SideBar: React.FC<SideBarProps> = ({ showSidebar, closeSidebar }) => {
               style={{ display: 'inline-block' }}
               repeat={Infinity}
             />
-          </p>
+          </p> */}
         </div>
       </div>
 
