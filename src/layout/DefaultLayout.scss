@@ -1,7 +1,6 @@
 /* For Firefox */
 .custom-scroll,
 .custom-scroll-small {
-  overflow-y: auto;
   scrollbar-width: thin;
   scrollbar-color: var(--toggle-fg) var(--toggle-bg);
 }

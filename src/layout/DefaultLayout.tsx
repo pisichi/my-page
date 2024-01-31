@@ -1,18 +1,16 @@
-import './DefaultLayout.scss'
-
-import RightSidebar from 'components/SideBar/RightSidebar'
-import SideBar from 'components/SideBar/SideBar'
-import DarkModeToggleWrapper from 'components/Toggle/DarkModeToggleWrapper'
-import { useDarkMode } from 'context/DarkModeContext'
 import React, { useEffect, useState } from 'react'
 import { Outlet, useLocation } from 'react-router-dom'
 import { CSSTransition } from 'react-transition-group'
-import useScreenSize from 'utils/useScreenSize'
+import { motion, AnimatePresence } from 'framer-motion'
 
 import BurgerIcon from '@/components/Icons/Hamburger'
-import Tooltip from '@/components/Tooltip/Tooltip'
 import AboutMeTerminal from '@/components/Terminal/AboutMeTerminal'
-import { motion, AnimatePresence } from 'framer-motion'
+import SideBar from 'components/SideBar/SideBar'
+import RightSidebar from 'components/SideBar/RightSidebar'
+import { useDarkMode } from 'context/DarkModeContext'
+import useScreenSize from 'utils/useScreenSize'
+
+import './DefaultLayout.scss'
 
 const DefaultLayout: React.FC = () => {
   const { isDark } = useDarkMode()
@@ -31,7 +29,14 @@ const DefaultLayout: React.FC = () => {
       setIsInitialLoading(false)
     }, baseDelay)
 
-    return () => clearTimeout(initialLoadingTimeout)
+    const mainLoadedTimeout = setTimeout(() => {
+      setIsMainLoaded(true)
+    }, baseDelay + 500)
+
+    return () => {
+      clearTimeout(initialLoadingTimeout)
+      clearTimeout(mainLoadedTimeout)
+    }
   }, [])
 
   useEffect(() => {
@@ -39,14 +44,6 @@ const DefaultLayout: React.FC = () => {
       setShowSidebar(!isMobile)
     }
   }, [isMobile])
-
-  useEffect(() => {
-    const mainLoadedTimeout = setTimeout(() => {
-      setIsMainLoaded(true)
-    }, baseDelay + 500)
-
-    return () => clearTimeout(mainLoadedTimeout)
-  }, [])
 
   useEffect(() => {
     const sidebarTimeout = setTimeout(() => {
@@ -65,21 +62,10 @@ const DefaultLayout: React.FC = () => {
     { id: 5, label: 'Project', link: '/project' }
   ]
 
-  const toggleSidebar = () => {
-    setShowSidebar(!showSidebar)
-  }
-
-  const toggleRightSidebar = () => {
-    setShowRightSidebar(!showRightSidebar)
-  }
-
-  const closeRightSidebar = () => {
-    setShowRightSidebar(false)
-  }
-
-  const closeSidebar = () => {
-    setShowSidebar(false)
-  }
+  const toggleSidebar = () => setShowSidebar(!showSidebar)
+  const toggleRightSidebar = () => setShowRightSidebar(!showRightSidebar)
+  const closeRightSidebar = () => setShowRightSidebar(false)
+  const closeSidebar = () => setShowSidebar(false)
 
   function formatRoute(currentRoute: string): React.ReactElement[] {
     return currentRoute
@@ -135,12 +121,9 @@ const DefaultLayout: React.FC = () => {
 
           <AnimatePresence>
             {isMainLoaded && (
-              // Use motion.div for main content animation
               <motion.div
                 initial={{ opacity: 0, transform: 'translateX(0rem)' }}
-                animate={{
-                  opacity: 1
-                }}
+                animate={{ opacity: 1 }}
                 exit={{ opacity: 0 }}
                 className={`z-0 flex h-full flex-1 flex-col overflow-hidden bg-gradient-to-t ${
                   isDark ? 'from-black to-gray-800' : 'from-gray-50 to-slate-50'
@@ -186,7 +169,7 @@ const DefaultLayout: React.FC = () => {
 
                 <div
                   className={`custom-scroll min-w-[50vw] flex-1 overflow-x-hidden sm:mr-[6rem]  ${
-                    showRightSidebar ? 'overflow-y-hidden' : 'overflow-y-auto'
+                    !isSideLoaded ? 'overflow-y-hidden' : 'overflow-y-auto'
                   }`}
                   style={{
                     transform: showRightSidebar
@@ -211,44 +194,42 @@ const DefaultLayout: React.FC = () => {
           {!isMobile && (
             <AnimatePresence>
               {isSideLoaded && (
-                <>
-                  <motion.div
-                    initial={{ opacity: 0, width: '0rem' }}
-                    animate={{ opacity: 1, width: '5rem' }}
-                    exit={{ opacity: 0, width: '0rem' }}
-                    className={`fixed inset-y-0 right-4 z-50 ml-auto flex-none rounded-lg sm:my-2 ${
-                      isDark ? 'bg-gray-800' : 'bg-slate-100'
-                    } ${showRightSidebar ? 'shadow-none' : 'shadow-xl'}`}
-                    transition={{
-                      opacity: {
-                        duration: 0.4,
-                        ease: [0.68, -0.55, 0.27, 1.55]
-                      },
-                      width: { duration: 0.5, ease: 'easeInOut' }
-                    }}
+                <motion.div
+                  initial={{ opacity: 0, width: '0rem' }}
+                  animate={{ opacity: 1, width: '5rem' }}
+                  exit={{ opacity: 0, width: '0rem' }}
+                  className={`fixed inset-y-0 right-4 z-50 ml-auto flex-none rounded-lg sm:my-2 ${
+                    isDark ? 'bg-gray-800' : 'bg-slate-100'
+                  } ${showRightSidebar ? 'shadow-none' : 'shadow-xl'}`}
+                  transition={{
+                    opacity: {
+                      duration: 0.4,
+                      ease: [0.68, -0.55, 0.27, 1.55]
+                    },
+                    width: { duration: 0.5, ease: 'easeInOut' }
+                  }}
+                >
+                  <div
+                    className="mt-3 cursor-pointer pl-5"
+                    onClick={toggleRightSidebar}
                   >
-                    <div
-                      className="mt-3 cursor-pointer pl-5"
-                      onClick={toggleRightSidebar}
-                    >
-                      <BurgerIcon
-                        color={`${isDark ? 'white' : 'black'}`}
-                        toggled={showRightSidebar}
-                      />
-                    </div>
+                    <BurgerIcon
+                      color={`${isDark ? 'white' : 'black'}`}
+                      toggled={showRightSidebar}
+                    />
+                  </div>
 
-                    <div className="border-b-2 border-gray-400 pt-4"></div>
-                    <div
-                      className={`relative translate-y-16 rotate-90 select-none overflow-visible whitespace-nowrap text-xl transition-opacity duration-500 ${
-                        isDark
-                          ? 'text-green-200 hover:text-white'
-                          : 'text-green-700 hover:text-black'
-                      } ${showRightSidebar ? 'opacity-0' : 'opacity-100'}`}
-                    >
-                      {formatRoute(currentRoute)}
-                    </div>
-                  </motion.div>
-                </>
+                  <div className="border-b-2 border-gray-400 pt-4"></div>
+                  <div
+                    className={`relative translate-y-16 rotate-90 select-none overflow-visible whitespace-nowrap text-xl transition-opacity duration-500 ${
+                      isDark
+                        ? 'text-green-200 hover:text-white'
+                        : 'text-green-700 hover:text-black'
+                    } ${showRightSidebar ? 'opacity-0' : 'opacity-100'}`}
+                  >
+                    {formatRoute(currentRoute)}
+                  </div>
+                </motion.div>
               )}
             </AnimatePresence>
           )}

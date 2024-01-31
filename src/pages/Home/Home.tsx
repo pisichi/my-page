@@ -72,11 +72,11 @@ const Home: React.FC = () => {
     'sudo rm -rf /* Survivor'
   ]
 
-  const sequence = [introduction, 3000]
-
-  subtleMessages.forEach((message, index) => {
-    sequence.push(message, 3000)
-  })
+  const sequence = [
+    introduction,
+    3000,
+    ...subtleMessages.map((message) => [message, 3000]).flat()
+  ]
 
   const icons = [
     { component: <VuejsOriginal size={iconSize} />, key: 'Vue.js' },
