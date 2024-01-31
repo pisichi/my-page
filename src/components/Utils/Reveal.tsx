@@ -3,7 +3,7 @@ import React, { ReactNode, useEffect, useRef } from 'react'
 
 interface RevealProps {
   children: ReactNode
-  width?: 'fit-content' | '100%'
+  width?: string
   className?: string
 }
 

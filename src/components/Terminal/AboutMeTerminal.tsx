@@ -12,7 +12,8 @@ interface TerminalPromptProps {
 const TerminalPrompt: React.FC<TerminalPromptProps> = ({ isDark }) => (
   <>
     <span className={`${isDark ? 'text-green-500' : 'text-green-700'}`}>
-      pisichi@personal-site
+      <span className="sm:hidden">pis@site</span>
+      <span className="hidden sm:inline">pisichi@personal-site</span>
     </span>
     :<span className={`${isDark ? 'text-blue-600' : 'text-blue-700'}`}>~</span>#
   </>
@@ -28,28 +29,30 @@ const AboutMeTerminal = () => {
   const gridTemplate =
     'grid-cols-[120px,20px,60px,60px,60px,120px,auto] text-sm'
 
+  const initialDelay = 300
+
   useEffect(() => {
     const initDelay = setTimeout(() => {
       setFirstCommand(true)
-    }, 1000)
+    }, initialDelay)
 
     const firstDelay = setTimeout(() => {
       setShowFirstResult(true)
-    }, 1500)
+    }, initialDelay + 300)
 
     const secondDelay = setTimeout(() => {
       setShowSecondCommand(true)
-    }, 3500)
+    }, initialDelay + 500)
 
-    const thirdDelay = setTimeout(() => {
-      setShowSecondResult(true)
-    }, 6500)
+    // const thirdDelay = setTimeout(() => {
+    //   setShowSecondResult(true)
+    // }, 6500)
 
     return () => {
       clearTimeout(initDelay)
       clearTimeout(firstDelay)
       clearTimeout(secondDelay)
-      clearTimeout(thirdDelay)
+      // clearTimeout(thirdDelay)
     }
   }, [])
 
@@ -61,7 +64,7 @@ const AboutMeTerminal = () => {
     >
       {/* Terminal Output Container */}
       <div
-        className={`mb-4 w-[95vw] overflow-hidden border border-green-500 p-4 md:w-[80vw] ${
+        className={`mb-4 overflow-hidden border border-green-500 p-4 md:w-[80vw] md:max-w-[800px] ${
           isDark ? 'border-green-500' : 'border-green-600'
         }`}
       >
@@ -167,24 +170,24 @@ const AboutMeTerminal = () => {
                 <span
                   className={`${isDark ? 'text-green-500' : 'text-green-700'}`}
                 >
-                  about_me.txt
+                  cv.md
                 </span>
               </div>
             </div>
             <div
               className={`${
                 isDark ? 'text-blue-500' : 'text-blue-700'
-              } space-x-4 md:hidden lg:hidden`}
+              } md:hidden lg:hidden grid grid-cols-3 gap-4`}
             >
-              <span>Home</span>
-              <span>History</span>
-              <span>Achievement</span>
-              <span>Project</span>
-              <span
+              <div>Home</div>
+              <div>History</div>
+              <div>Achievement</div>
+              <div>Project</div>
+              <div
                 className={`${isDark ? 'text-green-500' : 'text-green-700'}`}
               >
-                about_me.txt
-              </span>
+                cv.md
+              </div>
             </div>
             <br />
 
@@ -198,9 +201,9 @@ const AboutMeTerminal = () => {
               )}
 
               {!showSecondResult && showSecondCommand && (
-                <TypeAnimation speed={1} sequence={[' cat about_me.txt']} />
+                <TypeAnimation speed={1} sequence={[' cd ./Home']} />
               )}
-              {showSecondResult && ' cat about_me.txt'}
+              {showSecondResult && ' cd ./Home'}
             </span>
           </>
         )}

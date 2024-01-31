@@ -128,183 +128,219 @@ const Home: React.FC = () => {
 
   return (
     <div className="overflow-x-hidden">
-      <Reveal>
-        <section className="mb-12">
-          <div className="">
-            <Reveal>
-              <div className="flex min-h-screen flex-col items-center justify-center">
-                <div className="text-center">
-                  <div className="mb-8 mt-5 font-sans text-7xl font-extrabold">
-                    Hey there! I'm{' '}
-                    <span
-                      className={`font-sans ${
-                        isDark ? 'text-emerald-500' : 'text-emerald-700'
-                      }`}
-                    >
-                      Win
-                    </span>
-                  </div>
-                  <div
-                    className={`text-lg font-extrabold text-emerald-500 sm:text-lg md:text-3xl`}
-                  >
-                    <TypeAnimation
-                      sequence={sequence}
-                      wrapper="span"
-                      speed={2}
-                      style={{ display: 'inline-block' }}
-                      repeat={Infinity}
-                    />
-                  </div>
-                  <div className="mt-6">Based in Thailand</div>
-                </div>
+      <section className="mb-12">
+        <Reveal>
+          <div className="flex min-h-screen flex-col items-center justify-center">
+            <div className="text-center">
+              <div className="mb-8 mt-5 font-sans text-7xl font-extrabold">
+                Hey there! I'm{' '}
+                <span
+                  className={`font-sans ${
+                    isDark ? 'text-emerald-500' : 'text-emerald-700'
+                  }`}
+                >
+                  Win
+                </span>
+              </div>
+              <div
+                className={`text-lg font-extrabold text-emerald-500 sm:text-lg md:text-3xl`}
+              >
+                <TypeAnimation
+                  sequence={sequence}
+                  wrapper="span"
+                  speed={2}
+                  style={{ display: 'inline-block' }}
+                  repeat={Infinity}
+                />
+              </div>
+              {/* <div className="mt-6">Based in Thailand</div> */}
+            </div>
 
+            <div className="mx-auto mt-20 flex w-full flex-wrap items-center justify-center pb-8 md:w-2/3">
+              {icons.map((icon, index) => (
+                <Reveal key={`about-home-${index} md:m-5`}>
+                  <TechIcon
+                    component={icon.component}
+                    iconColor={iconColor}
+                    iconKey={icon.key}
+                  />
+                </Reveal>
+              ))}
+            </div>
+          </div>
+        </Reveal>
+      </section>
+
+      <section className="mb-20 mt-10">
+        <div className="flex justify-center">
+          <Reveal>
+            <div
+              className={`text-lg font-bold uppercase md:text-3xl ${
+                isDark ? 'text-green-300' : 'text-green-700'
+              } `}
+            >
+              {'{ ABOUT ME }'}
+            </div>
+          </Reveal>
+        </div>
+
+        <div className="flex justify-center">
+          <Reveal width="85%">
+            <div
+              className={`mt-5 h-[4px] w-[100%] ${
+                isDark ? 'bg-gray-400' : 'bg-gray-600'
+              }`}
+            ></div>
+          </Reveal>
+        </div>
+
+        <div className="flex justify-center">
+          <Reveal width="90%">
+            <div className="pb-8 pt-2">
+              A tech enthusiast with a focus on software development.
+              Experienced in web development, I'm passionate about exploring
+              diverse areas to broaden my skills. Eager to excel and apply my
+              expertise in various fields.
+            </div>
+          </Reveal>
+        </div>
+
+        <div className="mx-auto px-5 py-5">
+          <div className="-m-4 flex flex-wrap justify-center">
+            {cardData.map((card, index) => (
+              <div key={index} className="w-3/3 p-4 md:w-1/3">
                 <Reveal>
-                  <div className="mx-auto mt-10 flex w-full flex-wrap items-center justify-center md:w-2/3">
-                    {icons.map((icon, index) => (
-                      <Reveal key={`about-home-${index} md:m-5`}>
-                        <TechIcon
-                          component={icon.component}
-                          iconColor={iconColor}
-                          iconKey={icon.key}
-                        />
-                      </Reveal>
-                    ))}
-                  </div>
-                </Reveal>
-              </div>
-            </Reveal>
-
-            <div className="flex border-b-2 border-solid border-gray-500 py-2">
-              <h2
-                className={`flex-1 text-lg font-bold md:text-2xl ${
-                  isDark ? 'text-green-300' : 'text-green-700'
-                } `}
-              >
-                {'{ ABOUT ME }'}
-              </h2>
-            </div>
-
-            <Reveal>
-              <div className="pb-8 pt-2">
-                A tech enthusiast with a focus on software development.
-                Experienced in web development, I'm passionate about exploring
-                diverse areas to broaden my skills. Eager to excel and apply my
-                expertise in various fields.
-              </div>
-            </Reveal>
-
-            <div className="mx-auto px-5 py-5">
-              <div className="-m-4 flex flex-wrap justify-center">
-                {cardData.map((card, index) => (
-                  <div key={index} className="w-3/3 p-4 md:w-1/3">
-                    <Reveal>
+                  <div
+                    className={`flex h-full flex-col rounded-lg shadow-md ${
+                      isDark ? 'bg-gray-800' : 'bg-gray-100'
+                    } px-2 py-5`}
+                  >
+                    <div className="mb-3 flex items-center justify-center">
                       <div
-                        className={`flex h-full flex-col rounded-lg shadow-md ${
-                          isDark ? 'bg-gray-800' : 'bg-gray-100'
-                        } px-2 py-5`}
+                        className={`inline-flex size-16 flex-shrink-0 items-center justify-center rounded-full border-4 border-gray-300 ${
+                          isDark ? 'bg-emerald-500' : 'bg-emerald-700'
+                        }`}
                       >
-                        <div className="mb-3 flex items-center justify-center">
-                          <div
-                            className={`inline-flex size-16 flex-shrink-0 items-center justify-center rounded-full border-4 border-gray-300 ${
-                              isDark ? 'bg-emerald-500' : 'bg-emerald-700'
-                            }`}
-                          >
-                            <FontAwesomeIcon
-                              icon={card.icon}
-                              size="2xl"
-                              className="text-white"
-                            />
-                          </div>
-                        </div>
-                        <div className="flex-grow text-center">
-                          <h2 className="title-font text-center text-lg font-medium">
-                            {card.title}
-                          </h2>
-                        </div>
-                        <div className="flex-grow text-center">
-                          <p className="text-sm leading-relaxed">
-                            {card.description}
-                          </p>
-                        </div>
+                        <FontAwesomeIcon
+                          icon={card.icon}
+                          size="2xl"
+                          className="text-white"
+                        />
                       </div>
-                    </Reveal>
+                    </div>
+                    <div className="flex-grow text-center">
+                      <h2 className="title-font text-center text-lg font-medium">
+                        {card.title}
+                      </h2>
+                    </div>
+                    <div className="flex-grow text-center">
+                      <p className="text-sm leading-relaxed">
+                        {card.description}
+                      </p>
+                    </div>
                   </div>
-                ))}
+                </Reveal>
               </div>
-            </div>
+            ))}
           </div>
-        </section>
-      </Reveal>
+        </div>
+      </section>
 
-      <Reveal>
-        <section className="mb-20 mt-10">
-          <div className="">
-            <div className="flex border-b-2 border-solid border-gray-500 py-2">
-              <h2
-                className={`flex-1 text-lg font-bold uppercase md:text-2xl ${
-                  isDark ? 'text-green-300' : 'text-green-700'
-                } `}
-              >
-                {'{ Featured Achievement }'}
-              </h2>
-              <Link
-                to="/achievement"
-                className="ml-3 flex items-center text-blue-500 transition-all duration-300 hover:text-blue-700"
-              >
-                View All <FaArrowRight className="ml-1" />
-              </Link>
+      <section className="mt-15 mb-20">
+        <div className="flex justify-center">
+          <Reveal>
+            <div
+              className={`text-lg font-bold uppercase md:text-3xl ${
+                isDark ? 'text-green-300' : 'text-green-700'
+              } `}
+            >
+              {'{ Featured Achievement }'}
             </div>
+          </Reveal>
+        </div>
 
-            <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
-              {achievements.map((achievement, index) => (
-                <Reveal key={`achiv-home-${index}`}>
-                  <div className="p-3">
-                    <ArticleCard
-                      title={achievement.title}
-                      img_url={achievement.img_url}
-                      stack={achievement.stack}
-                      content={achievement.content}
-                      description={achievement.description}
-                    />
-                  </div>
-                </Reveal>
-              ))}
-            </div>
+        <div className="flex justify-center">
+          <Reveal width="85%">
+            <div
+              className={`my-5 h-[4px] w-[100%] ${
+                isDark ? 'bg-gray-400' : 'bg-gray-600'
+              }`}
+            ></div>
+          </Reveal>
+        </div>
 
-            <div className="mt-20 flex border-b-2 border-solid border-gray-500 py-2">
-              <h2
-                className={`flex-1 text-lg font-bold uppercase md:text-2xl ${
-                  isDark ? 'text-green-300' : 'text-green-700'
-                } `}
-              >
-                {'{ Featured Project }'}
-              </h2>
-              <Link
-                to="/project"
-                className="ml-3 flex items-center text-blue-500 transition-all duration-300 hover:text-blue-700"
-              >
-                View All <FaArrowRight className="ml-1" />
-              </Link>
-            </div>
+        {/* <div className="flex border-b-2 border-solid border-gray-500 py-2">
+          <h2
+            className={`flex-1 text-lg font-bold uppercase md:text-2xl ${
+              isDark ? 'text-green-300' : 'text-green-700'
+            } `}
+          >
+            {'{ Featured Achievement }'}
+          </h2>
+          <Link
+            to="/achievement"
+            className="ml-3 flex items-center text-blue-500 transition-all duration-300 hover:text-blue-700"
+          >
+            View All <FaArrowRight className="ml-1" />
+          </Link>
+        </div> */}
 
-            <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
-              {projects.map((project, index) => (
-                <Reveal key={`proj-home-${index}-div`}>
-                  <div className="p-3">
-                    <ArticleCard
-                      title={project.title}
-                      img_url={project.img_url}
-                      stack={project.stack}
-                      content={project.content}
-                      description={project.description}
-                    />
-                  </div>
-                </Reveal>
-              ))}
+        <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
+          {achievements.map((achievement, index) => (
+            <Reveal key={`achiv-home-${index}`}>
+              <div className="p-3">
+                <ArticleCard
+                  title={achievement.title}
+                  img_url={achievement.img_url}
+                  stack={achievement.stack}
+                  content={achievement.content}
+                  description={achievement.description}
+                />
+              </div>
+            </Reveal>
+          ))}
+        </div>
+      </section>
+
+      <section className="mt-15 mb-20">
+        <div className="flex justify-center">
+          <Reveal>
+            <div
+              className={`text-lg font-bold uppercase md:text-3xl ${
+                isDark ? 'text-green-300' : 'text-green-700'
+              } `}
+            >
+              {'{ Featured Project }'}
             </div>
-          </div>
-        </section>
-      </Reveal>
+          </Reveal>
+        </div>
+
+        <div className="flex justify-center">
+          <Reveal width="85%">
+            <div
+              className={`my-5 h-[4px] w-[100%] ${
+                isDark ? 'bg-slate-400' : 'bg-gray-600'
+              }`}
+            ></div>
+          </Reveal>
+        </div>
+
+        <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
+          {projects.map((project, index) => (
+            <Reveal key={`proj-home-${index}-div`}>
+              <div className="p-3">
+                <ArticleCard
+                  title={project.title}
+                  img_url={project.img_url}
+                  stack={project.stack}
+                  content={project.content}
+                  description={project.description}
+                />
+              </div>
+            </Reveal>
+          ))}
+        </div>
+      </section>
     </div>
   )
 }

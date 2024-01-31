@@ -116,7 +116,7 @@ const SideBar: React.FC<SideBarProps> = ({ showSidebar, closeSidebar }) => {
       onTransitionEnd={handleTransitionEnd}
     >
       <div
-        className={`z-10 h-44 p-4 ${
+        className={`z-10 h-56 p-4 ${
           isDark ? 'bg-gray-800 text-white' : 'bg-gray-200 text-gray-800'
         }`}
       >
@@ -136,7 +136,7 @@ const SideBar: React.FC<SideBarProps> = ({ showSidebar, closeSidebar }) => {
           </div>
         )}
         <div className="flex flex-col items-center">
-          <div className="relative mb-2 size-40 overflow-hidden rounded-full border-4 border-green-200">
+          <div className="relative mb-2 mt-8 size-40 overflow-hidden rounded-full border-4 border-green-200">
             <img
               src="https://avatars.githubusercontent.com/u/36178784?v=4"
               alt="Name"
@@ -144,24 +144,33 @@ const SideBar: React.FC<SideBarProps> = ({ showSidebar, closeSidebar }) => {
             />
           </div>
           <p
-            className={`text-lg ${
+            className={`text-2xl font-bold ${
               isDark ? 'text-gray-300' : 'text-gray-700'
-            } mb-2`}
+            }`}
           >
             Win Pisitchai
           </p>
+          <p
+            className={`mb-1 text-sm 
+               text-gray-500`}
+          >
+            Pisitchai Siriratanachaikul
+          </p>
+
+          <p
+            className={`mb-2 text-sm
+            ${isDark ? 'text-green-300' : 'text-green-600'}`}
+          >
+            Bangkok, Thailand
+          </p>
+
           {/* <p
-            className={`text-sm font-normal ${
+            className={`text-wrap text-sm font-normal ${
               isDark ? 'text-gray-400' : 'text-gray-600'
             } mb-4`}
           >
-            <TypeAnimation
-              sequence={sequence}
-              wrapper="span"
-              speed={2}
-              style={{ display: 'inline-block' }}
-              repeat={Infinity}
-            />
+            Over 2 years+ of experience in designing and developing web
+            applications.
           </p> */}
         </div>
       </div>
@@ -174,12 +183,73 @@ const SideBar: React.FC<SideBarProps> = ({ showSidebar, closeSidebar }) => {
 
       <div className="mx-auto w-5/6 border-t border-gray-300"></div>
 
-      <div className="custom-scroll-small flex-1 overflow-y-auto pt-5">
-        {skills.map((skill, index) => (
+      <div className="custom-scroll-small flex-1 overflow-y-auto overflow-x-hidden pt-5">
+        <div
+          className={`flex justify-center text-center text-sm font-normal ${
+            isDark ? 'text-gray-400' : 'text-gray-600'
+          } mb-4 px-3`}
+        >
+          <div className="w-[90%] min-w-[16em] text-wrap ">
+            Over
+            <span
+              className={`font-bold 
+               text-gray-500 ${isDark ? 'text-green-300' : 'text-green-600'}`}
+            >
+              {' '}
+              2 years+{' '}
+            </span>
+            of experience in designing and developing full-stack web
+            application.
+          </div>
+        </div>
+
+        <div
+          className={`grid-col-1 mx-auto mt-10 grid w-[50%] justify-center gap-4 ${
+            isDark ? 'bg-gray-800 text-white' : ' text-gray-800'
+          }`}
+        >
+          <div
+            className={`align-center flex cursor-pointer transition-transform hover:scale-105 ${
+              isDark ? 'text-white' : 'text-gray-800'
+            }`}
+          >
+            <FontAwesomeIcon className="mr-2" icon={faGithub} size="lg" />
+            <span
+              className={`text-sm font-bold
+               text-gray-500 ${isDark ? 'text-green-300' : 'text-green-600'}`}
+            >
+              @pisichi
+            </span>
+          </div>
+          <div
+            className={`align-center flex cursor-pointer transition-transform hover:scale-105 ${
+              isDark ? 'text-white' : 'text-gray-800'
+            }`}
+          >
+            <FontAwesomeIcon className="mr-2" icon={faLinkedin} size="lg" />
+            <span
+              className={`text-sm font-bold
+               text-gray-500 ${isDark ? 'text-green-300' : 'text-green-600'}`}
+            >
+              pisitchaisiri
+            </span>
+          </div>
+          <div className="align-center pointer flex cursor-pointer transition-transform hover:scale-105">
+            <FontAwesomeIcon icon={faEnvelope} size="lg" className="mr-2" />
+            <span
+              className={`text-sm font-bold
+               text-gray-500 ${isDark ? 'text-green-300' : 'text-green-600'}`}
+            >
+              pisitchai.sirirat
+            </span>
+          </div>
+        </div>
+
+        {/* {skills.map((skill, index) => (
           <div className="mb-5 px-4 pt-5" key={index}>
             <SkillCard category={skill.category} skills={skill.skills} />
           </div>
-        ))}
+        ))} */}
       </div>
 
       <div
@@ -187,29 +257,7 @@ const SideBar: React.FC<SideBarProps> = ({ showSidebar, closeSidebar }) => {
           isDark ? 'bg-gray-800 text-white' : 'bg-gray-200 text-gray-800'
         }`}
       >
-        <FontAwesomeIcon
-          icon={faGithub}
-          size="xl"
-          className={`transition-transform hover:scale-110 ${
-            isDark ? 'text-white' : 'text-gray-800'
-          }`}
-        />
-        <FontAwesomeIcon
-          icon={faLinkedin}
-          size="xl"
-          className={`transition-transform hover:scale-110 ${
-            isDark ? 'text-white' : 'text-gray-800'
-          }`}
-        />
-        <Tooltip text="test@test.test" className="cursor-pointer">
-          <FontAwesomeIcon
-            icon={faEnvelope}
-            size="xl"
-            className={`transition-transform hover:scale-110 ${
-              isDark ? 'text-white' : 'text-gray-800'
-            }`}
-          />
-        </Tooltip>
+        <p className={`text-xs text-gray-500`}>© 2024 All Rights Reserved</p>
       </div>
     </div>
   )

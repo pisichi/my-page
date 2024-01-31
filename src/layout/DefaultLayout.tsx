@@ -24,7 +24,7 @@ const DefaultLayout: React.FC = () => {
   const location = useLocation()
   const currentRoute = location.pathname
   const { isMobile } = useScreenSize()
-  const baseDelay = 7000
+  const baseDelay = 2500
 
   useEffect(() => {
     const initialLoadingTimeout = setTimeout(() => {
