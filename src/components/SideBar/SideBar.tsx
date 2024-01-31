@@ -1,16 +1,21 @@
 import { faGithub, faLinkedin } from '@fortawesome/free-brands-svg-icons'
-import { faTimes } from '@fortawesome/free-solid-svg-icons'
+import {
+  faArrowUpRightFromSquare,
+  faTimes
+} from '@fortawesome/free-solid-svg-icons'
 import { faEnvelope } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import SkillCard from 'components/Card/SkillCardRedux'
 import React, { useEffect, useState } from 'react'
 import { TypeAnimation } from 'react-type-animation'
 import useScreenSize from 'utils/useScreenSize'
+import { useNavigate } from 'react-router-dom'
 
 import { useDarkMode } from '@/context/DarkModeContext'
 
 import DarkModeToggleWrapper from '../Toggle/DarkModeToggleWrapper'
 import Tooltip from '../Tooltip/Tooltip'
+import AnimatedButton from '../Button/AnimatedButton'
 
 interface SideBarProps {
   showSidebar: boolean
@@ -34,6 +39,8 @@ const SideBar: React.FC<SideBarProps> = ({ showSidebar, closeSidebar }) => {
   const [shouldRender, setShouldRender] = useState(showSidebar)
   const { isMobile } = useScreenSize()
 
+  const navigate = useNavigate()
+
   useEffect(() => {
     if (showSidebar) {
       setShouldRender(true)
@@ -48,6 +55,10 @@ const SideBar: React.FC<SideBarProps> = ({ showSidebar, closeSidebar }) => {
 
   const handleCloseButtonClick = () => {
     closeSidebar()
+  }
+
+  const handleCvButtonClick = () => {
+    window.open('/my-page/cv', '_blank')
   }
 
   const introduction = 'Software Engineer'
@@ -110,16 +121,12 @@ const SideBar: React.FC<SideBarProps> = ({ showSidebar, closeSidebar }) => {
       style={{
         visibility: shouldRender ? 'visible' : 'hidden',
         opacity: showSidebar ? 1 : 0,
-        maxHeight: showSidebar ? '100%' : '100%',
+        maxHeight: '100%',
         transition: 'opacity 0.5s ease-in-out, max-height 0.35s ease-in-out'
       }}
       onTransitionEnd={handleTransitionEnd}
     >
-      <div
-        className={`z-10 h-56 p-4 ${
-          isDark ? 'bg-gray-800 text-white' : 'bg-gray-200 text-gray-800'
-        }`}
-      >
+      <div className={`z-10 h-56 p-4`}>
         <div className="absolute left-4 top-4">
           <Tooltip text="Toggle Dark Mode">
             <DarkModeToggleWrapper />
@@ -136,54 +143,49 @@ const SideBar: React.FC<SideBarProps> = ({ showSidebar, closeSidebar }) => {
           </div>
         )}
         <div className="flex flex-col items-center">
-          <div className="relative mb-2 mt-8 size-40 overflow-hidden rounded-full border-4 border-green-200">
-            <img
-              src="https://avatars.githubusercontent.com/u/36178784?v=4"
-              alt="Name"
-              className={`size-full rounded-full object-cover transition-transform hover:scale-110 hover:shadow-lg`}
-            />
-          </div>
-          <p
-            className={`text-2xl font-bold ${
-              isDark ? 'text-gray-300' : 'text-gray-700'
-            }`}
-          >
-            Win Pisitchai
-          </p>
-          <p
-            className={`mb-1 text-sm 
-               text-gray-500`}
-          >
-            Pisitchai Siriratanachaikul
-          </p>
-
-          <p
-            className={`mb-2 text-sm
-            ${isDark ? 'text-green-300' : 'text-green-600'}`}
-          >
-            Bangkok, Thailand
-          </p>
-
-          {/* <p
-            className={`text-wrap text-sm font-normal ${
-              isDark ? 'text-gray-400' : 'text-gray-600'
-            } mb-4`}
-          >
-            Over 2 years+ of experience in designing and developing web
-            applications.
-          </p> */}
+          <Tooltip text="It's a me!">
+            <div
+              className={`mb-2 mt-7 size-40 overflow-hidden rounded-full border-4 ${
+                isDark ? 'border-green-300' : 'border-green-700'
+              }`}
+            >
+              <img
+                src="https://avatars.githubusercontent.com/u/36178784?v=4"
+                alt="Name"
+                className={`size-full rounded-full object-cover transition-transform hover:scale-110 hover:shadow-lg`}
+              />
+            </div>
+          </Tooltip>
         </div>
       </div>
 
+      <div className={`flex h-20 flex-col items-center`}>
+        <p
+          className={`text-2xl font-bold ${
+            isDark ? 'text-gray-300' : 'text-gray-700'
+          }`}
+        >
+          Win Pisitchai
+        </p>
+        <p
+          className={`mb-1 text-sm 
+               text-gray-500`}
+        >
+          Pisitchai Siriratanachaikul
+        </p>
+        <p
+          className={`mb-2 text-sm
+            ${isDark ? 'text-green-300' : 'text-green-600'}`}
+        >
+          Bangkok, Thailand
+        </p>
+      </div>
+
+      <div className="mx-auto mt-1 h-[2px] w-5/6 bg-gray-300"></div>
+
       <div
-        className={`h-20 ${
-          isDark ? 'bg-gray-800 text-white' : 'bg-gray-200 text-gray-800'
-        }`}
-      ></div>
-
-      <div className="mx-auto w-5/6 border-t border-gray-300"></div>
-
-      <div className="custom-scroll-small flex-1 overflow-y-auto overflow-x-hidden pt-5">
+        className={`custom-scroll-small flex-1 overflow-y-auto overflow-x-hidden pt-5`}
+      >
         <div
           className={`flex justify-center text-center text-sm font-normal ${
             isDark ? 'text-gray-400' : 'text-gray-600'
@@ -205,7 +207,7 @@ const SideBar: React.FC<SideBarProps> = ({ showSidebar, closeSidebar }) => {
 
         <div
           className={`grid-col-1 mx-auto mt-10 grid w-[50%] justify-center gap-4 ${
-            isDark ? 'bg-gray-800 text-white' : ' text-gray-800'
+            isDark ? 'text-white' : ' text-gray-800'
           }`}
         >
           <div
@@ -243,6 +245,23 @@ const SideBar: React.FC<SideBarProps> = ({ showSidebar, closeSidebar }) => {
               pisitchai.sirirat
             </span>
           </div>
+
+          <div className="align-center mt-3 flex justify-center">
+            <AnimatedButton
+              className={`rounded-lg border-2 !bg-transparent px-3 py-1 ${
+                isDark
+                  ? 'border-green-300 !text-green-300'
+                  : 'border-green-700 !text-green-300'
+              }`}
+              onClick={handleCvButtonClick}
+              content={
+                <div>
+                  <span> CV </span>
+                  <FontAwesomeIcon icon={faArrowUpRightFromSquare} />
+                </div>
+              }
+            />
+          </div>
         </div>
 
         {/* {skills.map((skill, index) => (
@@ -253,8 +272,8 @@ const SideBar: React.FC<SideBarProps> = ({ showSidebar, closeSidebar }) => {
       </div>
 
       <div
-        className={`flex h-12 items-center justify-center gap-4 ${
-          isDark ? 'bg-gray-800 text-white' : 'bg-gray-200 text-gray-800'
+        className={`flex h-10 items-center justify-center gap-4 ${
+          isDark ? 'bg-gray-900 text-white' : 'bg-slate-200 text-gray-800'
         }`}
       >
         <p className={`text-xs text-gray-500`}>© 2024 All Rights Reserved</p>

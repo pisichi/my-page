@@ -4,6 +4,7 @@ import React, { useEffect, useState } from 'react'
 import { TypeAnimation } from 'react-type-animation'
 import { useDarkMode } from '@/context/DarkModeContext'
 import './AboutMeTerminal.scss'
+import { useLocation } from 'react-router-dom'
 
 interface TerminalPromptProps {
   isDark: boolean
@@ -21,6 +22,12 @@ const TerminalPrompt: React.FC<TerminalPromptProps> = ({ isDark }) => (
 
 const AboutMeTerminal = () => {
   const { isDark } = useDarkMode()
+  const location = useLocation()
+  const cdPath =
+    ' cd .' +
+    (!location.pathname || location.pathname === '/'
+      ? '/home'
+      : location.pathname)
 
   const [showFirstCommand, setFirstCommand] = useState(false)
   const [showFirstResult, setShowFirstResult] = useState(false)
@@ -38,11 +45,11 @@ const AboutMeTerminal = () => {
 
     const firstDelay = setTimeout(() => {
       setShowFirstResult(true)
-    }, initialDelay + 300)
+    }, initialDelay + 200)
 
     const secondDelay = setTimeout(() => {
       setShowSecondCommand(true)
-    }, initialDelay + 500)
+    }, initialDelay + 200)
 
     // const thirdDelay = setTimeout(() => {
     //   setShowSecondResult(true)
@@ -100,7 +107,7 @@ const AboutMeTerminal = () => {
                 <span
                   className={`${isDark ? 'text-blue-600' : 'text-blue-700'}`}
                 >
-                  Home
+                  home
                 </span>
               </div>
 
@@ -114,7 +121,7 @@ const AboutMeTerminal = () => {
                 <span
                   className={`${isDark ? 'text-blue-600' : 'text-blue-700'}`}
                 >
-                  Skill
+                  skill
                 </span>
               </div>
 
@@ -128,7 +135,7 @@ const AboutMeTerminal = () => {
                 <span
                   className={`${isDark ? 'text-blue-600' : 'text-blue-700'}`}
                 >
-                  History
+                  history
                 </span>
               </div>
 
@@ -142,7 +149,7 @@ const AboutMeTerminal = () => {
                 <span
                   className={`${isDark ? 'text-blue-600' : 'text-blue-700'}`}
                 >
-                  Achievement
+                  achievement
                 </span>
               </div>
 
@@ -156,7 +163,7 @@ const AboutMeTerminal = () => {
                 <span
                   className={`${isDark ? 'text-blue-600' : 'text-blue-700'}`}
                 >
-                  Project
+                  project
                 </span>
               </div>
 
@@ -177,7 +184,7 @@ const AboutMeTerminal = () => {
             <div
               className={`${
                 isDark ? 'text-blue-500' : 'text-blue-700'
-              } md:hidden lg:hidden grid grid-cols-3 gap-4`}
+              } grid grid-cols-3 gap-4 md:hidden lg:hidden`}
             >
               <div>Home</div>
               <div>History</div>
@@ -201,9 +208,9 @@ const AboutMeTerminal = () => {
               )}
 
               {!showSecondResult && showSecondCommand && (
-                <TypeAnimation speed={1} sequence={[' cd ./Home']} />
+                <TypeAnimation speed={1} sequence={[cdPath]} />
               )}
-              {showSecondResult && ' cd ./Home'}
+              {showSecondResult && cdPath}
             </span>
           </>
         )}

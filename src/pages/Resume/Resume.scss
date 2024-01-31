@@ -40,8 +40,8 @@
 // }
 
 .cv-body {
-  width: var(--page-width);
-  height: var(--page-height);
+  // width: var(--page-width);
+  // height: var(--page-height);
   margin: 0;
   font-family: 'Arial';
   font-weight: 300;
@@ -70,7 +70,7 @@
     float: right;
     position: relative; /* for disclaimer */
     width: var(--sidebar-width);
-    height: 100%;
+    // height: 100%;
     padding: var(--sidebar-horizontal-padding);
     background-color: #e8e8e8;
     font-size: 8.5pt;
@@ -250,15 +250,6 @@
     min-height: 100%;
     border-left: var(--decorator-border);
   }
-
-  /*
-* XXX: Use two filled circles to achieve the circle-with-white-border effect.
-* The normal technique of only using one pseudo element and
-* border: 1px solid white; style makes firefox erroneously either:
-* 1) overflows the grayshade background (if no background-clip is set), or
-* 2) shows decorator line which should've been masked by the white border
-*
-*/
 
   .decorator::before {
     position: absolute;

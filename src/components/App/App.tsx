@@ -31,20 +31,6 @@ function App() {
 
 const InnerApp: React.FC = () => {
   const { isDark } = useDarkMode()
-  const [loading, setLoading] = useState(true)
-
-  // useEffect(() => {
-  //   const timer = setTimeout(() => {
-  //     setLoading(false)
-  //   }, 500)
-
-  //   return () => clearTimeout(timer)
-  // }, [])
-
-  // if (loading) {
-  //   return <SplashPage />
-  // }
-
   return (
     <div
       className={`App ${isDark ? 'dark' : 'light'}`}
@@ -55,7 +41,7 @@ const InnerApp: React.FC = () => {
         <Routes>
           <Route path="/" element={<DefaultLayout />}>
             <Route index element={<LandingPage />} />
-            <Route path="skill" element={<Skill />} />
+            {/* <Route path="skill" element={<Skill />} /> */}
             <Route path="achievement" element={<Achievement />} />
             <Route path="history" element={<History />} />
             <Route path="project" element={<Project />} />

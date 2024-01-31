@@ -1,30 +1,46 @@
+import Reveal from '@/components/Utils/Reveal'
 import ArticleCard from 'components/Card/ArticleCard'
 import { useDarkMode } from 'context/DarkModeContext'
 import achievementsData from 'data/achievementsData'
 import React, { useState } from 'react'
 
 const Achievement: React.FC = () => {
-  const { isDark } = useDarkMode()
-
   const achievements = achievementsData
+  const { isDark } = useDarkMode()
 
   return (
     <div className={`px-3`}>
-      <div className="flex">
-        <h2 className="mb-5 flex-1 border-b-2 border-solid border-gray-500 p-2 text-2xl font-bold">
-          Achievements
-        </h2>
+      <div className="pt-3">
+        <Reveal>
+          <div
+            className={`text-lg font-bold uppercase md:text-2xl ${
+              isDark ? 'text-green-300' : 'text-green-700'
+            } `}
+          >
+            {'{ Achievement }'}
+          </div>
+        </Reveal>
       </div>
-      <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
+
+      <div className=" justify-center">
+        <Reveal width="90%">
+          <div
+            className={`my-5 h-[4px] ${isDark ? 'bg-gray-400' : 'bg-gray-600'}`}
+          ></div>
+        </Reveal>
+      </div>
+
+      <div className="grid grid-cols-1 justify-center gap-4 sm:grid-cols-2 lg:grid-cols-3">
         {achievements.map((achievement, index) => (
-          <ArticleCard
-            key={`achiv-page-${index}`}
-            title={achievement.title}
-            img_url={achievement.img_url}
-            stack={achievement.stack}
-            content={achievement.content}
-            description={achievement.description}
-          />
+          <Reveal index={index} key={`achiv-page-${index}`}>
+            <ArticleCard
+              title={achievement.title}
+              img_url={achievement.img_url}
+              stack={achievement.stack}
+              content={achievement.content}
+              description={achievement.description}
+            />
+          </Reveal>
         ))}
       </div>
     </div>

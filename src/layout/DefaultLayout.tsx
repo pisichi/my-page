@@ -22,7 +22,7 @@ const DefaultLayout: React.FC = () => {
   const location = useLocation()
   const currentRoute = location.pathname
   const { isMobile } = useScreenSize()
-  const baseDelay = 2500
+  const baseDelay = 2200
 
   useEffect(() => {
     const initialLoadingTimeout = setTimeout(() => {
@@ -57,7 +57,7 @@ const DefaultLayout: React.FC = () => {
   const menuItems = [
     { id: 1, label: 'Main', link: '/' },
     { id: 2, label: 'History', link: '/history' },
-    { id: 3, label: 'Skill', link: '/skill' },
+    // { id: 3, label: 'Skill', link: '/skill' },
     { id: 4, label: 'Achievement', link: '/achievement' },
     { id: 5, label: 'Project', link: '/project' }
   ]
@@ -81,7 +81,7 @@ const DefaultLayout: React.FC = () => {
 
   return (
     <div
-      className={`flex h-screen w-screen overflow-x-hidden ${
+      className={`page flex h-screen w-screen overflow-x-hidden ${
         isDark ? 'bg-gray-900 text-white' : 'bg-gray-50 text-black'
       }`}
     >

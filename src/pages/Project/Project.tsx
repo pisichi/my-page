@@ -22,43 +22,79 @@ const Project: React.FC = () => {
 
   return (
     <div className={`px-3`}>
-      <div className="flex p-2 ">
+      <div className="flex pt-3">
         <Reveal>
-          <h2 className="mb-5 flex-1 text-2xl font-bold">Projects</h2>
+          <div
+            className={`text-lg font-bold uppercase md:text-2xl ${
+              isDark ? 'text-green-300' : 'text-green-700'
+            } `}
+          >
+            {'{ Projects }'}
+          </div>
         </Reveal>
       </div>
-      <Reveal>
-        <p className={`mb-4  ${isDark ? 'text-slate-300' : 'text-gray-700'}`}>
-          My various projects, from practice to hobbies.
-        </p>
-        <div className="mb-8 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
-          {projects.map((project, index) => (
-            <Reveal key={`proj-${index}`}>
-              <ArticleCard
-                title={project.title}
-                img_url={project.img_url}
-                stack={project.stack}
-                content={project.content}
-                description={project.description}
-              />
-            </Reveal>
-          ))}
-        </div>
-      </Reveal>
 
       <div className="flex">
-        <Reveal>
-          <h2 className="mb-5 flex-1 p-2 text-xl font-bold">Fun</h2>
+        <Reveal width="90%">
+          <div
+            className={`mb-2 mt-5 h-[4px] ${
+              isDark ? 'bg-gray-400' : 'bg-gray-600'
+            }`}
+          ></div>
         </Reveal>
       </div>
+
       <Reveal>
         <p className={`mb-4  ${isDark ? 'text-slate-300' : 'text-gray-700'}`}>
-          Fun projects, mainly games for now.
+          My various Projects.
         </p>
       </Reveal>
+
+      <div className="mb-8 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
+        {projects.map((project, index) => (
+          <Reveal key={`proj-${index}`} index={index}>
+            <ArticleCard
+              title={project.title}
+              img_url={project.img_url}
+              stack={project.stack}
+              content={project.content}
+              description={project.description}
+            />
+          </Reveal>
+        ))}
+      </div>
+
+      <div className="flex pt-3">
+        <Reveal>
+          <div
+            className={`text-lg font-bold uppercase md:text-2xl ${
+              isDark ? 'text-slate-300' : 'text-gray-700'
+            } `}
+          >
+            {'{ Fun }'}
+          </div>
+        </Reveal>
+      </div>
+
+      <div className="flex">
+        <Reveal width="90%">
+          <div
+            className={`mb-2 mt-5 h-[4px] ${
+              isDark ? 'bg-gray-400' : 'bg-gray-600'
+            }`}
+          ></div>
+        </Reveal>
+      </div>
+
+      <Reveal>
+        <p className={`mb-4  ${isDark ? 'text-slate-300' : 'text-gray-700'}`}>
+          Fun projects, mainly games.
+        </p>
+      </Reveal>
+
       <div className="mb-8 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
         {funProjects.map((project, index) => (
-          <Reveal key={`fun-${index}`}>
+          <Reveal key={`fun-${index}`} index={index}>
             <ArticleCard
               title={project.title}
               img_url={project.img_url}

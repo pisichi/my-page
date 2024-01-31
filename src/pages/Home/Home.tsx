@@ -2,56 +2,40 @@ import './Home.scss'
 import Reveal from '@/components/Utils/Reveal'
 
 import {
-  faFlask,
   faForwardFast,
   faLaptopCode,
-  faMeteor,
   faPersonRunning,
-  faPlane,
   faTerminal,
   faUsersBetweenLines
 } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import ContentCard from 'components/Card/ContentCard'
 import { useDarkMode } from 'context/DarkModeContext'
 import {
   DockerPlain,
-  ElectronOriginal,
-  Html5Plain,
   JavaPlain,
   JavascriptPlain,
-  KubernetesPlain,
   LaravelOriginal,
-  MongodbOriginal,
   MysqlOriginal,
-  NodejsLine,
-  NodejsLineWordmark,
   NodejsOriginalWordmark,
   NuxtjsOriginal,
   PhpPlain,
   PythonPlain,
   ReactOriginal,
-  SolidityOriginal,
   TypescriptPlain,
   VuejsOriginal
 } from 'devicons-react'
-import React, {
-  ReactElement,
-  ReactNode,
-  ReactSVGElement,
-  useEffect,
-  useRef
-} from 'react'
+import React from 'react'
 import useScreenSize from 'utils/useScreenSize'
 
 import ArticleCard from '@/components/Card/ArticleCard'
 import TechIcon from '@/components/Icons/TechIcon'
-import AboutMeTerminal from '@/components/Terminal/AboutMeTerminal'
 import achievementsData from '@/data/achievementsData'
 import projectsData from '@/data/projectsData'
-import { Link } from 'react-router-dom'
-import { FaArrowRight } from 'react-icons/fa'
+import AnimatedButton from '@/components/Button/AnimatedButton'
 import { TypeAnimation } from 'react-type-animation'
+import { FaArrowAltCircleDown, FaArrowUp } from 'react-icons/fa'
+import { faArrowUpRightFromSquare } from '@fortawesome/free-solid-svg-icons'
+import { useNavigate } from 'react-router-dom'
 
 const Home: React.FC = () => {
   const { isDark } = useDarkMode()
@@ -60,16 +44,18 @@ const Home: React.FC = () => {
   const iconColor = isDark ? '#86efac' : '#308250'
   const achievements = achievementsData.slice(0, 3)
   const projects = projectsData().slice(0, 3)
+  const navigate = useNavigate()
 
   const introduction = 'Software Engineer'
   const subtleMessages = [
-    'Bug Slayer',
+    'Ransomware Survivor',
     'Fluent Binary Speaker',
-    'Semicolons Believer;',
+    'Bug Slayer',
     'Infinity Loop Wayfinder',
     'Console.log Enjoyer',
-    'Ctrl+C Ctrl+V Grandmaster',
-    'sudo rm -rf /* Survivor'
+    'Semicolons Alzheimer',
+    'Semicolons Alzheimer;',
+    'Ctrl+C Ctrl+V Grandmaster'
   ]
 
   const sequence = [
@@ -129,9 +115,9 @@ const Home: React.FC = () => {
   return (
     <div className="overflow-x-hidden">
       <section className="mb-12">
-        <Reveal>
-          <div className="flex min-h-screen flex-col items-center justify-center">
-            <div className="text-center">
+        <Reveal width="100%">
+          <div className="flex min-h-screen flex-col items-center justify-center align-middle">
+            <div className="text-center ">
               <div className="mb-8 mt-5 font-sans text-7xl font-extrabold">
                 Hey there! I'm{' '}
                 <span
@@ -156,9 +142,9 @@ const Home: React.FC = () => {
               {/* <div className="mt-6">Based in Thailand</div> */}
             </div>
 
-            <div className="mx-auto mt-20 flex w-full flex-wrap items-center justify-center pb-8 md:w-2/3">
+            <div className="mx-auto mt-20 flex w-full flex-wrap items-center justify-center pb-8 md:max-w-[55rem]">
               {icons.map((icon, index) => (
-                <Reveal key={`about-home-${index} md:m-5`}>
+                <Reveal index={index} key={`about-home-${index} md:m-5`}>
                   <TechIcon
                     component={icon.component}
                     iconColor={iconColor}
@@ -246,7 +232,7 @@ const Home: React.FC = () => {
         </div>
       </section>
 
-      <section className="mt-15 mb-20">
+      <section className="mb-20 mt-20">
         <div className="flex justify-center">
           <Reveal>
             <div
@@ -269,22 +255,6 @@ const Home: React.FC = () => {
           </Reveal>
         </div>
 
-        {/* <div className="flex border-b-2 border-solid border-gray-500 py-2">
-          <h2
-            className={`flex-1 text-lg font-bold uppercase md:text-2xl ${
-              isDark ? 'text-green-300' : 'text-green-700'
-            } `}
-          >
-            {'{ Featured Achievement }'}
-          </h2>
-          <Link
-            to="/achievement"
-            className="ml-3 flex items-center text-blue-500 transition-all duration-300 hover:text-blue-700"
-          >
-            View All <FaArrowRight className="ml-1" />
-          </Link>
-        </div> */}
-
         <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
           {achievements.map((achievement, index) => (
             <Reveal key={`achiv-home-${index}`}>
@@ -300,14 +270,31 @@ const Home: React.FC = () => {
             </Reveal>
           ))}
         </div>
+
+        <div className="mt-8 flex items-center justify-center">
+          <Reveal className="p-3">
+            <AnimatedButton
+              className={`rounded-lg px-3 py-1 ${
+                isDark ? 'bg-green-500' : 'bg-green-700'
+              }`}
+              onClick={() => navigate('/achievement')}
+              content={
+                <div>
+                  <span> View more </span>
+                  <FontAwesomeIcon icon={faArrowUpRightFromSquare} />
+                </div>
+              }
+            />
+          </Reveal>
+        </div>
       </section>
 
-      <section className="mt-15 mb-20">
+      <section className="mb-20 mt-28">
         <div className="flex justify-center">
           <Reveal>
             <div
               className={`text-lg font-bold uppercase md:text-3xl ${
-                isDark ? 'text-green-300' : 'text-green-700'
+                isDark ? 'text-green-300' : 'text-green-700 shadow-md'
               } `}
             >
               {'{ Featured Project }'}
@@ -319,7 +306,7 @@ const Home: React.FC = () => {
           <Reveal width="85%">
             <div
               className={`my-5 h-[4px] w-[100%] ${
-                isDark ? 'bg-slate-400' : 'bg-gray-600'
+                isDark ? 'bg-slate-500' : 'bg-gray-600'
               }`}
             ></div>
           </Reveal>
@@ -339,6 +326,23 @@ const Home: React.FC = () => {
               </div>
             </Reveal>
           ))}
+        </div>
+
+        <div className="mt-8 flex items-center justify-center">
+          <Reveal className="p-3">
+            <AnimatedButton
+              className={`rounded-lg px-3 py-1 ${
+                isDark ? 'bg-green-500' : 'bg-green-700 shadow-md'
+              }`}
+              onClick={() => navigate('/project')}
+              content={
+                <div>
+                  <span> View more </span>
+                  <FontAwesomeIcon icon={faArrowUpRightFromSquare} />
+                </div>
+              }
+            />
+          </Reveal>
         </div>
       </section>
     </div>

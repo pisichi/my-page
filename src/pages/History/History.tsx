@@ -1,3 +1,4 @@
+import Reveal from '@/components/Utils/Reveal'
 import TimeLine from 'components/TimeLine/TimeLine'
 import { useDarkMode } from 'context/DarkModeContext'
 import React, { useState } from 'react'
@@ -109,13 +110,29 @@ const History: React.FC = () => {
 
   return (
     <div className={``}>
-      <div className="flex">
-        <h2 className="mb-5 flex-1 border-b-2 border-solid border-gray-500 p-2 text-2xl font-bold">
-          Timeline
-        </h2>
+      <div className="pt-3">
+        <Reveal>
+          <div
+            className={`text-lg font-bold uppercase md:text-2xl ${
+              isDark ? 'text-green-300' : 'text-green-700'
+            } `}
+          >
+            {'{ Timeline }'}
+          </div>
+        </Reveal>
+      </div>
+
+      <div className=" justify-center">
+        <Reveal width="100%">
+          <div
+            className={`my-5 h-[4px] ${isDark ? 'bg-gray-400' : 'bg-gray-600'}`}
+          ></div>
+        </Reveal>
       </div>
       <div>
-        <TimeLine History={history} />
+        <Reveal width='100%'>
+          <TimeLine History={history} />
+        </Reveal>
       </div>
     </div>
   )

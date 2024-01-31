@@ -16,21 +16,6 @@ const Modal: React.FC = () => {
     customClassName
   } = useModal()
   const { isDark } = useDarkMode()
-  const modalRef = useRef<HTMLDivElement>(null)
-
-  useEffect(() => {
-    const handleEscape = (event: KeyboardEvent) => {
-      if (event.key === 'Escape') {
-        closeModal()
-      }
-    }
-
-    document.addEventListener('keydown', handleEscape)
-
-    return () => {
-      document.removeEventListener('keydown', handleEscape)
-    }
-  }, [closeModal])
 
   return (
     <div
@@ -47,7 +32,6 @@ const Modal: React.FC = () => {
         onClick={closeModal}
       ></div>
       <div
-        ref={modalRef}
         style={{
           ...customStyle
         }}
