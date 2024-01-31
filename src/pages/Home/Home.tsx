@@ -196,7 +196,7 @@ const Home: React.FC = () => {
             <div className="mx-auto px-5 py-5">
               <div className="-m-4 flex flex-wrap justify-center">
                 {cardData.map((card, index) => (
-                  <div key={index} className="p-4 md:w-1/3">
+                  <div key={index} className="w-3/3 p-4 md:w-1/3">
                     <Reveal>
                       <div
                         className={`flex h-full flex-col rounded-lg shadow-md ${
@@ -237,7 +237,7 @@ const Home: React.FC = () => {
       </Reveal>
 
       <Reveal>
-        <section className="mt-10 mb-20">
+        <section className="mb-20 mt-10">
           <div className="">
             <div className="flex border-b-2 border-solid border-gray-500 py-2">
               <h2
@@ -271,7 +271,7 @@ const Home: React.FC = () => {
               ))}
             </div>
 
-            <div className="flex border-b-2 border-solid border-gray-500 py-2 mt-20">
+            <div className="mt-20 flex border-b-2 border-solid border-gray-500 py-2">
               <h2
                 className={`flex-1 text-lg font-bold uppercase md:text-2xl ${
                   isDark ? 'text-green-300' : 'text-green-700'
@@ -289,10 +289,9 @@ const Home: React.FC = () => {
 
             <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
               {projects.map((project, index) => (
-                <Reveal>
-                  <div className="p-3" key={`proj-home-${index}-div`}>
+                <Reveal key={`proj-home-${index}-div`}>
+                  <div className="p-3">
                     <ArticleCard
-                      key={`proj-home-${index}`}
                       title={project.title}
                       img_url={project.img_url}
                       stack={project.stack}
