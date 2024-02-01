@@ -242,7 +242,7 @@ const Resume = () => {
                 <div className="details">
                   <header>
                     <h3 className="font-bold text-gray-600">
-                      Bachelor’s degree ,Computer Science
+                      Bachelor's Degree - Computer Science
                     </h3>
                     <span className="place">
                       King Mongkut's Institute of Technology Ladkrabang (KMITL)

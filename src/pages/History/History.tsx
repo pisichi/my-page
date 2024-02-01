@@ -67,7 +67,7 @@ const History: React.FC = () => {
       year: '2017 – 2020',
       events: [
         {
-          name: 'Bachelor’s degree ,Computer Science',
+          name: 'Bachelor’s Degree - Computer Science',
           content: (
             <div>
               <div>
