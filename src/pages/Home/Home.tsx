@@ -234,7 +234,7 @@ const Home: React.FC = () => {
                 isDark ? 'text-green-300' : 'text-green-700'
               } `}
             >
-              {'{ Featured Achievement }'}
+              {'{ Featured Achievements }'}
             </div>
           </Reveal>
         </div>
@@ -287,7 +287,7 @@ const Home: React.FC = () => {
                 isDark ? 'text-green-300' : 'text-green-700 shadow-md'
               } `}
             >
-              {'{ Featured Project }'}
+              {'{ Featured Projects }'}
             </div>
           </Reveal>
         </div>

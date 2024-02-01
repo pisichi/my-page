@@ -99,8 +99,8 @@ const Resume = () => {
                         Collaborated closely with a cross-functional team of
                         designers, project owners, and testers, ensuring a
                         comprehensive understanding of problem requirements.
-                        Worked collectively to design software solutions that
-                        precisely aligned with the specified requirements.
+                      </li>
+                      <li>
                         Proficient in breaking down complex problems into
                         technical tasks to facilitate efficient development
                         processes.

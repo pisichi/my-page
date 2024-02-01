@@ -11,23 +11,33 @@ const Achievement: React.FC = () => {
 
   return (
     <div className={`px-3`}>
-      <div className="pt-3">
+      <div className="flex pt-3">
         <Reveal>
           <div
             className={`text-lg font-bold uppercase md:text-2xl ${
               isDark ? 'text-green-300' : 'text-green-700'
             } `}
           >
-            {'{ Achievement }'}
+            {'{ Achievements }'}
           </div>
         </Reveal>
       </div>
 
-      <div className=" justify-center">
+      <div className="flex">
         <Reveal width="90%">
-          <div className={`my-5 h-[4px] bg-gray-400`}></div>
+          <div
+            className={`mb-2 mt-5 h-[4px] ${
+              isDark ? 'bg-gray-400' : 'bg-gray-600'
+            }`}
+          ></div>
         </Reveal>
       </div>
+
+      <Reveal>
+        <p className={`mb-4  ${isDark ? 'text-slate-300' : 'text-gray-700'}`}>
+          Tournaments and hackathons I participated.
+        </p>
+      </Reveal>
 
       <div className="grid grid-cols-1 justify-center gap-4 sm:grid-cols-2 lg:grid-cols-3">
         {achievements.map((achievement, index) => (

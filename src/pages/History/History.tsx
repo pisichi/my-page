@@ -36,12 +36,12 @@ const History: React.FC = () => {
               </p>
               <ul className="mb-4 list-inside list-disc pl-6">
                 <li>
-                  Developing, maintaining, and enhancing software solutions to
-                  meet the company's goals.
+                  Building highly scalable web applications using Nuxt,Vuetify,
+                  Laravel and AWS.
                 </li>
                 <li>
-                  Building highly scalable web applications, contributing
-                  significantly to the success of the business.
+                  Developing, maintaining, and enhancing software solutions to
+                  meet the company's goals.
                 </li>
                 <li>
                   Utilized Agile development methodologies to ensure efficient
@@ -52,10 +52,6 @@ const History: React.FC = () => {
                   Collaborated closely with a cross-functional team of
                   designers, project owners, and testers, ensuring a
                   comprehensive understanding of problem requirements.
-                </li>
-                <li>
-                  Worked collectively to design software solutions that
-                  precisely aligned with the specified requirements.
                 </li>
                 <li>
                   Proficient in breaking down complex problems into technical
@@ -111,7 +107,7 @@ const History: React.FC = () => {
 
   return (
     <div className={``}>
-      <div className="pt-3">
+      <div className="flex pt-3">
         <Reveal>
           <div
             className={`text-lg font-bold uppercase md:text-2xl ${
@@ -123,11 +119,22 @@ const History: React.FC = () => {
         </Reveal>
       </div>
 
-      <div className=" justify-center">
-        <Reveal width="100%">
-          <div className={`my-5 h-[4px] bg-gray-400`}></div>
+      <div className="flex">
+        <Reveal width="90%">
+          <div
+            className={`mb-2 mt-5 h-[4px] ${
+              isDark ? 'bg-gray-400' : 'bg-gray-600'
+            }`}
+          ></div>
         </Reveal>
       </div>
+
+      <Reveal>
+        <p className={`mb-4  ${isDark ? 'text-slate-300' : 'text-gray-700'}`}>
+          My professional and educational experiences.
+        </p>
+      </Reveal>
+
       <div>
         <Reveal width="100%">
           <TimeLine History={history} />
