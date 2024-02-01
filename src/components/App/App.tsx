@@ -40,7 +40,6 @@ const InnerApp: React.FC = () => {
   console.log(
     "To resolve this, I've implemented a workaround based on this solution (https://stackoverflow.com/a/69744845)"
   )
-  console.log('Now, GitHub Pages redirects all requests to index.html')
   return (
     <div
       className={`App ${isDark ? 'dark' : 'light'}`}
