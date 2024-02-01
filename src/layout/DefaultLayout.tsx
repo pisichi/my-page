@@ -9,6 +9,7 @@ import { Outlet, useLocation } from 'react-router-dom'
 import useScreenSize from 'utils/useScreenSize'
 
 import BurgerIcon from '@/components/Icons/Hamburger'
+import KebabIcon from '@/components/Icons/Kebab'
 import AboutMeTerminal from '@/components/Terminal/AboutMeTerminal'
 
 const DefaultLayout: React.FC = () => {
@@ -150,7 +151,7 @@ const DefaultLayout: React.FC = () => {
                       showSidebar ? 'scale-110' : ''
                     } transition-transform duration-300`}
                   >
-                    <BurgerIcon
+                    <KebabIcon
                       color={`${isDark ? 'white' : 'black'}`}
                       toggled={showSidebar}
                     />
