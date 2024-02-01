@@ -1,7 +1,7 @@
-import React, { useEffect, useState, useMemo } from 'react'
-import { useDarkMode } from 'context/DarkModeContext'
 import Particles, { initParticlesEngine } from '@tsparticles/react'
 import { loadSlim } from '@tsparticles/slim'
+import { useDarkMode } from 'context/DarkModeContext'
+import React, { useEffect, useMemo, useState } from 'react'
 
 const ParticleBackground = React.memo(() => {
   const [init, setInit] = useState(false)
@@ -32,10 +32,10 @@ const ParticleBackground = React.memo(() => {
           width: 1
         },
         move: {
-          direction: 'none' as 'none',
+          direction: 'none' as const,
           enable: true,
           outModes: {
-            default: 'out' as 'out'
+            default: 'out' as const
           },
           random: false,
           speed: 1,

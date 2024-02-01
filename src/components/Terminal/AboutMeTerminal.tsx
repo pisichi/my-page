@@ -1,10 +1,10 @@
-// AboutMeTerminal.js
+import './AboutMeTerminal.scss'
 
 import React, { useEffect, useState } from 'react'
-import { TypeAnimation } from 'react-type-animation'
-import { useDarkMode } from '@/context/DarkModeContext'
-import './AboutMeTerminal.scss'
 import { useLocation } from 'react-router-dom'
+import { TypeAnimation } from 'react-type-animation'
+
+import { useDarkMode } from '@/context/DarkModeContext'
 
 interface TerminalPromptProps {
   isDark: boolean
@@ -71,7 +71,7 @@ const AboutMeTerminal = () => {
     >
       {/* Terminal Output Container */}
       <div
-        className={`mb-4 overflow-hidden border border-green-500 p-4 w-[75vw] md:w-[80vw] md:max-w-[800px] ${
+        className={`mb-4 w-[75vw] overflow-hidden border border-green-500 p-4 md:w-[80vw] md:max-w-[800px] ${
           isDark ? 'border-green-500' : 'border-green-600'
         }`}
       >
@@ -223,7 +223,7 @@ const AboutMeTerminal = () => {
 
       {/* Footer */}
       <div className={`text-center`}>
-        <p className={`text-gray-500 text-xs md:text-sm`}>
+        <p className={`text-xs text-gray-500 md:text-sm`}>
           pisichi's Personal Website &copy; 2024
         </p>
       </div>

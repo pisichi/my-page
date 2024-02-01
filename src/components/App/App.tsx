@@ -12,9 +12,9 @@ import { BrowserRouter, Route, Routes } from 'react-router-dom'
 import DefaultLayout from '@/layout/DefaultLayout'
 import Achievement from '@/pages/Achievement/Achievement'
 import History from '@/pages/History/History'
-import Skill from '@/pages/Skill/Skill'
-import SplashPage from '@/pages/SplashPage/SplashPage' // Import the modified SplashPage component
 import Resume from '@/pages/Resume/Resume'
+import Skill from '@/pages/Skill/Skill'
+import SplashPage from '@/pages/SplashPage/SplashPage'
 
 import ParticleBackground from '../ParticleBackground/ParticleBackground'
 

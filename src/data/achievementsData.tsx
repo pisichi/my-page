@@ -1,8 +1,5 @@
 import {
-  GithubOriginal,
-  GoOriginal,
   GoPlain,
-  JavascriptOriginal,
   JavascriptPlain,
   ReactOriginal,
   SolidityOriginal,
@@ -13,11 +10,10 @@ import {
   VuetifyOriginal
 } from 'devicons-react'
 import {
-  FaGit,
-  FaGithub,
   FaFilePowerpoint,
-  FaYoutube,
-  FaLink
+  FaGithub,
+  FaLink,
+  FaYoutube
 } from 'react-icons/fa'
 
 const iconSize = 22
@@ -36,17 +32,12 @@ const achievementsData: Article[] = [
       {
         component: <TailwindcssOriginal size={iconSize} />,
         color: '#2196F3',
-        key: 'React'
+        key: 'Tailwindcss'
       },
       {
         component: <SolidityOriginal size={iconSize} />,
         color: '#2196F3',
         key: 'Solidity'
-      },
-      {
-        component: <TypescriptPlain size={iconSize} />,
-        color: '#2196F3',
-        key: 'TypeScript'
       }
     ],
     content: (
@@ -349,17 +340,17 @@ const achievementsData: Article[] = [
       {
         component: <UnityOriginal size={iconSize} />,
         color: '#E0F2F1',
-        key: 'UnityOriginal'
+        key: 'Unity'
       },
       {
         component: <GoPlain size={iconSize} />,
         color: '#E0F2F1',
-        key: 'GoPlain'
+        key: 'Go'
       },
       {
         component: <JavascriptPlain size={iconSize} />,
         color: '#E0F2F1',
-        key: 'GoPlain'
+        key: 'Javascript'
       },
       {
         component: <TypescriptPlain size={iconSize} />,

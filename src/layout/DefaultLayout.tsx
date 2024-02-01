@@ -1,16 +1,15 @@
+import './DefaultLayout.scss'
+
+import RightSidebar from 'components/SideBar/RightSidebar'
+import SideBar from 'components/SideBar/SideBar'
+import { useDarkMode } from 'context/DarkModeContext'
+import { AnimatePresence, motion } from 'framer-motion'
 import React, { useEffect, useRef, useState } from 'react'
 import { Outlet, useLocation } from 'react-router-dom'
-import { CSSTransition } from 'react-transition-group'
-import { motion, AnimatePresence } from 'framer-motion'
+import useScreenSize from 'utils/useScreenSize'
 
 import BurgerIcon from '@/components/Icons/Hamburger'
 import AboutMeTerminal from '@/components/Terminal/AboutMeTerminal'
-import SideBar from 'components/SideBar/SideBar'
-import RightSidebar from 'components/SideBar/RightSidebar'
-import { useDarkMode } from 'context/DarkModeContext'
-import useScreenSize from 'utils/useScreenSize'
-
-import './DefaultLayout.scss'
 
 const DefaultLayout: React.FC = () => {
   const { isDark } = useDarkMode()
@@ -91,7 +90,7 @@ const DefaultLayout: React.FC = () => {
 
   return (
     <div
-      className={`page flex h-screen w-screen overflow-x-hidden ${
+      className={`page size-screen flex overflow-x-hidden ${
         isDark ? 'bg-gray-900 text-white' : 'bg-gray-50 text-black'
       }`}
     >
@@ -143,7 +142,7 @@ const DefaultLayout: React.FC = () => {
                   transform: { duration: 0.5, ease: 'easeInOut' }
                 }}
               >
-                <div className="absolute top-0 z-50 mb-[-15px] flex justify-between w-full">
+                <div className="absolute top-0 z-50 mb-[-15px] flex w-full justify-between">
                   <div
                     onClick={toggleSidebar}
                     aria-label={showSidebar ? 'Close Sidebar' : 'Open Sidebar'}
@@ -188,7 +187,7 @@ const DefaultLayout: React.FC = () => {
                     transition: 'transform 500ms ease-in-out'
                   }}
                 >
-                  <div className="mx-auto px-2 text-xs sm:px-3 sm:text-base md:px-7 w-screen sm:w-auto sm:min-w-0 md:text-lg lg:max-w-screen-2xl">
+                  <div className="mx-auto w-screen px-2 text-xs sm:w-auto sm:min-w-0 sm:px-3 sm:text-base md:px-7 md:text-lg lg:max-w-screen-2xl">
                     <div className="pt-12" ref={outletWrapperRef}>
                       <Outlet />
                     </div>

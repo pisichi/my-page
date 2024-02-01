@@ -1,8 +1,9 @@
-import React, { ReactNode, useState, useCallback, useEffect } from 'react'
+import './ArticleCard.scss'
+
+import IconWrapper from 'components/Icons/IconWrapper'
 import { useDarkMode } from 'context/DarkModeContext'
 import { useModal } from 'context/ModalContext'
-import IconWrapper from 'components/Icons/IconWrapper'
-import './ArticleCard.scss'
+import React, { ReactNode, useCallback, useEffect, useState } from 'react'
 
 interface StackItem {
   component: ReactNode
@@ -59,7 +60,7 @@ const ArticleCard: React.FC<ArticleCardProps> = ({
     >
       <div className="relative">
         <img
-          className="aspect-[4/3] h-full w-full rounded-t-md object-cover"
+          className="aspect-[4/3] size-full rounded-t-md object-cover"
           src={img_url}
           alt={title}
           onLoad={handleImageLoad}
@@ -70,17 +71,17 @@ const ArticleCard: React.FC<ArticleCardProps> = ({
             <div className="spinner"></div>
           </div>
         )}
-          <>
-            <div
-              className={`absolute min-h-16 inset-x-0 -bottom-1 rounded-b-md bg-gradient-to-t ${
-                isDark
-                  ? 'from-gray-900 to-gray-800 text-gray-300'
-                  : 'from-gray-100 to-slate-100 text-gray-800'
-              }  px-4`}
-            >
-              <div className="py-2 text-base font-bold ">{title}</div>
-            </div>
-          </>
+        <>
+          <div
+            className={`absolute inset-x-0 -bottom-1 min-h-16 rounded-b-md bg-gradient-to-t ${
+              isDark
+                ? 'from-gray-900 to-gray-800 text-gray-300'
+                : 'from-gray-100 to-slate-100 text-gray-800'
+            }  px-4`}
+          >
+            <div className="py-2 text-base font-bold ">{title}</div>
+          </div>
+        </>
       </div>
 
       <div className="overlay-container">
@@ -91,7 +92,7 @@ const ArticleCard: React.FC<ArticleCardProps> = ({
             }/80 text-${isDark ? 'white' : 'black'}`}
           >
             <div className="mb-2">
-              <p className={`text-white text-sm`}>{description}</p>
+              <p className={`text-sm text-white`}>{description}</p>
             </div>
             <div className="flex flex-wrap items-center">
               {stack &&

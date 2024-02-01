@@ -1,4 +1,4 @@
-import React, { useState, ReactNode, MouseEvent, useEffect } from 'react'
+import React, { MouseEvent, ReactNode, useEffect, useState } from 'react'
 
 interface TooltipProps {
   text: string

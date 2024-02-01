@@ -7,7 +7,7 @@ const DefaultLayout: React.FC = () => {
 
   return (
     <div
-      className={`flex h-screen w-screen overflow-x-hidden ${
+      className={`size-screen flex overflow-x-hidden ${
         isDark ? 'bg-gray-900 text-white' : 'bg-gray-50 text-black'
       }`}
     >

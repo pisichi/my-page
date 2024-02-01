@@ -1,8 +1,9 @@
-import Reveal from '@/components/Utils/Reveal'
 import ArticleCard from 'components/Card/ArticleCard'
 import { useDarkMode } from 'context/DarkModeContext'
 import achievementsData from 'data/achievementsData'
 import React, { useState } from 'react'
+
+import Reveal from '@/components/Utils/Reveal'
 
 const Achievement: React.FC = () => {
   const achievements = achievementsData
@@ -24,9 +25,7 @@ const Achievement: React.FC = () => {
 
       <div className=" justify-center">
         <Reveal width="90%">
-          <div
-            className={`my-5 h-[4px] bg-gray-400`}
-          ></div>
+          <div className={`my-5 h-[4px] bg-gray-400`}></div>
         </Reveal>
       </div>
 

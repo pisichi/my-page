@@ -12,7 +12,7 @@ const TechIcon: React.FC<IconProps> = ({ component, iconColor, iconKey }) => {
   const { isDark } = useDarkMode()
 
   return (
-    <div className="group mx-2 my-1 transform-gpu transition-transform hover:scale-110 px-1 py-2">
+    <div className="group mx-2 my-1 transform-gpu px-1 py-2 transition-transform hover:scale-110">
       <div
         className={`rounded-md ${
           isDark ? 'bg-gray-800' : 'bg-gray-100'

@@ -1,4 +1,3 @@
-import React, { ReactNode } from 'react'
 import {
   BootstrapPlain,
   CsharpLine,
@@ -15,10 +14,11 @@ import {
   SolidityOriginal,
   TailwindcssOriginal,
   TypescriptPlain,
-  VuejsOriginal,
-  YamlPlain
+  VuejsOriginal
 } from 'devicons-react'
+import React, { ReactNode } from 'react'
 import { FaEthereum, FaGithub } from 'react-icons/fa'
+
 import IconWrapper from '@/components/Icons/IconWrapper'
 
 const projectsData = () => {
@@ -99,22 +99,22 @@ const projectsData = () => {
         {
           component: <ReactOriginal size={iconSize} />,
           color: iconColors[0],
-          key: 'ReactOriginal'
+          key: 'React'
         },
         {
           component: <TypescriptPlain size={iconSize} />,
           color: iconColors[0],
-          key: 'TypescriptPlain'
+          key: 'Typescript'
         },
         {
           component: <TailwindcssOriginal size={iconSize} />,
           color: iconColors[0],
-          key: 'TailwindcssOriginal'
+          key: 'Tailwindcss'
         },
         {
           component: <SassOriginal size={iconSize} />,
           color: iconColors[0],
-          key: 'SassOriginal'
+          key: 'Sass'
         }
       ],
       repo_url: 'https://github.com/pisichi/my-page',
@@ -136,27 +136,27 @@ const projectsData = () => {
         {
           component: <ElectronOriginal size={iconSize} />,
           color: iconColors[1],
-          key: 'ElectronOriginal'
+          key: 'Electron'
         },
         {
           component: <TypescriptPlain size={iconSize} />,
           color: iconColors[1],
-          key: 'TypescriptPlain'
+          key: 'Typescript'
         },
         {
           component: <GoPlain size={iconSize} />,
           color: iconColors[1],
-          key: 'GoPlain'
+          key: 'Go'
         },
         {
           component: <DockerOriginal size={iconSize} />,
           color: iconColors[1],
-          key: 'DockerOriginal'
+          key: 'Docker'
         },
         {
           component: <SassOriginal size={iconSize} />,
           color: iconColors[1],
-          key: 'SassOriginal'
+          key: 'Sass'
         }
       ],
       repo_url: 'https://github.com/pisichi/dev_Fabric_Manager',
@@ -174,7 +174,7 @@ const projectsData = () => {
         {
           component: <PythonOriginal size={iconSize} />,
           color: iconColors[2],
-          key: 'PythonOriginal'
+          key: 'Python'
         }
       ],
       repo_url: 'https://github.com/pisichi/epub-auto-editor',
@@ -192,22 +192,22 @@ const projectsData = () => {
         {
           component: <PhpPlain size={iconSize} />,
           color: iconColors[3],
-          key: 'JavaPlain'
+          key: 'Java'
         },
         {
           component: <VuejsOriginal size={iconSize} />,
           color: iconColors[3],
-          key: 'VuejsOriginal'
+          key: 'Vuejs'
         },
         {
           component: <LaravelOriginal size={iconSize} />,
           color: iconColors[3],
-          key: 'LaravelOriginal'
+          key: 'Laravel'
         },
         {
           component: <BootstrapPlain size={iconSize} />,
           color: iconColors[3],
-          key: 'BootstrapPlain'
+          key: 'Bootstrap'
         }
       ],
       repo_url: 'https://github.com/pisichi/Restaurants-list-Vue-Laravel',
@@ -225,7 +225,7 @@ const projectsData = () => {
         {
           component: <JavaPlain size={iconSize} />,
           color: iconColors[4],
-          key: 'JavaPlain'
+          key: 'Java'
         }
       ],
       repo_url: 'https://github.com/pisichi/Covid-tracking-jsp',
@@ -243,7 +243,7 @@ const projectsData = () => {
         {
           component: <CsharpLine size={iconSize} />,
           color: iconColors[5],
-          key: 'CsharpLine'
+          key: 'Csharp'
         }
       ],
       repo_url: 'https://github.com/pisichi/TALES-WAR',
@@ -260,7 +260,7 @@ const projectsData = () => {
         {
           component: <CsharpLine size={iconSize} />,
           color: iconColors[6],
-          key: 'CsharpLine'
+          key: 'Csharp'
         }
       ],
       repo_url: 'https://github.com/pisichi/Monogame-Bubble',
@@ -277,22 +277,17 @@ const projectsData = () => {
         {
           component: <SolidityOriginal size={iconSize} />,
           color: iconColors[7],
-          key: 'SolidityOriginal'
-        },
-        {
-          component: <FaEthereum color="black" size={iconSize} />,
-          color: iconColors[7],
-          key: 'SolidityOriginal'
+          key: 'Solidity'
         },
         {
           component: <ExpressOriginal size={iconSize} />,
           color: iconColors[7],
-          key: 'SolidityOriginal'
+          key: 'Express'
         },
         {
           component: <BootstrapPlain size={iconSize} />,
           color: iconColors[7],
-          key: 'SolidityOriginal'
+          key: 'Bootstrap'
         }
       ],
       repo_url: 'https://github.com/pisichi/campaign-webapp-solidity',

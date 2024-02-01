@@ -5,17 +5,15 @@ import {
 } from '@fortawesome/free-solid-svg-icons'
 import { faEnvelope } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import SkillCard from 'components/Card/SkillCardRedux'
 import React, { useEffect, useState } from 'react'
-import { TypeAnimation } from 'react-type-animation'
-import useScreenSize from 'utils/useScreenSize'
 import { useNavigate } from 'react-router-dom'
+import useScreenSize from 'utils/useScreenSize'
 
 import { useDarkMode } from '@/context/DarkModeContext'
 
+import AnimatedButton from '../Button/AnimatedButton'
 import DarkModeToggleWrapper from '../Toggle/DarkModeToggleWrapper'
 import Tooltip from '../Tooltip/Tooltip'
-import AnimatedButton from '../Button/AnimatedButton'
 
 interface SideBarProps {
   showSidebar: boolean
@@ -196,7 +194,7 @@ const SideBar: React.FC<SideBarProps> = ({ showSidebar, closeSidebar }) => {
           } mb-4 px-3`}
         >
           <div className="w-[90%] min-w-[16em] text-wrap">
-           Over
+            Over
             <span
               className={`font-bold 
                text-gray-500 ${isDark ? 'text-green-300' : 'text-green-600'}`}

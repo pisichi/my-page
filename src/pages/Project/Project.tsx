@@ -1,8 +1,9 @@
 import ArticleCard from 'components/Card/ArticleCard'
 import { useDarkMode } from 'context/DarkModeContext'
 import React from 'react'
-import projectsData from '@/data/projectsData'
+
 import Reveal from '@/components/Utils/Reveal'
+import projectsData from '@/data/projectsData'
 
 const Project: React.FC = () => {
   const { isDark } = useDarkMode()

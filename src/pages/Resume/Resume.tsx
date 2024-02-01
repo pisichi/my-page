@@ -319,7 +319,11 @@ const Resume = () => {
                   <FaGlobe color="#F44336"></FaGlobe>
                 </div>
                 <div className="my-auto text-[10px]">
-                  <a href="https://pisichi.github.io/my-page/" target="_blank">
+                  <a
+                    href="https://pisichi.github.io/my-page/"
+                    target="_blank"
+                    rel="noreferrer"
+                  >
                     pisichi.github.io/my-page
                   </a>
                 </div>
@@ -330,7 +334,11 @@ const Resume = () => {
                   <FaGithub color="#F44336"></FaGithub>
                 </div>
                 <div className="my-auto text-[10px]">
-                  <a href="https://github.com/pisichi" target="_blank">
+                  <a
+                    href="https://github.com/pisichi"
+                    target="_blank"
+                    rel="noreferrer"
+                  >
                     github.com/pisichi
                   </a>
                 </div>
@@ -344,6 +352,7 @@ const Resume = () => {
                   <a
                     href="https://www.linkedin.com/in/pisitchaisiri/"
                     target="_blank"
+                    rel="noreferrer"
                   >
                     linkedin.com/in/pisitchaisiri
                   </a>

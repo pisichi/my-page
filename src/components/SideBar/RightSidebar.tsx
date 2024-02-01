@@ -3,10 +3,10 @@ import './SideBar.scss'
 import { faTimes } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { useDarkMode } from 'context/DarkModeContext'
+import { AnimatePresence, motion, useAnimation } from 'framer-motion'
 import React, { useEffect, useState } from 'react'
 import { Link, useLocation } from 'react-router-dom'
 import useScreenSize from 'utils/useScreenSize'
-import { motion, AnimatePresence, useAnimation } from 'framer-motion'
 
 interface MenuItem {
   id: number

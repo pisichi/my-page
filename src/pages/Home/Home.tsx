@@ -1,5 +1,4 @@
 import './Home.scss'
-import Reveal from '@/components/Utils/Reveal'
 
 import {
   faBrain,
@@ -9,6 +8,7 @@ import {
   faTerminal,
   faUsersBetweenLines
 } from '@fortawesome/free-solid-svg-icons'
+import { faArrowUpRightFromSquare } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { useDarkMode } from 'context/DarkModeContext'
 import {
@@ -26,17 +26,17 @@ import {
   VuejsOriginal
 } from 'devicons-react'
 import React from 'react'
+import { FaArrowAltCircleDown, FaArrowUp } from 'react-icons/fa'
+import { useNavigate } from 'react-router-dom'
+import { TypeAnimation } from 'react-type-animation'
 import useScreenSize from 'utils/useScreenSize'
 
+import AnimatedButton from '@/components/Button/AnimatedButton'
 import ArticleCard from '@/components/Card/ArticleCard'
 import TechIcon from '@/components/Icons/TechIcon'
+import Reveal from '@/components/Utils/Reveal'
 import achievementsData from '@/data/achievementsData'
 import projectsData from '@/data/projectsData'
-import AnimatedButton from '@/components/Button/AnimatedButton'
-import { TypeAnimation } from 'react-type-animation'
-import { FaArrowAltCircleDown, FaArrowUp } from 'react-icons/fa'
-import { faArrowUpRightFromSquare } from '@fortawesome/free-solid-svg-icons'
-import { useNavigate } from 'react-router-dom'
 
 const Home: React.FC = () => {
   const { isDark } = useDarkMode()
@@ -115,8 +115,8 @@ const Home: React.FC = () => {
       <section className="mb-40">
         <Reveal width="100%">
           <div className="flex h-full flex-col items-center justify-center align-middle">
-            <div className="text-center mt-10">
-              <div className="mb-8 mt-5 font-sans text-6xl md:text-7xl font-extrabold">
+            <div className="mt-10 text-center">
+              <div className="mb-8 mt-5 font-sans text-6xl font-extrabold md:text-7xl">
                 Hey there! I'm{' '}
                 <span
                   className={`font-sans ${
@@ -185,7 +185,7 @@ const Home: React.FC = () => {
           </Reveal>
         </div>
 
-        <div className="mx-auto px-5 py-5">
+        <div className="mx-auto p-5">
           <div className="-m-4 flex flex-wrap items-stretch justify-center">
             {cardData.map((card, index) => (
               <div key={index} className="w-3/3 p-4 md:w-1/3">
@@ -197,7 +197,7 @@ const Home: React.FC = () => {
                   >
                     <div className="mb-3 flex items-center justify-center">
                       <div
-                        className={`inline-flex size-16 flex-shrink-0 items-center justify-center rounded-full border-4 border-gray-300 ${
+                        className={`inline-flex size-16 shrink-0 items-center justify-center rounded-full border-4 border-gray-300 ${
                           isDark ? 'bg-emerald-500' : 'bg-emerald-700'
                         }`}
                       >
@@ -208,12 +208,12 @@ const Home: React.FC = () => {
                         />
                       </div>
                     </div>
-                    <div className="flex-grow text-center">
+                    <div className="grow text-center">
                       <h2 className="title-font text-center text-lg font-medium">
                         {card.title}
                       </h2>
                     </div>
-                    <div className="flex-grow text-center">
+                    <div className="grow text-center">
                       <p className="text-sm leading-relaxed">
                         {card.description}
                       </p>
@@ -226,7 +226,7 @@ const Home: React.FC = () => {
         </div>
       </section>
 
-      <section className="mb-20 mt-20">
+      <section className="my-20">
         <div className="flex justify-center">
           <Reveal>
             <div

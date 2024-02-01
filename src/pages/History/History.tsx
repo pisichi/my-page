@@ -1,7 +1,8 @@
-import Reveal from '@/components/Utils/Reveal'
 import TimeLine from 'components/TimeLine/TimeLine'
 import { useDarkMode } from 'context/DarkModeContext'
 import React, { useState } from 'react'
+
+import Reveal from '@/components/Utils/Reveal'
 
 const History: React.FC = () => {
   const { isDark } = useDarkMode()
@@ -124,13 +125,11 @@ const History: React.FC = () => {
 
       <div className=" justify-center">
         <Reveal width="100%">
-          <div
-            className={`my-5 h-[4px] bg-gray-400`}
-          ></div>
+          <div className={`my-5 h-[4px] bg-gray-400`}></div>
         </Reveal>
       </div>
       <div>
-        <Reveal width='100%'>
+        <Reveal width="100%">
           <TimeLine History={history} />
         </Reveal>
       </div>

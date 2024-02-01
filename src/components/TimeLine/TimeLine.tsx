@@ -1,7 +1,6 @@
 import './TimeLine.scss'
 import 'react-vertical-timeline-component/style.min.css'
 
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { useDarkMode } from 'context/DarkModeContext'
 import React, { ReactNode, useState } from 'react'
 import {
@@ -55,7 +54,7 @@ const TimeLine: React.FC<TimeLineProps> = ({ History }) => {
         <div
           className={`${
             isDark ? 'bg-gray-800' : 'bg-gray-100'
-          } transform rounded-md p-4 transition-transform group-hover:scale-[1.01]`}
+          } rounded-md p-4 transition-transform group-hover:scale-[1.01]`}
           onMouseEnter={() =>
             handleMouseEnter(yearIndex * yearData.events.length + eventIndex)
           }
@@ -81,7 +80,7 @@ const TimeLine: React.FC<TimeLineProps> = ({ History }) => {
 
   return (
     <div
-      className={`z-11 mx-auto max-w-[1170px] pb-4 flex justify-center ${
+      className={`z-11 mx-auto flex max-w-[1170px] justify-center pb-4 ${
         isDark ? 'text-white' : 'text-gray-800'
       }`}
     >
