@@ -118,7 +118,7 @@ const History: React.FC = () => {
               isDark ? 'text-green-300' : 'text-green-700'
             } `}
           >
-            {'{ Timeline }'}
+            {'{ History }'}
           </div>
         </Reveal>
       </div>
