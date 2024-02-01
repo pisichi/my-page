@@ -143,7 +143,7 @@ const DefaultLayout: React.FC = () => {
                   transform: { duration: 0.5, ease: 'easeInOut' }
                 }}
               >
-                <div className="absolute top-0 z-50 mb-[-15px] flex items-center justify-between">
+                <div className="absolute top-0 z-50 mb-[-15px] flex justify-between w-full">
                   <div
                     onClick={toggleSidebar}
                     aria-label={showSidebar ? 'Close Sidebar' : 'Open Sidebar'}
@@ -159,7 +159,7 @@ const DefaultLayout: React.FC = () => {
 
                   <div
                     onClick={toggleRightSidebar}
-                    className={`h-full cursor-pointer p-4 transition-opacity duration-1000 md:hidden lg:hidden ${
+                    className={`ml-auto h-full cursor-pointer p-4 transition-opacity duration-1000 md:hidden lg:hidden ${
                       showRightSidebar ? 'opacity-0' : 'opacity-100'
                     }${
                       showRightSidebar ? 'scale-110' : ''

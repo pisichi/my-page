@@ -270,7 +270,7 @@ const achievementsData: Article[] = [
         </div>
       </div>
     ),
-    description: 'Lorem ipsum dolor sit amet'
+    description: ''
   },
   {
     title: 'The 6th Stupid Hackathon Thailand',
@@ -484,7 +484,7 @@ const achievementsData: Article[] = [
         </div>
       </div>
     ),
-    description: 'Lorem ipsum dolor sit amet'
+    description: ''
   },
   {
     title: 'ASEAN Data Science Explorers 2020',

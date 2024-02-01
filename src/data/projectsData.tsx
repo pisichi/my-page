@@ -119,11 +119,12 @@ const projectsData = () => {
       repo_url: 'https://github.com/pisichi/dev_Fabric_Manager',
       repo_summary:
         'Personal portfolio website showcasing projects and skills using React, TypeScript, Tailwind CSS, and Sass.',
-      description: 'Lorem ipsum dolor sit amet'
+      description: ''
     },
     {
       title: 'Fabric-Manager',
-      img_url: 'https://raw.githubusercontent.com/new4761/Fabric-Manager/master/.github/images/ex2.PNG',
+      img_url:
+        'https://raw.githubusercontent.com/new4761/Fabric-Manager/master/.github/images/ex2.PNG',
       tags: ['academic'],
       stack: [
         {
@@ -165,11 +166,12 @@ const projectsData = () => {
       repo_url: 'https://github.com/pisichi/dev_Fabric_Manager',
       repo_summary:
         'Academic project for managing and visualizing fabric data using Vue.js, Electron, TypeScript, Go, Docker, Sass, and Yaml.',
-      description: 'Lorem ipsum dolor sit amet'
+      description: ''
     },
     {
       title: 'EPUB Auto Editor',
-      img_url: 'https://raw.githubusercontent.com/pisichi/epub-auto-editor/main/docs/images/visualize.png',
+      img_url:
+        'https://raw.githubusercontent.com/pisichi/epub-auto-editor/main/docs/images/visualize.png',
       tags: ['practice'],
       stack: [
         {
@@ -181,7 +183,7 @@ const projectsData = () => {
       repo_url: 'https://github.com/pisichi/dev_Fabric_Manager',
       repo_summary:
         'Practice project for automating EPUB file editing using Python.',
-      description: 'Lorem ipsum dolor sit amet'
+      description: ''
     },
     {
       title: 'Restaurants-list-Vue-Laravel',
@@ -218,7 +220,8 @@ const projectsData = () => {
     },
     {
       title: 'Covid 2019 Tracker JSP',
-      img_url: 'https://raw.githubusercontent.com/pisichi/Covid-tracking-jsp/master/docs/preview_3.jpg',
+      img_url:
+        'https://raw.githubusercontent.com/pisichi/Covid-tracking-jsp/master/docs/preview_3.jpg',
       tags: ['academic'],
       stack: [
         {
@@ -235,7 +238,8 @@ const projectsData = () => {
     },
     {
       title: 'TALES-WAR',
-      img_url: 'https://raw.githubusercontent.com/pisichi/TALES-WAR/master/Content/sprites/menu_4.png',
+      img_url:
+        'https://raw.githubusercontent.com/pisichi/TALES-WAR/master/Content/sprites/menu_4.png',
       tags: ['fun', 'academic'],
       stack: [
         {

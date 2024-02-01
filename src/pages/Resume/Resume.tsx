@@ -16,7 +16,7 @@ const Resume = () => {
   return (
     <div className="cv-body flex justify-center overflow-auto bg-white">
       <div className="z-50 bg-white">
-        <div className="flex flex-row">
+        <div className="flex flex-row bg-white">
           <div id="main">
             <div className="relative z-50 pb-[0.125in] pl-[0.3in] pt-[0.3in] ">
               <div className="relative">
