@@ -112,9 +112,9 @@ const Home: React.FC = () => {
 
   return (
     <div className="overflow-x-hidden">
-      <section className="mb-12">
+      <section className="mb-40">
         <Reveal width="100%">
-          <div className="flex h-screen max-h-[1000px] flex-col items-center justify-center align-middle">
+          <div className="flex h-full flex-col items-center justify-center align-middle">
             <div className="text-center ">
               <div className="mb-8 mt-5 font-sans text-7xl font-extrabold">
                 Hey there! I'm{' '}
