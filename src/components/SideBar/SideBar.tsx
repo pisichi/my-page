@@ -143,19 +143,19 @@ const SideBar: React.FC<SideBarProps> = ({ showSidebar, closeSidebar }) => {
           </div>
         )}
         <div className="flex flex-col items-center">
-          <Tooltip text="It's-a me!">
-            <div
-              className={`mb-2 mt-7 size-40 overflow-hidden rounded-full border-4 ${
-                isDark ? 'border-green-300' : 'border-green-700'
-              }`}
-            >
+          <div
+            className={`mb-2 mt-7 size-40 overflow-hidden rounded-full border-4 ${
+              isDark ? 'border-green-300' : 'border-green-700'
+            }`}
+          >
+            <Tooltip text="It's-a me!">
               <img
                 src="https://avatars.githubusercontent.com/u/36178784?v=4"
                 alt="Name"
                 className={`size-full rounded-full object-cover transition-transform hover:scale-110 hover:shadow-lg`}
               />
-            </div>
-          </Tooltip>
+            </Tooltip>
+          </div>
         </div>
       </div>
 
@@ -200,7 +200,7 @@ const SideBar: React.FC<SideBarProps> = ({ showSidebar, closeSidebar }) => {
               {' '}
               2 years+{' '}
             </span>
-            of experience in designing and developing full-stack web
+            of experience in designing and developing Full Stack web
             application.
           </div>
         </div>
@@ -249,7 +249,9 @@ const SideBar: React.FC<SideBarProps> = ({ showSidebar, closeSidebar }) => {
           <div className="align-center mt-3 flex justify-center">
             <AnimatedButton
               className={`rounded-lg border-2 !bg-transparent px-3 py-1 ${
-                isDark ? 'border-green-300 !text-green-300' : 'border-green-700 !text-green-700'
+                isDark
+                  ? 'border-green-300 !text-green-300'
+                  : 'border-green-700 !text-green-700'
               }`}
               onClick={handleCvButtonClick}
               content={

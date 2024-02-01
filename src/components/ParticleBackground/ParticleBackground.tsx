@@ -22,10 +22,10 @@ const ParticleBackground = React.memo(() => {
       },
       particles: {
         color: {
-          value: isDark ? '#ffffff' : '#000000'
+          value: isDark ? '#ffffff' : '#616161'
         },
         links: {
-          color: isDark ? '#ffffff' : '#000000',
+          color: isDark ? '#ffffff' : '#616161',
           distance: 150,
           enable: true,
           opacity: 0.5,
@@ -45,7 +45,7 @@ const ParticleBackground = React.memo(() => {
           density: {
             enable: true
           },
-          value: 80 
+          value: 80
         },
         shape: {
           type: 'circle'
@@ -72,7 +72,6 @@ const ParticleBackground = React.memo(() => {
 
     return () => {
       unmounted = true
-      // Cleanup logic (if any) when the component is unmounted
     }
   }, [])
 

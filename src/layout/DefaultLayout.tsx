@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import { Outlet, useLocation } from 'react-router-dom'
 import { CSSTransition } from 'react-transition-group'
 import { motion, AnimatePresence } from 'framer-motion'
@@ -23,6 +23,7 @@ const DefaultLayout: React.FC = () => {
   const currentRoute = location.pathname
   const { isMobile } = useScreenSize()
   const baseDelay = 2200
+  const outletWrapperRef = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
     const initialLoadingTimeout = setTimeout(() => {
@@ -53,6 +54,15 @@ const DefaultLayout: React.FC = () => {
 
     return () => clearTimeout(sidebarTimeout)
   }, [isMobile])
+
+  useEffect(() => {
+    if (outletWrapperRef.current) {
+      outletWrapperRef.current.scrollIntoView({
+        behavior: 'smooth',
+        block: 'start'
+      })
+    }
+  }, [location.pathname])
 
   const menuItems = [
     { id: 1, label: 'Main', link: '/' },
@@ -133,7 +143,7 @@ const DefaultLayout: React.FC = () => {
                   transform: { duration: 0.5, ease: 'easeInOut' }
                 }}
               >
-                <div className="sticky top-0 mb-[-15px] flex items-center justify-between">
+                <div className="absolute top-0 z-50 mb-[-15px] flex items-center justify-between">
                   <div
                     onClick={toggleSidebar}
                     aria-label={showSidebar ? 'Close Sidebar' : 'Open Sidebar'}
@@ -178,8 +188,10 @@ const DefaultLayout: React.FC = () => {
                     transition: 'transform 500ms ease-in-out'
                   }}
                 >
-                  <div className="mx-auto px-1 text-xs sm:px-3 sm:text-base md:px-7 md:text-lg lg:max-w-screen-2xl ">
-                    <Outlet />
+                  <div className="mx-auto px-1 text-xs sm:px-3 sm:text-base md:px-7 md:text-lg lg:max-w-screen-2xl">
+                    <div className="pt-12" ref={outletWrapperRef}>
+                      <Outlet />
+                    </div>
                   </div>
                 </div>
               </motion.div>

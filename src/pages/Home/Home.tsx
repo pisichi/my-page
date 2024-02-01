@@ -47,15 +47,12 @@ const Home: React.FC = () => {
   const projects = projectsData().slice(0, 3)
   const navigate = useNavigate()
 
-  const introduction = 'Software Engineer'
+  const introduction = 'Full Stack Developer'
   const subtleMessages = [
+    'Software Engineer',
     'Ransomware Survivor',
     'Fluent Binary Speaker',
     'Bug Slayer',
-    'Infinity Loop Wayfinder',
-    'Console.log Enjoyer',
-    'Semicolons Alzheimer',
-    'Semicolons Alzheimer;',
     'Ctrl+C Ctrl+V Grandmaster'
   ]
 
@@ -91,13 +88,13 @@ const Home: React.FC = () => {
       title: 'Back-end Development',
       icon: faTerminal,
       description:
-        'Experienced in developing applications with secure backends, handling authorizations, and implementing microservices.'
+        'Experienced in developing applications with secure, scalable backends and handling authorizations.'
     },
     {
       title: 'Team Collaboration',
       icon: faUsersBetweenLines,
       description:
-        'Experienced in Git workflow and Jira. Proficient in MVP and agile methodologies for project development.'
+        'Experienced in Git workflow and Jira. Proficient in agile methodologies for project development.'
     },
     {
       title: 'Problem Solving',
@@ -173,11 +170,7 @@ const Home: React.FC = () => {
 
         <div className="flex justify-center">
           <Reveal width="85%">
-            <div
-              className={`mt-5 h-[4px] w-[100%] ${
-                isDark ? 'bg-gray-400' : 'bg-gray-600'
-              }`}
-            ></div>
+            <div className={`mt-5 h-[4px] w-[100%] bg-gray-400`}></div>
           </Reveal>
         </div>
 
@@ -248,11 +241,7 @@ const Home: React.FC = () => {
 
         <div className="flex justify-center">
           <Reveal width="85%">
-            <div
-              className={`my-5 h-[4px] w-[100%] ${
-                isDark ? 'bg-gray-400' : 'bg-gray-600'
-              }`}
-            ></div>
+            <div className={`my-5 h-[4px] w-[100%] bg-gray-400`}></div>
           </Reveal>
         </div>
 
@@ -273,8 +262,10 @@ const Home: React.FC = () => {
         <div className="mt-8 flex items-center justify-center">
           <Reveal className="p-3">
             <AnimatedButton
-              className={`rounded-lg px-3 py-1 ${
-                isDark ? 'bg-green-500' : 'bg-green-700'
+              className={`rounded-lg border-2 !bg-transparent px-3 py-1 ${
+                isDark
+                  ? 'border-green-300 !text-green-300'
+                  : 'border-green-700 !text-green-700'
               }`}
               onClick={() => navigate('/achievement')}
               content={
@@ -303,11 +294,7 @@ const Home: React.FC = () => {
 
         <div className="flex justify-center">
           <Reveal width="85%">
-            <div
-              className={`my-5 h-[4px] w-[100%] ${
-                isDark ? 'bg-slate-500' : 'bg-gray-600'
-              }`}
-            ></div>
+            <div className={`my-5 h-[4px] w-[100%] bg-gray-400`}></div>
           </Reveal>
         </div>
 
@@ -328,8 +315,10 @@ const Home: React.FC = () => {
         <div className="mt-8 flex items-center justify-center">
           <Reveal className="p-3">
             <AnimatedButton
-              className={`rounded-lg px-3 py-1 ${
-                isDark ? 'bg-green-500' : 'bg-green-700 shadow-md'
+              className={`rounded-lg border-2 !bg-transparent px-3 py-1 ${
+                isDark
+                  ? 'border-green-300 !text-green-300'
+                  : 'border-green-700 !text-green-700'
               }`}
               onClick={() => navigate('/project')}
               content={

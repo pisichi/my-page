@@ -27,10 +27,10 @@ const Resume = () => {
                   {'< full stack developer | Software Engineer />'}
                 </span>
               </div>
-              <div className="mt-3 w-[47em] text-[12px] font-normal">
+              <div className="mt-3 w-[46em] text-[12px] font-normal">
                 Passionate tech enthusiast with a keen focus on software
                 development, especially within the field of web development.
-                Proven experience as a full-stack developer. Eager to explore
+                Proven experience as a Full Stack developer. Eager to explore
                 diverse areas and continuously expanding my skill set.
               </div>
             </div>
@@ -59,7 +59,7 @@ const Resume = () => {
                 <div className="details">
                   <header>
                     <h3 className="font-bold text-gray-600">
-                      Full-stack Developer
+                      Full Stack Developer
                     </h3>
                     <span className="place">
                       <span className="font-bold text-blue-500">
@@ -83,8 +83,8 @@ const Resume = () => {
                     </div>
                     <ul>
                       <li>
-                        Building highly scalable web applications using Nuxt,Vuetify,
-                        Laravel and AWS.
+                        Building highly scalable web applications using
+                        Nuxt,Vuetify, Laravel and AWS.
                       </li>
                       <li>
                         Developing, maintaining, and enhancing software
@@ -307,9 +307,9 @@ const Resume = () => {
               <div className="rounded-full border-[2.5px] border-red-200 p-[0.2em]">
                 <div className="rounded-full border-[3px] border-gray-400 p-[0.2em]">
                   <img
-                    src="https://avatars.githubusercontent.com/u/36178784?v=4"
+                    src="https://raw.githubusercontent.com/pisichi/my-page/main/docs/images/maface.jpg"
                     alt="Name"
-                    className={`size-34 mx-auto rounded-full border-4 object-cover transition-transform`}
+                    className={`size-34 mx-auto aspect-square rounded-full border-4 object-cover transition-transform`}
                   />
                 </div>
               </div>
@@ -387,7 +387,7 @@ const Resume = () => {
                     {' '}
                     English:
                   </span>{' '}
-                  Proficient
+                  Upper Intermediate
                 </li>
                 <li>
                   <div className="">

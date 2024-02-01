@@ -125,7 +125,7 @@ const History: React.FC = () => {
       <div className=" justify-center">
         <Reveal width="100%">
           <div
-            className={`my-5 h-[4px] ${isDark ? 'bg-gray-400' : 'bg-gray-600'}`}
+            className={`my-5 h-[4px] bg-gray-400`}
           ></div>
         </Reveal>
       </div>
