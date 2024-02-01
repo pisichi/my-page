@@ -91,38 +91,6 @@ const projectsData = () => {
 
   const projects = [
     {
-      title: 'This Very Site👋',
-      img_url:
-        'https://raw.githubusercontent.com/pisichi/my-page/main/docs/images/programs/portfolio_site.png',
-      tags: ['practice'],
-      stack: [
-        {
-          component: <ReactOriginal size={iconSize} />,
-          color: iconColors[0],
-          key: 'React'
-        },
-        {
-          component: <TypescriptPlain size={iconSize} />,
-          color: iconColors[0],
-          key: 'Typescript'
-        },
-        {
-          component: <TailwindcssOriginal size={iconSize} />,
-          color: iconColors[0],
-          key: 'Tailwindcss'
-        },
-        {
-          component: <SassOriginal size={iconSize} />,
-          color: iconColors[0],
-          key: 'Sass'
-        }
-      ],
-      repo_url: 'https://github.com/pisichi/my-page',
-      repo_summary:
-        'Personal portfolio website showcasing projects and skills using React and Tailwind, also for practicing my React skills.',
-      description: 'Personal portfolio website.'
-    },
-    {
       title: 'Fabric Manager',
       img_url:
         'https://raw.githubusercontent.com/new4761/Fabric-Manager/master/.github/images/ex2.PNG',
@@ -166,22 +134,36 @@ const projectsData = () => {
         'GUI DevTool for easy setup and testing of Hyperledger Fabric.'
     },
     {
-      title: 'EPUB Auto Editor',
+      title: 'This Very Site',
       img_url:
-        'https://raw.githubusercontent.com/pisichi/epub-auto-editor/main/docs/images/visualize.png',
+        'https://raw.githubusercontent.com/pisichi/my-page/main/docs/images/programs/portfolio_site.png',
       tags: ['practice'],
       stack: [
         {
-          component: <PythonOriginal size={iconSize} />,
-          color: iconColors[2],
-          key: 'Python'
+          component: <ReactOriginal size={iconSize} />,
+          color: iconColors[0],
+          key: 'React'
+        },
+        {
+          component: <TypescriptPlain size={iconSize} />,
+          color: iconColors[0],
+          key: 'Typescript'
+        },
+        {
+          component: <TailwindcssOriginal size={iconSize} />,
+          color: iconColors[0],
+          key: 'Tailwindcss'
+        },
+        {
+          component: <SassOriginal size={iconSize} />,
+          color: iconColors[0],
+          key: 'Sass'
         }
       ],
-      repo_url: 'https://github.com/pisichi/epub-auto-editor',
+      repo_url: 'https://github.com/pisichi/my-page',
       repo_summary:
-        'Practice project. Python program for automating EPUB file editing using LLM. Includes the option to utilize a service or run the modal locally with llama.cpp.',
-      description:
-        'Python program for automating EPUB file editing using LLM agent.'
+        'Personal portfolio website showcasing projects and skills using React and Tailwind, also for practicing my React skills.',
+      description: 'Personal portfolio website.'
     },
     {
       title: 'Restaurants List',
@@ -215,6 +197,24 @@ const projectsData = () => {
         'Web application to display a list of restaurants using Vue.js and Laravel, integrated with Google Maps API.',
       description:
         'Web application to show a list of Restaurants using Google Map API.'
+    },
+    {
+      title: 'EPUB Auto Editor',
+      img_url:
+        'https://raw.githubusercontent.com/pisichi/epub-auto-editor/main/docs/images/visualize_crop.png',
+      tags: ['practice'],
+      stack: [
+        {
+          component: <PythonOriginal size={iconSize} />,
+          color: iconColors[2],
+          key: 'Python'
+        }
+      ],
+      repo_url: 'https://github.com/pisichi/epub-auto-editor',
+      repo_summary:
+        'Practice project. Python program for automating EPUB file editing using LLM. Includes the option to utilize a service or run the modal locally with llama.cpp.',
+      description:
+        'Python program for automating EPUB file editing using LLM agent.'
     },
     {
       title: 'Covid 2019 Tracker JSP',
