@@ -420,23 +420,12 @@ const achievementsData: Article[] = [
           <div className="mb-1 flex items-center align-middle">
             <FaGithub size={18} className="mr-1" />
             <a
-              href="https://github.com/LAzyDev-101/Kaptcha-stupid-block-shit6"
-              className="text-blue-500"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Repository(Game 3)
-            </a>
-          </div>
-          <div className="mb-1 flex items-center align-middle">
-            <FaGithub size={18} className="mr-1" />
-            <a
               href="https://github.com/LAzyDev-101/Kaptcha-stupid-memory-game-shit6"
               className="text-blue-500"
               target="_blank"
               rel="noopener noreferrer"
             >
-              Repository(Game 4)
+              Repository(Game 3)
             </a>
           </div>
         </div>
