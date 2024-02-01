@@ -208,8 +208,8 @@ const Resume = () => {
                   <header>
                     <h3 className="font-bold text-gray-600">Fabric-Manager</h3>
                     <span className="place">
-                      Minifabric, Ansible, Docker, Node, Electron, Vue and
-                      Fabric node SDK
+                      Minifabric, Ansible, Docker, Node, Electron, Vue, Fabric
+                      node SDK
                     </span>
                   </header>
                   <div>
