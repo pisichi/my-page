@@ -90,7 +90,7 @@ const DefaultLayout: React.FC = () => {
 
   return (
     <div
-      className={`page size-screen flex overflow-x-hidden ${
+      className={`page h-screen w-screen flex overflow-x-hidden ${
         isDark ? 'bg-gray-900 text-white' : 'bg-gray-50 text-black'
       }`}
     >
