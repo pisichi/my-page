@@ -2,6 +2,7 @@ import './Home.scss'
 import Reveal from '@/components/Utils/Reveal'
 
 import {
+  faBrain,
   faForwardFast,
   faLaptopCode,
   faPersonRunning,
@@ -84,31 +85,31 @@ const Home: React.FC = () => {
       title: 'Front-end Development',
       icon: faLaptopCode,
       description:
-        'Responsive and user-friendly layouts. Whether starting from scratch or leveraging various UI frameworks.'
+        'Skilled in creating responsive layouts, whether starting from scratch or leveraging various UI frameworks.'
     },
     {
       title: 'Back-end Development',
       icon: faTerminal,
       description:
-        'Applications with RESTful and secure back-ends, including handling authorizations and implementing database validations.'
-    },
-    {
-      title: 'Best Practices Advocate',
-      icon: faPersonRunning,
-      description:
-        'Clean code, adherence to naming conventions, and application of pattern principles.'
+        'Experienced in developing applications with secure backends, handling authorizations, and implementing microservices.'
     },
     {
       title: 'Team Collaboration',
       icon: faUsersBetweenLines,
       description:
-        'Git workflow using branches, pull requests, and code reviews. MVP and agile methodologies for project development.'
+        'Experienced in Git workflow and Jira. Proficient in MVP and agile methodologies for project development.'
     },
     {
-      title: 'Continuous Learner',
-      icon: faForwardFast,
+      title: 'Problem Solving',
+      icon: faBrain,
       description:
-        'Thrive on learning new tech. Actively exploring emerging technologies as an integral part of the commitment to personal and professional growth.'
+        'Adept at solving challenging problems with a logical and analytical approach to satisfy users.'
+    },
+    {
+      title: 'Self Improvement',
+      icon: faPersonRunning,
+      description:
+        'Committed to continuous self-improvement to personal and professional growth.'
     }
   ]
 
@@ -192,10 +193,10 @@ const Home: React.FC = () => {
         </div>
 
         <div className="mx-auto px-5 py-5">
-          <div className="-m-4 flex flex-wrap justify-center">
+          <div className="-m-4 flex flex-wrap items-stretch justify-center">
             {cardData.map((card, index) => (
               <div key={index} className="w-3/3 p-4 md:w-1/3">
-                <Reveal>
+                <Reveal className="h-full" index={index}>
                   <div
                     className={`flex h-full flex-col rounded-lg shadow-md ${
                       isDark ? 'bg-gray-800' : 'bg-gray-100'
@@ -257,16 +258,14 @@ const Home: React.FC = () => {
 
         <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
           {achievements.map((achievement, index) => (
-            <Reveal key={`achiv-home-${index}`}>
-              <div className="p-3">
-                <ArticleCard
-                  title={achievement.title}
-                  img_url={achievement.img_url}
-                  stack={achievement.stack}
-                  content={achievement.content}
-                  description={achievement.description}
-                />
-              </div>
+            <Reveal className="p-3" key={`achiv-home-${index}`}>
+              <ArticleCard
+                title={achievement.title}
+                img_url={achievement.img_url}
+                stack={achievement.stack}
+                content={achievement.content}
+                description={achievement.description}
+              />
             </Reveal>
           ))}
         </div>
@@ -314,16 +313,14 @@ const Home: React.FC = () => {
 
         <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
           {projects.map((project, index) => (
-            <Reveal key={`proj-home-${index}-div`}>
-              <div className="p-3">
-                <ArticleCard
-                  title={project.title}
-                  img_url={project.img_url}
-                  stack={project.stack}
-                  content={project.content}
-                  description={project.description}
-                />
-              </div>
+            <Reveal className="p-3" key={`proj-home-${index}-div`}>
+              <ArticleCard
+                title={project.title}
+                img_url={project.img_url}
+                stack={project.stack}
+                content={project.content}
+                description={project.description}
+              />
             </Reveal>
           ))}
         </div>

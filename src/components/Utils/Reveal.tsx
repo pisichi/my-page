@@ -41,6 +41,7 @@ const Reveal: React.FC<RevealProps> = ({
       className={className}
     >
       <motion.div
+        className="h-full"
         initial="hidden"
         animate={controls}
         variants={variants}
@@ -48,7 +49,7 @@ const Reveal: React.FC<RevealProps> = ({
       >
         {children}
       </motion.div>
-      
+
       {/* <motion.div
         initial="hidden"
         animate={slideControls}
@@ -67,7 +68,6 @@ const Reveal: React.FC<RevealProps> = ({
           zIndex: 20,
         }}
       />  */}
-     
     </div>
   )
 }

@@ -118,7 +118,7 @@ const projectsData = () => {
       ],
       repo_url: 'https://github.com/pisichi/dev_Fabric_Manager',
       repo_summary:
-        'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.',
+        'Personal portfolio website showcasing projects and skills using React, TypeScript, Tailwind CSS, and Sass.',
       description: 'Lorem ipsum dolor sit amet'
     },
     {
@@ -164,7 +164,7 @@ const projectsData = () => {
       ],
       repo_url: 'https://github.com/pisichi/dev_Fabric_Manager',
       repo_summary:
-        'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.',
+        'Academic project for managing and visualizing fabric data using Vue.js, Electron, TypeScript, Go, Docker, Sass, and Yaml.',
       description: 'Lorem ipsum dolor sit amet'
     },
     {
@@ -180,7 +180,7 @@ const projectsData = () => {
       ],
       repo_url: 'https://github.com/pisichi/dev_Fabric_Manager',
       repo_summary:
-        'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.',
+        'Practice project for automating EPUB file editing using Python.',
       description: 'Lorem ipsum dolor sit amet'
     },
     {
@@ -212,7 +212,7 @@ const projectsData = () => {
       ],
       repo_url: 'https://github.com/pisichi/Restaurants-list-Vue-Laravel',
       repo_summary:
-        'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.',
+        'Web application to display a list of restaurants using Vue.js and Laravel, integrated with Google Maps API.',
       description:
         'simple Webapplication to show a list of Restaurants by using Google Map API with Vue and Laravel framework.'
     },
@@ -229,7 +229,7 @@ const projectsData = () => {
       ],
       repo_url: 'https://github.com/pisichi/Covid-tracking-jsp',
       repo_summary:
-        'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.',
+        'Academic project for tracking Covid-19 cases using Java JSP and servlets.',
       description:
         'Covid tracking web application using java JSP and java servlet rest api.'
     },
@@ -246,7 +246,7 @@ const projectsData = () => {
       ],
       repo_url: 'https://github.com/pisichi/dev_Fabric_Manager',
       repo_summary:
-        'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.',
+        'Turn-based shooting game created using C# and the Monogame engine.',
       description: 'A Turn-based shooting game using monogame engine.'
     },
     {
@@ -263,7 +263,7 @@ const projectsData = () => {
       ],
       repo_url: 'https://github.com/pisichi/dev_Fabric_Manager',
       repo_summary:
-        'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.',
+        'Bubble shooting game created with C# and the Monogame engine.',
       description: 'A Bubble shooting game created with Monogame engine.'
     },
     {
@@ -295,7 +295,7 @@ const projectsData = () => {
       ],
       repo_url: 'https://github.com/pisichi/dev_Fabric_Manager',
       repo_summary:
-        'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.',
+        'Decentralized application (DApp) for campaign voting on the Ethereum network using Solidity, Express, and Bootstrap.',
       description: 'An campaign voting DApp for Ethereum network.'
     },
     {
@@ -317,7 +317,7 @@ const projectsData = () => {
       ],
       repo_url: 'https://github.com/pisichi/dev_Fabric_Manager',
       repo_summary:
-        'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.',
+        'Multiplayer Hangman game Dockerized for server and client-side using Java.',
       description:
         'Dockerize server and client-side Java Multiplayer Hangman game.'
     }

@@ -143,7 +143,7 @@ const SideBar: React.FC<SideBarProps> = ({ showSidebar, closeSidebar }) => {
           </div>
         )}
         <div className="flex flex-col items-center">
-          <Tooltip text="It's a me!">
+          <Tooltip text="It's-a me!">
             <div
               className={`mb-2 mt-7 size-40 overflow-hidden rounded-full border-4 ${
                 isDark ? 'border-green-300' : 'border-green-700'
@@ -249,9 +249,7 @@ const SideBar: React.FC<SideBarProps> = ({ showSidebar, closeSidebar }) => {
           <div className="align-center mt-3 flex justify-center">
             <AnimatedButton
               className={`rounded-lg border-2 !bg-transparent px-3 py-1 ${
-                isDark
-                  ? 'border-green-300 !text-green-300'
-                  : 'border-green-700 !text-green-300'
+                isDark ? 'border-green-300 !text-green-300' : 'border-green-700 !text-green-700'
               }`}
               onClick={handleCvButtonClick}
               content={
