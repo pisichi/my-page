@@ -115,8 +115,8 @@ const Home: React.FC = () => {
       <section className="mb-40">
         <Reveal width="100%">
           <div className="flex h-full flex-col items-center justify-center align-middle">
-            <div className="text-center ">
-              <div className="mb-8 mt-5 font-sans text-7xl font-extrabold">
+            <div className="text-center mt-10">
+              <div className="mb-8 mt-5 font-sans text-6xl md:text-7xl font-extrabold">
                 Hey there! I'm{' '}
                 <span
                   className={`font-sans ${
