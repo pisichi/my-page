@@ -188,7 +188,7 @@ const DefaultLayout: React.FC = () => {
                     transition: 'transform 500ms ease-in-out'
                   }}
                 >
-                  <div className="mx-auto px-1 text-xs sm:px-3 sm:text-base md:px-7 md:text-lg lg:max-w-screen-2xl">
+                  <div className="mx-auto px-2 text-xs sm:px-3 sm:text-base md:px-7 w-screen sm:w-auto sm:min-w-0 md:text-lg lg:max-w-screen-2xl">
                     <div className="pt-12" ref={outletWrapperRef}>
                       <Outlet />
                     </div>

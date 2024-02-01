@@ -121,20 +121,6 @@ const AboutMeTerminal = () => {
                 <span
                   className={`${isDark ? 'text-blue-600' : 'text-blue-700'}`}
                 >
-                  skill
-                </span>
-              </div>
-
-              <div className={`grid items-center ${gridTemplate}`}>
-                <span className="pr-2">drwxr-xr-x</span>
-                <span className="pr-2">1</span>
-                <span className="pr-2">root</span>
-                <span className="pr-2">root</span>
-                <span className="pr-2 text-right">4096</span>
-                <span className="pr-2">Jan 28 12:35</span>
-                <span
-                  className={`${isDark ? 'text-blue-600' : 'text-blue-700'}`}
-                >
                   history
                 </span>
               </div>

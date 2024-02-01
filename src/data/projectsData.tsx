@@ -46,7 +46,7 @@ const projectsData = () => {
   ): ReactNode => {
     return (
       <div>
-        <section>
+        <section className="mb-4">
           <div className="mb-2 font-bold">Overview</div>
           <p>{summary}</p>
         </section>
@@ -119,7 +119,7 @@ const projectsData = () => {
       ],
       repo_url: 'https://github.com/pisichi/my-page',
       repo_summary:
-        'Personal portfolio website showcasing projects and skills using React, TypeScript, Tailwind CSS, and Sass.',
+        'Personal portfolio website showcasing projects and skills using React and Tailwind, also for practicing my React skills.',
       description: 'Personal portfolio website.'
     },
     {

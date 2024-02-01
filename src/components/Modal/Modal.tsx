@@ -19,7 +19,7 @@ const Modal: React.FC = () => {
 
   return (
     <div
-      className={`fixed inset-0 z-50 flex items-center justify-center transition-opacity ${
+      className={`fixed inset-0 z-50 flex items-center justify-center transition-opacity mx-4 ${
         isModalOpen ? 'opacity-100' : 'pointer-events-none opacity-0'
       }`}
     >
@@ -51,7 +51,7 @@ const Modal: React.FC = () => {
         aria-labelledby="modal-title"
       >
         <div className="flex h-full flex-col justify-center">
-          <div className="mb-4 text-lg font-bold">{modalTitle}</div>
+          <div className="mb-4 text-lg font-bold px-3">{modalTitle}</div>
           <button
             className={`absolute right-2 top-2 p-1 transition-colors duration-300 ease-in-out
         ${
@@ -65,7 +65,7 @@ const Modal: React.FC = () => {
             <FontAwesomeIcon size="xl" icon={faTimes} />
           </button>
         </div>
-        <div className="modal-content custom-scroll !sm:text-sm max-h-[70vh] overflow-x-hidden !text-sm md:text-base">
+        <div className="modal-content custom-scroll !sm:text-sm max-h-[70vh] overflow-x-hidden !text-sm md:text-base px-3">
           {modalContent}
         </div>
       </div>

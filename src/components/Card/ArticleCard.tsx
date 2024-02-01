@@ -90,8 +90,8 @@ const ArticleCard: React.FC<ArticleCardProps> = ({
               isDark ? 'black' : 'white'
             }/80 text-${isDark ? 'white' : 'black'}`}
           >
-            <div>
-              <p className={`text-white`}>{description}</p>
+            <div className="mb-2">
+              <p className={`text-white text-sm`}>{description}</p>
             </div>
             <div className="flex flex-wrap items-center">
               {stack &&

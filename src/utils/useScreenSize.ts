@@ -8,7 +8,7 @@ const useScreenSize = (): ScreenSize => {
   const [isMobile, setIsMobile] = useState<boolean>(false)
 
   const handleResize = () => {
-    if (window.innerWidth < 720) {
+    if (window.innerWidth < 640) {
       setIsMobile(true)
     } else {
       setIsMobile(false)
