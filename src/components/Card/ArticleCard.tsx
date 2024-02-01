@@ -49,9 +49,9 @@ const ArticleCard: React.FC<ArticleCardProps> = ({
   return (
     <div
       id={`article-card-${title}`}
-      className={`project-card relative mx-auto cursor-pointer rounded-md shadow-md hover:scale-[1.03] md:max-w-96 lg:max-w-2xl ${
-        isHovered ? 'hovered' : ''
-      } ${imageLoaded ? 'image-loaded' : ''} ${
+      className={`project-card relative mx-auto cursor-pointer rounded-md hover:scale-[1.03] md:max-w-96 lg:max-w-2xl shadow-md ${
+        isDark ? '' : 'shadow-md'
+      } ${isHovered ? 'hovered' : ''} ${imageLoaded ? 'image-loaded' : ''} ${
         imageError ? 'image-error' : ''
       }`}
       onMouseEnter={() => setHovered(true)}
@@ -75,11 +75,11 @@ const ArticleCard: React.FC<ArticleCardProps> = ({
           <div
             className={`absolute inset-x-0 -bottom-1 min-h-16 rounded-b-md bg-gradient-to-t ${
               isDark
-                ? 'from-gray-900 to-gray-800 text-gray-300'
+                ? 'from-gray-800 to-gray-800 text-gray-300'
                 : 'from-gray-100 to-slate-100 text-gray-800'
             }  px-4`}
           >
-            <div className="py-2 text-base font-bold ">{title}</div>
+            <div className="py-3 text-base font-bold ">{title}</div>
           </div>
         </>
       </div>

@@ -41,7 +41,7 @@ const Achievement: React.FC = () => {
 
       <div className="grid grid-cols-1 justify-center gap-4 sm:grid-cols-2 lg:grid-cols-3">
         {achievements.map((achievement, index) => (
-          <Reveal index={index} key={`achiv-page-${index}`}>
+          <Reveal className="p-2" index={index} key={`achiv-page-${index}`}>
             <ArticleCard
               title={achievement.title}
               img_url={achievement.img_url}

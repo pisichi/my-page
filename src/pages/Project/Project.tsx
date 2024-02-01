@@ -53,7 +53,7 @@ const Project: React.FC = () => {
 
       <div className="mb-8 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
         {projects.map((project, index) => (
-          <Reveal key={`proj-${index}`} index={index}>
+          <Reveal className="p-2" key={`proj-${index}`} index={index}>
             <ArticleCard
               title={project.title}
               img_url={project.img_url}
@@ -95,7 +95,7 @@ const Project: React.FC = () => {
 
       <div className="mb-8 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
         {funProjects.map((project, index) => (
-          <Reveal key={`fun-${index}`} index={index}>
+          <Reveal className="p-2" key={`fun-${index}`} index={index}>
             <ArticleCard
               title={project.title}
               img_url={project.img_url}

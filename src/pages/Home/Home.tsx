@@ -189,7 +189,7 @@ const Home: React.FC = () => {
           <div className="-m-4 flex flex-wrap items-stretch justify-center">
             {cardData.map((card, index) => (
               <div key={index} className="w-3/3 p-4 md:w-1/3">
-                <Reveal className="h-full" index={index}>
+                <Reveal className="h-full p-2" index={index}>
                   <div
                     className={`flex h-full flex-col rounded-lg shadow-md ${
                       isDark ? 'bg-gray-800' : 'bg-gray-100'

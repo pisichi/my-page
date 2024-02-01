@@ -41,10 +41,7 @@ const InnerApp: React.FC = () => {
     "To resolve this, I've implemented a workaround based on this solution (https://stackoverflow.com/a/69744845)"
   )
   return (
-    <div
-      className={`App ${isDark ? 'dark' : 'light'}`}
-      data-theme={isDark ? 'dark' : 'light'}
-    >
+    <div className={`App`} data-theme={isDark ? 'dark' : 'light'}>
       <ParticleBackground />
       <BrowserRouter basename="/my-page">
         <Routes>
