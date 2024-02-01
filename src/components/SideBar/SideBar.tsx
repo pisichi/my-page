@@ -191,12 +191,12 @@ const SideBar: React.FC<SideBarProps> = ({ showSidebar, closeSidebar }) => {
         className={`custom-scroll-small flex-1 overflow-y-auto overflow-x-hidden pt-5`}
       >
         <div
-          className={`flex justify-center text-center text-sm font-normal ${
+          className={`flex justify-center text-sm font-normal ${
             isDark ? 'text-gray-400' : 'text-gray-600'
           } mb-4 px-3`}
         >
-          <div className="w-[90%] min-w-[16em] text-wrap ">
-            Over
+          <div className="w-[90%] min-w-[16em] text-wrap">
+           Over
             <span
               className={`font-bold 
                text-gray-500 ${isDark ? 'text-green-300' : 'text-green-600'}`}
@@ -204,8 +204,8 @@ const SideBar: React.FC<SideBarProps> = ({ showSidebar, closeSidebar }) => {
               {' '}
               2 years+{' '}
             </span>
-            of experience in designing and developing Full Stack web
-            application.
+            of professional experience in designing and developing Full Stack
+            web applications.
           </div>
         </div>
 
