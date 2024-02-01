@@ -47,7 +47,7 @@ const projectsData = () => {
     return (
       <div>
         <section>
-          <div className="mb-2 font-bold">OverView</div>
+          <div className="mb-2 font-bold">Overview</div>
           <p>{summary}</p>
         </section>
 
@@ -92,7 +92,8 @@ const projectsData = () => {
   const projects = [
     {
       title: 'This Very Site👋',
-      img_url: 'https://placehold.co/600x400',
+      img_url:
+        'https://raw.githubusercontent.com/pisichi/my-page/main/docs/images/programs/portfolio_site.png',
       tags: ['practice'],
       stack: [
         {
@@ -116,13 +117,13 @@ const projectsData = () => {
           key: 'SassOriginal'
         }
       ],
-      repo_url: 'https://github.com/pisichi/dev_Fabric_Manager',
+      repo_url: 'https://github.com/pisichi/my-page',
       repo_summary:
         'Personal portfolio website showcasing projects and skills using React, TypeScript, Tailwind CSS, and Sass.',
-      description: ''
+      description: 'Personal portfolio website.'
     },
     {
-      title: 'Fabric-Manager',
+      title: 'Fabric Manager',
       img_url:
         'https://raw.githubusercontent.com/new4761/Fabric-Manager/master/.github/images/ex2.PNG',
       tags: ['academic'],
@@ -156,17 +157,13 @@ const projectsData = () => {
           component: <SassOriginal size={iconSize} />,
           color: iconColors[1],
           key: 'SassOriginal'
-        },
-        {
-          component: <YamlPlain size={iconSize} />,
-          color: iconColors[1],
-          key: 'DockerOriginal'
         }
       ],
       repo_url: 'https://github.com/pisichi/dev_Fabric_Manager',
       repo_summary:
-        'Academic project for managing and visualizing fabric data using Vue.js, Electron, TypeScript, Go, Docker, Sass, and Yaml.',
-      description: ''
+        'A GUI application designed to assist developers on their journey of learning and developing with Hyperledger Fabric. This tool provides essential features to streamline the setup of development environments. It includes example chaincode and offers an easy way to generate a Certificate Authority (CA).',
+      description:
+        'GUI DevTool for easy setup and testing of Hyperledger Fabric.'
     },
     {
       title: 'EPUB Auto Editor',
@@ -180,13 +177,14 @@ const projectsData = () => {
           key: 'PythonOriginal'
         }
       ],
-      repo_url: 'https://github.com/pisichi/dev_Fabric_Manager',
+      repo_url: 'https://github.com/pisichi/epub-auto-editor',
       repo_summary:
-        'Practice project for automating EPUB file editing using Python.',
-      description: ''
+        'Practice project. Python program for automating EPUB file editing using LLM. Includes the option to utilize a service or run the modal locally with llama.cpp.',
+      description:
+        'Python program for automating EPUB file editing using LLM agent.'
     },
     {
-      title: 'Restaurants-list-Vue-Laravel',
+      title: 'Restaurants List',
       img_url:
         'https://camo.githubusercontent.com/3075f7e5fd2926a030036fe8dc43771659957469ddd8ffc8f8c0a0985bccac30/68747470733a2f2f692e696d6775722e636f6d2f4d4b543268746e2e706e67',
       tags: ['practice'],
@@ -216,7 +214,7 @@ const projectsData = () => {
       repo_summary:
         'Web application to display a list of restaurants using Vue.js and Laravel, integrated with Google Maps API.',
       description:
-        'simple Webapplication to show a list of Restaurants by using Google Map API with Vue and Laravel framework.'
+        'Web application to show a list of Restaurants using Google Map API.'
     },
     {
       title: 'Covid 2019 Tracker JSP',
@@ -232,7 +230,7 @@ const projectsData = () => {
       ],
       repo_url: 'https://github.com/pisichi/Covid-tracking-jsp',
       repo_summary:
-        'Academic project for tracking Covid-19 cases using Java JSP and servlets.',
+        'Academic project for tracking Covid-19 cases in Thailand using Java JSP and servlets.',
       description:
         'Covid tracking web application using java JSP and java servlet rest api.'
     },
@@ -248,10 +246,10 @@ const projectsData = () => {
           key: 'CsharpLine'
         }
       ],
-      repo_url: 'https://github.com/pisichi/dev_Fabric_Manager',
+      repo_url: 'https://github.com/pisichi/TALES-WAR',
       repo_summary:
-        'Turn-based shooting game created using C# and the Monogame engine.',
-      description: 'A Turn-based shooting game using monogame engine.'
+        'Turn-based shooting game created using C# and Monogame engine.',
+      description: 'A Turn-based shooting game.'
     },
     {
       title: 'Lóng Ball',
@@ -265,13 +263,13 @@ const projectsData = () => {
           key: 'CsharpLine'
         }
       ],
-      repo_url: 'https://github.com/pisichi/dev_Fabric_Manager',
+      repo_url: 'https://github.com/pisichi/Monogame-Bubble',
       repo_summary:
         'Bubble shooting game created with C# and the Monogame engine.',
-      description: 'A Bubble shooting game created with Monogame engine.'
+      description: 'A Bubble shooting game.'
     },
     {
-      title: 'Campaign webapp solidity',
+      title: 'Campaign DApp',
       tags: ['academic'],
       img_url:
         'https://camo.githubusercontent.com/d7636ca09c016cbe1a25532143277459f1ae63559f7e4d1ef6bbea20c04a3f0b/68747470733a2f2f692e696d6775722e636f6d2f553335755250562e706e67',
@@ -297,13 +295,13 @@ const projectsData = () => {
           key: 'SolidityOriginal'
         }
       ],
-      repo_url: 'https://github.com/pisichi/dev_Fabric_Manager',
+      repo_url: 'https://github.com/pisichi/campaign-webapp-solidity',
       repo_summary:
-        'Decentralized application (DApp) for campaign voting on the Ethereum network using Solidity, Express, and Bootstrap.',
+        'DApp for campaign voting on the Ethereum network using Solidity, Express, and Bootstrap.',
       description: 'An campaign voting DApp for Ethereum network.'
     },
     {
-      title: 'hangman-docker',
+      title: 'Hangman Dockerized',
       tags: ['fun', 'academic'],
       img_url:
         'https://camo.githubusercontent.com/9b216e1b1603498215496982ebb7b5202aa5271d7b699a7bafa926b95cd3221d/68747470733a2f2f692e696d6775722e636f6d2f3165544b75716d2e706e67',
@@ -319,11 +317,10 @@ const projectsData = () => {
           key: 'DockerOriginal'
         }
       ],
-      repo_url: 'https://github.com/pisichi/dev_Fabric_Manager',
+      repo_url: 'https://github.com/pisichi/Os-hangman',
       repo_summary:
         'Multiplayer Hangman game Dockerized for server and client-side using Java.',
-      description:
-        'Dockerize server and client-side Java Multiplayer Hangman game.'
+      description: 'Multiplayer Hangman game.'
     }
   ]
 

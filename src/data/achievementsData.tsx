@@ -200,6 +200,75 @@ const achievementsData: Article[] = [
     description: '1st place'
   },
   {
+    title: 'ASEAN Data Science Explorers 2020',
+    img_url:
+      'https://github.com/pisichi/my-page/blob/main/docs/images/achivements/ASEAN%20Data%20Science%20Explorers%202020%20Banner.png?raw=true',
+    stack: [
+      {
+        component: (
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 50 50"
+            width="20px"
+            height="20px"
+          >
+            <path d="M 1 12 L 1 36 L 26 36 L 50 12 Z M 8.398438 18 C 11.800781 18 12.902344 18.800781 12.902344 18.800781 C 12.902344 18.800781 12.300781 20.300781 12 21.097656 C 11 20.699219 7 20 7 21.5 C 7 22.101563 7.199219 22.5 10.199219 23.199219 C 11.398438 23.5 13.199219 24.101563 13.597656 25.902344 L 16.699219 18 L 20.199219 18 L 24 27.5 L 24 18 L 28.5 18 C 31 18 33 20 33 22.5 C 33 25 31 27 28.5 27 L 27 27 L 27 30 L 21.5 30 L 20.902344 28.199219 C 20.199219 28.5 19.398438 28.699219 18.5 28.699219 C 17.601563 28.699219 16.800781 28.5 16.097656 28.199219 L 15.5 30 L 12 30 L 12.5 28.800781 C 11.601563 29.5 10.199219 30 8.398438 30 C 5.101563 30 4 29.097656 4 29.097656 L 4.800781 26.5 C 6.699219 27.699219 10.097656 27.5 10.097656 26.5 C 10.097656 25.5 8.601563 25.402344 6.601563 24.800781 C 4.699219 24.199219 4 22.699219 4 21.402344 C 4 20.101563 5 18 8.398438 18 Z M 27 21 L 27 24 L 28.5 24 C 29.300781 24 30 23.300781 30 22.5 C 30 21.699219 29.300781 21 28.5 21 Z M 18.5 21.402344 L 17 25.699219 C 17.398438 26 17.898438 26.097656 18.5 26.097656 C 19.101563 26.097656 19.601563 26 20 25.699219 Z" />
+          </svg>
+        ),
+        color: '#FDD835',
+        key: 'SAP'
+      }
+    ],
+    content: (
+      <div>
+        <div className="mb-8">
+          <h2 className="mb-2 text-lg font-bold">Resources</h2>
+          <div className="mb-1 flex items-center align-middle">
+            <FaFilePowerpoint size={18} className="mr-1" />
+            <a
+              href="https://drive.google.com/file/d/1-iVTCJU6UaEwqNCXGCR2Qy-CRL_sqCMi/view?usp=drive_link"
+              className="text-blue-500"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Presentation
+            </a>
+          </div>
+        </div>
+
+        <div className="mb-8">
+          <h2 className="mb-2 text-lg font-bold">About the Event</h2>
+          <p>
+            <strong>ASEANDSE</strong> is a regional data analytics competition
+            for tertiary students across the 10 ASEAN Member States. Using SAP
+            Analytics Cloud, participants are challenged to provide data-driven
+            solutions for pressing social and economic issues within ASEAN,
+            aligned with the United Nations Sustainable Development Goals.
+          </p>
+        </div>
+
+        <div className="mb-8">
+          <h2 className="mb-2 text-lg font-bold">Our Solution</h2>
+          <p>
+            "Sustainable Slum Transformation," utilized SAP tools to gather and
+            analyze data across ASEAN countries. The objective was to identify
+            and address challenges within slum areas, showcasing the practical
+            application of data science for social impact.
+          </p>
+        </div>
+
+        <div className="mb-8">
+          <img
+            src="https://raw.githubusercontent.com/pisichi/my-page/main/docs/images/achivements/ASEANDSE_CERT.png"
+            alt="Edprove Logo"
+            className="mt-4"
+          />
+        </div>
+      </div>
+    ),
+    description: 'National Finals 2020'
+  },
+  {
     title: 'TBWG Hackathon',
     img_url:
       'https://raw.githubusercontent.com/pisichi/my-page/main/docs/images/achivements/TBWG_BANNER.png',
@@ -485,75 +554,6 @@ const achievementsData: Article[] = [
       </div>
     ),
     description: ''
-  },
-  {
-    title: 'ASEAN Data Science Explorers 2020',
-    img_url:
-      'https://github.com/pisichi/my-page/blob/main/docs/images/achivements/ASEAN%20Data%20Science%20Explorers%202020%20Banner.png?raw=true',
-    stack: [
-      {
-        component: (
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            viewBox="0 0 50 50"
-            width="20px"
-            height="20px"
-          >
-            <path d="M 1 12 L 1 36 L 26 36 L 50 12 Z M 8.398438 18 C 11.800781 18 12.902344 18.800781 12.902344 18.800781 C 12.902344 18.800781 12.300781 20.300781 12 21.097656 C 11 20.699219 7 20 7 21.5 C 7 22.101563 7.199219 22.5 10.199219 23.199219 C 11.398438 23.5 13.199219 24.101563 13.597656 25.902344 L 16.699219 18 L 20.199219 18 L 24 27.5 L 24 18 L 28.5 18 C 31 18 33 20 33 22.5 C 33 25 31 27 28.5 27 L 27 27 L 27 30 L 21.5 30 L 20.902344 28.199219 C 20.199219 28.5 19.398438 28.699219 18.5 28.699219 C 17.601563 28.699219 16.800781 28.5 16.097656 28.199219 L 15.5 30 L 12 30 L 12.5 28.800781 C 11.601563 29.5 10.199219 30 8.398438 30 C 5.101563 30 4 29.097656 4 29.097656 L 4.800781 26.5 C 6.699219 27.699219 10.097656 27.5 10.097656 26.5 C 10.097656 25.5 8.601563 25.402344 6.601563 24.800781 C 4.699219 24.199219 4 22.699219 4 21.402344 C 4 20.101563 5 18 8.398438 18 Z M 27 21 L 27 24 L 28.5 24 C 29.300781 24 30 23.300781 30 22.5 C 30 21.699219 29.300781 21 28.5 21 Z M 18.5 21.402344 L 17 25.699219 C 17.398438 26 17.898438 26.097656 18.5 26.097656 C 19.101563 26.097656 19.601563 26 20 25.699219 Z" />
-          </svg>
-        ),
-        color: '#FDD835',
-        key: 'SAP'
-      }
-    ],
-    content: (
-      <div>
-        <div className="mb-8">
-          <h2 className="mb-2 text-lg font-bold">Resources</h2>
-          <div className="mb-1 flex items-center align-middle">
-            <FaFilePowerpoint size={18} className="mr-1" />
-            <a
-              href="https://drive.google.com/file/d/1-iVTCJU6UaEwqNCXGCR2Qy-CRL_sqCMi/view?usp=drive_link"
-              className="text-blue-500"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Presentation
-            </a>
-          </div>
-        </div>
-
-        <div className="mb-8">
-          <h2 className="mb-2 text-lg font-bold">About the Event</h2>
-          <p>
-            <strong>ASEANDSE</strong> is a regional data analytics competition
-            for tertiary students across the 10 ASEAN Member States. Using SAP
-            Analytics Cloud, participants are challenged to provide data-driven
-            solutions for pressing social and economic issues within ASEAN,
-            aligned with the United Nations Sustainable Development Goals.
-          </p>
-        </div>
-
-        <div className="mb-8">
-          <h2 className="mb-2 text-lg font-bold">Our Solution</h2>
-          <p>
-            "Sustainable Slum Transformation," utilized SAP tools to gather and
-            analyze data across ASEAN countries. The objective was to identify
-            and address challenges within slum areas, showcasing the practical
-            application of data science for social impact.
-          </p>
-        </div>
-
-        <div className="mb-8">
-          <img
-            src="https://raw.githubusercontent.com/pisichi/my-page/main/docs/images/achivements/ASEANDSE_CERT.png"
-            alt="Edprove Logo"
-            className="mt-4"
-          />
-        </div>
-      </div>
-    ),
-    description: 'National Finals 2020'
   }
 ]
 

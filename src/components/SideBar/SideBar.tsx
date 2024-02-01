@@ -23,9 +23,9 @@ interface SideBarProps {
 }
 
 const handleMailClick = () => {
-  const receiverEmail = 'test@test.test'
-  const subject = 'Subject of the email'
-  const body = 'Body of the email'
+  const receiverEmail = 'pisitchai.sirirat@gmail.com'
+  const subject = ''
+  const body = ''
 
   const mailtoLink = `mailto:${receiverEmail}?subject=${encodeURIComponent(
     subject
@@ -77,6 +77,10 @@ const SideBar: React.FC<SideBarProps> = ({ showSidebar, closeSidebar }) => {
   subtleMessages.forEach((message, index) => {
     sequence.push(message, 3000)
   })
+
+  const openInNewTab = (url: string) => {
+    window.open(url, '_blank', 'noopener,noreferrer')
+  }
 
   const skills = [
     {
@@ -211,6 +215,7 @@ const SideBar: React.FC<SideBarProps> = ({ showSidebar, closeSidebar }) => {
           }`}
         >
           <div
+            onClick={() => openInNewTab('https://github.com/pisichi')}
             className={`align-center flex cursor-pointer transition-transform hover:scale-105 ${
               isDark ? 'text-white' : 'text-gray-800'
             }`}
@@ -224,6 +229,9 @@ const SideBar: React.FC<SideBarProps> = ({ showSidebar, closeSidebar }) => {
             </span>
           </div>
           <div
+            onClick={() =>
+              openInNewTab('https://www.linkedin.com/in/pisitchaisiri/')
+            }
             className={`align-center flex cursor-pointer transition-transform hover:scale-105 ${
               isDark ? 'text-white' : 'text-gray-800'
             }`}
@@ -236,7 +244,10 @@ const SideBar: React.FC<SideBarProps> = ({ showSidebar, closeSidebar }) => {
               pisitchaisiri
             </span>
           </div>
-          <div className="align-center pointer flex cursor-pointer transition-transform hover:scale-105">
+          <div
+            onClick={handleMailClick}
+            className="align-center pointer flex cursor-pointer transition-transform hover:scale-105"
+          >
             <FontAwesomeIcon icon={faEnvelope} size="lg" className="mr-2" />
             <span
               className={`text-sm font-bold
