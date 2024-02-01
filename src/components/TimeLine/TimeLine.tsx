@@ -54,7 +54,7 @@ const TimeLine: React.FC<TimeLineProps> = ({ History }) => {
         <div
           className={`${
             isDark ? 'bg-gray-800' : 'bg-gray-100'
-          } rounded-md p-4 transition-transform group-hover:scale-[1.01]`}
+          } rounded-md shadow-md p-4 transition-transform group-hover:scale-[1.01]`}
           onMouseEnter={() =>
             handleMouseEnter(yearIndex * yearData.events.length + eventIndex)
           }
@@ -64,7 +64,9 @@ const TimeLine: React.FC<TimeLineProps> = ({ History }) => {
             <div className="mb-2 text-lg font-bold md:mb-0 md:mr-2">
               {event.name}
             </div>
-            <div className="text-gray-200">{yearData.year}</div>
+            <div className={`${
+              isDark ? 'text-gray-200' : 'text-gray-500'
+            }`}>{yearData.year}</div>
           </div>
           <div
             className={`${
