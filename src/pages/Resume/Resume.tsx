@@ -367,13 +367,6 @@ const Resume = () => {
                   pisitchai.sirirat@gmail.com
                 </div>
               </div>
-
-              <div className="mb-1.5 flex content-center align-middle">
-                <div className="mr-1 rounded-full bg-white p-1">
-                  <FaPhone color="#F44336"></FaPhone>
-                </div>
-                <div className="my-auto text-[10px]">+66953895461</div>
-              </div>
             </div>
 
             <div className="mx-auto mb-[2px] mt-[18px] h-[3px] w-[100%] bg-gray-600"></div>
