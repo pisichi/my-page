@@ -1,5 +1,3 @@
-import './SideBar.scss'
-
 import { faTimes } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { useDarkMode } from 'context/DarkModeContext'

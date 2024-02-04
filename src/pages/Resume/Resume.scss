@@ -59,54 +59,6 @@
     overflow: hidden;
   }
 
-  .sidebar-background {
-    z-index: 1;
-    position: absolute;
-    top: -10%;
-    left: -50%;
-    width: 200%;
-    height: 350px;
-    border-style: solid;
-    transform: rotate(-2deg);
-    background: #a259596b;
-  }
-
-  .sidebar-background2 {
-    z-index: 1;
-    position: absolute;
-    top: -10%;
-    left: -50%;
-    width: 200%;
-    height: 348px;
-    border-style: solid;
-    transform: rotate(5deg);
-    background: #d330305f;
-  }
-
-  .sidebar-background3 {
-    z-index: 1;
-    position: absolute;
-    top: -10%;
-    left: -50%;
-    width: 200%;
-    height: 355px;
-    border-style: solid;
-    transform: rotate(-2deg);
-    background: #ff00004a;
-  }
-
-  .sidebar-background4 {
-    z-index: 1;
-    position: absolute;
-    top: -10%;
-    left: -50%;
-    width: 200%;
-    height: 345px;
-    border-style: solid;
-    transform: rotate(6deg);
-    background: #616161;
-  }
-
   /* main */
 
   #title {
@@ -168,20 +120,6 @@
     line-height: 0;
     font-size: 0;
     content: ' ';
-  }
-
-  /**** minor tweaks on the icon fonts ****/
-  #main h2 > .fa-graduation-cap {
-    left: calc(var(--main-blocks-title-icon-offset-left) - 2pt);
-    top: 2pt;
-  }
-
-  #main h2 > .fa-suitcase {
-    top: 1pt;
-  }
-
-  #main h2 > .fa-folder-open {
-    top: 1.5pt;
   }
 
   /**** individual row blocks (date - decorator - details) ****/

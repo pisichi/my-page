@@ -1,27 +1,3 @@
-// .modal-container {
-//     opacity: 0;
-//     transition: opacity 0.3s ease-in-out;
-
-//     &.modal-open {
-//       opacity: 1;
-//     }
-
-//     transform: scale(0);
-//     transition: transform 0.3s ease-in-out;
-
-//     &.modal-open {
-//       transform: scale(1);
-//     }
-//   }
-
-//   .modal-overlay {
-//     opacity: 0;
-//     transition: opacity 0.3s ease-in-out;
-
-//     & + .modal-container.modal-open {
-//       opacity: 1;
-//     }
-//   }
 .modal-content {
   p {
     font-family: 'Inconsolata', sans-serif !important;

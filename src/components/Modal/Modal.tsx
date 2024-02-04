@@ -56,8 +56,8 @@ const Modal: React.FC = () => {
             className={`absolute right-2 top-2 p-1 transition-colors duration-300 ease-in-out
         ${
           isDark
-            ? 'text-white hover:text-blue-700'
-            : 'text-black hover:text-blue-700'
+            ? 'text-white hover:text-green-200'
+            : 'text-black hover:text-green-700'
         }
       `}
             onClick={closeModal}

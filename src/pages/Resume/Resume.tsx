@@ -435,10 +435,8 @@ const Resume = () => {
                 <li>Vue | Nuxt</li>
                 <li>React</li>
                 <li>Boostrap | Vuetify | Tailwind</li>
-                <li>Electron</li>
                 <li>Css | Sass</li>
                 <li>Java</li>
-                <li>Python</li>
                 <li>Es6 | TypeScript</li>
                 <li>Laravel | Php</li>
                 <li>MySql</li>
@@ -450,11 +448,12 @@ const Resume = () => {
                 Exposure To:
               </div>
               <ul className="ml-2 list-disc text-[10px]">
+                <li>Python</li>
+                <li>Electron</li>
                 <li>MongoDB</li>
                 <li>K8s</li>
                 <li>AWS</li>
                 <li>Jira</li>
-                <li>Trello</li>
               </ul>
             </div>
           </div>

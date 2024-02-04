@@ -1,5 +1,3 @@
-import './Home.scss'
-
 import {
   faBrain,
   faForwardFast,
@@ -67,12 +65,11 @@ const Home: React.FC = () => {
     { component: <NuxtjsOriginal size={iconSize} />, key: 'Nuxt.js' },
     { component: <ReactOriginal size={iconSize} />, key: 'React' },
     { component: <NodejsOriginalWordmark size={iconSize} />, key: 'Node' },
+    { component: <JavaPlain size={iconSize} />, key: 'Java' },
     { component: <PhpPlain size={iconSize} />, key: 'PHP' },
     { component: <LaravelOriginal size={iconSize} />, key: 'Laravel' },
-    { component: <JavaPlain size={iconSize} />, key: 'Java' },
     { component: <JavascriptPlain size={iconSize} />, key: 'JavaScript' },
     { component: <TypescriptPlain size={iconSize} />, key: 'TypeScript' },
-    { component: <PythonPlain size={iconSize} />, key: 'Python' },
     { component: <MysqlOriginal size={iconSize} />, key: 'MySQL' },
     { component: <DockerPlain size={iconSize} />, key: 'Docker' }
   ]
