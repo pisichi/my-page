@@ -129,9 +129,7 @@ const History: React.FC = () => {
       <div className="flex">
         <Reveal width="100%">
           <div
-            className={`mb-2 h-[4px] ${
-              isDark ? 'bg-gray-400' : 'bg-gray-600'
-            }`}
+            className={`mb-2 h-[4px] bg-gray-500`}
           ></div>
         </Reveal>
       </div>

@@ -143,11 +143,10 @@ const DefaultLayout: React.FC = () => {
                   transform: { duration: 0.5, ease: 'easeInOut' }
                 }}
               >
-                <div className="absolute top-0 z-50 mb-[-15px] flex w-full justify-between">
+                <div className="pointer-events-none absolute top-0 z-50 mb-[-15px] flex w-full justify-between">
                   <div
                     onClick={toggleSidebar}
-                    aria-label={showSidebar ? 'Close Sidebar' : 'Open Sidebar'}
-                    className={`h-full cursor-pointer pl-4 pt-4 ${
+                    className={`pointer-events-auto h-full cursor-pointer pl-4 pt-4 ${
                       showSidebar ? 'scale-110 opacity-0 sm:opacity-100' : ''
                     } transition-transform duration-300`}
                   >
@@ -159,16 +158,11 @@ const DefaultLayout: React.FC = () => {
 
                   <div
                     onClick={toggleRightSidebar}
-                    className={`ml-auto h-full cursor-pointer p-4 transition-opacity duration-1000 md:hidden lg:hidden ${
+                    className={`pointer-events-auto ml-auto h-full  cursor-pointer p-4 transition-opacity duration-1000 md:hidden lg:hidden ${
                       showRightSidebar ? 'opacity-0' : 'opacity-100'
                     }${
                       showRightSidebar ? 'scale-110' : ''
                     } transition-transform duration-300 ease-in-out`}
-                    aria-label={
-                      showRightSidebar
-                        ? 'Close Right Sidebar'
-                        : 'Open Right Sidebar'
-                    }
                   >
                     <BurgerIcon
                       color={`${isDark ? 'white' : 'black'}`}
