@@ -4,6 +4,7 @@ import React from 'react'
 
 import Reveal from '@/components/Utils/Reveal'
 import projectsData from '@/data/projectsData'
+import Breadcrumb from '@/components/Breadcrumb/Breadcrumb'
 
 const Project: React.FC = () => {
   const { isDark } = useDarkMode()
@@ -36,9 +37,15 @@ const Project: React.FC = () => {
       </div>
 
       <div className="flex">
-        <Reveal width="90%">
+        <Reveal>
+          <Breadcrumb />
+        </Reveal>
+      </div>
+
+      <div className="flex">
+        <Reveal width="100%">
           <div
-            className={`mb-2 mt-5 h-[4px] ${
+            className={`mb-2 h-[4px] ${
               isDark ? 'bg-gray-400' : 'bg-gray-600'
             }`}
           ></div>
@@ -78,7 +85,7 @@ const Project: React.FC = () => {
       </div>
 
       <div className="flex">
-        <Reveal width="90%">
+        <Reveal width="100%">
           <div
             className={`mb-2 mt-5 h-[4px] ${
               isDark ? 'bg-gray-400' : 'bg-gray-600'

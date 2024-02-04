@@ -5,14 +5,16 @@ interface RevealProps {
   children: ReactNode
   width?: string
   className?: string
-  index?: number // Optional index prop
+  index?: number // index prop for sequential reveal
+  swipe?: boolean // add swipe effect
 }
 
 const Reveal: React.FC<RevealProps> = ({
   children,
   width = 'fit-content',
   className = '',
-  index = 0
+  index = 0,
+  swipe = false
 }) => {
   const ref = useRef(null)
   const isInView = useInView(ref, { once: true })
@@ -50,24 +52,18 @@ const Reveal: React.FC<RevealProps> = ({
         {children}
       </motion.div>
 
-      {/* <motion.div
-        initial="hidden"
-        animate={slideControls}
-        variants={{
-          hidden: { left: 0 },
-          visible: { left: '100%' },
-        }}
-        transition={{ duration: 0.5, ease: 'easeIn' }}
-        style={{
-          position: 'absolute',
-          top: 4,
-          bottom: 4,
-          left: 0,
-          right: 0,
-          background: '#69F0AE',
-          zIndex: 20,
-        }}
-      />  */}
+      {swipe && (
+        <motion.div
+          initial="hidden"
+          animate={slideControls}
+          className={`absolute bottom-[4px] left-0 right-0 top-[4px] z-20 bg-green-300`}
+          variants={{
+            hidden: { left: 0 },
+            visible: { left: '100%' }
+          }}
+          transition={{ duration: 0.5, ease: 'easeIn' }}
+        />
+      )}
     </div>
   )
 }

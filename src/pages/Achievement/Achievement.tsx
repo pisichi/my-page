@@ -4,6 +4,7 @@ import achievementsData from 'data/achievementsData'
 import React, { useState } from 'react'
 
 import Reveal from '@/components/Utils/Reveal'
+import Breadcrumb from '@/components/Breadcrumb/Breadcrumb'
 
 const Achievement: React.FC = () => {
   const achievements = achievementsData
@@ -24,9 +25,15 @@ const Achievement: React.FC = () => {
       </div>
 
       <div className="flex">
-        <Reveal width="90%">
+        <Reveal>
+          <Breadcrumb />
+        </Reveal>
+      </div>
+
+      <div className="flex">
+        <Reveal width="100%">
           <div
-            className={`mb-2 mt-5 h-[4px] ${
+            className={`mb-2 h-[4px] ${
               isDark ? 'bg-gray-400' : 'bg-gray-600'
             }`}
           ></div>

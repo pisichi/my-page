@@ -147,7 +147,7 @@ const DefaultLayout: React.FC = () => {
                   <div
                     onClick={toggleSidebar}
                     aria-label={showSidebar ? 'Close Sidebar' : 'Open Sidebar'}
-                    className={`h-full cursor-pointer p-4 ${
+                    className={`h-full cursor-pointer pl-4 pt-4 ${
                       showSidebar ? 'scale-110 opacity-0 sm:opacity-100' : ''
                     } transition-transform duration-300`}
                   >
